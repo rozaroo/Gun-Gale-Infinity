@@ -15,7 +15,6 @@ public class WeaponSlots : MonoBehaviour
     void Start()
     {
         player = GetComponentInParent<PlayerController>();
-
     }
 
     
@@ -29,6 +28,10 @@ public class WeaponSlots : MonoBehaviour
             player.hasPistol = true;
             player.hasRiffle = false;
             player.hasGrenade = false;
+            player.primaryWeaponIcon.color = Color.red;
+            player.secondaryWeaponIcon.color = Color.white;
+            player.throwableWeaponIcon.color = Color.white;
+            player.actualWeaponActive = player.primaryWeapon;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -37,6 +40,10 @@ public class WeaponSlots : MonoBehaviour
             player.hasRiffle = true;
             player.hasPistol = false;
             player.hasGrenade = false;
+            player.primaryWeaponIcon.color = Color.white;
+            player.secondaryWeaponIcon.color = Color.red;
+            player.throwableWeaponIcon.color = Color.white;
+            player.actualWeaponActive = player.secondaryWeapon;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -45,10 +52,13 @@ public class WeaponSlots : MonoBehaviour
             player.hasGrenade = true;
             player.hasPistol = false;
             player.hasRiffle = false;
-
+            player.primaryWeaponIcon.color = Color.white;
+            player.secondaryWeaponIcon.color = Color.white;
+            player.throwableWeaponIcon.color = Color.red;
+            player.actualWeaponActive = player.throwableWeapon;
         }
     }
-    private void ToggleSlot(Transform slot)
+    public void ToggleSlot(Transform slot)
     {
         if (slot == lastActivateSlot) return;
         DeactivateAllSlots();

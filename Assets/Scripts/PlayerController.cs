@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Variables
     public bool Player = true;
     public bool Active = true;
     
@@ -19,6 +21,23 @@ public class PlayerController : MonoBehaviour
     public bool hasPistol = false;
     public bool hasRifle = false;
     public bool hasGrenade = false;
+
+    //Actions
+    public bool inventoryOpen = false;
+    public GameObject[] droppedItems;
+    public GameObject actualWeaponActive;
+    public GameObject dropThisWeapon;
+    public bool dropWeapon = false;
+
+    //UI
+    public Canvas playerUI;
+    public Image primaryWeaponIcon;
+    public Image secondaryWeaponIcon;
+    public Image throwableWeaponIcon;
+    public GameObject inventoryController;
+
+    //Externos
+    WeaponSlots weaponSlots;
 
     //Camara
     public Transform cameraAxis;
@@ -47,6 +66,7 @@ public class PlayerController : MonoBehaviour
     public Transform secondarySlot;
     public Transform throwableSlot;
     public Transform spawnGrenade;
+    #endregion
 
     void Start()
     {
@@ -54,8 +74,8 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponentInChildren<Animator>();
         playerRagdoll = GetComponentInChildren<RagdollController>();
+        weaponSlots = GetComponentInChildren<WeaponSlots>();
         theCamera = Camera.main.transform;
-        
         Cursor.lockState = CursorLockMode.Locked;
         currentHealth = maxHealth;
         Active = true;
@@ -70,6 +90,7 @@ public class PlayerController : MonoBehaviour
             CameraLogic();
         }
         if (!Active) return;
+        ActionsLogic();
         ItemLogic();
         AnimLogic();
         
@@ -77,6 +98,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveLogic()
     {
+        if (inventoryOpen == true) return;
         Vector3 direction = playerRb.velocity;
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
@@ -90,6 +112,7 @@ public class PlayerController : MonoBehaviour
     
     public void CameraLogic()
     {
+        if (inventoryOpen == true) return;
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
         float theTime = Time.deltaTime;
@@ -133,50 +156,107 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetLayerWeight(2, 1);
         }
     }
+
+    public void ActionsLogic() 
+    {
+        //Inventory
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            inventoryOpen = !inventoryOpen;
+            Cursor.lockState = inventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = inventoryOpen;
+        }
+        if (inventoryOpen == false) inventoryController.gameObject.SetActive(false);
+        else inventoryController.gameObject.SetActive(true);
+        if (Input.GetKeyDown(KeyCode.G)) Drop();
+    }
+    public void Drop()
+    {
+        if (hasPistol && primaryWeapon != null)
+        {
+            GameObject droppedPW = primaryWeapon.GetComponent<WeaponController>().itemPrefab;
+            Instantiate(droppedPW, new Vector3(playerTr.position.x, droppedPW.transform.position.y, playerTr.position.z),droppedPW.transform.rotation);
+            primaryWeaponIcon.gameObject.SetActive(false);
+            Destroy(primaryWeapon.gameObject);
+            hasPistol = false;
+            if (secondaryWeapon == null && throwableWeapon == null) playerAnim.SetLayerWeight(1, 0); //Animación sin armas
+            else if (secondaryWeapon != null && throwableWeapon == null)
+            {
+                playerAnim.SetLayerWeight(1, 1);
+                hasRifle = true;
+                weaponSlots.ToggleSlot(secondarySlot);
+                primaryWeaponIcon.color = Color.white;
+                secondaryWeaponIcon.color = Color.red;
+            }
+           
+        }
+        else if (hasRiffle && secondaryWeapon != null)
+        {
+            GameObject droppedSW = secondaryWeapon.GetComponent<WeaponController>().itemPrefab;
+            Instantiate(droppedSW, new Vector3(playerTr.position.x, droppedSW.transform.position.y, playerTr.position.z), droppedSW.transform.rotation);
+            secondaryWeaponIcon.gameObject.SetActive(false);
+            Destroy(seoncdaryWeapon.gameObject);
+            hasRiffle = false;
+            if (primaryWeapon == null && throwableWeapon == null) playerAnim.SetLayerWeight(1, 0);
+            else if (primaryWeapon != null && throwableWeapon == null)
+            {
+                playerAnim.SetLayerWeight(1, 1);
+                hasPistol = true;
+                weaponSlots.ToggleSlot(primarySlot);
+                primaryWeaponIcon.color = Color.red;
+                secondaryWeaponIcon.color = Color.white;
+            }
+        }
+    }
+
     public void ItemLogic()
     {
         if (nearItem != null && Input.GetKeyDown(KeyCode.E))
         {
             GameObject instantiatedItem = null;
-            
             int countWeapons = 0;
-
             foreach (GameObject itemPrefab in itemPrefabs)
             {
                 if (itemPrefab.CompareTag("PW") && nearItem.CompareTag("PW"))
                 {
                     instantiatedItem = Instantiate(itemPrefab, itemSlot.position, itemSlot.rotation);
-                    primaryWeapon = this.gameObject;
-                    
+                    primaryWeapon = instantiatedItem.gameObject;
                     countWeapons++;
                     weapons++;
                     Destroy(nearItem.gameObject);
                     instantiatedItem.transform.parent = primarySlot;
                     nearItem = null;
+                    WeaponController pwIcon = instantiatedItem.GetComponentInChildren<WeaponController>();
+                    primaryWeaponIcon.sprite = pwIcon.weaponIcon;
+                    primaryWeaponIcon.gameObject.SetActive(true);
                     break
                 }
                 else if (itemPrefab.CompareTag("SW") && nearItem.CompareTag("SW"))
                 {
                     instantiatedItem = Instantiate(itemPrefab, itemSlot.position, itemSlot.rotation);
-                    secondaryWeapon = this.gameObject;
-                    
+                    secondaryWeapon = instantiatedItem.gameObject;
                     countWeapons++;
                     weapons++;
                     Destroy(nearItem.gameObject);
                     instantiatedItem.transform.parent = secondarySlot;
                     nearItem = null;
+                    WeaponController swIcon = instantiatedItem.GetComponentInChildren<WeaponController>();
+                    secondaryWeaponIcon.sprite = swIcon.weaponIcon;
+                    secondaryWeaponIcon.gameObject.SetActive(true);
                     break
                 }
                 else if (itemPrefab.CompareTag("TW") && nearItem.CompareTag("TW"))
                 {
                     instantiatedItem = Instantiate(itemPrefab, itemSlot.position, itemSlot.rotation);
-                    throwableWeapon = this.gameObject;
-                    
+                    throwableWeapon = instantiatedItem.gameObject;
                     countWeapons++;
                     weapons++;
                     Destroy(nearItem.gameObject);
                     instantiatedItem.transform.parent = throwableSlot;
                     nearItem = null;
+                    GrenadeController twIcon = instantiatedItem.GetComponentInChildren<GrenadeController>();
+                    throwableWeaponIcon.sprite = twIcon.weaponIcon;
+                    throwableWeaponIcon.gameObject.SetActive(true);
                     break
                 }
             }

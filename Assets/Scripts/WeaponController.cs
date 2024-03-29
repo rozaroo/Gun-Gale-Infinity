@@ -8,7 +8,9 @@ public class WeaponController : MonoBehaviour
     public bool shooting = false;
     public float shootDelay = 0f;
     public float lastShootTime = 0f;
+    public GameObject itemPrefab;
     public GameObject bulletPrefab;
+    public Sprite weaponIcon;
 
     public enum ShootMode
     {
@@ -17,12 +19,6 @@ public class WeaponController : MonoBehaviour
     }
     public ShootMode currentShootMode = ShootMode.Single;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -39,7 +35,6 @@ public class WeaponController : MonoBehaviour
         {
             Vector3 shootDirection = cameraHit.point - shootSpawn.position;
             shootSpawn.rotation = Quaternion.LookRotation(shootDirection);
-            
         }
     }
     public void Shoot()
