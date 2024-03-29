@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool Player = true;
+    public bool Active = true;
+    
     //Personaje
     Transform playerTr;
     Rigidbody playerRb;
-    Animator playerAnim;
+    internal Animator playerAnim;
+    RagdollController playerRagdoll;
+    public float maxHealth = 100f;
+    public float currentHealth;
     public float playerSpeed = 0f;
     private Vector2 newDirection;
     public bool hasPistol = false;
     public bool hasRifle = false;
+    public bool hasGrenade = false;
 
     //Camara
     public Transform cameraAxis;
@@ -35,29 +42,37 @@ public class PlayerController : MonoBehaviour
     public int weapons;
     public GameObject primaryWeapon;
     public GameObject secondaryWeapon;
-    public GameObject crosshair;
+    public GameObject throwableWeapon;
+    public Transform primarySlot;
+    public Transform secondarySlot;
+    public Transform throwableSlot;
+    public Transform spawnGrenade;
 
     void Start()
     {
         playerTr = this.transform;
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponentInChildren<Animator>();
+        playerRagdoll = GetComponentInChildren<RagdollController>();
         theCamera = Camera.main.transform;
         
         Cursor.lockState = CursorLockMode.Locked;
+        currentHealth = maxHealth;
+        Active = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveLogic();
-        CameraLogic();
+        if (Player)
+        {
+            MoveLogic();
+            CameraLogic();
+        }
+        if (!Active) return;
         ItemLogic();
         AnimLogic();
-        if (hasPistol || hasRifle)
-        {
-            if (Input.GetAxis("Mouse ScrollWheel") > 0f) SwitchWeapon();
-        }
+        
     }
 
     public void MoveLogic()
@@ -84,7 +99,7 @@ public class PlayerController : MonoBehaviour
         rotY = Mathf.Clamp(rotY, minAngle, maxAngle);
         Quaternion localRotation = Quaternion.Euler(-rotY, 0, 0);
         cameraAxis.localRotation = localRotation;
-        if (hasPistol || hasRifle)
+        if (hasPistol || hasRifle || hasGrenade)
         {
             cameraTrack.gameObject.SetActive(false);
             cameraWeaponTrack.gameObject.SetActive(true);
@@ -106,14 +121,24 @@ public class PlayerController : MonoBehaviour
         playerAnim.SetFloat("Y", newDirection.y);
         playerAnim.SetBool("holdPistol", hasPistol);
         playerAnim.SetBool("holdRiffle", hasRiffle);
-        if (hasPistol || hasRifle) playerAnim.SetLayerWeight(1, 1);
+        playerAnim.SetBool("holdGrenade", hasGrenade);
+        if (hasPistol || hasRifle) 
+        {
+            playerAnim.SetLayerWeight(2, 0);
+            playerAnim.SetLayerWeight(1, 1); 
+        }
+        else if (hasGrenade)
+        {
+            playerAnim.SetLayerWeight(1, 0);
+            playerAnim.SetLayerWeight(2, 1);
+        }
     }
     public void ItemLogic()
     {
-        if (nearItem != null && Inout.GetKeyDown(KeyCode.E))
+        if (nearItem != null && Input.GetKeyDown(KeyCode.E))
         {
             GameObject instantiatedItem = null;
-            bool haveWeapon = false;
+            
             int countWeapons = 0;
 
             foreach (GameObject itemPrefab in itemPrefabs)
@@ -122,11 +147,11 @@ public class PlayerController : MonoBehaviour
                 {
                     instantiatedItem = Instantiate(itemPrefab, itemSlot.position, itemSlot.rotation);
                     primaryWeapon = this.gameObject;
-                    haveWeapon = true;
+                    
                     countWeapons++;
                     weapons++;
                     Destroy(nearItem.gameObject);
-                    instantiatedItem.transform.parent = itemSlot;
+                    instantiatedItem.transform.parent = primarySlot;
                     nearItem = null;
                     break
                 }
@@ -134,53 +159,42 @@ public class PlayerController : MonoBehaviour
                 {
                     instantiatedItem = Instantiate(itemPrefab, itemSlot.position, itemSlot.rotation);
                     secondaryWeapon = this.gameObject;
-                    haveWeapon = true;
+                    
                     countWeapons++;
                     weapons++;
                     Destroy(nearItem.gameObject);
-                    instantiatedItem.transform.parent = itemSlot;
+                    instantiatedItem.transform.parent = secondarySlot;
+                    nearItem = null;
+                    break
+                }
+                else if (itemPrefab.CompareTag("TW") && nearItem.CompareTag("TW"))
+                {
+                    instantiatedItem = Instantiate(itemPrefab, itemSlot.position, itemSlot.rotation);
+                    throwableWeapon = this.gameObject;
+                    
+                    countWeapons++;
+                    weapons++;
+                    Destroy(nearItem.gameObject);
+                    instantiatedItem.transform.parent = throwableSlot;
                     nearItem = null;
                     break
                 }
             }
-            if (haveWeapon && hasPistol && countWeapons > 1) hasPistol = false;
-            else if (haveWeapon && hasRiffle && countWeapons > 1) hasRiffle = false;
-            if (instantiatedItem.CompareTag("PW"))
-            {
-                primaryWeapon = instantiatedItem;
-                hasPistol = true;
-                hasRiffle = false;
-                primaryWeapon.SetActive(true);
-                secondaryWeapon.SetActive(false);
-            }
-            else if (instantiatedItem.CompareTag("SW"))
-            {
-                secondaryWeapon = instantiatedItem;
-                hasRiffle = true;
-                hasPistol = false;
-                primaryWeapon.SetActive(false);
-                secondaryWeapon.SetActive(true);
-            }
+        }
+    }
+    
 
-        }
-    }
-    public void SwitchWeapon()
+    public void TakeDamage(float damage)
     {
-        if (primaryWeapon.activeSelf == true)
+        currentHealth -= damage;
+        if (currentHealth <= 0f)
         {
-            hasPistol = false;
-            hasRiffle = true;
-            primaryWeapon.gameObject.SetActive(false);
-            secondaryWeapon.gameObject.SetActive(true);
-        }
-        else if (secondaryWeapon.activeSelf == true)
-        {
-            hasRiffle = false;
-            hasPistol = true;
-            secondaryWeapon.gameObject.SetActive(false);
-            primaryWeapon.gameObject.SetActive(true);
+            Debug.Log("Estas Muerto");
+            playerRagdoll.Active(true);
+            Active = false;
         }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {

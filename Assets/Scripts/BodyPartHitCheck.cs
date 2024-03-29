@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class BodyPartHitCheck : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [HideInInspector]
+    public PlayerController PLAYER;
+
+    public string BodyName;
+    public float Multiplier;
+    public float LastDamage;
+
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
     }
+
+    public void TakeHit(float damage)
+    {
+        LastDamage = damage * Multiplier;
+        this.PLAYER.TakeDamage(LastDamage);
+        Debug.Log(damage + " * " + Multiplier + " = " + LastDamage);
+    }
+
 }
