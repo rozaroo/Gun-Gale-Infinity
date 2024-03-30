@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackState : MonoBehaviour
+public class AttackState : StateMachineBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Transform player;
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        animator.transform.LookAt(player);
+        float distance = Vector3.Distance(player.position, animator.transform.position);
+        if (distance > 3.5f) animator.SetBool("isAttacking", false);
+    }
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         
     }
