@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed = 0f;
     private Vector2 newDirection;
     public bool hasPistol = false;
-    public bool hasRifle = false;
+    public bool hasRiffle = false;
     public bool hasGrenade = false;
 
     //Actions
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         rotY = Mathf.Clamp(rotY, minAngle, maxAngle);
         Quaternion localRotation = Quaternion.Euler(-rotY, 0, 0);
         cameraAxis.localRotation = localRotation;
-        if (hasPistol || hasRifle || hasGrenade)
+        if (hasPistol || hasRiffle || hasGrenade)
         {
             cameraTrack.gameObject.SetActive(false);
             cameraWeaponTrack.gameObject.SetActive(true);
@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour
         playerAnim.SetBool("holdPistol", hasPistol);
         playerAnim.SetBool("holdRiffle", hasRiffle);
         playerAnim.SetBool("holdGrenade", hasGrenade);
-        if (hasPistol || hasRifle) 
+        if (hasPistol || hasRiffle) 
         {
             playerAnim.SetLayerWeight(2, 0);
             playerAnim.SetLayerWeight(1, 1); 
@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
             else if (secondaryWeapon != null && throwableWeapon == null)
             {
                 playerAnim.SetLayerWeight(1, 1);
-                hasRifle = true;
+                hasRiffle = true;
                 weaponSlots.ToggleSlot(secondarySlot);
                 primaryWeaponIcon.color = Color.white;
                 secondaryWeaponIcon.color = Color.red;
@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour
             GameObject droppedSW = secondaryWeapon.GetComponent<WeaponController>().itemPrefab;
             Instantiate(droppedSW, new Vector3(playerTr.position.x, droppedSW.transform.position.y, playerTr.position.z), droppedSW.transform.rotation);
             secondaryWeaponIcon.gameObject.SetActive(false);
-            Destroy(seoncdaryWeapon.gameObject);
+            Destroy(secondaryWeapon.gameObject);
             hasRiffle = false;
             if (primaryWeapon == null && throwableWeapon == null) playerAnim.SetLayerWeight(1, 0);
             else if (primaryWeapon != null && throwableWeapon == null)
@@ -215,7 +215,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject instantiatedItem = null;
             int countWeapons = 0;
-            foreach (GameObject itemPrefab in itemPrefabs)
+            foreach (GameObject itemPrefab in itemPrefab)
             {
                 if (itemPrefab.CompareTag("PW") && nearItem.CompareTag("PW"))
                 {
@@ -229,7 +229,7 @@ public class PlayerController : MonoBehaviour
                     WeaponController pwIcon = instantiatedItem.GetComponentInChildren<WeaponController>();
                     primaryWeaponIcon.sprite = pwIcon.weaponIcon;
                     primaryWeaponIcon.gameObject.SetActive(true);
-                    break
+                    break;
                 }
                 else if (itemPrefab.CompareTag("SW") && nearItem.CompareTag("SW"))
                 {
@@ -243,7 +243,7 @@ public class PlayerController : MonoBehaviour
                     WeaponController swIcon = instantiatedItem.GetComponentInChildren<WeaponController>();
                     secondaryWeaponIcon.sprite = swIcon.weaponIcon;
                     secondaryWeaponIcon.gameObject.SetActive(true);
-                    break
+                    break;
                 }
                 else if (itemPrefab.CompareTag("TW") && nearItem.CompareTag("TW"))
                 {
@@ -257,7 +257,7 @@ public class PlayerController : MonoBehaviour
                     GrenadeController twIcon = instantiatedItem.GetComponentInChildren<GrenadeController>();
                     throwableWeaponIcon.sprite = twIcon.weaponIcon;
                     throwableWeaponIcon.gameObject.SetActive(true);
-                    break
+                    break;
                 }
             }
         }

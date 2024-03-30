@@ -33,7 +33,7 @@ public class GrenadeController : MonoBehaviour
     }
     public void Throw()
     {
-        time += time.deltaTime;
+        time += Time.deltaTime;
         player.playerAnim.Play("Final Grenade");
         if (time >= throwDelayTime)
         {
@@ -43,7 +43,7 @@ public class GrenadeController : MonoBehaviour
             player.throwableWeapon = null;
             player.weapons--;
             player.hasGrenade = false;
-            player.playerAnim.SetLayerWeight(1);
+            player.playerAnim.SetLayerWeight(1,0);
             player.playerAnim.SetLayerWeight(2, 0);
             player.throwableWeaponIcon.color = Color.white;
             player.throwableWeaponIcon.gameObject.SetActive(false);

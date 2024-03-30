@@ -49,7 +49,7 @@ public class RagdollController : MonoBehaviour
     {
         foreach (Rigidbody bone in playerBones)
         {
-            Collider c - bone.GetComponent<Collider>();
+            Collider c = bone.GetComponent<Collider>();
             if (bone.useGravity != state)
             {
                 c.isTrigger = !state;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class ChaseState : StateMachineBehaviour
 {
     NavMeshAgent agent;
@@ -22,6 +23,6 @@ public class ChaseState : StateMachineBehaviour
     }
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.SetDestination(animation.transform.position);
+        agent.SetDestination(animator.transform.position);
     }
 }

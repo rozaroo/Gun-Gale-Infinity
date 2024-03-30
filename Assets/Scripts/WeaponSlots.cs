@@ -62,15 +62,15 @@ public class WeaponSlots : MonoBehaviour
     {
         if (slot == lastActivateSlot) return;
         DeactivateAllSlots();
-        bool isActivate = slot.gameObject.activateSelf;
-        slot.gameObject.SetActivate(!isActivate);
+        bool isActivate = slot.gameObject.activeSelf;
+        slot.gameObject.SetActive(!isActivate);
         lastActivateSlot = isActivate ? null : slot;
     }
     public void DeactivateAllSlots() 
     {
-        primarySlot.gameObject.SetActivate(false);
-        secondarySlot.gameObject.SetActivate(false);
-        throwableSlot.gameObject.SetActivate(false);
+        primarySlot.gameObject.SetActive(false);
+        secondarySlot.gameObject.SetActive(false);
+        throwableSlot.gameObject.SetActive(false);
     }
 
 }
