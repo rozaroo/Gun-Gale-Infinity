@@ -15,7 +15,7 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-56205
+56615
 Successfully changed project path to: C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [16908] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 1988832356 [EditorId] 1988832356 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [13516] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 2447417550 [EditorId] 2447417550 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [16908] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 1988832356 [EditorId] 1988832356 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [13516] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 2447417550 [EditorId] 2447417550 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 3 workers.
-Refreshing native plugins compatible for Editor in 94.44 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 68.85 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -70,44 +70,44 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56036
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56516
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.167739 seconds.
-- Loaded All Assemblies, in  4.475 seconds
+Registered in 0.042880 seconds.
+- Loaded All Assemblies, in  1.702 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.990 seconds
-Domain Reload Profiling: 6430ms
-	BeginReloadAssembly (1251ms)
+- Finished resetting the current domain, in  1.285 seconds
+Domain Reload Profiling: 2971ms
+	BeginReloadAssembly (523ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (7ms)
-	RebuildCommonClasses (465ms)
-	RebuildNativeTypeToScriptingClass (198ms)
-	initialDomainReloadingComplete (972ms)
-	LoadAllAssembliesAndSetupDomain (1551ms)
-		LoadAssemblies (1225ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (207ms)
+	RebuildNativeTypeToScriptingClass (82ms)
+	initialDomainReloadingComplete (282ms)
+	LoadAllAssembliesAndSetupDomain (591ms)
+		LoadAssemblies (511ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (1529ms)
-			TypeCache.Refresh (1523ms)
-				TypeCache.ScanAssembly (1424ms)
-			ScanForSourceGeneratedMonoScriptInfo (3ms)
-			ResolveRequiredComponents (2ms)
-	FinalizeReload (1994ms)
+		AnalyzeDomain (582ms)
+			TypeCache.Refresh (576ms)
+				TypeCache.ScanAssembly (520ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (1287ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1430ms)
+		SetupLoadedEditorAssemblies (1001ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (85ms)
-			SetLoadedEditorAssemblies (56ms)
+			InitializePlatformSupportModulesInManaged (39ms)
+			SetLoadedEditorAssemblies (40ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (12ms)
-			ProcessInitializeOnLoadAttributes (987ms)
-			ProcessInitializeOnLoadMethodAttributes (289ms)
+			BeforeProcessingInitializeOnLoad (11ms)
+			ProcessInitializeOnLoadAttributes (685ms)
+			ProcessInitializeOnLoadMethodAttributes (226ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
@@ -115,55 +115,55 @@ Domain Reload Profiling: 6430ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  6.706 seconds
-Refreshing native plugins compatible for Editor in 40.65 ms, found 3 plugins.
+- Loaded All Assemblies, in  4.392 seconds
+Refreshing native plugins compatible for Editor in 23.98 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  6.044 seconds
-Domain Reload Profiling: 12706ms
-	BeginReloadAssembly (1037ms)
+- Finished resetting the current domain, in  4.084 seconds
+Domain Reload Profiling: 8464ms
+	BeginReloadAssembly (835ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (52ms)
+		DisableScriptedObjects (30ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (91ms)
-	RebuildCommonClasses (355ms)
-	RebuildNativeTypeToScriptingClass (139ms)
-	initialDomainReloadingComplete (665ms)
-	LoadAllAssembliesAndSetupDomain (4464ms)
-		LoadAssemblies (3347ms)
+		CreateAndSetChildDomain (87ms)
+	RebuildCommonClasses (229ms)
+	RebuildNativeTypeToScriptingClass (67ms)
+	initialDomainReloadingComplete (256ms)
+	LoadAllAssembliesAndSetupDomain (2992ms)
+		LoadAssemblies (1720ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (1776ms)
-			TypeCache.Refresh (1575ms)
-				TypeCache.ScanAssembly (1479ms)
-			ScanForSourceGeneratedMonoScriptInfo (128ms)
-			ResolveRequiredComponents (64ms)
-	FinalizeReload (6047ms)
+		AnalyzeDomain (1770ms)
+			TypeCache.Refresh (1548ms)
+				TypeCache.ScanAssembly (1433ms)
+			ScanForSourceGeneratedMonoScriptInfo (189ms)
+			ResolveRequiredComponents (27ms)
+	FinalizeReload (4085ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (4631ms)
+		SetupLoadedEditorAssemblies (2693ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (55ms)
-			SetLoadedEditorAssemblies (39ms)
+			InitializePlatformSupportModulesInManaged (42ms)
+			SetLoadedEditorAssemblies (26ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (494ms)
-			ProcessInitializeOnLoadAttributes (3823ms)
-			ProcessInitializeOnLoadMethodAttributes (146ms)
-			AfterProcessingInitializeOnLoad (75ms)
+			BeforeProcessingInitializeOnLoad (387ms)
+			ProcessInitializeOnLoadAttributes (2054ms)
+			ProcessInitializeOnLoadMethodAttributes (132ms)
+			AfterProcessingInitializeOnLoad (52ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (44ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.26 seconds
-Refreshing native plugins compatible for Editor in 95.38 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (42ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.21 seconds
+Refreshing native plugins compatible for Editor in 79.14 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3109 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 32 unused Assets / (57.0 KB). Loaded Objects now: 3571.
-Memory consumption went from 122.9 MB to 122.8 MB.
-Total: 15.792040 ms (FindLiveObjects: 0.549673 ms CreateObjectMapping: 0.673323 ms MarkObjects: 13.920019 ms  DeleteObjects: 0.639846 ms)
+Unloading 32 unused Assets / (56.9 KB). Loaded Objects now: 3570.
+Memory consumption went from 122.7 MB to 122.6 MB.
+Total: 11.013985 ms (FindLiveObjects: 0.625807 ms CreateObjectMapping: 0.526995 ms MarkObjects: 9.206759 ms  DeleteObjects: 0.651185 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -180,161 +180,337 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 171167.198493 seconds.
-  path: Assets/Prefabs/Bullet.prefab
-  artifactKey: Guid(b64e0b2d6719c1f4d9b6e218b8fe9338) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Bullet.prefab using Guid(b64e0b2d6719c1f4d9b6e218b8fe9338) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa1b7b1ef2f0b558022e87ba1bbd7df3') in 3.917400 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 21
-========================================================================
-Received Import Request.
-  Time since last request: 8.418041 seconds.
-  path: Assets/Modelos
-  artifactKey: Guid(5eb9adef8877a2b4db9ec8f14e0eb8d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos using Guid(5eb9adef8877a2b4db9ec8f14e0eb8d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b1df57404cb6ff24a703b2f4029d055') in 0.002202 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 3.154087 seconds.
-  path: Assets/Modelos/Armas
-  artifactKey: Guid(19df2fbffe6fb9f4b8557bf8a1a14be1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas using Guid(19df2fbffe6fb9f4b8557bf8a1a14be1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a864e9c9b1903503849eac82a3c6052') in 0.002614 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.825284 seconds.
+  Time since last request: 172816.465283 seconds.
   path: Assets/Modelos/Armas/Ak 47
   artifactKey: Guid(c9a1bcebf1f163a4fa7585c4c86313fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47 using Guid(c9a1bcebf1f163a4fa7585c4c86313fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71808717197fcc4c9de93fbad8096d48') in 0.003734 seconds
+Start importing Assets/Modelos/Armas/Ak 47 using Guid(c9a1bcebf1f163a4fa7585c4c86313fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71808717197fcc4c9de93fbad8096d48') in 0.023468 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 0.104767 seconds.
+  Time since last request: 67.494930 seconds.
+  path: Assets/Modelos
+  artifactKey: Guid(5eb9adef8877a2b4db9ec8f14e0eb8d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos using Guid(5eb9adef8877a2b4db9ec8f14e0eb8d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b1df57404cb6ff24a703b2f4029d055') in 0.003688 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.017701 seconds.
+  path: Assets/Modelos/Armas
+  artifactKey: Guid(19df2fbffe6fb9f4b8557bf8a1a14be1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas using Guid(19df2fbffe6fb9f4b8557bf8a1a14be1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a864e9c9b1903503849eac82a3c6052') in 0.002080 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 6.836077 seconds.
+  path: Assets/Modelos/Animaciones armas
+  artifactKey: Guid(0a85ce53152933342bc40d46ce41add5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Animaciones armas using Guid(0a85ce53152933342bc40d46ce41add5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d6cf08e7d3199333925d34588d1c624') in 0.001146 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.064698 seconds.
+  path: Assets/Modelos/Animaciones armas/CrossHead-Pistol.mask
+  artifactKey: Guid(3f45e9bfdda376a43b4150069a62e122) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Animaciones armas/CrossHead-Pistol.mask using Guid(3f45e9bfdda376a43b4150069a62e122) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2569c517e1d646f1b01c15afb7a1a37c') in 0.049115 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 17.524982 seconds.
+  path: Assets/Modelos/CrossHead/Exo Gray.fbx
+  artifactKey: Guid(759b9b5d63b3e9946b1f3e528ca80b18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/CrossHead/Exo Gray.fbx using Guid(759b9b5d63b3e9946b1f3e528ca80b18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cfe99d9a33c50acd0caaf0fb083f991') in 2.163168 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 270
+========================================================================
+Received Import Request.
+  Time since last request: 11.481387 seconds.
+  path: Assets/Modelos/Animaciones armas/Exo Gray Rifle Aiming Idle.fbx
+  artifactKey: Guid(c5c9ad359aeccdd4db583d22f40177df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Animaciones armas/Exo Gray Rifle Aiming Idle.fbx using Guid(c5c9ad359aeccdd4db583d22f40177df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44ac636dd7d45a46b910ccda9a7f4e75') in 0.017916 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 229
+========================================================================
+Received Import Request.
+  Time since last request: 67.882411 seconds.
+  path: Assets/Modelos/Animaciones armas/Exo Gray Rifle Aiming Idle.fbx
+  artifactKey: Guid(c5c9ad359aeccdd4db583d22f40177df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Animaciones armas/Exo Gray Rifle Aiming Idle.fbx using Guid(c5c9ad359aeccdd4db583d22f40177df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2239528e35d22519154967b88b2871a7') in 0.017001 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 229
+========================================================================
+Received Import Request.
+  Time since last request: 24.057875 seconds.
+  path: Assets/Modelos/CrossHead/CrossHead Controller.controller
+  artifactKey: Guid(ac2bbfe6479b50445a763aae287c3814) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/CrossHead/CrossHead Controller.controller using Guid(ac2bbfe6479b50445a763aae287c3814) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b87767dfa287d3777700a4e63ab5673') in 0.022918 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 16
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.838 seconds
+Refreshing native plugins compatible for Editor in 18.29 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  4.815 seconds
+Domain Reload Profiling: 6643ms
+	BeginReloadAssembly (602ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (20ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (117ms)
+	RebuildCommonClasses (161ms)
+	RebuildNativeTypeToScriptingClass (69ms)
+	initialDomainReloadingComplete (132ms)
+	LoadAllAssembliesAndSetupDomain (853ms)
+		LoadAssemblies (1186ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (39ms)
+			TypeCache.Refresh (16ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (17ms)
+	FinalizeReload (4825ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2262ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (38ms)
+			SetLoadedEditorAssemblies (23ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (358ms)
+			ProcessInitializeOnLoadAttributes (1603ms)
+			ProcessInitializeOnLoadMethodAttributes (148ms)
+			AfterProcessingInitializeOnLoad (91ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (58ms)
+Refreshing native plugins compatible for Editor in 84.57 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3101 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.0 KB). Loaded Objects now: 3585.
+Memory consumption went from 129.7 MB to 129.7 MB.
+Total: 15.508564 ms (FindLiveObjects: 0.715439 ms CreateObjectMapping: 0.560472 ms MarkObjects: 13.935677 ms  DeleteObjects: 0.293735 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 43b350a4d6e6d1791af0b5038c4bea17 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  2.922 seconds
+Refreshing native plugins compatible for Editor in 28.38 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  9.744 seconds
+Domain Reload Profiling: 12640ms
+	BeginReloadAssembly (1004ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (67ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (149ms)
+	RebuildCommonClasses (298ms)
+	RebuildNativeTypeToScriptingClass (97ms)
+	initialDomainReloadingComplete (232ms)
+	LoadAllAssembliesAndSetupDomain (1262ms)
+		LoadAssemblies (1818ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (65ms)
+			TypeCache.Refresh (32ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (22ms)
+	FinalizeReload (9745ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2658ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (189ms)
+			SetLoadedEditorAssemblies (47ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (615ms)
+			ProcessInitializeOnLoadAttributes (1655ms)
+			ProcessInitializeOnLoadMethodAttributes (95ms)
+			AfterProcessingInitializeOnLoad (56ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (31ms)
+Refreshing native plugins compatible for Editor in 94.95 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3102 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.1 KB). Loaded Objects now: 3588.
+Memory consumption went from 131.9 MB to 131.9 MB.
+Total: 18.980469 ms (FindLiveObjects: 1.096107 ms CreateObjectMapping: 1.089088 ms MarkObjects: 16.499380 ms  DeleteObjects: 0.288875 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 43b350a4d6e6d1791af0b5038c4bea17 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 402.900962 seconds.
   path: Assets/Modelos/Armas/Ak 47/Ak-47.fbx
   artifactKey: Guid(cd8d56469cf64654eaa21e15c6ae7c18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/Ak-47.fbx using Guid(cd8d56469cf64654eaa21e15c6ae7c18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f434e5a2fa711fa2ef37679ce8e587db') in 1.832502 seconds
+Start importing Assets/Modelos/Armas/Ak 47/Ak-47.fbx using Guid(cd8d56469cf64654eaa21e15c6ae7c18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f169fc244bb6f056e47498e325f28638') in 0.424655 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 25
 ========================================================================
 Received Import Request.
-  Time since last request: 6.805538 seconds.
-  path: Assets/Modelos/Armas/Ak 47/Textures
-  artifactKey: Guid(f0175b3f18f4e5d46bfb3334eefef05c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/Textures using Guid(f0175b3f18f4e5d46bfb3334eefef05c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '774f41210293bd7f4f072d2e0eee03f9') in 0.001955 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.065254 seconds.
-  path: Assets/Modelos/Armas/Ak 47/Textures/Ak47 Body Diffuse.tga
-  artifactKey: Guid(1d8a138703f271640a02a11b88af7d24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/Textures/Ak47 Body Diffuse.tga using Guid(1d8a138703f271640a02a11b88af7d24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e31a2ba9ee7584c0544f3ea181b6d0e8') in 0.132628 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000040 seconds.
-  path: Assets/Modelos/Armas/Ak 47/Textures/Ak47 Magazine Diffuse.tga
-  artifactKey: Guid(d435c2b83027c3641a120f709986e7a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/Textures/Ak47 Magazine Diffuse.tga using Guid(d435c2b83027c3641a120f709986e7a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e01b2e60668de71a9107b844f69b96d') in 0.087955 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 8.143630 seconds.
-  path: Assets/Modelos/Armas/Ak 47/Materials
-  artifactKey: Guid(e51a2f86326033e419fe8e2b9223efb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/Materials using Guid(e51a2f86326033e419fe8e2b9223efb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '784da2f7a40570645498030534bf123f') in 0.002888 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.076459 seconds.
-  path: Assets/Modelos/Armas/Ak 47/Materials/Ak47 Magazine NRM.mat
-  artifactKey: Guid(6a12cf738358309408258643c954bef2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/Materials/Ak47 Magazine NRM.mat using Guid(6a12cf738358309408258643c954bef2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c58f9b84bc8463eb44d3c0c94b68e86d') in 0.107918 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000071 seconds.
-  path: Assets/Modelos/Armas/Ak 47/Materials/No Name.mat
-  artifactKey: Guid(894cbf79128bb455a8e49e4708f67559) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/Materials/No Name.mat using Guid(894cbf79128bb455a8e49e4708f67559) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a0758bddb2f2cf0bdeccc14435f2912') in 0.046590 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 7.465262 seconds.
+  Time since last request: 12.722403 seconds.
   path: Assets/Modelos/Armas/Ak 47/OBJ (Extra)
   artifactKey: Guid(3bcbd1157d54c844eaf1bb732f6678b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/OBJ (Extra) using Guid(3bcbd1157d54c844eaf1bb732f6678b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '000940b53651ee0daab615aeda987fb2') in 0.001390 seconds
+Start importing Assets/Modelos/Armas/Ak 47/OBJ (Extra) using Guid(3bcbd1157d54c844eaf1bb732f6678b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '000940b53651ee0daab615aeda987fb2') in 0.001777 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 0.055950 seconds.
+  Time since last request: 0.179654 seconds.
   path: Assets/Modelos/Armas/Ak 47/OBJ (Extra)/Ak-47.obj
   artifactKey: Guid(e8ef930c672fcce4a88723bcce7a2591) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/OBJ (Extra)/Ak-47.obj using Guid(e8ef930c672fcce4a88723bcce7a2591) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '019d6c4a953b61596ee278a5baa0cffe') in 0.398486 seconds
+Start importing Assets/Modelos/Armas/Ak 47/OBJ (Extra)/Ak-47.obj using Guid(e8ef930c672fcce4a88723bcce7a2591) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '019d6c4a953b61596ee278a5baa0cffe') in 0.365579 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 9
 ========================================================================
 Received Import Request.
-  Time since last request: 43.170028 seconds.
-  path: Assets/Modelos/Armas/Ak 47/Ak-47.fbx
-  artifactKey: Guid(cd8d56469cf64654eaa21e15c6ae7c18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/Ak-47.fbx using Guid(cd8d56469cf64654eaa21e15c6ae7c18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c132eb87dc83904aba96f1b95e686856') in 0.165911 seconds
+  Time since last request: 6.434380 seconds.
+  path: Assets/Modelos/Armas/Ak 47/Materials
+  artifactKey: Guid(e51a2f86326033e419fe8e2b9223efb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak 47/Materials using Guid(e51a2f86326033e419fe8e2b9223efb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '784da2f7a40570645498030534bf123f') in 0.001619 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 24
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 13.123835 seconds.
-  path: Assets/Modelos/Armas/M1911 (Pistol)/Models/Low_Poly_1323.FBX
-  artifactKey: Guid(4eb96162da770da43b14be92eeae3a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/M1911 (Pistol)/Models/Low_Poly_1323.FBX using Guid(4eb96162da770da43b14be92eeae3a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f34ce010382177ca409aac9e69dda8d2') in 1.671915 seconds
+  Time since last request: 0.083070 seconds.
+  path: Assets/Modelos/Armas/Ak 47/Materials/Ak47 Magazine NRM.mat
+  artifactKey: Guid(6a12cf738358309408258643c954bef2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak 47/Materials/Ak47 Magazine NRM.mat using Guid(6a12cf738358309408258643c954bef2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c58f9b84bc8463eb44d3c0c94b68e86d') in 0.106269 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 43
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000067 seconds.
-  path: Assets/Modelos/Armas/M1911 (Pistol)/Materials/bolt_DefaultMaterial_AlbedoTransparency.mat
-  artifactKey: Guid(c2ce74ddd2b0d96418a2e1d29d05d9ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/M1911 (Pistol)/Materials/bolt_DefaultMaterial_AlbedoTransparency.mat using Guid(c2ce74ddd2b0d96418a2e1d29d05d9ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1aa5ac19856e8bcd06702a0d5fb19374') in 0.080412 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 4
-========================================================================
-Received Import Request.
-  Time since last request: 6.239222 seconds.
-  path: Assets/Modelos/Armas/M1911 (Pistol)/Textures/bullet-material.mat
-  artifactKey: Guid(0b786c418b34ddf459e38e256ae68f2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/M1911 (Pistol)/Textures/bullet-material.mat using Guid(0b786c418b34ddf459e38e256ae68f2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbe3012227fdb58154540b3a31f0c319') in 0.027386 seconds
+  Time since last request: 0.000049 seconds.
+  path: Assets/Modelos/Armas/Ak 47/Materials/No Name.mat
+  artifactKey: Guid(894cbf79128bb455a8e49e4708f67559) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak 47/Materials/No Name.mat using Guid(894cbf79128bb455a8e49e4708f67559) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a0758bddb2f2cf0bdeccc14435f2912') in 0.023466 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 0.677058 seconds.
-  path: Assets/Modelos/CrossHead/Materials/EXO_diffuse.mat
-  artifactKey: Guid(2a1805b58ad6c584faece24e279fd784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/CrossHead/Materials/EXO_diffuse.mat using Guid(2a1805b58ad6c584faece24e279fd784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6553f82dd604197ac8a51aa716040f2') in 0.074798 seconds
+  Time since last request: 12.001873 seconds.
+  path: Assets/Modelos/Armas/Ak 47/Textures
+  artifactKey: Guid(f0175b3f18f4e5d46bfb3334eefef05c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak 47/Textures using Guid(f0175b3f18f4e5d46bfb3334eefef05c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '774f41210293bd7f4f072d2e0eee03f9') in 0.003779 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.079803 seconds.
+  path: Assets/Modelos/Armas/Ak 47/Textures/AK47 Body Diffuse.mat
+  artifactKey: Guid(74023bbae633bdf48960778e982b7a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak 47/Textures/AK47 Body Diffuse.mat using Guid(74023bbae633bdf48960778e982b7a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc270d96b3f79803e9648045f7650838') in 0.086926 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Modelos/Armas/Ak 47/Textures/Ak47 Magazine Diffuse.tga
+  artifactKey: Guid(d435c2b83027c3641a120f709986e7a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak 47/Textures/Ak47 Magazine Diffuse.tga using Guid(d435c2b83027c3641a120f709986e7a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e01b2e60668de71a9107b844f69b96d') in 0.173764 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/Modelos/Armas/Ak 47/Textures/AK47 Magazine.mat
+  artifactKey: Guid(b8b10d1990b9d8249a00fc9b8d80af19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak 47/Textures/AK47 Magazine.mat using Guid(b8b10d1990b9d8249a00fc9b8d80af19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b0e35b1286d3a77a52956eee734bff6') in 0.025503 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Modelos/Armas/Ak 47/Textures/Ak47 Body NRM.png
+  artifactKey: Guid(5b4faf9523ce61245a0b97be08f12983) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak 47/Textures/Ak47 Body NRM.png using Guid(5b4faf9523ce61245a0b97be08f12983) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab794fd9f9714a12393b16d22d4a1ca0') in 0.106139 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 186.797109 seconds.
+  path: Assets/Modelos/Armas/Ak 47/Materials/Ak-47-Ak47Body__Untitled.mat
+  artifactKey: Guid(f71ca67807f68c1488953742a2b8bc64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak 47/Materials/Ak-47-Ak47Body__Untitled.mat using Guid(f71ca67807f68c1488953742a2b8bc64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0aa2e2ad52b466498bfa13d72d5b2731') in 0.081450 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000099 seconds.
+  path: Assets/Modelos/Armas/Ak 47/Materials/Ak-47-Ak47Mag__Normals_Mag.mat
+  artifactKey: Guid(16c13765e38007b4c9f2a173f42226b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak 47/Materials/Ak-47-Ak47Mag__Normals_Mag.mat using Guid(16c13765e38007b4c9f2a173f42226b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7229ce2a55d9d44df93308c0c1ddf71') in 0.067012 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.003227 seconds.
+  path: Assets/Modelos/Armas/Ak 47/Materials/Ak-47-No Name.mat
+  artifactKey: Guid(0353a088e59c2064e952d7bedb675db9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak 47/Materials/Ak-47-No Name.mat using Guid(0353a088e59c2064e952d7bedb675db9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a45718f4da0e70d79445113ff4de2ac') in 0.052870 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.006249 seconds.
+  path: Assets/Modelos/Armas/Ak 47/Materials/Ak47 Magazine NRM.mat
+  artifactKey: Guid(6a12cf738358309408258643c954bef2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak 47/Materials/Ak47 Magazine NRM.mat using Guid(6a12cf738358309408258643c954bef2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '009e8ed088b10c90c74d100cf480e8ef') in 0.032078 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 0.928145 seconds.
-  path: Assets/Modelos/Armas/M1911 (Pistol)/Materials/frame_1911.mat
-  artifactKey: Guid(708185bac4d535c428cb349d9c9d9ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/M1911 (Pistol)/Materials/frame_1911.mat using Guid(708185bac4d535c428cb349d9c9d9ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01c6b281d13115fa88c7d134129ab91d') in 0.083900 seconds
+  Time since last request: 2.649196 seconds.
+  path: Assets/Modelos/CrossHead/Materials/BODY_diffuse.mat
+  artifactKey: Guid(1f15e6e42dbaa5141ab3beb10655a20e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/CrossHead/Materials/BODY_diffuse.mat using Guid(1f15e6e42dbaa5141ab3beb10655a20e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eaf640434702a3c93f9f246591bebec8') in 0.035149 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 4
-========================================================================
-Received Import Request.
-  Time since last request: 0.692849 seconds.
-  path: Assets/Modelos/Armas/M1911 (Pistol)/Materials/naklad.mat
-  artifactKey: Guid(6b7e3623484a5154ea09780672c2204c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/M1911 (Pistol)/Materials/naklad.mat using Guid(6b7e3623484a5154ea09780672c2204c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6f24f517d6b182a6d4abf1710514b25') in 0.080187 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
+Number of asset objects unloaded after import = 2
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
