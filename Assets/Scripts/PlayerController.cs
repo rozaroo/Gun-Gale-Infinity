@@ -104,6 +104,10 @@ public class PlayerController : MonoBehaviour
         float moveZ = Input.GetAxis("Vertical");
         float theTime = Time.deltaTime;
         newDirection = new Vector2(moveX, moveZ);
+
+        //Vector3 movementDirection = new Vector3(moveX, 0, moveZ).normalized;
+        //Vector3 velocity = movementDirection * playerSpeed * Time.deltaTime;
+
         Vector3 side = playerSpeed * moveX * theTime * playerTr.right;
         Vector3 forward = playerSpeed * moveZ * theTime * playerTr.forward;
         Vector3 endDirection = side + forward;
@@ -140,6 +144,8 @@ public class PlayerController : MonoBehaviour
     }
     public void AnimLogic()
     {
+        Debug.Log("Valor de x: " + newDirection.x);
+        Debug.Log("Valor de y: " + newDirection.y);
         playerAnim.SetFloat("X", newDirection.x);
         playerAnim.SetFloat("Y", newDirection.y);
         playerAnim.SetBool("holdPistol", hasPistol);
