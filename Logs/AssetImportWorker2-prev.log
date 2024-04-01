@@ -15,7 +15,7 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-56205
+57951
 Successfully changed project path to: C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [10964] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 826358003 [EditorId] 826358003 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [12252] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 3023925944 [EditorId] 3023925944 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [10964] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 826358003 [EditorId] 826358003 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [12252] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 3023925944 [EditorId] 3023925944 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 3 workers.
-Refreshing native plugins compatible for Editor in 66.32 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 92.77 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -70,44 +70,44 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56336
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56340
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.025763 seconds.
-- Loaded All Assemblies, in  1.184 seconds
+Registered in 0.106744 seconds.
+- Loaded All Assemblies, in  3.715 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.886 seconds
-Domain Reload Profiling: 2063ms
-	BeginReloadAssembly (348ms)
+- Finished resetting the current domain, in  1.207 seconds
+Domain Reload Profiling: 4887ms
+	BeginReloadAssembly (1006ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (2ms)
-	RebuildCommonClasses (116ms)
-	RebuildNativeTypeToScriptingClass (39ms)
-	initialDomainReloadingComplete (186ms)
-	LoadAllAssembliesAndSetupDomain (487ms)
-		LoadAssemblies (341ms)
+		CreateAndSetChildDomain (54ms)
+	RebuildCommonClasses (241ms)
+	RebuildNativeTypeToScriptingClass (73ms)
+	initialDomainReloadingComplete (1128ms)
+	LoadAllAssembliesAndSetupDomain (1232ms)
+		LoadAssemblies (896ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (481ms)
-			TypeCache.Refresh (476ms)
-				TypeCache.ScanAssembly (427ms)
+		AnalyzeDomain (1220ms)
+			TypeCache.Refresh (1213ms)
+				TypeCache.ScanAssembly (1128ms)
 			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (2ms)
-	FinalizeReload (887ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (1208ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (700ms)
+		SetupLoadedEditorAssemblies (833ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (32ms)
-			SetLoadedEditorAssemblies (25ms)
+			InitializePlatformSupportModulesInManaged (49ms)
+			SetLoadedEditorAssemblies (48ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (7ms)
-			ProcessInitializeOnLoadAttributes (473ms)
-			ProcessInitializeOnLoadMethodAttributes (162ms)
+			BeforeProcessingInitializeOnLoad (17ms)
+			ProcessInitializeOnLoadAttributes (517ms)
+			ProcessInitializeOnLoadMethodAttributes (202ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -115,55 +115,55 @@ Domain Reload Profiling: 2063ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  2.573 seconds
-Refreshing native plugins compatible for Editor in 13.37 ms, found 3 plugins.
+- Loaded All Assemblies, in  8.128 seconds
+Refreshing native plugins compatible for Editor in 210.75 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.096 seconds
-Domain Reload Profiling: 4652ms
-	BeginReloadAssembly (473ms)
+- Finished resetting the current domain, in  5.238 seconds
+Domain Reload Profiling: 13304ms
+	BeginReloadAssembly (1989ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (16ms)
+		DisableScriptedObjects (64ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (60ms)
-	RebuildCommonClasses (183ms)
-	RebuildNativeTypeToScriptingClass (80ms)
-	initialDomainReloadingComplete (225ms)
-	LoadAllAssembliesAndSetupDomain (1593ms)
-		LoadAssemblies (1216ms)
+		CreateAndSetChildDomain (217ms)
+	RebuildCommonClasses (295ms)
+	RebuildNativeTypeToScriptingClass (141ms)
+	initialDomainReloadingComplete (461ms)
+	LoadAllAssembliesAndSetupDomain (5179ms)
+		LoadAssemblies (3607ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (665ms)
-			TypeCache.Refresh (601ms)
-				TypeCache.ScanAssembly (560ms)
-			ScanForSourceGeneratedMonoScriptInfo (47ms)
-			ResolveRequiredComponents (13ms)
-	FinalizeReload (2097ms)
+		AnalyzeDomain (2656ms)
+			TypeCache.Refresh (1933ms)
+				TypeCache.ScanAssembly (1786ms)
+			ScanForSourceGeneratedMonoScriptInfo (564ms)
+			ResolveRequiredComponents (150ms)
+	FinalizeReload (5240ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1652ms)
+		SetupLoadedEditorAssemblies (3504ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (21ms)
-			SetLoadedEditorAssemblies (20ms)
+			InitializePlatformSupportModulesInManaged (59ms)
+			SetLoadedEditorAssemblies (14ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (297ms)
-			ProcessInitializeOnLoadAttributes (1177ms)
-			ProcessInitializeOnLoadMethodAttributes (106ms)
-			AfterProcessingInitializeOnLoad (31ms)
-			EditorAssembliesLoaded (0ms)
+			BeforeProcessingInitializeOnLoad (571ms)
+			ProcessInitializeOnLoadAttributes (2601ms)
+			ProcessInitializeOnLoadMethodAttributes (184ms)
+			AfterProcessingInitializeOnLoad (75ms)
+			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (19ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
-Refreshing native plugins compatible for Editor in 15.71 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (40ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.17 seconds
+Refreshing native plugins compatible for Editor in 24.07 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3109 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 32 unused Assets / (56.9 KB). Loaded Objects now: 3571.
-Memory consumption went from 123.3 MB to 123.3 MB.
-Total: 22.966411 ms (FindLiveObjects: 0.642006 ms CreateObjectMapping: 0.365009 ms MarkObjects: 21.573869 ms  DeleteObjects: 0.382828 ms)
+Unloading 32 unused Assets / (57.3 KB). Loaded Objects now: 3571.
+Memory consumption went from 123.0 MB to 122.9 MB.
+Total: 9.197579 ms (FindLiveObjects: 0.503237 ms CreateObjectMapping: 0.253778 ms MarkObjects: 8.159248 ms  DeleteObjects: 0.278616 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -180,41 +180,38 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 171285.724810 seconds.
-  path: Assets/Modelos/Armas/Ak 47/Ak-47.fbx
-  artifactKey: Guid(cd8d56469cf64654eaa21e15c6ae7c18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/Ak-47.fbx using Guid(cd8d56469cf64654eaa21e15c6ae7c18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aebb77009ea6909aed8750e31e6d01f8') in 0.704002 seconds
+  Time since last request: 206657.293474 seconds.
+  path: Assets/Modelos/Armas/Ak-47/Ak 47/Ak-47.fbx
+  artifactKey: Guid(5277588bc41d1fa4c943bc001d437b32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak-47/Ak 47/Ak-47.fbx using Guid(5277588bc41d1fa4c943bc001d437b32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19a9945885ebba56ff026ff87fdbe806') in 2.546651 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 22
 ========================================================================
 Received Import Request.
-  Time since last request: 52.490911 seconds.
-  path: Assets/Modelos/Armas/Ak 47/Textures/AK47 Magazine.mat
-  artifactKey: Guid(b8b10d1990b9d8249a00fc9b8d80af19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/Textures/AK47 Magazine.mat using Guid(b8b10d1990b9d8249a00fc9b8d80af19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b0e35b1286d3a77a52956eee734bff6') in 0.022033 seconds
+  Time since last request: 13.997341 seconds.
+  path: Assets/Modelos/Armas/Ak-47/Ak 47/Ak-47.fbx
+  artifactKey: Guid(5277588bc41d1fa4c943bc001d437b32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak-47/Ak 47/Ak-47.fbx using Guid(5277588bc41d1fa4c943bc001d437b32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2e03d39e6a233baa5d8d5d466304d3c') in 4.766867 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 4.076073 seconds.
+  path: Assets/Modelos/Armas/Ak-47/Ak 47/Materials/Ak47Body__Untitled.mat
+  artifactKey: Guid(336cb6423eccf6b42bd683a1b9e718be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/Ak-47/Ak 47/Materials/Ak47Body__Untitled.mat using Guid(336cb6423eccf6b42bd683a1b9e718be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '843454c8ad9499f99127d887da59dbb4') in 2.122189 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 20.529782 seconds.
-  path: Assets/Modelos/Armas/Ak 47/Textures/AK47 Body Diffuse.mat
-  artifactKey: Guid(74023bbae633bdf48960778e982b7a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/Textures/AK47 Body Diffuse.mat using Guid(74023bbae633bdf48960778e982b7a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc270d96b3f79803e9648045f7650838') in 0.024486 seconds
+  Time since last request: 0.204124 seconds.
+  path: Assets/Modelos/Armas/M1911 (Pistol)/Models/Low_Poly_1323.FBX
+  artifactKey: Guid(4eb96162da770da43b14be92eeae3a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/Armas/M1911 (Pistol)/Models/Low_Poly_1323.FBX using Guid(4eb96162da770da43b14be92eeae3a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f34ce010382177ca409aac9e69dda8d2') in 10.028176 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 55.164315 seconds.
-  path: Assets/Modelos/Armas/Ak 47/Ak-47.fbx
-  artifactKey: Guid(cd8d56469cf64654eaa21e15c6ae7c18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/Ak-47.fbx using Guid(cd8d56469cf64654eaa21e15c6ae7c18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5cf2d58890df4dea7ed8906eec9ba89b') in 0.179593 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 21
-========================================================================
-Received Import Request.
-  Time since last request: 152.222597 seconds.
-  path: Assets/Modelos/Armas/Ak 47/Ak 47
-  artifactKey: Guid(d86adf08a7433574791c91701b405778) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/Armas/Ak 47/Ak 47 using Guid(d86adf08a7433574791c91701b405778) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14d40fc03029abeae2e7e624696526a7') in 0.015839 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 43
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
