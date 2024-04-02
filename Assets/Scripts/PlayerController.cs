@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     public Image primaryWeaponIcon;
     public Image secondaryWeaponIcon;
     public Image throwableWeaponIcon;
-    //public GameObject inventoryController;
+    public GameObject inventoryController;
 
     //Externos
     WeaponSlots weaponSlots;
@@ -172,8 +172,8 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = inventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
             Cursor.visible = inventoryOpen;
         }
-        //if (inventoryOpen == false) inventoryController.gameObject.SetActive(false);
-        //else inventoryController.gameObject.SetActive(true);
+        if (inventoryOpen == false) inventoryController.gameObject.SetActive(false);
+        else inventoryController.gameObject.SetActive(true);
         if (Input.GetKeyDown(KeyCode.G)) Drop();
     }
     public void Drop()
