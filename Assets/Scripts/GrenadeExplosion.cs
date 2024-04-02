@@ -93,6 +93,6 @@ public class GrenadeExplosion : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(grenadeTr.position, damageArea);
+        //Gizmos.DrawWireSphere(grenadeTr.position, damageArea);
     }
 }
