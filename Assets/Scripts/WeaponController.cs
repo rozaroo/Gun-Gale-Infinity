@@ -58,7 +58,8 @@ public class WeaponController : MonoBehaviour
     }
     public void InstantiateBullet()
     {
-        Instantiate(bulletPrefab, shootSpawn.position, shootSpawn.rotation);
+        Vector3 spawnPosition = shootSpawn.position + shootSpawn.forward * 0.1f;
+        Instantiate(bulletPrefab, spawnPosition, shootSpawn.rotation);
     }
     IEnumerator AutomaticShoot()
     {
