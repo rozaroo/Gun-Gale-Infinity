@@ -3,13 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Enemy : MonoBehaviour
 {
     private int HP = 100;
     public Slider healthBar;
     public Animator animator;
-    
-    void Update() {  healthBar.value = HP; }
+    public GameObject fireballPrefab;
+    public Transform fireballSpawnPoint;
+    private Transform player;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        BodyPartHitCheck playerBodyPart = player.GetComponent<BodyPartHitCheck>();
+    }
+
+    void Update() 
+    { 
+        healthBar.value = HP; 
+    }
     
     public void TakeDamage(int damageAmount) 
     {
@@ -22,4 +35,12 @@ public class Enemy : MonoBehaviour
         }
         else animator.SetTrigger("damage");
     }
+    public void ShootFireball() 
+    {
+        GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, Quaternion.identity);
+        FireBall fireballScript = fireball.GetComponent<FireBall>();
+        if (fireballScript != null && player != null) fireballScript.SetTarget(player);
+    }
+    
+
 }

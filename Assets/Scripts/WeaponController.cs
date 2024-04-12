@@ -11,6 +11,12 @@ public class WeaponController : MonoBehaviour
     public GameObject itemPrefab;
     public GameObject bulletPrefab;
     public Sprite weaponIcon;
+    public PlayerController playerController;
+
+    void Start()
+    {
+        playerController = FindObjectOfType<PlayerController>();
+    }
 
     public enum ShootMode
     {
@@ -21,12 +27,15 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (playerController != null) 
         {
-            shooting = true;
-            Shoot();
+            if (Input.GetKeyDown(KeyCode.Mouse0) && playerController.hasPistol || playerController.hasRiffle)
+            {
+                shooting = true;
+                Shoot();
+            }
+            else if (Input.GetKeyUp(KeyCode.Mouse0)) shooting = false;
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse0)) shooting = false;
 
         Debug.DrawLine(shootSpawn.position, shootSpawn.forward * 10f, Color.red);
         Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.forward * 10f, Color.blue);
