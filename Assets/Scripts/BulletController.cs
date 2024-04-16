@@ -26,27 +26,7 @@ public class BulletController : MonoBehaviour
     void FixedUpdate()
     {
         time += Time.deltaTime;
-        DetectCollision();
         if (time >= lifeTime) Destroy(this.gameObject);
     }
-    public void DetectCollision()
-    {
-        Vector3 bulletNewPos = bulletTr.position;
-        Vector3 bulletDirection = lastBulletPos - bulletNewPos;
-        RaycastHit hit;
-        if (Physics.Raycast(bulletNewPos, bulletDirection.normalized, out hit, bulletDirection.magnitude)) 
-        {
-            GameObject go = hit.collider.gameObject;
-            if (go.layer == hitboxMask)
-            {
-                BodyPartHitCheck playerBodyPart = go.GetComponent<BodyPartHitCheck>();
-                if (playerBodyPart != null)
-                {
-                    playerBodyPart.TakeHit(bulletDamage);
-                    Debug.Log("Disparo en " + playerBodyPart.BodyName);
-                }
-            }
-        }
-        lastBulletPos = bulletNewPos;
-    }
+    
 }

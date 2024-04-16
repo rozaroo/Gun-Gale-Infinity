@@ -6,18 +6,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int damageAmount = 20;
-    private void Start()
+    public void OnCollisionEnter(Collision collision) 
     {
-        Destroy(gameObject, 10);
+        var enemy = collision.collider.GetComponent<Enemy>();
+        if (enemy != null) enemy.TakeDamage(damageAmount);
+        Destroy(gameObject);
     }
     
-    private void OnTriggerEnter(Collider other)
-    {
-        Destroy(transform.GetComponent<Rigidbody>());
-        if (other.tag == "Enemy")
-        {
-            transform.parent = other.transform;
-            other.GetComponent<Enemy>().TakeDamage(damageAmount);
-        }
-    }
 }

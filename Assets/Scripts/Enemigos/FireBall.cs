@@ -13,7 +13,6 @@ public class FireBall : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
-        GetComponent<Rigidbody>().velocity = transform.forward * speed;
     }
 
     // Update is called once per frame
@@ -21,25 +20,18 @@ public class FireBall : MonoBehaviour
     { 
         target = newTarget; 
         if (target != null ) playerBodyPart = target.GetComponent<BodyPartHitCheck>();
+        Vector3 direction = (target.position - transform.position).normalized;
+        GetComponent<Rigidbody>().velocity = direction * speed;
     }
     void Update()
     {
         if (Time.time - startTime >= lifeTime) Destroy(gameObject);
-        if (target != null && playerBodyPart != null)
-        {
-            Vector3 direction = (target.position - transform.position).normalized;
-            Vector3 movement = direction * speed * Time.deltaTime;
-            transform.Translate(movement);
-            float distanceToTarget = Vector3.Distance(transform.position, target.position);
-            if (distanceToTarget < 0.5f)
-            {
-                playerBodyPart.TakeHit(damageAmount);
-                Destroy(gameObject);
-            }
-            else Destroy(gameObject);
-            
-            
-        }
     }
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        var player = collision.collider.GetComponent<PlayerController>();
+        if (player != null) player.TakeDamage(damageAmount);
+        Destroy(gameObject);
+    }
+
 }
