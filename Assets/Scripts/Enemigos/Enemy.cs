@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public GameObject fireballPrefab;
     public Transform fireballSpawnPoint;
     private Transform player;
+    public GameObject[] PuntosdePatrullaje;
 
     void Start()
     {
