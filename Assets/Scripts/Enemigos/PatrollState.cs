@@ -14,6 +14,7 @@ public class PatrollState : StateMachineBehaviour
     Enemy enemyScript;
     ILineOfSight _los;
     LineOfSight lineOfSight;
+    ISteering _steering;
     
 
 
@@ -26,19 +27,21 @@ public class PatrollState : StateMachineBehaviour
         lineOfSight = enemyScript.GetComponent<LineOfSight>();
         timer = 0;
         _los = enemyScript.LOS;
+        _steering = new Pursuit(animator.transform, player.GetComponent<Rigidbody>(), 0.5f);
     }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Vector3 direction = _steering.GetDir();
         if (wayPoints.Count == 0) return;
         if (currentWaypointIndex < 0 || currentWaypointIndex >= wayPoints.Count) return; 
         if (wayPoints.Count > 0 && currentWaypointIndex >= 0 && currentWaypointIndex < wayPoints.Count) 
         {
-            Vector3 direction = wayPoints[currentWaypointIndex].position - animator.transform.position;
-            direction.y = 0;
+            Vector3 waypointdirection = wayPoints[currentWaypointIndex].position - animator.transform.position;
+            waypointdirection.y = 0;
             //Movimiento hacia el actual punto de patrullaje
-            animator.transform.Translate(direction.normalized * Time.deltaTime * 1.5f, Space.World);
+            animator.transform.Translate(waypointdirection.normalized * Time.deltaTime * 1.5f, Space.World);
             //Rotación hacia el siguiente punto de patrulla
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            Quaternion targetRotation = Quaternion.LookRotation(waypointdirection);
             animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, targetRotation, 0.15f);
 
             if (Vector3.Distance(animator.transform.position, wayPoints[currentWaypointIndex].position) < 0.5f)
@@ -59,8 +62,15 @@ public class PatrollState : StateMachineBehaviour
             
             if (_los.CheckRange(player) && _los.CheckAngle(player) && _los.CheckView(player))
             {
-                if (distance < chaseRange) animator.SetBool("isChasing", true);
+                if (distance < chaseRange) 
+                {
+                    Vector3 playerDirection = (player.position - animator.transform.position).normalized;
+                    enemyScript.Move(playerDirection);
+                    animator.SetBool("isChasing", true);
+                    //if (distance < 14f) animator.SetBool("isAttacking", true);
+                } 
             }
+            if (!_los.CheckRange(player) && !_los.CheckAngle(player) && !_los.CheckView(player)) animator.SetBool("isChasing", false);
         }
         
     }

@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public Transform fireballSpawnPoint;
     private Transform player;
     public GameObject[] PuntosdePatrullaje;
+    public float speed;
 
     ILineOfSight _los;
     LineOfSight lineOfSight;
@@ -51,6 +52,10 @@ public class Enemy : MonoBehaviour
         GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, Quaternion.identity);
         FireBall fireballScript = fireball.GetComponent<FireBall>();
         if (fireballScript != null && player != null) fireballScript.SetTarget(player);
+    }
+    public void Move(Vector3 direction)
+    {
+        transform.position += direction * Time.deltaTime * speed;
     }
     
 
