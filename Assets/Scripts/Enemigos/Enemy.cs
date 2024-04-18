@@ -14,15 +14,25 @@ public class Enemy : MonoBehaviour
     private Transform player;
     public GameObject[] PuntosdePatrullaje;
 
-    void Start()
+    ILineOfSight _los;
+    LineOfSight lineOfSight;
+    private void Awake()
     {
+        _los = GetComponent<ILineOfSight>();
+        lineOfSight = GetComponent<LineOfSight>();
+    }
+    public LineOfSight LineOfSight {  get { return lineOfSight; } }
+    public ILineOfSight LOS { get { return _los; } }
+
+    void Start()
+    { 
         player = GameObject.FindGameObjectWithTag("Player").transform;
         BodyPartHitCheck playerBodyPart = player.GetComponent<BodyPartHitCheck>();
     }
 
     void Update() 
     { 
-        healthBar.value = HP; 
+        healthBar.value = HP;
     }
     
     public void TakeDamage(int damageAmount) 
@@ -32,7 +42,7 @@ public class Enemy : MonoBehaviour
         { 
             animator.SetTrigger("die");
             GetComponent<Collider>().enabled = false;
-            Destroy(gameObject, 10);
+            Destroy(gameObject, 5);
         }
         else animator.SetTrigger("damage");
     }

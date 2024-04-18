@@ -55,7 +55,6 @@
     <UnityVersion>2022.3.16f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -73,9 +72,14 @@
     <Compile Include="Assets\Scripts\Enemigos\Enemy.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Enemigos\IdleState.cs" />
+    <Compile Include="Assets\Scripts\Enemigos\Line of Sight\SightModel.cs" />
+    <Compile Include="Assets\Scripts\Enemigos\Line of Sight\IAlert.cs" />
     <Compile Include="Assets\Scripts\WeaponController.cs" />
     <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\Enemigos\AttackState.cs" />
+    <Compile Include="Assets\Scripts\Enemigos\Line of Sight\EnemyView.cs" />
+    <Compile Include="Assets\Scripts\Enemigos\Line of Sight\LineOfSight.cs" />
+    <Compile Include="Assets\Scripts\Enemigos\Line of Sight\ILineOfSight.cs" />
     <Compile Include="Assets\Scripts\Enemigos\ChaseState.cs" />
     <Compile Include="Assets\Scripts\Enemigos\PatrollState.cs" />
     <Compile Include="Assets\Scripts\BodyPartHitCheck.cs" />
