@@ -17,6 +17,10 @@ public class Enemy : MonoBehaviour
 
     ILineOfSight _los;
     LineOfSight lineOfSight;
+
+    public GameObject[] dropPrefabs;
+    public float[] dropProbabilities;
+    public Transform dropSpawnPoint;
     private void Awake()
     {
         _los = GetComponent<ILineOfSight>();
@@ -39,14 +43,34 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damageAmount) 
     {
         HP -= damageAmount;
-        if (HP < 0) 
-        { 
-            animator.SetTrigger("die");
-            GetComponent<Collider>().enabled = false;
-            Destroy(gameObject, 5);
-        }
+        if (HP < 0) Die();
         else animator.SetTrigger("damage");
     }
+    public void Die()
+    {
+        animator.SetTrigger("die");
+        GetComponent<Collider>().enabled = false;
+        SpawnRandomDrop();
+        Destroy(gameObject, 2f);
+    }
+
+    public void SpawnRandomDrop()
+    {
+        if (dropPrefabs.Length == 0 || dropProbabilities.Length == 0 || dropPrefabs.Length != dropProbabilities.Length) return;
+        float randomValue = Random.value;
+        //Dtermino que prefab spawmear basado en las probabilidades 
+        float cumulativeProbability = 0f;
+        for (int i = 0; i < dropProbabilities.Length; i++)
+        {
+            cumulativeProbability += dropProbabilities[i];
+            if (randomValue < cumulativeProbability) 
+            {
+                Instantiate(dropPrefabs[i],dropSpawnPoint.position,Quaternion.identity);
+                break;
+            }
+        }
+    }
+
     public void ShootFireball() 
     {
         GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, Quaternion.identity);
