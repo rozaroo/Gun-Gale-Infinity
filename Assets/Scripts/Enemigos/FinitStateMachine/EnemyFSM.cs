@@ -2,216 +2,154 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
+using UnityEngine.UI;
 
-/*
+
 public class EnemyFSM : MonoBehaviour
 {
-    
-    FSM<EnemyStateType> _fsm;
+    Quaternion targetRotation;
+    private int HP = 100;
+    public Slider healthBar;
     public Animator animator;
-    
-   public EnemyStateType CurrentState 
-    { 
-        get 
-        {
-            return _fsm.CurrentState;
-        } }
+    public GameObject fireballPrefab;
+    public Transform fireballSpawnPoint;
+    private Transform player;
+    public GameObject[] PuntosdePatrullaje;
+    public float speed;
+    SightModel scriptalerta;
+    ILineOfSight _los;
+    LineOfSight lineOfSight;
+
+    public GameObject[] dropPrefabs;
+    public float[] dropProbabilities;
+    public Transform dropSpawnPoint;
+
+    //------------------------
+
+    float timer;
+    List<Transform> wayPoints = new List<Transform>();
+    float chaseRange = 8;
+    int currentWaypointIndex = 0;
+    int patrolDirection = 1; // 1 = adelante y -1 = atras
+
+    ISteering _steering;
+    //--------------------------
+    bool Estados_A;
+
+    private void Awake()
+    {
+        _los = GetComponent<ILineOfSight>();
+        lineOfSight = GetComponent<LineOfSight>();
+    }
+    public LineOfSight LineOfSight { get { return lineOfSight; } }
+    public ILineOfSight LOS { get { return _los; } }
 
     void Start()
     {
-        EnemyFSM.EnemyStateType estado = EnemyFSM.EnemyStateType.Idle;
-        _fsm = new FSM<EnemyStateType>();
-        _fsm.SetInit(new IdleState());
-        currentState = _fsm.CurrentState;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        BodyPartHitCheck playerBodyPart = player.GetComponent<BodyPartHitCheck>();
+        scriptalerta = GetComponent<SightModel>();
+        ///----------------------------------------------------
+        wayPoints.AddRange(Array.ConvertAll(PuntosdePatrullaje, item => item.transform));
+        currentWaypointIndex = UnityEngine.Random.Range(0, wayPoints.Count);
+        timer = 0;
+        _steering = new Pursuit(transform, player.GetComponent<Rigidbody>(), 0.5f);
     }
 
     void Update()
     {
-        _fsm.OnUpdate();
-        UpdateAnimatorParameters();
-    }
-    void LateUpdate()
-    {
-        _fsm.OnLateUpdate();
-    }
-    public void TransitionState(EnemyStateType newState)
-    {
-        _fsm.Transition(newState);
-    }
-    void UpdateAnimatorParameters()
-    {
-        EnemyStateType currentState = _fsm.CurrentState;
-        EnemyStateType currentStateFromInterface = _currentState.CurrentState;
-        if (currentState != null)
+        float distance = Vector3.Distance(player.position, transform.position);
+        Estados_A = _los.CheckAngle(player) && _los.CheckRange(player) && _los.CheckView(player);
+        healthBar.value = HP;
+        //timer += Time.deltaTime;
+        animator.SetBool("isPatrolling", !scriptalerta.Alert);
+        animator.SetBool("isChasing", scriptalerta.Alert);
+        animator.SetBool("isAttacking", scriptalerta.Alert && distance < lineOfSight.range - 5f);
+        Vector3 direction = _steering.GetDir();
+        if (wayPoints.Count == 0) return;
+        if (currentWaypointIndex < 0 || currentWaypointIndex >= wayPoints.Count) return;
+        if (wayPoints.Count > 0 && currentWaypointIndex >= 0 && currentWaypointIndex < wayPoints.Count)
         {
-            //Parametros del animator
-            animator.SetBool("isIdle", currentState = EnemyStateType.Idle);
-            animator.SetBool("isPatrolling", currentState = EnemyStateType.Patrol);
-            animator.SetBool("isChasing", currentState = EnemyStateType.Chase);
-            animator.SetBool("isAttacking", currentState = EnemyStateType.Attack);
 
-            animator.SetBool("isIdle", currentStateFromInterface == EnemyStateType.Idle);
-            animator.SetBool("isPatrolling", currentStateFromInterface == EnemyStateType.Patrol);
-            animator.SetBool("isChasing", currentStateFromInterface == EnemyStateType.Chase);
-            animator.SetBool("isAttacking", currentStateFromInterface == EnemyStateType.Attack);
-        }
-    }
-
-    public enum EnemyStateType
-    {
-        Idle,
-        Attack,
-        Patrol,
-        Chase,
-    }
-    public abstract class EnemyState : State<EnemyStateType>
-    {
-        protected EnemyFSM _enemyFSM;
-        public override void Enter()
-        {
-            base.Enter();
-            _fsm = new FSM<EnemyStateType>(this);
-        }
-    }
-    public class IdleState : EnemyState
-    {
-        float timer;
-        Transform player;
-        float chaseRange = 8;
-        
-
-        public override void Enter()
-        {
-            base.Enter();
-            timer = 0;
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-
-        public void Execute()
-        {
-            base.Execute();
-            Debug.Log("Idle State");
-            timer += Time.deltaTime;
-            if (timer > 5) _enemyFSM.TransitionState(EnemyStateType.Idle);
-            float distance = Vector3.Distance(player.position, _enemyFSM.transform.position);
-            if (distance < chaseRange) _enemyFSM.TransitionState(EnemyStateType.Chase);
-          
-        }
-    }
-    public class AttackState : EnemyState
-    {
-        Enemy enemy;
-        Transform player;
-        float elapsedTime = 0f;
-        float attackInterval = 1f;
-
-       
-        public override void Enter()
-        {
-            base.Enter();
-            enemy = _enemyFSM.GetComponent<Enemy>();
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-
-        public void Execute()
-        {
-            base.Execute();
-            Debug.Log("Attack State");
-            _enemyFSM.transform.LookAt(player);
-            float distance = Vector3.Distance(player.position, _enemyFSM.transform.position);
-            //Si la distancia es mayor a 3.5f dejar de atacar
-            if (distance > 3.5f)
+            if (!scriptalerta.Alert)///si no esta en alerta patrulla
             {
-                _enemyFSM.animator.SetBool("isAttacking", false);
-                elapsedTime += Time.deltaTime;
-                if (elapsedTime >= attackInterval)
+                Vector3 waypointdirection = wayPoints[currentWaypointIndex].position - transform.position;
+                waypointdirection.y = 0;
+                //Movimiento hacia el actual punto de patrullaje
+                transform.Translate(waypointdirection.normalized * Time.deltaTime * 1.5f, Space.World);
+                //Rotación hacia el siguiente punto de patrulla
+                targetRotation = Quaternion.LookRotation(waypointdirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.15f);
+
+                if (Vector3.Distance(transform.position, wayPoints[currentWaypointIndex].position) < 0.5f)
                 {
-                    enemy.ShootFireball();
-                    elapsedTime = 0f;
+                    //cambiar de dirección
+                    if (currentWaypointIndex == wayPoints.Count - 1 || currentWaypointIndex == 0)
+                    {
+                        patrolDirection *= -1;
+                        //Pasar al siguiente punto
+                        currentWaypointIndex += patrolDirection;
+                        //Restringir el indice al rango valido
+                        currentWaypointIndex = Mathf.Clamp(currentWaypointIndex, 0, wayPoints.Count - 1);
+                    }
                 }
             }
-
-        }
-    }
-    public class PatrolState : EnemyState
-    {
-        
-        float timer;
-        List<Transform> wayPoints = new List<Transform>();
-        Transform player;
-        float chaseRange = 8;
-        int currentWaypointIndex = 0;
-        int patrolDirection = 1; // 1 = adelante y -1 = atras
-        Enemy enemyScript;
-
-        public PatrolState(EnemyFSM enemyFSM) : base() { _enemyFSM = enemyFSM; }
-
-        public override void Enter()
-        {
-            base.Enter();
-            Enemy enemyScript = _enemyFSM.GetComponent<Enemy>();
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-            wayPoints.AddRange(Array.ConvertAll(enemyScript.PuntosdePatrullaje, item => item.transform));
-            currentWaypointIndex = UnityEngine.Random.Range(0, wayPoints.Count);
-            timer = 0;
-        }
-        public void Execute()
-        {
-            base.Execute();
-            Debug.Log("Patrol State");
-            if (wayPoints.Count == 0) return;
-
-            Vector3 direction = wayPoints[currentWaypointIndex].position - _enemyFSM.transform.position;
-            direction.y = 0;
-            //Movimiento hacia el actual punto de patrullaje
-            _enemyFSM.transform.Translate(direction.normalized * Time.deltaTime * 1.5f, Space.World);
-            //Rotación hacia el siguiente punto de patrulla
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            _enemyFSM.transform.rotation = Quaternion.Slerp(_enemyFSM.transform.rotation, targetRotation, 0.15f);
-
-            if (Vector3.Distance(_enemyFSM.transform.position, wayPoints[currentWaypointIndex].position) < 0.5f)
+            else //sino persigue al player
             {
-                //cambiar de dirección
-                if (currentWaypointIndex == wayPoints.Count - 1 || currentWaypointIndex == 0)
-                {
-                    patrolDirection *= -1;
-                    //Pasar al siguiente punto
-                    currentWaypointIndex += patrolDirection;
-                    //Restringir el indice al rango valido
-                    currentWaypointIndex = Mathf.Clamp(currentWaypointIndex, 0, wayPoints.Count - 1);
-                }
+                Vector3 playerDirection = (player.position - transform.position).normalized;
+                playerDirection.y = 0;
+                if (Estados_A && distance >= lineOfSight.range - 5f) Move(playerDirection);//SteeringBehaviour..
+                targetRotation = Quaternion.LookRotation(playerDirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+
             }
-
-            timer += Time.deltaTime;
-            if (timer > 10) _enemyFSM.animator.SetBool("isPatrolling", false);
-            float distance = Vector3.Distance(player.position, _enemyFSM.transform.position);
-            if (distance < chaseRange) _enemyFSM.animator.SetBool("isChasing", true);
+            if (Estados_A) scriptalerta.Alert = true;///el enemigo esta en alerta
+            else scriptalerta.Alert = false;///el enemigo no  esta en alerta
         }
     }
-    public class ChaseState : EnemyState
+
+    public void TakeDamage(int damageAmount)
     {
-        Transform player;
-        float chaseSpeed = 3.5f;
+        HP -= damageAmount;
+        if (HP < 0) Die();
+        else animator.SetTrigger("damage");
+    }
+    public void Die()
+    {
+        animator.SetTrigger("die");
+        GetComponent<Collider>().enabled = false;
+        SpawnRandomDrop();
+        Destroy(gameObject, 2f);
+    }
 
-        public ChaseState(EnemyFSM enemyFSM) : base() { _enemyFSM = enemyFSM; }
-
-        public override void Enter()
+    public void SpawnRandomDrop()
+    {
+        if (dropPrefabs.Length == 0 || dropProbabilities.Length == 0 || dropPrefabs.Length != dropProbabilities.Length) return;
+        float randomValue = UnityEngine.Random.value;
+        //Dtermino que prefab spawmear basado en las probabilidades 
+        float cumulativeProbability = 0f;
+        for (int i = 0; i < dropProbabilities.Length; i++)
         {
-            base.Enter();
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-
-        public void Execute()
-        {
-            base.Execute();
-            Debug.Log("ChaseState");
-            Vector3 direction = (player.position - _enemyFSM.transform.position).normalized;
-            //movimiento hacia el jugador
-            _enemyFSM.transform.position += direction * chaseSpeed * Time.deltaTime;
-            float distance = Vector3.Distance(player.position, _enemyFSM.transform.position);
-            if (distance > 15) _enemyFSM.animator.SetBool("isChasing", false);
-            if (distance < 14f) _enemyFSM.animator.SetBool("isAttacking", true);
+            cumulativeProbability += dropProbabilities[i];
+            if (randomValue < cumulativeProbability)
+            {
+                Instantiate(dropPrefabs[i], dropSpawnPoint.position, Quaternion.identity);
+                break;
+            }
         }
     }
-    */
-//}
+
+    public void ShootFireball()
+    {
+        GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, Quaternion.identity);
+        FireBall fireballScript = fireball.GetComponent<FireBall>();
+        if (fireballScript != null && player != null) fireballScript.SetTarget(player);
+    }
+    public void Move(Vector3 direction)
+    {
+        transform.position += direction * Time.deltaTime * speed;
+    }
+
+
+}

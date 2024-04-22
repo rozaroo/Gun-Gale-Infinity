@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -377,35 +377,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.5029635, y: 4.9724584, z: 11.36711}
   m_Center: {x: -0.2108562, y: 1.9862285, z: -0.77056766}
---- !u!114 &170460436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170460431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a6691f99674969499143b9ae5d26d42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 1651494871}
-  animator: {fileID: 170460433}
-  fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
-  fireballSpawnPoint: {fileID: 931469996}
-  PuntosdePatrullaje:
-  - {fileID: 1763420251}
-  - {fileID: 1397684896}
-  speed: 1
-  dropPrefabs:
-  - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
-  - {fileID: 2697431646934123960, guid: d1d54ffaed0f0224ca9225d22b0d742b, type: 3}
-  - {fileID: 919132149155446097, guid: bdf0d2dc30ed77c4d89a3125840d8e0e, type: 3}
-  dropProbabilities:
-  - 0.1
-  - 0.3
-  - 0.6
-  dropSpawnPoint: {fileID: 170460434}
 --- !u!114 &170460437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,23 +389,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c33206c4a600d049b8341eda2d13cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
-  angle: 9
+  range: 15
+  angle: 94
   maskObs:
     serializedVersion: 2
-    m_Bits: 2039
---- !u!114 &170460438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170460431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3c77f997dc9e345ad9891cc76ae97e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    m_Bits: 1024
 --- !u!114 &170460439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,7 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df951f0ef3b2e042baaaf96d68011cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &170460441
+  _isAlert: 0
+--- !u!114 &170460440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -456,16 +416,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 170460431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a4022f81b80bb40a2483c69f96feea, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b577cd4376d6e7419cf5d61b44ff750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 833388236}
-  timePrediction: 1
-  angle: 0
-  radius: 0
-  maskObs:
-    serializedVersion: 2
-    m_Bits: 2048
+  healthBar: {fileID: 1651494871}
+  animator: {fileID: 170460433}
+  fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
+  fireballSpawnPoint: {fileID: 931469996}
+  PuntosdePatrullaje:
+  - {fileID: 1763420251}
+  - {fileID: 1397684896}
+  speed: 3
+  dropPrefabs:
+  - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
+  - {fileID: 2697431646934123960, guid: d1d54ffaed0f0224ca9225d22b0d742b, type: 3}
+  - {fileID: 919132149155446097, guid: bdf0d2dc30ed77c4d89a3125840d8e0e, type: 3}
+  dropProbabilities:
+  - 0.1
+  - 0.3
+  - 0.6
+  dropSpawnPoint: {fileID: 170460434}
 --- !u!1 &197294096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,6 +1007,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -1140,22 +1114,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 216937175}
-    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 216937174}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 216937179}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 216937178}
-    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 216937177}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 216937181}
+      addedObject: {fileID: 216937180}
   m_SourcePrefab: {fileID: 100100000, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
 --- !u!1 &216937170 stripped
 GameObject:
@@ -1198,35 +1166,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.5029635, y: 4.9724584, z: 11.36711}
   m_Center: {x: -0.2108562, y: 1.9862285, z: -0.77056766}
---- !u!114 &216937175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216937170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a6691f99674969499143b9ae5d26d42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 1353183272}
-  animator: {fileID: 216937172}
-  fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
-  fireballSpawnPoint: {fileID: 851341834}
-  PuntosdePatrullaje:
-  - {fileID: 791873065}
-  - {fileID: 1301237885}
-  speed: 0
-  dropPrefabs:
-  - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
-  - {fileID: 919132149155446097, guid: bdf0d2dc30ed77c4d89a3125840d8e0e, type: 3}
-  - {fileID: 2697431646934123960, guid: d1d54ffaed0f0224ca9225d22b0d742b, type: 3}
-  dropProbabilities:
-  - 0.1
-  - 0.6
-  - 0.3
-  dropSpawnPoint: {fileID: 216937173}
 --- !u!114 &216937177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,23 +1178,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c33206c4a600d049b8341eda2d13cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
-  angle: 75
+  range: 15
+  angle: 94
   maskObs:
     serializedVersion: 2
-    m_Bits: 2039
---- !u!114 &216937178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216937170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3c77f997dc9e345ad9891cc76ae97e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    m_Bits: 1024
 --- !u!114 &216937179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1268,7 +1195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df951f0ef3b2e042baaaf96d68011cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &216937181
+  _isAlert: 0
+--- !u!114 &216937180
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1277,16 +1205,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 216937170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a4022f81b80bb40a2483c69f96feea, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b577cd4376d6e7419cf5d61b44ff750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  timePrediction: 0
-  angle: 0
-  radius: 0
-  maskObs:
-    serializedVersion: 2
-    m_Bits: 0
+  healthBar: {fileID: 1353183272}
+  animator: {fileID: 216937172}
+  fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
+  fireballSpawnPoint: {fileID: 851341834}
+  PuntosdePatrullaje:
+  - {fileID: 791873065}
+  - {fileID: 1301237885}
+  speed: 3
+  dropPrefabs:
+  - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
+  - {fileID: 919132149155446097, guid: bdf0d2dc30ed77c4d89a3125840d8e0e, type: 3}
+  - {fileID: 2697431646934123960, guid: d1d54ffaed0f0224ca9225d22b0d742b, type: 3}
+  dropProbabilities:
+  - 0.1
+  - 0.6
+  - 0.3
+  dropSpawnPoint: {fileID: 216937173}
 --- !u!1 &222109610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,6 +1724,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -1889,22 +1831,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 353350983}
-    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 353350982}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 353350989}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 353350988}
-    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 353350987}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 353350991}
+      addedObject: {fileID: 353350990}
   m_SourcePrefab: {fileID: 100100000, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
 --- !u!1 &353350981 stripped
 GameObject:
@@ -1932,35 +1868,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.5029635, y: 4.9724584, z: 11.36711}
   m_Center: {x: -0.2108562, y: 1.9862285, z: -0.77056766}
---- !u!114 &353350983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353350981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a6691f99674969499143b9ae5d26d42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 1409191794}
-  animator: {fileID: 353350985}
-  fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
-  fireballSpawnPoint: {fileID: 1756177996}
-  PuntosdePatrullaje:
-  - {fileID: 1395992998}
-  - {fileID: 1035304841}
-  speed: 0
-  dropPrefabs:
-  - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
-  - {fileID: 919132149155446097, guid: bdf0d2dc30ed77c4d89a3125840d8e0e, type: 3}
-  - {fileID: 2697431646934123960, guid: d1d54ffaed0f0224ca9225d22b0d742b, type: 3}
-  dropProbabilities:
-  - 0.1
-  - 0.6
-  - 0.3
-  dropSpawnPoint: {fileID: 353350986}
 --- !u!95 &353350985 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9587272, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
@@ -1983,23 +1890,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c33206c4a600d049b8341eda2d13cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
-  angle: 75
+  range: 15
+  angle: 94
   maskObs:
     serializedVersion: 2
-    m_Bits: 2039
---- !u!114 &353350988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353350981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3c77f997dc9e345ad9891cc76ae97e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    m_Bits: 1024
 --- !u!114 &353350989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2012,7 +1907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df951f0ef3b2e042baaaf96d68011cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &353350991
+  _isAlert: 0
+--- !u!114 &353350990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2021,16 +1917,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 353350981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a4022f81b80bb40a2483c69f96feea, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b577cd4376d6e7419cf5d61b44ff750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  timePrediction: 0
-  angle: 0
-  radius: 0
-  maskObs:
-    serializedVersion: 2
-    m_Bits: 0
+  healthBar: {fileID: 1409191794}
+  animator: {fileID: 353350985}
+  fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
+  fireballSpawnPoint: {fileID: 1756177996}
+  PuntosdePatrullaje:
+  - {fileID: 1395992998}
+  - {fileID: 1035304841}
+  speed: 3
+  dropPrefabs:
+  - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
+  - {fileID: 2697431646934123960, guid: d1d54ffaed0f0224ca9225d22b0d742b, type: 3}
+  - {fileID: 919132149155446097, guid: bdf0d2dc30ed77c4d89a3125840d8e0e, type: 3}
+  dropProbabilities:
+  - 0.1
+  - 0.3
+  - 0.6
+  dropSpawnPoint: {fileID: 353350986}
 --- !u!1 &358446652
 GameObject:
   m_ObjectHideFlags: 0
@@ -3561,22 +3467,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 170460436}
-    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 170460435}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 170460439}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 170460438}
-    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 170460437}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 170460441}
+      addedObject: {fileID: 170460440}
   m_SourcePrefab: {fileID: 100100000, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
 --- !u!1 &611661726
 GameObject:
@@ -8106,6 +8006,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -8209,22 +8113,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1575761286}
-    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1575761285}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1575761290}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1575761289}
-    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1575761288}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1575761292}
+      addedObject: {fileID: 1575761291}
   m_SourcePrefab: {fileID: 100100000, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
 --- !u!1 &1575761281 stripped
 GameObject:
@@ -8267,35 +8165,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.5029635, y: 4.9724584, z: 11.36711}
   m_Center: {x: -0.2108562, y: 1.9862285, z: -0.77056766}
---- !u!114 &1575761286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575761281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a6691f99674969499143b9ae5d26d42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 383091163}
-  animator: {fileID: 1575761283}
-  fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
-  fireballSpawnPoint: {fileID: 2130070781}
-  PuntosdePatrullaje:
-  - {fileID: 1339400548}
-  - {fileID: 1940507300}
-  speed: 0
-  dropPrefabs:
-  - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
-  - {fileID: 919132149155446097, guid: bdf0d2dc30ed77c4d89a3125840d8e0e, type: 3}
-  - {fileID: 2697431646934123960, guid: d1d54ffaed0f0224ca9225d22b0d742b, type: 3}
-  dropProbabilities:
-  - 0.1
-  - 0.6
-  - 0.3
-  dropSpawnPoint: {fileID: 1575761284}
 --- !u!114 &1575761288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8308,23 +8177,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c33206c4a600d049b8341eda2d13cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
-  angle: 75
+  range: 15
+  angle: 94
   maskObs:
     serializedVersion: 2
-    m_Bits: 2039
---- !u!114 &1575761289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575761281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3c77f997dc9e345ad9891cc76ae97e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    m_Bits: 1024
 --- !u!114 &1575761290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8337,7 +8194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df951f0ef3b2e042baaaf96d68011cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1575761292
+  _isAlert: 0
+--- !u!114 &1575761291
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8346,16 +8204,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1575761281}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a4022f81b80bb40a2483c69f96feea, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b577cd4376d6e7419cf5d61b44ff750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  timePrediction: 0
-  angle: 0
-  radius: 0
-  maskObs:
-    serializedVersion: 2
-    m_Bits: 0
+  healthBar: {fileID: 383091163}
+  animator: {fileID: 1575761283}
+  fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
+  fireballSpawnPoint: {fileID: 2130070781}
+  PuntosdePatrullaje:
+  - {fileID: 1339400548}
+  - {fileID: 1940507300}
+  speed: 3
+  dropPrefabs:
+  - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
+  - {fileID: 919132149155446097, guid: bdf0d2dc30ed77c4d89a3125840d8e0e, type: 3}
+  - {fileID: 2697431646934123960, guid: d1d54ffaed0f0224ca9225d22b0d742b, type: 3}
+  dropProbabilities:
+  - 0.1
+  - 0.6
+  - 0.3
+  dropSpawnPoint: {fileID: 1575761284}
 --- !u!1 &1651494870
 GameObject:
   m_ObjectHideFlags: 0
@@ -8779,6 +8647,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -8882,22 +8754,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1675900687}
-    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1675900686}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1675900691}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1675900690}
-    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1675900689}
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1675900693}
+      addedObject: {fileID: 1675900692}
   m_SourcePrefab: {fileID: 100100000, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
 --- !u!1 &1675900682 stripped
 GameObject:
@@ -8940,35 +8806,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.5029635, y: 4.9724584, z: 11.36711}
   m_Center: {x: -0.2108562, y: 1.9862285, z: -0.77056766}
---- !u!114 &1675900687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675900682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a6691f99674969499143b9ae5d26d42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 558509275}
-  animator: {fileID: 1675900684}
-  fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
-  fireballSpawnPoint: {fileID: 1512249078}
-  PuntosdePatrullaje:
-  - {fileID: 1892571178}
-  - {fileID: 223058920}
-  speed: 0
-  dropPrefabs:
-  - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
-  - {fileID: 919132149155446097, guid: bdf0d2dc30ed77c4d89a3125840d8e0e, type: 3}
-  - {fileID: 2697431646934123960, guid: d1d54ffaed0f0224ca9225d22b0d742b, type: 3}
-  dropProbabilities:
-  - 0.1
-  - 0.6
-  - 0.3
-  dropSpawnPoint: {fileID: 1675900685}
 --- !u!114 &1675900689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8981,23 +8818,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c33206c4a600d049b8341eda2d13cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
-  angle: 75
+  range: 15
+  angle: 94
   maskObs:
     serializedVersion: 2
-    m_Bits: 2039
---- !u!114 &1675900690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675900682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3c77f997dc9e345ad9891cc76ae97e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    m_Bits: 1024
 --- !u!114 &1675900691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9010,7 +8835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df951f0ef3b2e042baaaf96d68011cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1675900693
+  _isAlert: 0
+--- !u!114 &1675900692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9019,16 +8845,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1675900682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a4022f81b80bb40a2483c69f96feea, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b577cd4376d6e7419cf5d61b44ff750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  timePrediction: 0
-  angle: 0
-  radius: 0
-  maskObs:
-    serializedVersion: 2
-    m_Bits: 0
+  healthBar: {fileID: 558509275}
+  animator: {fileID: 1675900684}
+  fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
+  fireballSpawnPoint: {fileID: 1512249078}
+  PuntosdePatrullaje:
+  - {fileID: 1892571178}
+  - {fileID: 223058920}
+  speed: 3
+  dropPrefabs:
+  - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
+  - {fileID: 919132149155446097, guid: bdf0d2dc30ed77c4d89a3125840d8e0e, type: 3}
+  - {fileID: 2697431646934123960, guid: d1d54ffaed0f0224ca9225d22b0d742b, type: 3}
+  dropProbabilities:
+  - 0.1
+  - 0.6
+  - 0.3
+  dropSpawnPoint: {fileID: 1675900685}
 --- !u!1 &1756177995
 GameObject:
   m_ObjectHideFlags: 0

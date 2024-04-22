@@ -9,7 +9,7 @@ public class LineOfSight : MonoBehaviour, ILineOfSight
     [Range(1, 360)]
     public float angle;
     public LayerMask maskObs;
-
+    Vector3 posplayer;
     public bool CheckRange(Transform target)
     {
         float distance = Vector3.Distance(target.position, Origin);
@@ -23,9 +23,8 @@ public class LineOfSight : MonoBehaviour, ILineOfSight
     }
     public bool CheckView(Transform target)
     {
-        Vector3 dirToTarget = target.position - Origin;
-        float distance = dirToTarget.magnitude;
-        return !Physics.Raycast(Origin, dirToTarget, distance, maskObs);
+        posplayer = target.position;
+        return !Physics.Linecast(Origin + new Vector3(0, 1, 0), target.position + new Vector3(0, 1, 0), maskObs);
     }
     Vector3 Origin => transform.position;
     Vector3 Forward => transform.forward;
@@ -36,5 +35,7 @@ public class LineOfSight : MonoBehaviour, ILineOfSight
         Gizmos.color = Color.red;
         Gizmos.DrawRay(Origin, Quaternion.Euler(0, angle / 2, 0) * Forward * range);
         Gizmos.DrawRay(Origin, Quaternion.Euler(0, -(angle / 2), 0) * Forward * range);
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(Origin + new Vector3(0, 1, 0), posplayer + new Vector3(0, 1, 0));
     }
 }

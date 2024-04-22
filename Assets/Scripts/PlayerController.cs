@@ -93,7 +93,6 @@ public class PlayerController : MonoBehaviour
         ActionsLogic();
         ItemLogic();
         AnimLogic();
-        
     }
 
     public void MoveLogic()

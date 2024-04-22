@@ -31,7 +31,7 @@ public class FireBall : MonoBehaviour
     {
         var player = collision.collider.GetComponent<PlayerController>();
         if (player != null) player.TakeDamage(damageAmount);
-        Destroy(gameObject);
+        if (collision.transform.tag == "Player") Destroy(gameObject);
     }
 
 }

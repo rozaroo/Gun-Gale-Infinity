@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SightModel : MonoBehaviour
 {
-    bool _isAlert;
+    public bool _isAlert;
     public bool Alert
     {
         set { _isAlert = value; }
