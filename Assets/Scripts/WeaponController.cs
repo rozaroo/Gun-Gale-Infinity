@@ -29,7 +29,7 @@ public class WeaponController : MonoBehaviour
     {
         if (playerController != null) 
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && playerController.hasPistol || playerController.hasRiffle)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && (playerController.hasPistol || playerController.hasRiffle))
             {
                 shooting = true;
                 Shoot();
