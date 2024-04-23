@@ -17,13 +17,7 @@ public class QuestionNode : ITreeNode
 
     public void Execute()
     {
-        if (_question())
-        {
-            _tNode.Execute();
-        }
-        else
-        {
-            _fNode.Execute();
-        }
+        if (_question()) _tNode.Execute();
+        else _fNode.Execute();
     }
 }

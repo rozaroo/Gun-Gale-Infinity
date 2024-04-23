@@ -5,7 +5,6 @@ using UnityEngine;
 using Unity.VisualScripting;
 using UnityEngine.UI;
 
-
 public class Enemy : MonoBehaviour
 {
     Quaternion targetRotation;
@@ -36,6 +35,7 @@ public class Enemy : MonoBehaviour
     ISteering _steering;
     //--------------------------
     bool Estados_A;
+    StateMachine<Enemy> stateMachine;
 
     private void Awake()
     {
@@ -48,65 +48,22 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        BodyPartHitCheck playerBodyPart = player.GetComponent<BodyPartHitCheck>();
+        stateMachine = new StateMachine<Enemy>(this);
+        stateMachine.SetInitialState(new NewPatrolState<Enemy>(this));
+        stateMachine.AddState(new NewChaseState<Enemy>(this,player));
+        stateMachine.AddState(new DeathState<Enemy>(this));
+        /*BodyPartHitCheck playerBodyPart = player.GetComponent<BodyPartHitCheck>();
         scriptalerta = GetComponent<SightModel>();
         ///----------------------------------------------------
         wayPoints.AddRange(Array.ConvertAll(PuntosdePatrullaje, item => item.transform));
         currentWaypointIndex = UnityEngine.Random.Range(0, wayPoints.Count);
         timer = 0;
-        _steering = new Pursuit(transform, player.GetComponent<Rigidbody>(), 0.5f);
+        _steering = new Pursuit(transform, player.GetComponent<Rigidbody>(), 0.5f);*/
     }
 
     void Update()
     {
-        float distance = Vector3.Distance(player.position, transform.position);
-        Estados_A = _los.CheckAngle(player) && _los.CheckRange(player) && _los.CheckView(player);
-        healthBar.value = HP;
-        //timer += Time.deltaTime;
-        animator.SetBool("isPatrolling", !scriptalerta.Alert);
-        animator.SetBool("isChasing", scriptalerta.Alert);
-        animator.SetBool("isAttacking", scriptalerta.Alert && distance < lineOfSight.range - 5f);
-        Vector3 direction = _steering.GetDir();
-        if (wayPoints.Count == 0) return;
-        if (currentWaypointIndex < 0 || currentWaypointIndex >= wayPoints.Count) return;
-        if (wayPoints.Count > 0 && currentWaypointIndex >= 0 && currentWaypointIndex < wayPoints.Count)
-        {
-
-            if (!scriptalerta.Alert)///si no esta en alerta patrulla
-            {
-                Vector3 waypointdirection = wayPoints[currentWaypointIndex].position - transform.position;
-                waypointdirection.y = 0;
-                //Movimiento hacia el actual punto de patrullaje
-                transform.Translate(waypointdirection.normalized * Time.deltaTime * 1.5f, Space.World);
-                //Rotación hacia el siguiente punto de patrulla
-                targetRotation = Quaternion.LookRotation(waypointdirection);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.15f);
-
-                if (Vector3.Distance(transform.position, wayPoints[currentWaypointIndex].position) < 0.5f)
-                {
-                    //cambiar de dirección
-                    if (currentWaypointIndex == wayPoints.Count - 1 || currentWaypointIndex == 0)
-                    {
-                        patrolDirection *= -1;
-                        //Pasar al siguiente punto
-                        currentWaypointIndex += patrolDirection;
-                        //Restringir el indice al rango valido
-                        currentWaypointIndex = Mathf.Clamp(currentWaypointIndex, 0, wayPoints.Count - 1);
-                    }
-                }
-            }
-            else //sino persigue al player
-            {
-                Vector3 playerDirection = (player.position - transform.position).normalized;
-                playerDirection.y = 0;
-                if (Estados_A && distance >= lineOfSight.range - 5f) Move(playerDirection);//SteeringBehaviour..
-                targetRotation = Quaternion.LookRotation(playerDirection);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
-
-            }
-            if (Estados_A) scriptalerta.Alert = true;///el enemigo esta en alerta
-            else scriptalerta.Alert = false;///el enemigo no  esta en alerta
-        }
+        stateMachine.ExecuteCurrentState();
     }
 
     public void TakeDamage(int damageAmount)
@@ -117,10 +74,7 @@ public class Enemy : MonoBehaviour
     }
     public void Die()
     {
-        animator.SetTrigger("die");
-        GetComponent<Collider>().enabled = false;
-        SpawnRandomDrop();
-        Destroy(gameObject, 2f);
+        stateMachine.TransitionToState((Enemy)(object)new DeathState<Enemy>(this));
     }
 
     public void SpawnRandomDrop()
