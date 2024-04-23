@@ -20,7 +20,9 @@ public class FireBall : MonoBehaviour
     { 
         target = newTarget; 
         if (target != null ) playerBodyPart = target.GetComponent<BodyPartHitCheck>();
-        Vector3 direction = (target.position - transform.position).normalized;
+        var targetPos = target.position;
+        targetPos.y = transform.position.y;
+        Vector3 direction = (targetPos - transform.position).normalized;
         GetComponent<Rigidbody>().velocity = direction * speed;
     }
     void Update()

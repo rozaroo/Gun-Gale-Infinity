@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Enemy : MonoBehaviour
+public class Enemygo : MonoBehaviour
 {
     private int HP = 100;
     public Slider healthBar;

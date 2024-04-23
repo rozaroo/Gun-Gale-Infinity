@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine.UI;
 
 
-public class EnemyFSM : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     Quaternion targetRotation;
     private int HP = 100;
