@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeathState<T> : State<T>
 {
-    Enemy _enemy;
+    public Enemy _enemy;
     public DeathState(Enemy enemy)
     {
         _enemy = enemy;

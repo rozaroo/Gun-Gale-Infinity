@@ -13,13 +13,15 @@ public enum StatesEnum
 
 public class EnemyController : MonoBehaviour
 {
+    public float distance;
     public Transform player;
     public float attackRange;
     LineOfSight _los;
     FSM<StatesEnum> _fsm;
     Enemy enemy;
     ITreeNode _root;
-
+    Func<bool> QuestionRange;
+    QuestionNode auxiliarnode;
     private void Awake()
     {
         enemy = GetComponent<Enemy>();
@@ -39,7 +41,7 @@ public class EnemyController : MonoBehaviour
     void InitializeFSM()
     {
         var dead = new DeathState<StatesEnum>(enemy);
-        var attack = new NewAttackState<StatesEnum>(enemy);
+        var attack = new NewAttackState<StatesEnum>(enemy,player);
         var chase = new NewChaseState<StatesEnum>(enemy, player);
         var patroll = new NewPatrolState<StatesEnum>(enemy);
 
@@ -69,19 +71,25 @@ public class EnemyController : MonoBehaviour
         var patrol = new ActionNode(() => _fsm.Transition(StatesEnum.Patroll));
 
         //Preguntas 
-        var qAttackRange = new QuestionNode(QuestionRange = new QuestionNode(QuestionAttackRange, attack, chase));
-        var qLoS = new QuestionNode(!QuestionLoS, patrol);
-        var qHasLife = new QuestionNode(() => enemy.Life > 0, dead);
+        auxiliarnode = new QuestionNode(QuestionAttackRange(), attack, chase);
+        QuestionRange = auxiliarnode._question;
+        var qAttackRange = new QuestionNode(QuestionRange, attack, chase);
+        var qLoS = new QuestionNode(QuestionLos(), patrol);
+        var qHasLife = new QuestionNode(() => enemy.GetHP() > 0, dead);
         _root = qHasLife;
     }
 
-    bool QuestionAttackRange()
+    Func<bool> QuestionAttackRange()
     {
-        return distance < (_los.range - 5f);
+        Func<bool> resu;
+        resu = () => distance < (_los.range - 5f);
+        return resu;
     }
-    bool QuestionLos()
+    Func<bool> QuestionLos()
     {
-        return _los.CheckRange(player) && _los.CheckAngle(player) && _los.CheckView(player);
+        Func<bool> resu;
+        resu = () => !(_los.CheckRange(player) && _los.CheckAngle(player) && _los.CheckView(player));
+        return resu;
     }
 
 

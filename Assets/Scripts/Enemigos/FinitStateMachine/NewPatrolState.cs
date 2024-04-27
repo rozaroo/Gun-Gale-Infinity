@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NewPatrolState<T> : State<T>
 {
-    Enemy _enemy;
+    public Enemy _enemy;
     List<Transform> _wayPoints;
     int _currentWaypointIndex;
     int _patrolDirection;

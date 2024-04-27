@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    Action accion;
     Quaternion targetRotation;
     private int HP = 100;
     public Slider healthBar;
@@ -14,11 +15,11 @@ public class Enemy : MonoBehaviour
     public GameObject fireballPrefab;
     public Transform fireballSpawnPoint;
     private Transform player;
-    public GameObject[] PuntosdePatrullaje;
+    public Transform[] PuntosdePatrullaje;
     public float speed;
-    SightModel scriptalerta;
-    ILineOfSight _los;
-    LineOfSight lineOfSight;
+    public SightModel scriptalerta;
+    public ILineOfSight _los;
+    public LineOfSight lineOfSight;
 
     public GameObject[] dropPrefabs;
     public float[] dropProbabilities;
@@ -35,7 +36,9 @@ public class Enemy : MonoBehaviour
     ISteering _steering;
     //--------------------------
     bool Estados_A;
-    StateMachine<Enemy> stateMachine;
+    public StateMachine<Enemy> stateMachine;
+    NewChaseState<Enemy> ChaseStatenuevo;
+    DeathState<Enemy> EstadoMuertenuevo;
 
     private void Awake()
     {
@@ -44,14 +47,18 @@ public class Enemy : MonoBehaviour
     }
     public LineOfSight LineOfSight { get { return lineOfSight; } }
     public ILineOfSight LOS { get { return _los; } }
+    public int GetHP() { return HP; }
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         stateMachine = new StateMachine<Enemy>(this);
-        stateMachine.SetInitialState(new NewPatrolState<Enemy>(this));
-        stateMachine.AddState(new NewChaseState<Enemy>(this,player));
-        stateMachine.AddState(new DeathState<Enemy>(this));
+        NewPatrolState<Enemy> patrolestado = new NewPatrolState<Enemy>(this);
+        stateMachine.SetInitialState(patrolestado._enemy);
+        ChaseStatenuevo = new NewChaseState<Enemy>(this, player);
+        stateMachine.AddState(ChaseStatenuevo._enemy, accion);
+        EstadoMuertenuevo = new DeathState<Enemy>(this);
+        stateMachine.AddState(EstadoMuertenuevo._enemy, accion);
         /*BodyPartHitCheck playerBodyPart = player.GetComponent<BodyPartHitCheck>();
         scriptalerta = GetComponent<SightModel>();
         ///----------------------------------------------------
