@@ -31,6 +31,7 @@ public class NewPatrolState<T> : State<T>
         if (_currentWaypointIndex < 0 || _currentWaypointIndex >= _wayPoints.Count) return;
         Vector3 waypointDirection = _wayPoints[_currentWaypointIndex].position - _enemy.transform.position;
         waypointDirection.y = 0;
+        _enemy.transform.rotation = Quaternion.LookRotation(waypointDirection);
         _enemy.transform.Translate(waypointDirection.normalized * Time.deltaTime * _enemy.speed, Space.World);
         if (Vector3.Distance(_enemy.transform.position, _wayPoints[_currentWaypointIndex].position) < 0.5f)
         {

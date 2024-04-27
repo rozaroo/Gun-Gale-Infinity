@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour
     }
     private void Update()
     {
-        float distance = Vector3.Distance(player.position, transform.position);
+        distance = Vector3.Distance(player.position, transform.position);
         _fsm.OnUpdate();
         _root.Execute();
     }
@@ -73,9 +73,10 @@ public class EnemyController : MonoBehaviour
         //Preguntas 
         auxiliarnode = new QuestionNode(QuestionAttackRange(), attack, chase);
         QuestionRange = auxiliarnode._question;
-        var qAttackRange = new QuestionNode(QuestionRange, attack, chase);
+        var qRange = new QuestionNode(QuestionLosPlayer(), chase);
+        var qRangeAttack = new QuestionNode(QuestionAttackRange(), attack);
         var qLoS = new QuestionNode(QuestionLos(), patrol);
-        var qHasLife = new QuestionNode(() => enemy.GetHP() > 0, dead);
+        var qHasLife = new QuestionNode(() => enemy.GetHP() <= 0, dead);
         _root = qHasLife;
     }
 
@@ -89,6 +90,12 @@ public class EnemyController : MonoBehaviour
     {
         Func<bool> resu;
         resu = () => !(_los.CheckRange(player) && _los.CheckAngle(player) && _los.CheckView(player));
+        return resu;
+    }
+    Func<bool> QuestionLosPlayer()
+    {
+        Func<bool> resu;
+        resu = () => (_los.CheckRange(player) && _los.CheckAngle(player) && _los.CheckView(player));
         return resu;
     }
 

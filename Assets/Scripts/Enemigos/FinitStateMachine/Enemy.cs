@@ -28,7 +28,6 @@ public class Enemy : MonoBehaviour
     //------------------------
 
     float timer;
-    List<Transform> wayPoints = new List<Transform>();
     float chaseRange = 8;
     int currentWaypointIndex = 0;
     int patrolDirection = 1; // 1 = adelante y -1 = atras
@@ -39,7 +38,7 @@ public class Enemy : MonoBehaviour
     public StateMachine<Enemy> stateMachine;
     NewChaseState<Enemy> ChaseStatenuevo;
     DeathState<Enemy> EstadoMuertenuevo;
-
+    NewAttackState<Enemy> EstadoAtaque;
     private void Awake()
     {
         _los = GetComponent<ILineOfSight>();
@@ -59,6 +58,8 @@ public class Enemy : MonoBehaviour
         stateMachine.AddState(ChaseStatenuevo._enemy, accion);
         EstadoMuertenuevo = new DeathState<Enemy>(this);
         stateMachine.AddState(EstadoMuertenuevo._enemy, accion);
+        EstadoAtaque = new NewAttackState<Enemy>(this, player);
+        stateMachine.AddState(EstadoAtaque._enemy, accion);
         /*BodyPartHitCheck playerBodyPart = player.GetComponent<BodyPartHitCheck>();
         scriptalerta = GetComponent<SightModel>();
         ///----------------------------------------------------
@@ -76,7 +77,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         HP -= damageAmount;
-        if (HP < 0) Die();
+        if (HP <= 0) Die();
         else animator.SetTrigger("damage");
     }
     public void Die()
