@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NewAttackState<T> : State<T>
 {
-    Enemy _enemy;
+    public Enemy _enemy;
     Transform _player;
     ILineOfSight _los;
     public NewAttackState(Enemy enemy, Transform player)

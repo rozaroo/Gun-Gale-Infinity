@@ -298,8 +298,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1160511542}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -424,8 +424,8 @@ MonoBehaviour:
   fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
   fireballSpawnPoint: {fileID: 931469996}
   PuntosdePatrullaje:
-  - {fileID: 1763420251}
-  - {fileID: 1397684896}
+  - {fileID: 1763420252}
+  - {fileID: 1397684897}
   speed: 3
   scriptalerta: {fileID: 170460439}
   lineOfSight: {fileID: 170460437}
@@ -1141,6 +1141,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 216937180}
+    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216937181}
   m_SourcePrefab: {fileID: 100100000, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
 --- !u!1 &216937170 stripped
 GameObject:
@@ -1230,8 +1233,8 @@ MonoBehaviour:
   fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
   fireballSpawnPoint: {fileID: 851341834}
   PuntosdePatrullaje:
-  - {fileID: 791873065}
-  - {fileID: 1301237885}
+  - {fileID: 791873066}
+  - {fileID: 1301237886}
   speed: 3
   scriptalerta: {fileID: 216937179}
   lineOfSight: {fileID: 216937177}
@@ -1244,6 +1247,21 @@ MonoBehaviour:
   - 0.6
   - 0.3
   dropSpawnPoint: {fileID: 216937173}
+--- !u!114 &216937181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216937170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a4022f81b80bb40a2483c69f96feea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 5
+  player: {fileID: 833388237}
+  attackRange: 5
 --- !u!1 &222109610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,6 +1878,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 353350990}
+    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 353350991}
   m_SourcePrefab: {fileID: 100100000, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
 --- !u!1 &353350981 stripped
 GameObject:
@@ -1944,8 +1965,8 @@ MonoBehaviour:
   fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
   fireballSpawnPoint: {fileID: 1756177996}
   PuntosdePatrullaje:
-  - {fileID: 1395992998}
-  - {fileID: 1035304841}
+  - {fileID: 1395992999}
+  - {fileID: 1035304842}
   speed: 3
   scriptalerta: {fileID: 353350989}
   lineOfSight: {fileID: 353350987}
@@ -1958,6 +1979,21 @@ MonoBehaviour:
   - 0.3
   - 0.6
   dropSpawnPoint: {fileID: 353350986}
+--- !u!114 &353350991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353350981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a4022f81b80bb40a2483c69f96feea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 5
+  player: {fileID: 833388237}
+  attackRange: 5
 --- !u!1 &358446652
 GameObject:
   m_ObjectHideFlags: 0
@@ -4316,8 +4352,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2096478790}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8031,7 +8067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_TagString
@@ -8147,6 +8183,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1575761291}
+    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1575761292}
   m_SourcePrefab: {fileID: 100100000, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
 --- !u!1 &1575761281 stripped
 GameObject:
@@ -8236,8 +8275,8 @@ MonoBehaviour:
   fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
   fireballSpawnPoint: {fileID: 2130070781}
   PuntosdePatrullaje:
-  - {fileID: 1339400548}
-  - {fileID: 1940507300}
+  - {fileID: 1339400549}
+  - {fileID: 1940507301}
   speed: 3
   scriptalerta: {fileID: 1575761290}
   lineOfSight: {fileID: 1575761288}
@@ -8250,6 +8289,21 @@ MonoBehaviour:
   - 0.6
   - 0.3
   dropSpawnPoint: {fileID: 1575761284}
+--- !u!114 &1575761292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575761281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a4022f81b80bb40a2483c69f96feea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 5
+  player: {fileID: 833388237}
+  attackRange: 5
 --- !u!1 &1651494870
 GameObject:
   m_ObjectHideFlags: 0
@@ -8674,7 +8728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_TagString
@@ -8790,6 +8844,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1675900692}
+    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1675900693}
   m_SourcePrefab: {fileID: 100100000, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
 --- !u!1 &1675900682 stripped
 GameObject:
@@ -8879,8 +8936,8 @@ MonoBehaviour:
   fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
   fireballSpawnPoint: {fileID: 1512249078}
   PuntosdePatrullaje:
-  - {fileID: 1892571178}
-  - {fileID: 223058920}
+  - {fileID: 1892571179}
+  - {fileID: 223058921}
   speed: 3
   scriptalerta: {fileID: 1675900691}
   lineOfSight: {fileID: 1675900689}
@@ -8893,6 +8950,21 @@ MonoBehaviour:
   - 0.6
   - 0.3
   dropSpawnPoint: {fileID: 1675900685}
+--- !u!114 &1675900693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675900682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a4022f81b80bb40a2483c69f96feea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 5
+  player: {fileID: 833388237}
+  attackRange: 5
 --- !u!1 &1756177995
 GameObject:
   m_ObjectHideFlags: 0
