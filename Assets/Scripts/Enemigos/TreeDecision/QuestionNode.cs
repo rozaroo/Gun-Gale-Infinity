@@ -27,6 +27,10 @@ public class QuestionNode : ITreeNode
         {
             if (_tNode != null) _tNode.Execute();
         }
-        else _fNode.Execute();
+        else 
+        {
+            if (_fNode != null) _fNode.Execute();
+        }
+        
     }
 }

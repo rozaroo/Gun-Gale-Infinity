@@ -35,8 +35,8 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         distance = Vector3.Distance(player.position, transform.position);
-        _fsm.OnUpdate();
-        _root.Execute();
+        if (_fsm != null) _fsm.OnUpdate();
+        if (_root != null) _root.Execute();
     }
     void InitializeFSM()
     {

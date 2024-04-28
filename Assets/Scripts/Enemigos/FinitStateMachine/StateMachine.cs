@@ -26,9 +26,10 @@ public class StateMachine<T>
     }
     public void ExecuteCurrentState()
     {
-        if (_stateDictionary != null) 
+        if (_stateDictionary != null && _currentState != null && _stateDictionary.ContainsKey(_currentState)) 
         {
-            if (_stateDictionary.ContainsKey(_currentState)) _stateDictionary[_currentState]();
+            Action currentStateAction = _stateDictionary[_currentState];
+            if (currentStateAction != null) currentStateAction();
         }
             
     }
