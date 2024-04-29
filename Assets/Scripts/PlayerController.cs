@@ -143,8 +143,6 @@ public class PlayerController : MonoBehaviour
     }
     public void AnimLogic()
     {
-        Debug.Log("Valor de x: " + newDirection.x);
-        Debug.Log("Valor de y: " + newDirection.y);
         playerAnim.SetFloat("X", newDirection.x);
         playerAnim.SetFloat("Y", newDirection.y);
         playerAnim.SetBool("holdPistol", hasPistol);

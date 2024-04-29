@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using static UnityEngine.UI.Image;
 
@@ -13,18 +14,22 @@ public class LineOfSight : MonoBehaviour, ILineOfSight
     public bool CheckRange(Transform target)
     {
         float distance = Vector3.Distance(target.position, Origin);
+        UnityEngine.Debug.Log($"Distance to target: {distance}, Range: {range}");
         return distance <= range;
     }
     public bool CheckAngle(Transform target)
     {
         Vector3 dirToTarget = target.position - Origin;
         float angleToTarget = Vector3.Angle(Forward, dirToTarget);
+        UnityEngine.Debug.Log($"Angle to target: {angleToTarget}, Angle: {angle}");
         return angleToTarget <= angle / 2;
     }
     public bool CheckView(Transform target)
     {
         posplayer = target.position;
-        return !Physics.Linecast(Origin + new Vector3(0, 1, 0), target.position + new Vector3(0, 1, 0), maskObs);
+        bool lineOfSight = !Physics.Linecast(Origin + new Vector3(0, 1, 0), target.position + new Vector3(0, 1, 0), maskObs);
+        UnityEngine.Debug.Log($"Line of sight: {lineOfSight}");
+        return lineOfSight;
     }
     Vector3 Origin => transform.position;
     Vector3 Forward => transform.forward;

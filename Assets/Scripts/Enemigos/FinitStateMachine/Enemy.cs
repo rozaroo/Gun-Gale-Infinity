@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public GameObject fireballPrefab;
     public Transform fireballSpawnPoint;
-    private Transform player;
+    public Transform player;
     public Transform[] PuntosdePatrullaje;
     public float speed;
     public SightModel scriptalerta;
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
         stateMachine = new StateMachine<Enemy>(this);
         NewPatrolState<Enemy> patrolestado = new NewPatrolState<Enemy>(this);
         stateMachine.SetInitialState(patrolestado._enemy);
-        ChaseStatenuevo = new NewChaseState<Enemy>(this, player);
+        ChaseStatenuevo = new NewChaseState<Enemy>(this);
         stateMachine.AddState(ChaseStatenuevo._enemy, accion);
         EstadoMuertenuevo = new DeathState<Enemy>(this);
         stateMachine.AddState(EstadoMuertenuevo._enemy, accion);

@@ -8,11 +8,11 @@ public class NewChaseState<T> : State<T>
     Transform _player;
     ILineOfSight _los;
 
-    public NewChaseState(Enemy enemy, Transform player)
+    public NewChaseState(Enemy enemy)
     {
         _enemy = enemy;
-        _player = player;
-        _los = enemy._los;
+        _player = _enemy.player;
+        _los = _enemy._los;
     }
     public override void Enter()
     {
@@ -36,8 +36,12 @@ public class NewChaseState<T> : State<T>
         {
             Vector3 playerDirection = (_player.position - _enemy.transform.position).normalized;
             playerDirection.y = 0;
-            _enemy.Move(playerDirection);
+            Move(playerDirection);
             _enemy.scriptalerta.Alert = true;
         }
+    }
+    public void Move(Vector3 direction)
+    {
+        _enemy.transform.position += direction * Time.deltaTime * 3;
     }
 }

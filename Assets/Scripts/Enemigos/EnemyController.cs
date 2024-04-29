@@ -42,7 +42,7 @@ public class EnemyController : MonoBehaviour
     {
         var dead = new DeathState<StatesEnum>(enemy);
         var attack = new NewAttackState<StatesEnum>(enemy,player);
-        var chase = new NewChaseState<StatesEnum>(enemy, player);
+        var chase = new NewChaseState<StatesEnum>(enemy);
         var patroll = new NewPatrolState<StatesEnum>(enemy);
 
         patroll.AddTransition(StatesEnum.Dead, dead);
@@ -89,13 +89,13 @@ public class EnemyController : MonoBehaviour
     Func<bool> QuestionLos()
     {
         Func<bool> resu;
-        resu = () => !(_los.CheckRange(player) && _los.CheckAngle(player) && _los.CheckView(player));
+        resu = () => !(_los.CheckRange(enemy.player) && _los.CheckAngle(enemy.player) && _los.CheckView(enemy.player));
         return resu;
     }
     Func<bool> QuestionLosPlayer()
     {
         Func<bool> resu;
-        resu = () => (_los.CheckRange(player) && _los.CheckAngle(player) && _los.CheckView(player));
+        resu = () => (_los.CheckRange(enemy.player) && _los.CheckAngle(enemy.player) && _los.CheckView(enemy.player));
         return resu;
     }
     Func<bool> QuestionHP()
