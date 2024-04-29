@@ -77,13 +77,14 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         HP -= damageAmount;
-        if (HP <= 0) Die();
-        else animator.SetTrigger("damage");
+        animator.SetTrigger("damage");
+        //if (HP <= 0) Die();
+        //else animator.SetTrigger("damage");
     }
-    public void Die()
-    {
-        stateMachine.TransitionToState((Enemy)(object)new DeathState<Enemy>(this));
-    }
+    //public void Die()
+    //{
+     // stateMachine.TransitionToState((Enemy)(object)new DeathState<Enemy>(this));
+    //}
 
     public void SpawnRandomDrop()
     {

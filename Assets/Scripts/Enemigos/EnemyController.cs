@@ -76,7 +76,7 @@ public class EnemyController : MonoBehaviour
         var qRange = new QuestionNode(QuestionLosPlayer(), chase);
         var qRangeAttack = new QuestionNode(QuestionAttackRange(), attack);
         var qLoS = new QuestionNode(QuestionLos(), patrol);
-        var qHasLife = new QuestionNode(() => enemy.GetHP() <= 0, dead);
+        var qHasLife = new QuestionNode(QuestionHP(), dead);
         _root = qHasLife;
     }
 
@@ -98,6 +98,11 @@ public class EnemyController : MonoBehaviour
         resu = () => (_los.CheckRange(player) && _los.CheckAngle(player) && _los.CheckView(player));
         return resu;
     }
-
+    Func<bool> QuestionHP()
+    {
+        Func<bool> resu;
+        resu = () => enemy.GetHP() <= 0;
+        return resu;
+    }
 
 }
