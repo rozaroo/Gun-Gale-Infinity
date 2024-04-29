@@ -2,6 +2,7 @@ using System;
 using System.Collections; 
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public enum StatesEnum
 {
@@ -11,7 +12,7 @@ public enum StatesEnum
     Dead
 }
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, ILineOfSight
 {
     public float distance;
     public Transform player;
@@ -22,13 +23,20 @@ public class EnemyController : MonoBehaviour
     ITreeNode _root;
     Func<bool> QuestionRange;
     QuestionNode auxiliarnode;
+    //Line of Sight
+    public float range;
+    [Range(1, 360)]
+    public float angle;
+    public LayerMask maskObs;
+    Vector3 posplayer;
+
     private void Awake()
     {
         enemy = GetComponent<Enemy>();
-        _los = GetComponent<LineOfSight>();
     }
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         InitializeFSM();
         InitializedTree();
     }
@@ -42,7 +50,7 @@ public class EnemyController : MonoBehaviour
     {
         var dead = new DeathState<StatesEnum>(enemy);
         var attack = new NewAttackState<StatesEnum>(enemy,player);
-        var chase = new NewChaseState<StatesEnum>(enemy);
+        var chase = new NewChaseState<StatesEnum>(this,enemy);
         var patroll = new NewPatrolState<StatesEnum>(enemy);
 
         patroll.AddTransition(StatesEnum.Dead, dead);
@@ -71,38 +79,73 @@ public class EnemyController : MonoBehaviour
         var patrol = new ActionNode(() => _fsm.Transition(StatesEnum.Patroll));
 
         //Preguntas 
-        auxiliarnode = new QuestionNode(QuestionAttackRange(), attack, chase);
-        QuestionRange = auxiliarnode._question;
-        var qRange = new QuestionNode(QuestionLosPlayer(), chase);
+        //auxiliarnode = new QuestionNode(QuestionAttackRange(), attack, chase);
+        //QuestionRange = auxiliarnode._question;
+        var qRange = new QuestionNode(PlayerInLineOfSight(), chase, patrol);
         var qRangeAttack = new QuestionNode(QuestionAttackRange(), attack);
         var qLoS = new QuestionNode(QuestionLos(), patrol);
         var qHasLife = new QuestionNode(QuestionHP(), dead);
         _root = qHasLife;
     }
-
+    #region Questions
     Func<bool> QuestionAttackRange()
     {
-        Func<bool> resu;
-        resu = () => distance < (_los.range - 5f);
-        return resu;
+        return () => distance < (range - 5f);
     }
     Func<bool> QuestionLos()
     {
-        Func<bool> resu;
-        resu = () => !(_los.CheckRange(enemy.player) && _los.CheckAngle(enemy.player) && _los.CheckView(enemy.player));
-        return resu;
+        return () => !(CheckRange(player) && CheckAngle(player) && CheckView(player));
     }
     Func<bool> QuestionLosPlayer()
     {
-        Func<bool> resu;
-        resu = () => (_los.CheckRange(enemy.player) && _los.CheckAngle(enemy.player) && _los.CheckView(enemy.player));
-        return resu;
+        return () => (CheckRange(player) && CheckAngle(player) && CheckView(player));
     }
     Func<bool> QuestionHP()
     {
-        Func<bool> resu;
-        resu = () => enemy.GetHP() <= 0;
-        return resu;
+        return () => enemy.GetHP() <= 0;
+    }
+    Func<bool>PlayerInLineOfSight()
+    {
+        RaycastHit hit;
+        Vector3 direction = player.position - transform.position;
+        if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, maskObs))
+        {
+            if (hit.transform.CompareTag("Player")) return () =>  true;
+        }
+        return () => false;
+    }
+    #endregion
+    #region LineOfSight
+    //Line Of Sight
+
+    public bool CheckRange(Transform target)
+    {
+        float distance = Vector3.Distance(target.position, Origin);
+        return distance <= range;
+    }
+   
+    public bool CheckAngle(Transform target)
+    {
+        Vector3 dirToTarget = target.position - Origin;
+        float angleToTarget = Vector3.Angle(Forward, dirToTarget);
+        return angleToTarget <= angle / 2;
     }
 
+    public bool CheckView(Transform target)
+    {
+        posplayer = target.position;
+        return !Physics.Linecast(Origin + new Vector3(0, 1, 0), target.position + new Vector3(0, 1, 0), maskObs);
+    }
+    Vector3 Origin => transform.position;
+    Vector3 Forward => transform.forward;
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(Origin, range);
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(Origin, Quaternion.Euler(0, angle / 2, 0) * Forward * range);
+        Gizmos.DrawRay(Origin, Quaternion.Euler(0, -(angle / 2), 0) * Forward * range);
+    }
+#endregion
 }
+

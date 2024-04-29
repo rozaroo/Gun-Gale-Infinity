@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class QuestionNode : ITreeNode
 {
-    public Func<bool> _question;
+    Func<bool> _question;
     ITreeNode _fNode;
     ITreeNode _tNode;
     

@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     public float[] dropProbabilities;
     public Transform dropSpawnPoint;
 
+    EnemyController enemyController;
     //------------------------
 
     float timer;
@@ -43,6 +44,7 @@ public class Enemy : MonoBehaviour
     {
         _los = GetComponent<ILineOfSight>();
         lineOfSight = GetComponent<LineOfSight>();
+        enemyController = GetComponent<EnemyController>();
     }
     public LineOfSight LineOfSight { get { return lineOfSight; } }
     public ILineOfSight LOS { get { return _los; } }
@@ -54,7 +56,7 @@ public class Enemy : MonoBehaviour
         stateMachine = new StateMachine<Enemy>(this);
         NewPatrolState<Enemy> patrolestado = new NewPatrolState<Enemy>(this);
         stateMachine.SetInitialState(patrolestado._enemy);
-        ChaseStatenuevo = new NewChaseState<Enemy>(this);
+        ChaseStatenuevo = new NewChaseState<Enemy>(enemyController, this);
         stateMachine.AddState(ChaseStatenuevo._enemy, accion);
         EstadoMuertenuevo = new DeathState<Enemy>(this);
         stateMachine.AddState(EstadoMuertenuevo._enemy, accion);
@@ -72,6 +74,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         stateMachine.ExecuteCurrentState();
+        healthBar.value = HP;
     }
 
     public void TakeDamage(int damageAmount)

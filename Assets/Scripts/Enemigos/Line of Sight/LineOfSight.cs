@@ -11,25 +11,42 @@ public class LineOfSight : MonoBehaviour, ILineOfSight
     public float angle;
     public LayerMask maskObs;
     Vector3 posplayer;
+
     public bool CheckRange(Transform target)
+    {
+        return CheckRange(target, range);
+    }
+
+    public bool CheckRange(Transform target, float range)
     {
         float distance = Vector3.Distance(target.position, Origin);
         UnityEngine.Debug.Log($"Distance to target: {distance}, Range: {range}");
         return distance <= range;
     }
+
     public bool CheckAngle(Transform target)
+    {
+        return CheckAngle(target, angle);
+    }
+
+    public bool CheckAngle(Transform target, float angle)
     {
         Vector3 dirToTarget = target.position - Origin;
         float angleToTarget = Vector3.Angle(Forward, dirToTarget);
         UnityEngine.Debug.Log($"Angle to target: {angleToTarget}, Angle: {angle}");
         return angleToTarget <= angle / 2;
     }
+
     public bool CheckView(Transform target)
     {
-        posplayer = target.position;
-        bool lineOfSight = !Physics.Linecast(Origin + new Vector3(0, 1, 0), target.position + new Vector3(0, 1, 0), maskObs);
-        UnityEngine.Debug.Log($"Line of sight: {lineOfSight}");
-        return lineOfSight;
+        return CheckView(target, maskObs);
+    }
+
+    public bool CheckView(Transform target, LayerMask maskObs)
+    {
+        Vector3 dirToTarget = target.position - Origin;
+        float distance = dirToTarget.magnitude;
+        return !Physics.Raycast(Origin, dirToTarget, distance,maskObs);
     }
     Vector3 Origin => transform.position;
     Vector3 Forward => transform.forward;
