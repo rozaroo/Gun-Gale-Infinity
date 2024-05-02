@@ -18,6 +18,7 @@ public class NewChaseState<T> : State<T>
     public override void Enter()
     {
         _enemy.animator.SetBool("isChasing", true);
+        _enemy.scriptalerta.Alert = true;
     }
     public override void Sleep() 
     {
@@ -29,12 +30,8 @@ public class NewChaseState<T> : State<T>
         float distance = Vector3.Distance(_enemyController.player.position, _enemy.transform.position);
         Vector3 playerDirection = (_enemyController.player.position - _enemy.transform.position).normalized;
         playerDirection.y = 0;
-        Move(playerDirection);
-        _enemy.scriptalerta.Alert = true;
+        _enemy.Move(playerDirection);
+        
     }
-    public void Move(Vector3 direction)
-    {
-        _enemy.transform.rotation = Quaternion.LookRotation(direction);
-        _enemy.transform.position += direction * Time.deltaTime * 3;
-    }
+    
 }

@@ -81,10 +81,10 @@ public class EnemyController : MonoBehaviour, ILineOfSight
         //Preguntas 
         //auxiliarnode = new QuestionNode(QuestionAttackRange(), attack, chase);
         //QuestionRange = auxiliarnode._question;
-        var qRange = new QuestionNode(PlayerInLineOfSight(), chase, patrol);
-        var qRangeAttack = new QuestionNode(QuestionAttackRange(), attack);
-        var qLoS = new QuestionNode(QuestionLos(), patrol);
-        var qHasLife = new QuestionNode(QuestionHP(), dead);
+        var qRange = new QuestionNode(QuestionAttackRange(), chase, attack);
+        //var qRangeAttack = new QuestionNode(QuestionAttackRange(), attack,chase);
+        var qLoS = new QuestionNode(QuestionLos(), patrol,qRange);
+        var qHasLife = new QuestionNode(QuestionHP(), dead,qLoS);
         _root = qHasLife;
     }
     #region Questions
@@ -104,16 +104,7 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     {
         return () => enemy.GetHP() <= 0;
     }
-    Func<bool>PlayerInLineOfSight()
-    {
-        RaycastHit hit;
-        Vector3 direction = player.position - transform.position;
-        if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, maskObs))
-        {
-            if (hit.transform.CompareTag("Player")) return () =>  true;
-        }
-        return () => false;
-    }
+    
     #endregion
     #region LineOfSight
     //Line Of Sight

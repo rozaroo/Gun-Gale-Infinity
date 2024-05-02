@@ -15,12 +15,6 @@ public class QuestionNode : ITreeNode
         _tNode = tNode;
         _fNode = fNode;
     }
-    public QuestionNode(Func<bool> question, ITreeNode tNode)
-    {
-        _question = question;
-        _tNode = tNode;
-
-    }
     public void Execute()
     {
         if (_question()) 

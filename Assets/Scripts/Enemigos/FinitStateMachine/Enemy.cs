@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    Action accion;
     Quaternion targetRotation;
     private int HP = 100;
     public Slider healthBar;
@@ -17,63 +16,31 @@ public class Enemy : MonoBehaviour
     public Transform player;
     public Transform[] PuntosdePatrullaje;
     public float speed;
-    public SightModel scriptalerta;
-    public ILineOfSight _los;
-    public LineOfSight lineOfSight;
-
     public GameObject[] dropPrefabs;
     public float[] dropProbabilities;
     public Transform dropSpawnPoint;
-
     EnemyController enemyController;
     //------------------------
-
     float timer;
     float chaseRange = 8;
     int currentWaypointIndex = 0;
     int patrolDirection = 1; // 1 = adelante y -1 = atras
-
     ISteering _steering;
-    //--------------------------
-    bool Estados_A;
-    public StateMachine<Enemy> stateMachine;
-    NewChaseState<Enemy> ChaseStatenuevo;
-    DeathState<Enemy> EstadoMuertenuevo;
-    NewAttackState<Enemy> EstadoAtaque;
+    
     private void Awake()
     {
-        _los = GetComponent<ILineOfSight>();
-        lineOfSight = GetComponent<LineOfSight>();
         enemyController = GetComponent<EnemyController>();
     }
-    public LineOfSight LineOfSight { get { return lineOfSight; } }
-    public ILineOfSight LOS { get { return _los; } }
     public int GetHP() { return HP; }
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        stateMachine = new StateMachine<Enemy>(this);
-        NewPatrolState<Enemy> patrolestado = new NewPatrolState<Enemy>(this);
-        stateMachine.SetInitialState(patrolestado._enemy);
-        ChaseStatenuevo = new NewChaseState<Enemy>(enemyController, this);
-        stateMachine.AddState(ChaseStatenuevo._enemy, accion);
-        EstadoMuertenuevo = new DeathState<Enemy>(this);
-        stateMachine.AddState(EstadoMuertenuevo._enemy, accion);
-        EstadoAtaque = new NewAttackState<Enemy>(this, player);
-        stateMachine.AddState(EstadoAtaque._enemy, accion);
-        /*BodyPartHitCheck playerBodyPart = player.GetComponent<BodyPartHitCheck>();
-        scriptalerta = GetComponent<SightModel>();
-        ///----------------------------------------------------
-        wayPoints.AddRange(Array.ConvertAll(PuntosdePatrullaje, item => item.transform));
-        currentWaypointIndex = UnityEngine.Random.Range(0, wayPoints.Count);
-        timer = 0;
-        _steering = new Pursuit(transform, player.GetComponent<Rigidbody>(), 0.5f);*/
+        
     }
 
     void Update()
     {
-        stateMachine.ExecuteCurrentState();
         healthBar.value = HP;
     }
 
@@ -81,13 +48,7 @@ public class Enemy : MonoBehaviour
     {
         HP -= damageAmount;
         animator.SetTrigger("damage");
-        //if (HP <= 0) Die();
-        //else animator.SetTrigger("damage");
     }
-    //public void Die()
-    //{
-     // stateMachine.TransitionToState((Enemy)(object)new DeathState<Enemy>(this));
-    //}
 
     public void SpawnRandomDrop()
     {
