@@ -7,18 +7,15 @@ public class NewChaseState<T> : State<T>
     public Enemy _enemy;
     EnemyController _enemyController;
     Transform _player;
-   // LineOfSight _los;
 
     public NewChaseState(EnemyController enemyController, Enemy enemy)
     {
         _enemy = enemy;
         _enemyController = enemyController;
-       // _los = los;
     }
     public override void Enter()
     {
         _enemy.animator.SetBool("isChasing", true);
-        _enemy.scriptalerta.Alert = true;
     }
     public override void Sleep() 
     {
