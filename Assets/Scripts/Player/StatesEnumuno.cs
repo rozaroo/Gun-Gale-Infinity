@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleState : StateMachineBehaviour
+public enum StatesEnumuno
 {
-    
-
+    Default,
+    Idle,
+    Walk,
 }

@@ -10,14 +10,14 @@ public class PlayerController : MonoBehaviour
     public bool Active = true;
     
     //Personaje
-    Transform playerTr;
-    Rigidbody playerRb;
+    public Transform playerTr;
+    public Rigidbody playerRb;
     internal Animator playerAnim;
     RagdollController playerRagdoll;
     public float maxHealth = 100f;
     public float currentHealth;
     public float playerSpeed = 0f;
-    private Vector2 newDirection;
+    public Vector2 newDirection;
     public bool hasPistol = false;
     public bool hasRiffle = false;
     public bool hasGrenade = false;
@@ -66,8 +66,27 @@ public class PlayerController : MonoBehaviour
     public Transform secondarySlot;
     public Transform throwableSlot;
     public Transform spawnGrenade;
+
+    //FinitStateMachine
+    FSM<StatesEnumuno> _fsm;
     #endregion
 
+    private void Awake()
+    {
+        InitializeFSM();
+    }
+    void InitializeFSM()
+    {
+        _fsm = new FSM<StatesEnumuno>();
+
+        var idle = new IdleState<StatesEnumuno>(StatesEnumuno.Walk);
+        var walk = new WalkState<StatesEnumuno>(this, StatesEnumuno.Idle);
+
+        idle.AddTransition(StatesEnumuno.Walk, walk);
+        walk.AddTransition(StatesEnumuno.Idle, idle);
+
+        _fsm.SetInit(idle);
+    }
     void Start()
     {
         playerTr = this.transform;
@@ -84,15 +103,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Player)
-        {
-            MoveLogic();
-            CameraLogic();
-        }
+        if (Player) CameraLogic();
         if (!Active) return;
         ActionsLogic();
         ItemLogic();
         AnimLogic();
+        _fsm.OnUpdate();
     }
 
     public void MoveLogic()

@@ -28,7 +28,8 @@ public class NewChaseState<T> : State<T>
         Vector3 playerDirection = (_enemyController.player.position - _enemy.transform.position).normalized;
         playerDirection.y = 0;
         _enemy.Move(playerDirection);
-        
+        //Rotación al Jugador 
+        Quaternion targetRotation = Quaternion.LookRotation(_enemyController.player.position);
     }
     
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -411,8 +411,6 @@ MonoBehaviour:
   - {fileID: 1763420252}
   - {fileID: 1397684897}
   speed: 3
-  scriptalerta: {fileID: 170460439}
-  lineOfSight: {fileID: 0}
   dropPrefabs:
   - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
   - {fileID: 2697431646934123960, guid: d1d54ffaed0f0224ca9225d22b0d742b, type: 3}
@@ -1206,8 +1204,6 @@ MonoBehaviour:
   - {fileID: 791873066}
   - {fileID: 1301237886}
   speed: 3
-  scriptalerta: {fileID: 216937179}
-  lineOfSight: {fileID: 0}
   dropPrefabs:
   - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
   - {fileID: 919132149155446097, guid: bdf0d2dc30ed77c4d89a3125840d8e0e, type: 3}
@@ -1924,8 +1920,6 @@ MonoBehaviour:
   - {fileID: 1395992999}
   - {fileID: 1035304842}
   speed: 3
-  scriptalerta: {fileID: 353350989}
-  lineOfSight: {fileID: 0}
   dropPrefabs:
   - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
   - {fileID: 2697431646934123960, guid: d1d54ffaed0f0224ca9225d22b0d742b, type: 3}
@@ -4386,9 +4380,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: 1
   Active: 1
+  playerTr: {fileID: 0}
+  playerRb: {fileID: 0}
   maxHealth: 100
   currentHealth: 100
   playerSpeed: 1500
+  newDirection: {x: 0, y: 0}
   hasPistol: 0
   hasRiffle: 0
   hasGrenade: 0
@@ -8221,8 +8218,6 @@ MonoBehaviour:
   - {fileID: 1339400549}
   - {fileID: 1940507301}
   speed: 3
-  scriptalerta: {fileID: 1575761290}
-  lineOfSight: {fileID: 0}
   dropPrefabs:
   - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
   - {fileID: 919132149155446097, guid: bdf0d2dc30ed77c4d89a3125840d8e0e, type: 3}
@@ -8868,8 +8863,6 @@ MonoBehaviour:
   - {fileID: 1892571179}
   - {fileID: 223058921}
   speed: 3
-  scriptalerta: {fileID: 1675900691}
-  lineOfSight: {fileID: 0}
   dropPrefabs:
   - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
   - {fileID: 919132149155446097, guid: bdf0d2dc30ed77c4d89a3125840d8e0e, type: 3}
