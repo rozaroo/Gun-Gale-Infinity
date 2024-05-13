@@ -278,6 +278,11 @@ public class PlayerController : MonoBehaviour
                     throwableWeaponIcon.gameObject.SetActive(true);
                     break;
                 }
+                else if (itemPrefab.CompareTag("Botiquin") && nearItem.CompareTag("Botiquin"))
+                {
+                    RecoveryHealth(25);
+                    Destroy(nearItem.gameObject);
+                }
             }
         }
     }
@@ -293,8 +298,12 @@ public class PlayerController : MonoBehaviour
             Active = false;
         }
     }
-
-
+    
+    public void RecoveryHealth(float health)
+    {
+        currentHealth += health;
+    }
+ 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Item"))
