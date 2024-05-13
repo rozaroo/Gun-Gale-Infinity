@@ -27,9 +27,11 @@ public class Enemy : MonoBehaviour
     int patrolDirection = 1; // 1 = adelante y -1 = atras
     ISteering _steering;
     
+    LevelManager lvlManager;
     private void Awake()
     {
         enemyController = GetComponent<EnemyController>();
+        lvlManager = GetComponent<LevelManager>();
     }
     public int GetHP() { return HP; }
 

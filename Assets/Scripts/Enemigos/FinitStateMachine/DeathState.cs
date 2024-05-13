@@ -14,6 +14,7 @@ public class DeathState<T> : State<T>
         _enemy.animator.SetTrigger("die"); 
         _enemy.GetComponent<Collider>().enabled = false;
         _enemy.SpawnRandomDrop();
+        _enemy.lvlManager.Enemies--;
         GameObject.Destroy(_enemy.gameObject,2f);
     }
 }

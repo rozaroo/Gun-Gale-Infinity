@@ -296,6 +296,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Estas Muerto");
             playerRagdoll.Active(true);
             Active = false;
+            Destroy(this, 1.5f);
         }
     }
     
