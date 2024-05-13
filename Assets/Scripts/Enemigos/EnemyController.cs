@@ -30,9 +30,12 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     public LayerMask maskObs;
     Vector3 posplayer;
 
+    LevelManager lvlManager;
+
     private void Awake()
     {
         enemy = GetComponent<Enemy>();
+        lvlManager = FindObjectOfType<LevelManager>();
     }
     private void Start()
     {
@@ -48,7 +51,7 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     }
     void InitializeFSM()
     {
-        var dead = new DeathState<StatesEnum>(enemy);
+        var dead = new DeathState<StatesEnum>(enemy,lvlManager);
         var attack = new NewAttackState<StatesEnum>(enemy,player);
         var chase = new NewChaseState<StatesEnum>(this,enemy);
         var patroll = new NewPatrolState<StatesEnum>(enemy);
