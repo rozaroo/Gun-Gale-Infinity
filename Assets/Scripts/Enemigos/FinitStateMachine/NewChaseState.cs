@@ -30,6 +30,7 @@ public class NewChaseState<T> : State<T>
         _enemy.Move(playerDirection);
         //Rotación al Jugador 
         Quaternion targetRotation = Quaternion.LookRotation(_enemyController.player.position);
+        _enemy.transform.rotation = Quaternion.Slerp(_enemy.transform.rotation, targetRotation, Time.deltaTime * 5f);
     }
     
 }
