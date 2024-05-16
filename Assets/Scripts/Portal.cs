@@ -7,12 +7,9 @@ public class Portal : MonoBehaviour
 {
     public int NextLevel;
     
-    void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
-        {
-            float distance = Vector3.Distance(transform.position, other.transform.position);
-            if (distance < 1f) SceneManager.LoadScene(NextLevel);
-        }
+        var player = collision.collider.GetComponent<PlayerController>();
+        if (player != null) SceneManager.LoadScene(NextLevel);
     }
 }
