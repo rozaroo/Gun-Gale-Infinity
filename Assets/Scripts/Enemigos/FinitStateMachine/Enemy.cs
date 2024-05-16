@@ -28,21 +28,19 @@ public class Enemy : MonoBehaviour
     ISteering _steering;
     
     LevelManager lvlManager;
-    //Pursuit
-    Transform _entity;
-    Rigidbody _target;
-    float _timePrediction;
+
+    Rigidbody _rb;
     private void Awake()
     {
         enemyController = GetComponent<EnemyController>();
         lvlManager = GetComponent<LevelManager>();
+        _rb = GetComponent<Rigidbody>();
     }
     public int GetHP() { return HP; }
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        
     }
 
     void Update()
@@ -83,33 +81,16 @@ public class Enemy : MonoBehaviour
     {
         transform.position += direction * Time.deltaTime * speed;
     }
-    //Pursuit
-    /*
-    public Pursuit(Transform entity, Rigidbody target, float timePrediction)
+    public void Movetwo(Vector3 dir)
     {
-        _entity = entity;
-        _target = target;
-        _timePrediction = timePrediction;
+        dir *= speed;
+        dir.y = _rb.velocity.y;
+        _rb.velocity = dir;
     }
-    public Vector3 GetDir()
+    public void LookDir(Vector3 dir)
     {
-        Vector3 point = _target.position + _target.transform.forward * _target.velocity.magnitude * _timePrediction;
-        Vector3 dirToPoint = (point - _entity.position).normalized;
-        Vector3 dirToTarget = (_target.position - _entity.position).normalized;
-
-        if (Vector3.Dot(dirToPoint, dirToTarget) < 0)
-        {
-            dirToPoint = dirToTarget;
-#if UNITY_EDITOR
-            point = _target.position;// Debug
-#endif
-        }
-
-#if UNITY_EDITOR
-        Debug.DrawRay(point, Vector3.up * 2, Color.red);// Debug
-        Debug.DrawRay(point, Quaternion.Euler(0, 0, 45) * Vector3.up * 2, Color.red);// Debug
-        Debug.DrawRay(point, Quaternion.Euler(0, 0, -45) * Vector3.up * 2, Color.red);// Debug
-#endif
-        return dirToPoint;
-    }*/
+        if (dir.x == 0 && dir.z == 0) return;
+        transform.forward = dir;
+    }
+    
 }

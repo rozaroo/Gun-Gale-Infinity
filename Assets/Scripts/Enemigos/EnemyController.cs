@@ -9,7 +9,8 @@ public enum StatesEnum
     Patroll,
     Chase,
     Attack,
-    Dead
+    Dead,
+    Steering
 }
 
 public class EnemyController : MonoBehaviour, ILineOfSight
@@ -32,6 +33,13 @@ public class EnemyController : MonoBehaviour, ILineOfSight
 
     LevelManager lvlManager;
 
+    //Steerings behaviours
+    public Rigidbody target;
+    public float timePrediction;
+    public float radius;
+    ISteering _steering;
+    ObstacleAvoidance _obstacleAvoidance;
+
     private void Awake()
     {
         enemy = GetComponent<Enemy>();
@@ -49,28 +57,45 @@ public class EnemyController : MonoBehaviour, ILineOfSight
         if (_fsm != null) _fsm.OnUpdate();
         if (_root != null) _root.Execute();
     }
+    void InitializeSteerings()
+    {
+        var pursuit = new Pursuit(enemy.transform, target, timePrediction);
+        _steering = pursuit;
+        _obstacleAvoidance = new ObstacleAvoidance(enemy.transform, angle, radius, maskObs);
+    }
     void InitializeFSM()
     {
         var dead = new DeathState<StatesEnum>(enemy,lvlManager);
         var attack = new NewAttackState<StatesEnum>(enemy,player);
         var chase = new NewChaseState<StatesEnum>(this,enemy);
         var patroll = new NewPatrolState<StatesEnum>(enemy);
+        var steering = new EnemyStateSteering<StatesEnum>(enemy, _steering, _obstacleAvoidance);
+
 
         patroll.AddTransition(StatesEnum.Dead, dead);
         patroll.AddTransition(StatesEnum.Attack, attack);
         patroll.AddTransition(StatesEnum.Chase, chase);
-        
+        patroll.AddTransition(StatesEnum.Steering, steering);
+
         dead.AddTransition(StatesEnum.Patroll, patroll);
         dead.AddTransition(StatesEnum.Attack, attack);
         dead.AddTransition(StatesEnum.Chase, chase);
+        dead.AddTransition(StatesEnum.Steering, steering);
 
         attack.AddTransition(StatesEnum.Dead, dead);
         attack.AddTransition(StatesEnum.Chase, chase);
         attack.AddTransition(StatesEnum.Patroll, patroll);
+        attack.AddTransition(StatesEnum.Steering, steering);
 
         chase.AddTransition(StatesEnum.Dead, dead);
         chase.AddTransition(StatesEnum.Attack, attack);
         chase.AddTransition(StatesEnum.Patroll, patroll);
+        chase.AddTransition(StatesEnum.Steering, steering);
+
+        steering.AddTransition(StatesEnum.Patroll, patroll);
+        steering.AddTransition(StatesEnum.Dead, dead);
+        steering.AddTransition(StatesEnum.Attack, attack);
+        steering.AddTransition(StatesEnum.Chase, chase);
 
         _fsm = new FSM<StatesEnum>(patroll);
     }
@@ -80,11 +105,11 @@ public class EnemyController : MonoBehaviour, ILineOfSight
         var attack = new ActionNode(() => _fsm.Transition(StatesEnum.Attack));
         var chase = new ActionNode(() => _fsm.Transition(StatesEnum.Chase));
         var patrol = new ActionNode(() => _fsm.Transition(StatesEnum.Patroll));
-
+        var pursuit = new ActionNode(() => _fsm.Transition(StatesEnum.Steering));
         //Preguntas 
         //auxiliarnode = new QuestionNode(QuestionAttackRange(), attack, chase);
         //QuestionRange = auxiliarnode._question;
-        var qRange = new QuestionNode(QuestionAttackRange(), attack,chase);
+        var qRange = new QuestionNode(QuestionAttackRange(), attack,pursuit);
         //var qRangeAttack = new QuestionNode(QuestionAttackRange(), attack,chase);
         var qLoS = new QuestionNode(QuestionLos(), patrol,qRange);
         var qHasLife = new QuestionNode(QuestionHP(), dead,qLoS);
