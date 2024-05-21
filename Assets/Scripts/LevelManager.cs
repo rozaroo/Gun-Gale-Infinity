@@ -28,17 +28,16 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y)) Restart();
         if (Enemies == 0) Portal.SetActive(true);
         if (pController != null) 
         {
             if (pController.Active != null)
             {
-
                 if (pController.Active == false) 
                 {
-                    Time.timeScale = 0f;
-                    defeatScreen.SetActive(true); 
+                    defeatScreen.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                 }
                 else Debug.Log("es null");
             }
