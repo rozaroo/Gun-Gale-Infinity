@@ -8,13 +8,15 @@ public class NewPatrolState<T> : State<T>
     List<Transform> _wayPoints;
     int _currentWaypointIndex;
     int _patrolDirection;
+    ObstacleAvoidance _obs;
 
-    public NewPatrolState(Enemy enemy)
+    public NewPatrolState(Enemy enemy, ObstacleAvoidance obs)
     {
         _enemy = enemy;
         _wayPoints = new List<Transform>(enemy.PuntosdePatrullaje);
         _currentWaypointIndex = UnityEngine.Random.Range(0, _wayPoints.Count);
         _patrolDirection = 1;
+        _obs = obs;
     }
     public override void Enter()
     {
@@ -31,8 +33,10 @@ public class NewPatrolState<T> : State<T>
         if (_currentWaypointIndex < 0 || _currentWaypointIndex >= _wayPoints.Count) return;
         Vector3 waypointDirection = _wayPoints[_currentWaypointIndex].position - _enemy.transform.position;
         waypointDirection.y = 0;
-        _enemy.transform.rotation = Quaternion.LookRotation(waypointDirection);
-        _enemy.transform.Translate(waypointDirection.normalized * Time.deltaTime * _enemy.speed, Space.World);
+        waypointDirection = _obs.GetDir(waypointDirection, false);
+        _enemy.Move(waypointDirection.normalized);
+        _enemy.LookDir(waypointDirection);
+
         if (Vector3.Distance(_enemy.transform.position, _wayPoints[_currentWaypointIndex].position) < 0.5f)
         {
             if (_currentWaypointIndex == _wayPoints.Count - 1 || _currentWaypointIndex == 0) _patrolDirection *= -1;

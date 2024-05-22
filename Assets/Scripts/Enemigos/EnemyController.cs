@@ -48,6 +48,7 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        InitializeSteerings();
         InitializeFSM();
         InitializedTree();
     }
@@ -61,14 +62,14 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     {
         var pursuit = new Pursuit(enemy.transform, target, timePrediction);
         _steering = pursuit;
-        _obstacleAvoidance = new ObstacleAvoidance(enemy.transform, angle, radius, maskObs);
+        _obstacleAvoidance = new ObstacleAvoidance(enemy.transform, angle, radius, maskObs,2.5f);
     }
     void InitializeFSM()
     {
         var dead = new DeathState<StatesEnum>(enemy,lvlManager);
         var attack = new NewAttackState<StatesEnum>(enemy,player);
         var chase = new NewChaseState<StatesEnum>(this,enemy);
-        var patroll = new NewPatrolState<StatesEnum>(enemy);
+        var patroll = new NewPatrolState<StatesEnum>(enemy, _obstacleAvoidance);
         var steering = new EnemyStateSteering<StatesEnum>(enemy, _steering, _obstacleAvoidance);
 
 
@@ -161,6 +162,8 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(Origin, range);
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(Origin, radius);
         Gizmos.color = Color.red;
         Gizmos.DrawRay(Origin, Quaternion.Euler(0, angle / 2, 0) * Forward * range);
         Gizmos.DrawRay(Origin, Quaternion.Euler(0, -(angle / 2), 0) * Forward * range);

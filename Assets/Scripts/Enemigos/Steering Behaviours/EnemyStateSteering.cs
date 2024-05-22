@@ -24,13 +24,9 @@ public class EnemyStateSteering<T> : State<T>
     }
     public override void Execute()
     {
-        float distance = Vector3.Distance(_enemy.player.position, _enemy.transform.position);
-        Vector3 playerDirection = (_enemy.player.position - _enemy.transform.position).normalized;
-        playerDirection.y = 0;
-
-        //var dir = _obs.GetDir(_steering.GetDir());
-        _enemy.Movetwo(playerDirection);
-        _enemy.LookDir(playerDirection);
+        var dir = _obs.GetDir(_steering.GetDir(), false);
+        _enemy.Movetwo(dir);
+        _enemy.LookDir(dir);
         //Rotación al Jugador 
         Quaternion targetRotation = Quaternion.LookRotation(_enemy.player.position);
         _enemy.transform.rotation = Quaternion.Slerp(_enemy.transform.rotation, targetRotation, Time.deltaTime * 5f);
