@@ -81,9 +81,23 @@ public class PlayerController : MonoBehaviour
 
         var idle = new IdleState<StatesEnumuno>(StatesEnumuno.Walk);
         var walk = new WalkState<StatesEnumuno>(this, StatesEnumuno.Idle);
+        var actions = new ActionsState<StatesEnumuno>(this,StatesEnumuno.Actions);
+        var camera = new CameraState<StatesEnumuno>(this, StatesEnumuno.Camera);
 
         idle.AddTransition(StatesEnumuno.Walk, walk);
         walk.AddTransition(StatesEnumuno.Idle, idle);
+
+        idle.AddTransition(StatesEnumuno.Actions, actions);
+        walk.AddTransition(StatesEnumuno.Actions, actions);
+
+        actions.AddTransition(StatesEnumuno.Idle, idle);
+        actions.AddTransition(StatesEnumuno.Walk, walk);
+
+        idle.AddTransition(StatesEnumuno.Camera, camera);
+        walk.AddTransition(StatesEnumuno.Camera, camera);
+
+        camera.AddTransition(StatesEnumuno.Idle, idle);
+        camera.AddTransition(StatesEnumuno.Walk, walk);
 
         _fsm.SetInit(idle);
     }
@@ -103,7 +117,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Player) CameraLogic();
+        //if (Player) CameraLogic();
         if (!Active) return;
         ActionsLogic();
         ItemLogic();

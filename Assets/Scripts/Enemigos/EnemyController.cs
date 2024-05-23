@@ -10,7 +10,8 @@ public enum StatesEnum
     Chase,
     Attack,
     Dead,
-    Steering
+    Steering,
+    Waypoints
 }
 
 public class EnemyController : MonoBehaviour, ILineOfSight
@@ -39,6 +40,9 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     public float radius;
     ISteering _steering;
     ObstacleAvoidance _obstacleAvoidance;
+
+    //A-star
+    EnemyStateFollowPoints<StatesEnum> _stateFollowPoints;
 
     private void Awake()
     {
@@ -72,33 +76,44 @@ public class EnemyController : MonoBehaviour, ILineOfSight
         var patroll = new NewPatrolState<StatesEnum>(enemy, _obstacleAvoidance);
         var steering = new EnemyStateSteering<StatesEnum>(enemy, _steering, _obstacleAvoidance);
 
+        _stateFollowPoints = new EnemyStateFollowPoints<StatesEnum>(enemy, enemy.animator);
 
         patroll.AddTransition(StatesEnum.Dead, dead);
         patroll.AddTransition(StatesEnum.Attack, attack);
         patroll.AddTransition(StatesEnum.Chase, chase);
         patroll.AddTransition(StatesEnum.Steering, steering);
+        patroll.AddTransition(StatesEnum.Waypoints, _stateFollowPoints);
 
         dead.AddTransition(StatesEnum.Patroll, patroll);
         dead.AddTransition(StatesEnum.Attack, attack);
         dead.AddTransition(StatesEnum.Chase, chase);
         dead.AddTransition(StatesEnum.Steering, steering);
+        dead.AddTransition(StatesEnum.Waypoints, _stateFollowPoints);
 
         attack.AddTransition(StatesEnum.Dead, dead);
         attack.AddTransition(StatesEnum.Chase, chase);
         attack.AddTransition(StatesEnum.Patroll, patroll);
         attack.AddTransition(StatesEnum.Steering, steering);
+        attack.AddTransition(StatesEnum.Waypoints, _stateFollowPoints);
 
         chase.AddTransition(StatesEnum.Dead, dead);
         chase.AddTransition(StatesEnum.Attack, attack);
         chase.AddTransition(StatesEnum.Patroll, patroll);
         chase.AddTransition(StatesEnum.Steering, steering);
+        chase.AddTransition(StatesEnum.Waypoints, _stateFollowPoints);
 
         steering.AddTransition(StatesEnum.Patroll, patroll);
         steering.AddTransition(StatesEnum.Dead, dead);
         steering.AddTransition(StatesEnum.Attack, attack);
         steering.AddTransition(StatesEnum.Chase, chase);
+        steering.AddTransition(StatesEnum.Waypoints, _stateFollowPoints);
 
-        _fsm = new FSM<StatesEnum>(patroll);
+        _stateFollowPoints.AddTransition(StatesEnum.Dead, dead);
+        _stateFollowPoints.AddTransition(StatesEnum.Attack, attack);
+        _stateFollowPoints.AddTransition(StatesEnum.Patroll, patroll);
+        _stateFollowPoints.AddTransition(StatesEnum.Steering, steering);
+
+        _fsm = new FSM<StatesEnum>(_stateFollowPoints);
     }
     void InitializedTree()
     {
@@ -107,12 +122,13 @@ public class EnemyController : MonoBehaviour, ILineOfSight
         var chase = new ActionNode(() => _fsm.Transition(StatesEnum.Chase));
         var patrol = new ActionNode(() => _fsm.Transition(StatesEnum.Patroll));
         var pursuit = new ActionNode(() => _fsm.Transition(StatesEnum.Steering));
+        var Astar = new ActionNode(() => _fsm.Transition(StatesEnum.Waypoints));
         //Preguntas 
         //auxiliarnode = new QuestionNode(QuestionAttackRange(), attack, chase);
         //QuestionRange = auxiliarnode._question;
         var qRange = new QuestionNode(QuestionAttackRange(), attack,pursuit);
         //var qRangeAttack = new QuestionNode(QuestionAttackRange(), attack,chase);
-        var qLoS = new QuestionNode(QuestionLos(), patrol,qRange);
+        var qLoS = new QuestionNode(QuestionLos(), Astar,qRange);
         var qHasLife = new QuestionNode(QuestionHP(), dead,qLoS);
         _root = qHasLife;
     }
@@ -168,6 +184,9 @@ public class EnemyController : MonoBehaviour, ILineOfSight
         Gizmos.DrawRay(Origin, Quaternion.Euler(0, angle / 2, 0) * Forward * range);
         Gizmos.DrawRay(Origin, Quaternion.Euler(0, -(angle / 2), 0) * Forward * range);
     }
-#endregion
+    #endregion
+
+    //A-Star
+    public IPoints GetStateWaypoints => _stateFollowPoints;
 }
 

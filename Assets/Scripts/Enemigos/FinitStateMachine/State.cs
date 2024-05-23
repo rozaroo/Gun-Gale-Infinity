@@ -33,8 +33,7 @@ public class State<T> : IState<T>
     }
     public void RemoveTransition(T input)
     {
-        if (_transitions.ContainsKey(input))
-            _transitions.Remove(input);
+        if (_transitions.ContainsKey(input)) _transitions.Remove(input);
     }
     public void RemoveTransition(IState<T> state)
     {
@@ -51,10 +50,7 @@ public class State<T> : IState<T>
     }
     public IState<T> GetTransition(T input)
     {
-        if (_transitions.ContainsKey(input))
-        {
-            return _transitions[input];
-        }
+        if (_transitions.ContainsKey(input)) return _transitions[input];
         return null;
     }
     public FSM<T> SetFSM { set { _fsm = value; } }

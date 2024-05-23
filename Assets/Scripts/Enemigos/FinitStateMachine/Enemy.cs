@@ -92,5 +92,9 @@ public class Enemy : MonoBehaviour
         if (dir.x == 0 && dir.z == 0) return;
         transform.forward = dir;
     }
-    
+    public void SetPosition(Vector3 pos)
+    {
+        transform.position = pos;
+    }
+
 }

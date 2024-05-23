@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
                 }
-                else Debug.Log("es null");
+                //else Debug.Log("es null");
             }
         }
     }

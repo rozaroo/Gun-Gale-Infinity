@@ -7,4 +7,8 @@ public enum StatesEnumuno
     Default,
     Idle,
     Walk,
+    Camera,
+    Actions,
+    Items,
+    Anims,
 }
