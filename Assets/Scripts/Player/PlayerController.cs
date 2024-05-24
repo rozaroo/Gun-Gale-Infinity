@@ -81,24 +81,9 @@ public class PlayerController : MonoBehaviour
 
         var idle = new IdleState<StatesEnumuno>(this,StatesEnumuno.Idle);
         var walk = new WalkState<StatesEnumuno>(this, StatesEnumuno.Walk);
-        //var actions = new ActionsState<StatesEnumuno>(this,StatesEnumuno.Actions);
-        //var camera = new CameraState<StatesEnumuno>(this, StatesEnumuno.Camera);
-
+        
         idle.AddTransition(StatesEnumuno.Walk, walk);
         walk.AddTransition(StatesEnumuno.Idle, idle);
-
-        //idle.AddTransition(StatesEnumuno.Actions, actions);
-        //walk.AddTransition(StatesEnumuno.Actions, actions);
-
-        //actions.AddTransition(StatesEnumuno.Idle, idle);
-        //actions.AddTransition(StatesEnumuno.Walk, walk);
-
-        //idle.AddTransition(StatesEnumuno.Camera, camera);
-        //walk.AddTransition(StatesEnumuno.Camera, camera);
-
-        //camera.AddTransition(StatesEnumuno.Idle, idle);
-        //camera.AddTransition(StatesEnumuno.Walk, walk);
-
         _fsm.SetInit(walk);
     }
     void Start()
@@ -118,8 +103,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (!Active) return;
-        //ActionsLogic();
-        ItemLogic();
+        ActionsLogic();
         _fsm.OnUpdate();
     }
 
@@ -174,67 +158,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    public void ItemLogic()
-    {
-        if (nearItem != null && Input.GetKeyDown(KeyCode.E))
-        {
-            GameObject instantiatedItem = null;
-            int countWeapons = 0;
-            foreach (GameObject itemPrefab in itemPrefab)
-            {
-                if (itemPrefab.CompareTag("PW") && nearItem.CompareTag("PW"))
-                {
-                    instantiatedItem = Instantiate(itemPrefab, itemSlot.position, itemSlot.rotation);
-                    primaryWeapon = instantiatedItem.gameObject;
-                    countWeapons++;
-                    weapons++;
-                    Destroy(nearItem.gameObject);
-                    instantiatedItem.transform.parent = primarySlot;
-                    nearItem = null;
-                    WeaponController pwIcon = instantiatedItem.GetComponentInChildren<WeaponController>();
-                    primaryWeaponIcon.sprite = pwIcon.weaponIcon;
-                    primaryWeaponIcon.gameObject.SetActive(true);
-                    break;
-                }
-                else if (itemPrefab.CompareTag("SW") && nearItem.CompareTag("SW"))
-                {
-                    instantiatedItem = Instantiate(itemPrefab, itemSlot.position, itemSlot.rotation);
-                    secondaryWeapon = instantiatedItem.gameObject;
-                    countWeapons++;
-                    weapons++;
-                    Destroy(nearItem.gameObject);
-                    instantiatedItem.transform.parent = secondarySlot;
-                    nearItem = null;
-                    WeaponController swIcon = instantiatedItem.GetComponentInChildren<WeaponController>();
-                    secondaryWeaponIcon.sprite = swIcon.weaponIcon;
-                    secondaryWeaponIcon.gameObject.SetActive(true);
-                    break;
-                }
-                else if (itemPrefab.CompareTag("TW") && nearItem.CompareTag("TW"))
-                {
-                    instantiatedItem = Instantiate(itemPrefab, itemSlot.position, itemSlot.rotation);
-                    throwableWeapon = instantiatedItem.gameObject;
-                    countWeapons++;
-                    weapons++;
-                    Destroy(nearItem.gameObject);
-                    instantiatedItem.transform.parent = throwableSlot;
-                    nearItem = null;
-                    GrenadeController twIcon = instantiatedItem.GetComponentInChildren<GrenadeController>();
-                    throwableWeaponIcon.sprite = twIcon.weaponIcon;
-                    throwableWeaponIcon.gameObject.SetActive(true);
-                    break;
-                }
-                else if (itemPrefab.CompareTag("Botiquin") && nearItem.CompareTag("Botiquin"))
-                {
-                    RecoveryHealth(25);
-                    Destroy(nearItem.gameObject);
-                }
-            }
-        }
-    }
-    
-
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class IdleState<T> : State<T>
@@ -50,34 +49,32 @@ public class IdleState<T> : State<T>
                 _playerController.theCamera.rotation = Quaternion.Lerp(_playerController.theCamera.rotation, _playerController.cameraTrack.rotation, _playerController.cameraSpeed * theTime);
             }
         }
-        
-
         //ActionsLogic
-        //Inventory
-        if (Input.GetKeyDown(KeyCode.Tab))
+        /*Inventory
+        if (Input.GetKeyDown(KeyCode.Tab)) No cierra el inventario cuando vuelvo a presionar Tab
         {
             _playerController.inventoryOpen = !_playerController.inventoryOpen;
             Cursor.lockState = _playerController.inventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
             Cursor.visible = _playerController.inventoryOpen;
-        }
-        if (_playerController.inventoryOpen == false) _playerController.inventoryController.gameObject.SetActive(false);
-        else _playerController.inventoryController.gameObject.SetActive(true);
-        if (Input.GetKeyDown(KeyCode.G)) _playerController.Drop();
+            if (_playerController.inventoryOpen == false) _playerController.inventoryController.gameObject.SetActive(false);
+            else _playerController.inventoryController.gameObject.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.G)) _playerController.Drop();
+        }*/
 
-        /*ItemLogic
-        if (_playerController.nearItem != null && Input.GetKeyDown(KeyCode.E))
+        //ItemLogic
+        if (_playerController.nearItem != null && Input.GetKeyDown(KeyCode.E)) 
         {
             GameObject instantiatedItem = null;
             int countWeapons = 0;
             foreach (GameObject itemPrefab in _playerController.itemPrefab)
             {
-                if (_playerController.itemPrefab.CompareTag("PW") && _playerController.nearItem.CompareTag("PW"))
+                if (itemPrefab.CompareTag("PW") && _playerController.nearItem.CompareTag("PW"))
                 {
-                    instantiatedItem = Instantiate(_playerController.itemPrefab, _playerController.itemSlot.position, _playerController.itemSlot.rotation);
+                    instantiatedItem = GameObject.Instantiate(itemPrefab, _playerController.itemSlot.position, _playerController.itemSlot.rotation);
                     _playerController.primaryWeapon = instantiatedItem.gameObject;
                     countWeapons++;
                     _playerController.weapons++;
-                    Destroy(_playerController.nearItem.gameObject);
+                    GameObject.Destroy(_playerController.nearItem.gameObject);
                     instantiatedItem.transform.parent = _playerController.primarySlot;
                     _playerController.nearItem = null;
                     WeaponController pwIcon = instantiatedItem.GetComponentInChildren<WeaponController>();
@@ -85,13 +82,13 @@ public class IdleState<T> : State<T>
                     _playerController.primaryWeaponIcon.gameObject.SetActive(true);
                     break;
                 }
-                else if (_playerController.itemPrefab.CompareTag("SW") && _playerController.nearItem.CompareTag("SW"))
+                else if (itemPrefab.CompareTag("SW") && _playerController.nearItem.CompareTag("SW"))
                 {
-                    instantiatedItem = Instantiate(_playerController.itemPrefab, _playerController.itemSlot.position, _playerController.itemSlot.rotation);
+                    instantiatedItem = GameObject.Instantiate(itemPrefab, _playerController.itemSlot.position, _playerController.itemSlot.rotation);
                     _playerController.secondaryWeapon = instantiatedItem.gameObject;
                     countWeapons++;
                     _playerController.weapons++;
-                    Destroy(_playerController.nearItem.gameObject);
+                    GameObject.Destroy(_playerController.nearItem.gameObject);
                     instantiatedItem.transform.parent = _playerController.secondarySlot;
                     _playerController.nearItem = null;
                     WeaponController swIcon = instantiatedItem.GetComponentInChildren<WeaponController>();
@@ -99,13 +96,13 @@ public class IdleState<T> : State<T>
                     _playerController.secondaryWeaponIcon.gameObject.SetActive(true);
                     break;
                 }
-                else if (_playerController.itemPrefab.CompareTag("TW") && _playerController.nearItem.CompareTag("TW"))
+                else if (itemPrefab.CompareTag("TW") && _playerController.nearItem.CompareTag("TW"))
                 {
-                    instantiatedItem = Instantiate(_playerController.itemPrefab, _playerController.itemSlot.position, _playerController.itemSlot.rotation);
+                    instantiatedItem = GameObject.Instantiate(itemPrefab, _playerController.itemSlot.position, _playerController.itemSlot.rotation);
                     _playerController.throwableWeapon = instantiatedItem.gameObject;
                     countWeapons++;
                     _playerController.weapons++;
-                    _playerController.Destroy(_playerController.nearItem.gameObject);
+                    GameObject.Destroy(_playerController.nearItem.gameObject);
                     instantiatedItem.transform.parent = _playerController.throwableSlot;
                     _playerController.nearItem = null;
                     GrenadeController twIcon = instantiatedItem.GetComponentInChildren<GrenadeController>();
@@ -113,14 +110,14 @@ public class IdleState<T> : State<T>
                     _playerController.throwableWeaponIcon.gameObject.SetActive(true);
                     break;
                 }
-                else if (_playerController.itemPrefab.CompareTag("Botiquin") && _playerController.nearItem.CompareTag("Botiquin"))
+                else if (itemPrefab.CompareTag("Botiquin") && _playerController.nearItem.CompareTag("Botiquin"))
                 {
                     _playerController.RecoveryHealth(25);
-                    Destroy(_playerController.nearItem.gameObject);
+                    GameObject.Destroy(_playerController.nearItem.gameObject);
                 }
             }
         }
-    }*/
+
         //AnimLogic
         _playerController.playerAnim.SetFloat("X", _playerController.newDirection.x);
         _playerController.playerAnim.SetFloat("Y", _playerController.newDirection.y);
