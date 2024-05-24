@@ -43,9 +43,9 @@ public class PlayerController : MonoBehaviour
     public Transform cameraAxis;
     public Transform cameraTrack;
     public Transform cameraWeaponTrack;
-    private Transform theCamera;
-    private float rotY = 0f;
-    private float rotX = 0f;
+    public Transform theCamera;
+    public float rotY = 0f;
+    public float rotX = 0f;
     public float camRotSpeed = 200f;
     public float minAngle = -45f;
     public float maxAngle = 45f;
@@ -79,27 +79,27 @@ public class PlayerController : MonoBehaviour
     {
         _fsm = new FSM<StatesEnumuno>();
 
-        var idle = new IdleState<StatesEnumuno>(StatesEnumuno.Walk);
-        var walk = new WalkState<StatesEnumuno>(this, StatesEnumuno.Idle);
-        var actions = new ActionsState<StatesEnumuno>(this,StatesEnumuno.Actions);
-        var camera = new CameraState<StatesEnumuno>(this, StatesEnumuno.Camera);
+        var idle = new IdleState<StatesEnumuno>(this,StatesEnumuno.Idle);
+        var walk = new WalkState<StatesEnumuno>(this, StatesEnumuno.Walk);
+        //var actions = new ActionsState<StatesEnumuno>(this,StatesEnumuno.Actions);
+        //var camera = new CameraState<StatesEnumuno>(this, StatesEnumuno.Camera);
 
         idle.AddTransition(StatesEnumuno.Walk, walk);
         walk.AddTransition(StatesEnumuno.Idle, idle);
 
-        idle.AddTransition(StatesEnumuno.Actions, actions);
-        walk.AddTransition(StatesEnumuno.Actions, actions);
+        //idle.AddTransition(StatesEnumuno.Actions, actions);
+        //walk.AddTransition(StatesEnumuno.Actions, actions);
 
-        actions.AddTransition(StatesEnumuno.Idle, idle);
-        actions.AddTransition(StatesEnumuno.Walk, walk);
+        //actions.AddTransition(StatesEnumuno.Idle, idle);
+        //actions.AddTransition(StatesEnumuno.Walk, walk);
 
-        idle.AddTransition(StatesEnumuno.Camera, camera);
-        walk.AddTransition(StatesEnumuno.Camera, camera);
+        //idle.AddTransition(StatesEnumuno.Camera, camera);
+        //walk.AddTransition(StatesEnumuno.Camera, camera);
 
-        camera.AddTransition(StatesEnumuno.Idle, idle);
-        camera.AddTransition(StatesEnumuno.Walk, walk);
+        //camera.AddTransition(StatesEnumuno.Idle, idle);
+        //camera.AddTransition(StatesEnumuno.Walk, walk);
 
-        _fsm.SetInit(idle);
+        _fsm.SetInit(walk);
     }
     void Start()
     {
@@ -117,11 +117,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Player) CameraLogic();
         if (!Active) return;
         ActionsLogic();
         ItemLogic();
-        AnimLogic();
         _fsm.OnUpdate();
     }
 
@@ -143,53 +141,6 @@ public class PlayerController : MonoBehaviour
         playerRb.velocity = endDirection;
     }
     
-    public void CameraLogic()
-    {
-        if (inventoryOpen == true) return;
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
-        float theTime = Time.deltaTime;
-        rotY += mouseY * theTime * camRotSpeed;
-        rotX = mouseX * theTime * camRotSpeed;
-        playerTr.Rotate(0, rotX, 0); //Para que rote con la camara
-        rotY = Mathf.Clamp(rotY, minAngle, maxAngle);
-        Quaternion localRotation = Quaternion.Euler(-rotY, 0, 0);
-        cameraAxis.localRotation = localRotation;
-        if (hasPistol || hasRiffle || hasGrenade)
-        {
-            cameraTrack.gameObject.SetActive(false);
-            cameraWeaponTrack.gameObject.SetActive(true);
-            crosshair.gameObject.SetActive(true);
-            theCamera.position = Vector3.Lerp(theCamera.position, cameraWeaponTrack.position, cameraSpeed * theTime);
-            theCamera.rotation = Quaternion.Lerp(theCamera.rotation, cameraWeaponTrack.rotation, cameraSpeed * theTime);
-        }
-        else
-        {
-            cameraTrack.gameObject.SetActive(true);
-            cameraWeaponTrack.gameObject.SetActive(false);
-            theCamera.position = Vector3.Lerp(theCamera.position, cameraTrack.position, cameraSpeed * theTime);
-            theCamera.rotation = Quaternion.Lerp(theCamera.rotation, cameraTrack.rotation, cameraSpeed * theTime);
-        }
-    }
-    public void AnimLogic()
-    {
-        playerAnim.SetFloat("X", newDirection.x);
-        playerAnim.SetFloat("Y", newDirection.y);
-        playerAnim.SetBool("holdPistol", hasPistol);
-        playerAnim.SetBool("holdRiffle", hasRiffle);
-        playerAnim.SetBool("holdGrenade", hasGrenade);
-        if (hasPistol || hasRiffle) 
-        {
-            playerAnim.SetLayerWeight(2, 0);
-            playerAnim.SetLayerWeight(1, 1); 
-        }
-        else if (hasGrenade)
-        {
-            playerAnim.SetLayerWeight(1, 0);
-            playerAnim.SetLayerWeight(2, 1);
-        }
-    }
-
     public void ActionsLogic() 
     {
         //Inventory

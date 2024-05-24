@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraState<T> : State<T>
 {
+    /*
     private PlayerController _playerController;
     private T _idleState;
 
@@ -19,6 +20,7 @@ public class CameraState<T> : State<T>
     } 
     public void CameraLogic()
     {
+        
         if (_playerController.inventoryOpen == true) return;
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
@@ -48,5 +50,5 @@ public class CameraState<T> : State<T>
         {
             _playerController._fsm.Transition(_idleState);
         }
-    }
+    }*/
 }
