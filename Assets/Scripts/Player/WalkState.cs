@@ -21,7 +21,7 @@ public class WalkState<T> : State<T>
     }
     public override void Execute()
     {
-
+        //MoveLogic
         if (_playerController.inventoryOpen == true) return;
         Vector3 direction = _playerController.playerRb.velocity;
         float moveX = Input.GetAxis("Horizontal");
@@ -70,7 +70,7 @@ public class WalkState<T> : State<T>
         
     
         //ActionsLogic
-        /*Inventory
+        //Inventory
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             _playerController.inventoryOpen = !_playerController.inventoryOpen;
@@ -79,7 +79,7 @@ public class WalkState<T> : State<T>
         }
         if (_playerController.inventoryOpen == false) _playerController.inventoryController.gameObject.SetActive(false);
         else _playerController.inventoryController.gameObject.SetActive(true);
-        if (Input.GetKeyDown(KeyCode.G)) _playerController.Drop();*/
+        if (Input.GetKeyDown(KeyCode.G)) _playerController.Drop();
 
         //ItemLogic
 

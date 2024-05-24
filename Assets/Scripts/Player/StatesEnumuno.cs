@@ -4,11 +4,6 @@ using UnityEngine;
 
 public enum StatesEnumuno
 {
-    Default,
     Idle,
     Walk,
-    Camera,
-    Actions,
-    Items,
-    Anims,
 }

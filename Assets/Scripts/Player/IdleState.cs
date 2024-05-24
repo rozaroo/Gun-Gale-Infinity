@@ -14,6 +14,7 @@ public class IdleState<T> : State<T>
     }
     public override void Execute()
     {
+        //MoveLogic
         base.Execute();
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -52,7 +53,7 @@ public class IdleState<T> : State<T>
         
 
         //ActionsLogic
-        /*Inventory
+        //Inventory
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             _playerController.inventoryOpen = !_playerController.inventoryOpen;
@@ -61,7 +62,7 @@ public class IdleState<T> : State<T>
         }
         if (_playerController.inventoryOpen == false) _playerController.inventoryController.gameObject.SetActive(false);
         else _playerController.inventoryController.gameObject.SetActive(true);
-        if (Input.GetKeyDown(KeyCode.G)) _playerController.Drop();*/
+        if (Input.GetKeyDown(KeyCode.G)) _playerController.Drop();
 
         /*ItemLogic
         if (_playerController.nearItem != null && Input.GetKeyDown(KeyCode.E))

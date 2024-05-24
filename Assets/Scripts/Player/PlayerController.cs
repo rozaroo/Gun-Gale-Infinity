@@ -118,29 +118,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (!Active) return;
-        ActionsLogic();
+        //ActionsLogic();
         ItemLogic();
         _fsm.OnUpdate();
     }
 
-    public void MoveLogic()
-    {
-        if (inventoryOpen == true) return;
-        Vector3 direction = playerRb.velocity;
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
-        float theTime = Time.deltaTime;
-        newDirection = new Vector2(moveX, moveZ);
-
-        //Vector3 movementDirection = new Vector3(moveX, 0, moveZ).normalized;
-        //Vector3 velocity = movementDirection * playerSpeed * Time.deltaTime;
-
-        Vector3 side = playerSpeed * moveX * theTime * playerTr.right;
-        Vector3 forward = playerSpeed * moveZ * theTime * playerTr.forward;
-        Vector3 endDirection = side + forward;
-        playerRb.velocity = endDirection;
-    }
-    
     public void ActionsLogic() 
     {
         //Inventory
