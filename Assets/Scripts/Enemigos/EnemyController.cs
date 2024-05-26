@@ -64,8 +64,10 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     }
     void InitializeSteerings()
     {
+        var evade = new Evade(enemy.transform, target, timePrediction);
         var pursuit = new Pursuit(enemy.transform, target, timePrediction);
-        _steering = pursuit;
+        //_steering = pursuit;
+        _steering = evade;
         _obstacleAvoidance = new ObstacleAvoidance(enemy.transform, angle, radius, maskObs,2.5f);
     }
     void InitializeFSM()
