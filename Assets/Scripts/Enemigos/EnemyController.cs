@@ -130,7 +130,7 @@ public class EnemyController : MonoBehaviour, ILineOfSight
         //QuestionRange = auxiliarnode._question;
         var qRange = new QuestionNode(QuestionAttackRange(), attack,pursuit);
         //var qRangeAttack = new QuestionNode(QuestionAttackRange(), attack,chase);
-        var qLoS = new QuestionNode(QuestionLos(), Astar,qRange);
+        var qLoS = new QuestionNode(QuestionLos(), patrol,qRange);
         var qHasLife = new QuestionNode(QuestionHP(), dead,qLoS);
         _root = qHasLife;
     }
