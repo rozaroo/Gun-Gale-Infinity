@@ -30,5 +30,6 @@ public class EnemyStateSteering<T> : State<T>
         //Rotación al Jugador 
         //Quaternion targetRotation = Quaternion.LookRotation(_enemy.player.position);
         //_enemy.transform.rotation = Quaternion.Slerp(_enemy.transform.rotation, targetRotation, Time.deltaTime * 5f);
+        Debug.Log("Persiguiendo");
     }
 }
