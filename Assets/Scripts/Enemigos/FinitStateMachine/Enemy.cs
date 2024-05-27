@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
     }
     public void Movetwo(Vector3 dir)
     {
-        dir *= speed;
+        dir *= (speed * Time.deltaTime);
         dir.y = _rb.velocity.y;
         _rb.velocity = dir;
     }

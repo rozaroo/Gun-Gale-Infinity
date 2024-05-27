@@ -115,7 +115,7 @@ public class EnemyController : MonoBehaviour, ILineOfSight
         _stateFollowPoints.AddTransition(StatesEnum.Patroll, patroll);
         _stateFollowPoints.AddTransition(StatesEnum.Steering, steering);
 
-        _fsm = new FSM<StatesEnum>(_stateFollowPoints);
+        _fsm = new FSM<StatesEnum>(steering);
     }
     void InitializedTree()
     {
@@ -123,12 +123,12 @@ public class EnemyController : MonoBehaviour, ILineOfSight
         var attack = new ActionNode(() => _fsm.Transition(StatesEnum.Attack));
         var chase = new ActionNode(() => _fsm.Transition(StatesEnum.Chase));
         var patrol = new ActionNode(() => _fsm.Transition(StatesEnum.Patroll));
-        var pursuit = new ActionNode(() => _fsm.Transition(StatesEnum.Steering));
+        var steering = new ActionNode(() => _fsm.Transition(StatesEnum.Steering));
         var Astar = new ActionNode(() => _fsm.Transition(StatesEnum.Waypoints));
         //Preguntas 
         //auxiliarnode = new QuestionNode(QuestionAttackRange(), attack, chase);
         //QuestionRange = auxiliarnode._question;
-        var qRange = new QuestionNode(QuestionAttackRange(), attack,pursuit);
+        var qRange = new QuestionNode(QuestionAttackRange(), attack,steering);
         //var qRangeAttack = new QuestionNode(QuestionAttackRange(), attack,chase);
         var qLoS = new QuestionNode(QuestionLos(), patrol,qRange);
         var qHasLife = new QuestionNode(QuestionHP(), dead,qLoS);

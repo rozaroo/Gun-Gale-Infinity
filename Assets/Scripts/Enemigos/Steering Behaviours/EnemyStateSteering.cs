@@ -25,7 +25,7 @@ public class EnemyStateSteering<T> : State<T>
     public override void Execute()
     {
         var dir = _obs.GetDir(_steering.GetDir(), false);
-        _enemy.Movetwo(dir);
+        _enemy.Move(dir);
         _enemy.LookDir(dir);
         //Rotación al Jugador 
         //Quaternion targetRotation = Quaternion.LookRotation(_enemy.player.position);
