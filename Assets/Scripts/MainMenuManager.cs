@@ -7,9 +7,6 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-
-    //[SerializeField] private GameObject levelsButtons;
-
     public void QuitGame()
     {
         Application.Quit();
@@ -18,16 +15,8 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-    public void LoadLevel1()
+    public void MainMenu()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
-    public void LoadLevel2()
-    {
-        SceneManager.LoadScene(3);
-    }
-    //public void ToggleLevels()
-    //{ 
-        //levelsButtons.SetActive(!levelsButtons.active);
-    //}
 }
