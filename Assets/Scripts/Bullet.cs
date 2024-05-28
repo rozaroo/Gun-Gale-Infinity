@@ -9,8 +9,18 @@ public class Bullet : MonoBehaviour
     public void OnCollisionEnter(Collision collision) 
     {
         var enemy = collision.collider.GetComponent<Enemy>();
-        if (enemy != null) enemy.TakeDamage(damageAmount);
-        Destroy(gameObject);
+        if (enemy != null) 
+        {
+            enemy.TakeDamage(damageAmount);
+            Destroy(gameObject);
+        }
+        var enemy2 = collision.collider.GetComponent<EnemyTwo>();
+        if (enemy2 != null) 
+        {
+            enemy2.TakeDamage(damageAmount);
+            Destroy(gameObject);
+        }
+        
     }
     
 }

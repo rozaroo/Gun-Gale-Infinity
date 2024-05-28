@@ -32,7 +32,7 @@ public class FSM<T>
         if (newState != null)
         {
             _current.Sleep();
-            Debug.Log(_current + " TO: " + newState);
+            //Debug.Log(_current + " TO: " + newState);
             _current = newState;
             _current.SetFSM = this;
             _current.Enter();
