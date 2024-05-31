@@ -5,12 +5,12 @@ using UnityEngine;
 public class SlimeSteeringState<T> : State<T>
 {
     ISteering _steering;
-    Slime _slime;
+    SlimeController _slimecontroller;
     ObstacleAvoidance _obs;
-    public SlimeSteeringState(Slime slime, ISteering steering, ObstacleAvoidance obs)
+    public SlimeSteeringState(SlimeController slimecontroller, ISteering steering, ObstacleAvoidance obs)
     {
         _steering = steering;
-        _slime = slime;
+        _slimecontroller = slimecontroller;
         _obs = obs;
     }
    
@@ -21,7 +21,7 @@ public class SlimeSteeringState<T> : State<T>
     public override void Execute()
     {
         var dir = _obs.GetDir(_steering.GetDir(), false);
-        _slime.Move(dir);
-        _slime.LookDir(dir);
+        _slimecontroller.Move(dir);
+        _slimecontroller.LookDir(dir);
     }
 }

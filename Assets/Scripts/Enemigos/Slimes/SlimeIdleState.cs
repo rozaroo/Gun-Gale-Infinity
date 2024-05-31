@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SlimeIdleState<T> : State<T>
 {
-    Slime _slime;
-    public SlimeIdleState(Slime slime)
+    SlimeController _slimecontroller;
+    public SlimeIdleState(SlimeController slimecontroller)
     {
-        _slime = slime;
+        _slimecontroller = slimecontroller;
     }
     public override void Sleep()
     {

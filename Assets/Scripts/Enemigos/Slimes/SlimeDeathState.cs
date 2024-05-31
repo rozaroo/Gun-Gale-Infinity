@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class SlimeDeathState<T> : State<T>
 {
-    public Slime _slime;
+    SlimeController _slimecontroller;
     public PlayerController _playerController;
-    public SlimeDeathState(Slime slime, PlayerController playerController)
+    public SlimeDeathState(SlimeController slimecontroller, PlayerController playerController)
     {
-        _slime = slime;
+        _slimecontroller = slimecontroller;
         _playerController = playerController;
     }
     public override void Enter()
     {
         _playerController.RecoveryHealth(1);
-        _slime.DestroySlime();
+        _slimecontroller.DestroySlime();
     }
 }

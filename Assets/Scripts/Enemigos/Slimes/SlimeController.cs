@@ -16,7 +16,6 @@ public class SlimeController : MonoBehaviour, ILineOfSight
     public Transform player;
     LineOfSight _los;
     FSM<StatesEnumTres> _fsm;
-    Slime slime;
     ITreeNode _root;
     Func<bool> QuestionRange;
     QuestionNode auxiliarnode;
@@ -38,11 +37,27 @@ public class SlimeController : MonoBehaviour, ILineOfSight
 
     //A-star
     //EnemyStateFollowPoints<StatesEnum> _stateFollowPoints;
+    #region Slime
+    Quaternion targetRotation;
+    private int HP = 100;
+    public Transform player;
+    public float speed;
+    public float speedRoot;
+    //------------------------
+    float timer;
+    float chaseRange = 8;
+    Rigidbody _rb;
+
+    public Vector3 Position => transform.position;
+    public Vector3 Front => transform.forward;
+
+    public GameObject particlePrefab;
+    #endregion
 
     private void Awake()
     {
-        slime = GetComponent<Slime>();
         playerController = FindObjectOfType<PlayerController>();
+        _rb = GetComponent<Rigidbody>();
     }
     private void Start()
     {
@@ -60,13 +75,13 @@ public class SlimeController : MonoBehaviour, ILineOfSight
     void InitializeSteerings()
     {
         _steering = GetComponent<FlockingManager>();
-        _obstacleAvoidance = new ObstacleAvoidance(slime.transform, angle, radius, maskObs, 2.5f);
+        _obstacleAvoidance = new ObstacleAvoidance(SlimeController.transform, angle, radius, maskObs, 2.5f);
     }
     void InitializeFSM()
     {
-        var idle = new SlimeIdleState<StatesEnumTres>(slime);
-        var dead = new SlimeDeathState<StatesEnumTres>(slime, playerController);
-        var steering = new SlimeSteeringState<StatesEnumTres>(slime, _steering, _obstacleAvoidance);
+        var idle = new SlimeIdleState<StatesEnumTres>(this);
+        var dead = new SlimeDeathState<StatesEnumTres>(this, playerController);
+        var steering = new SlimeSteeringState<StatesEnumTres>(this, _steering, _obstacleAvoidance);
 
         idle.AddTransition(StatesEnumTres.Steering, steering);
         idle.AddTransition(StatesEnumTres.Dead, dead);
@@ -141,6 +156,38 @@ public class SlimeController : MonoBehaviour, ILineOfSight
         Gizmos.color = Color.red;
         Gizmos.DrawRay(Origin, Quaternion.Euler(0, angle / 2, 0) * Forward * range);
         Gizmos.DrawRay(Origin, Quaternion.Euler(0, -(angle / 2), 0) * Forward * range);
+    }
+    #endregion
+
+    #region SlimeFunciones
+    public void TakeDamage(int damageAmount)
+    {
+        HP -= damageAmount;
+    }
+
+    public void Move(Vector3 direction)
+    {
+        transform.position += direction * Time.deltaTime * speed;
+    }
+    public void Movetwo(Vector3 dir)
+    {
+        dir *= (speed * Time.deltaTime);
+        dir.y = _rb.velocity.y;
+        _rb.velocity = dir;
+    }
+    public void LookDir(Vector3 dir)
+    {
+        if (dir.x == 0 && dir.z == 0) return;
+        transform.forward = dir;
+    }
+    public void SetPosition(Vector3 pos)
+    {
+        transform.position = pos;
+    }
+    public void DestroySlime()
+    {
+        Instantiate(particlePrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
     #endregion
 }
