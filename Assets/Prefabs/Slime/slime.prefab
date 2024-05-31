@@ -66,9 +66,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79e4580df89445c41aef813d70d46c61, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1040544770097125691}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79e4580df89445c41aef813d70d46c61, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7746423051280117971}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79e4580df89445c41aef813d70d46c61, type: 3}
       insertIndex: -1
@@ -100,22 +97,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 79e4580df89445c41aef813d70d46c61, type: 3}
   m_PrefabInstance: {fileID: 6129850107497309832}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1040544770097125691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6471940824636152793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d621c42e71ae5504a957da8d9ad6ef77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  speed: 5
-  speedRoot: 5
-  particlePrefab: {fileID: 4575891335400786472, guid: 8a8a909dcb4eeaf48aa11eea61a33b00, type: 3}
 --- !u!114 &7746423051280117971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +119,9 @@ MonoBehaviour:
   target: {fileID: 0}
   timePrediction: 0
   radius: 0
+  speed: 5
+  speedRoot: 5
+  particlePrefab: {fileID: 4575891335400786472, guid: 8a8a909dcb4eeaf48aa11eea61a33b00, type: 3}
 --- !u!54 &7779040037350984886
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -163,7 +147,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &-6124450240834240598
 CapsuleCollider:
@@ -184,8 +168,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.009693438
-  m_Height: 0.019394008
+  m_Radius: 1.315668
+  m_Height: 2.631336
   m_Direction: 1
   m_Center: {x: 0.000033164397, y: -0.000012797301, z: 0.0068978993}
 --- !u!114 &-5438372463202406721
@@ -230,8 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9389c9e0575946f47bc12ad4938afed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 1
-  personalArea: 2
+  multiplier: 5
+  personalArea: 4
 --- !u!114 &-5448088044824614905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56121b31f3d9c54d8dd104e7ecef157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 1
+  multiplier: 1.5
 --- !u!114 &7323772427271709577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,9 +241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2c436400fe8094ea8ad880a1062def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  multiplier: 4
   target: {fileID: 0}
-  isActive: 1
+  isActive: 0
 --- !u!114 &8877717896109501894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,9 +256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfdafc66791264044b8819e955d15632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
-  predatorRange: 2
+  multiplier: 20
+  predatorRange: 10
   predatorMax: 5
   predatorMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048

@@ -26,14 +26,12 @@ public class FlockingManager : MonoBehaviour, ISteering
         {
             var currBoid = _colliders[i].GetComponent<IBoid>();
             //print(currBoid);
-            if (currBoid != null && currBoid != _self)
-                _boids.Add(currBoid);
+            if (currBoid != null && currBoid != _self) _boids.Add(currBoid);
         }
         Vector3 dir = Vector3.zero;
         for (int i = 0; i < _flockings.Length; i++)
         {
             var flockBehaviour = _flockings[i];
-
             dir += flockBehaviour.GetDir(_boids, _self);
         }
         return dir.normalized;

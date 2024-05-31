@@ -74,7 +74,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     void InitializeSteerings()
     {
         _steering = GetComponent<FlockingManager>();
-        _obstacleAvoidance = new ObstacleAvoidance(SlimeController.transform, angle, radius, maskObs, 2.5f);
+        _obstacleAvoidance = new ObstacleAvoidance(this.transform, angle, radius, maskObs, 2.5f);
     }
     void InitializeFSM()
     {
@@ -101,7 +101,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
         var idle = new ActionNode(() => _fsm.Transition(StatesEnumTres.Idle));
 
         var qLoS = new QuestionNode(QuestionLosPlayer(), steering, idle);
-        var qHasLife = new QuestionNode(QuestionHP(), dead, qLoS);
+        var qHasLife = new QuestionNode(QuestionHP(), steering, steering);
         _root = qHasLife;
     }
     #region Questions
