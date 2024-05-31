@@ -10,7 +10,7 @@ public enum StatesEnumTres
     Steering,
 }
 
-public class SlimeController : MonoBehaviour, ILineOfSight
+public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
 {
     public float distance;
     public Transform player;
