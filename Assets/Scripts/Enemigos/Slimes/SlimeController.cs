@@ -119,7 +119,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     }
     Func<bool> QuestionHP()
     {
-        return () => slime.GetHP() <= 0;
+        return () => HP <= 0;
     }
 
     #endregion
