@@ -20,7 +20,13 @@ public class Bullet : MonoBehaviour
             enemy2.TakeDamage(damageAmount);
             Destroy(gameObject);
         }
-        
+        var slime = collision.collider.GetComponent<SlimeController>();
+        if (slime != null)
+        {
+            slime.TakeDamage(damageAmount);
+            Destroy(gameObject);
+        }
+
     }
     
 }

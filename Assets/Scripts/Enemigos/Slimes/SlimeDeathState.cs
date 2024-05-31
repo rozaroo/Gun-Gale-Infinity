@@ -13,7 +13,7 @@ public class SlimeDeathState<T> : State<T>
     }
     public override void Enter()
     {
-        _playerController.RecoveryHealth(1);
+        _playerController.RecoveryHealth(20);
         _slimecontroller.DestroySlime();
     }
 }

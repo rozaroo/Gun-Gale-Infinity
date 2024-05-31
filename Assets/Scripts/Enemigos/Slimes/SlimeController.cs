@@ -39,7 +39,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     //EnemyStateFollowPoints<StatesEnum> _stateFollowPoints;
     #region Slime
     Quaternion targetRotation;
-    private int HP = 100;
+    private int HP = 20;
     public float speed;
     public float speedRoot;
     //------------------------
@@ -101,7 +101,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
         var idle = new ActionNode(() => _fsm.Transition(StatesEnumTres.Idle));
 
         var qLoS = new QuestionNode(QuestionLosPlayer(), steering, idle);
-        var qHasLife = new QuestionNode(QuestionHP(), steering, steering);
+        var qHasLife = new QuestionNode(QuestionHP(), dead, qLoS);
         _root = qHasLife;
     }
     #region Questions
@@ -185,8 +185,21 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     }
     public void DestroySlime()
     {
-        Instantiate(particlePrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        StartCoroutine(EmitParticlesForTime(1.0f));
     }
+    private IEnumerator EmitParticlesForTime(float duration) 
+    {
+        GameObject particleObject = Instantiate(particlePrefab, transform.position, Quaternion.identity);
+        ParticleSystem particleSystem = particleObject.GetComponent<ParticleSystem>();
+        if (particleSystem != null ) 
+        {
+            particleSystem.Play();
+            yield return new WaitForSeconds(duration);
+            particleSystem.Stop();
+            Destroy(gameObject);
+            Destroy(particleObject, particleSystem.main.startLifetime.constantMax);
+        }
+    }
+
     #endregion
 }

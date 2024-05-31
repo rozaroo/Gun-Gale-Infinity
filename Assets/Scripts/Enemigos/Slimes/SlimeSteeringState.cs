@@ -20,7 +20,7 @@ public class SlimeSteeringState<T> : State<T>
     }
     public override void Execute()
     {
-        var dir = _obs.GetDir(_steering.GetDir(), false);
+        var dir = -_obs.GetDir(_steering.GetDir(), false);
         _slimecontroller.Move(dir);
         _slimecontroller.LookDir(dir);
     }
