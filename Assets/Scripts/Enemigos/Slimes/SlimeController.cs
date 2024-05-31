@@ -40,7 +40,6 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     #region Slime
     Quaternion targetRotation;
     private int HP = 100;
-    public Transform player;
     public float speed;
     public float speedRoot;
     //------------------------
