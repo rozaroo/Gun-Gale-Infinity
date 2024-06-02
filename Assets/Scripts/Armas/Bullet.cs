@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
             enemy.TakeDamage(damageAmount);
             Destroy(gameObject);
         }
-        var enemy2 = collision.collider.GetComponent<EnemyTwo>();
+        var enemy2 = collision.collider.GetComponent<EnemyControllerTwo>();
         if (enemy2 != null) 
         {
             enemy2.TakeDamage(damageAmount);

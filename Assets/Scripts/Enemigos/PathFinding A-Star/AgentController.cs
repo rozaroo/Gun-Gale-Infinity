@@ -4,30 +4,20 @@ using UnityEngine;
 
 public class AgentController : MonoBehaviour
 {
-    public EnemyController enemy;
+    public SlimeController slime;
     public float radius = 3;
     public LayerMask maskNodes;
     public LayerMask maskObs;
     public Objetive objetive;
     public Node target;
 
-    void Start()
-    {
-        RunAStar();
-    }
-
-
-    void Update()
-    {
-        RunAStar();
-    }
     
     public void RunAStar()
     {
-        var start = GetNearNode(enemy.transform.position);
+        var start = GetNearNode(slime.transform.position);
         if (start == null) return;
         List<Node> path = AStar.Run(start, GetConnections, IsSatiesfies, GetCost, Heuristic);
-        enemy.GetStateWaypoints.SetWayPoints(path);
+        slime.GetStateWaypoints.SetWayPoints(path);
         objetive.SetWayPoints(path);
     }
     float Heuristic(Node current)
@@ -77,6 +67,6 @@ public class AgentController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(enemy.transform.position, radius);
+        Gizmos.DrawWireSphere(slime.transform.position, radius);
     }
 }

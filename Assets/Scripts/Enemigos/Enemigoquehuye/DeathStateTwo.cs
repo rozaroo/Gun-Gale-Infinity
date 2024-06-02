@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class DeathStateTwo<T> : State<T>
 {
-    public EnemyTwo _enemytwo;
+    EnemyControllerTwo _enemycontrollertwo;
     public LevelManager _levelManager;
-    public DeathStateTwo(EnemyTwo enemytwo, LevelManager levelManager)
+    public DeathStateTwo(EnemyControllerTwo enemycontrollertwo, LevelManager levelManager)
     {
-        _enemytwo = enemytwo;
+        _enemycontrollertwo = enemycontrollertwo;
         _levelManager = levelManager;
     }
     public override void Enter()
     {
-        _enemytwo.animator.SetTrigger("die");
-        _enemytwo.GetComponent<Collider>().enabled = false;
-        _enemytwo.SpawnRandomDrop();
+        _enemycontrollertwo.animator.SetTrigger("die");
+        _enemycontrollertwo.GetComponent<Collider>().enabled = false;
+        _enemycontrollertwo.SpawnRandomDrop();
         _levelManager.Enemies--;
-        GameObject.Destroy(_enemytwo.gameObject, 2f);
+        GameObject.Destroy(_enemycontrollertwo.gameObject, 2f);
     }
 }

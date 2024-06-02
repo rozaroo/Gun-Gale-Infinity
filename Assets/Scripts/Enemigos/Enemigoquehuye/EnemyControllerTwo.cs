@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.UI.Image;
+using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public enum StatesEnumDos
 {
@@ -18,7 +19,6 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     public Transform player;
     LineOfSight _los;
     FSM<StatesEnumDos> _fsm;
-    EnemyTwo enemytwo;
     ITreeNode _root;
     Func<bool> QuestionRange;
     QuestionNode auxiliarnode;
@@ -40,11 +40,29 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
 
     //A-star
     //EnemyStateFollowPoints<StatesEnum> _stateFollowPoints;
+    #region EnemyTwo
+    Quaternion targetRotation;
+    private int HP = 100;
+    public Slider healthBar;
+    public Animator animator;
+    public float speed;
+    public GameObject[] dropPrefabs;
+    public float[] dropProbabilities;
+    public Transform dropSpawnPoint;
+    //------------------------
+    float timer;
+    float chaseRange = 8;
+    int currentWaypointIndex = 0;
+    ISteering _steering;
+
+    Rigidbody _rb;
+    #endregion
+
 
     private void Awake()
     {
-        enemytwo = GetComponent<EnemyTwo>();
         lvlManager = FindObjectOfType<LevelManager>();
+        _rb = GetComponent<Rigidbody>();
     }
     private void Start()
     {
@@ -55,21 +73,22 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     }
     private void Update()
     {
+        healthBar.value = HP;
         distance = Vector3.Distance(player.position, transform.position);
         if (_fsm != null) _fsm.OnUpdate();
         if (_root != null) _root.Execute();
     }
     void InitializeSteerings()
     {
-        var evade = new Evade(enemytwo.transform, target, timePrediction);
+        var evade = new Evade(this.transform, target, timePrediction);
         _steering = evade;
-        _obstacleAvoidance = new ObstacleAvoidance(enemytwo.transform, angle, radius, maskObs, 2.5f);
+        _obstacleAvoidance = new ObstacleAvoidance(this.transform, angle, radius, maskObs, 2.5f);
     }
     void InitializeFSM()
     {
-        var idle = new EnemyIdleState<StatesEnumDos>(enemytwo);
-        var dead = new DeathStateTwo<StatesEnumDos>(enemytwo, lvlManager);
-        var steering = new EnemyStateSteeringTwo<StatesEnumDos>(enemytwo, _steering, _obstacleAvoidance);
+        var idle = new EnemyIdleState<StatesEnumDos>(this);
+        var dead = new DeathStateTwo<StatesEnumDos>(this, lvlManager);
+        var steering = new EnemyStateSteeringTwo<StatesEnumDos>(this, _steering, _obstacleAvoidance);
         //_stateFollowPoints = new EnemyStateFollowPoints<StatesEnumDos>(enemy, enemy.animator);
 
         idle.AddTransition(StatesEnumDos.Steering, steering);
@@ -115,7 +134,7 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     }
     Func<bool> QuestionHP()
     {
-        return () => enemytwo.GetHP() <= 0;
+        return () => HP <= 0;
     }
 
     #endregion
@@ -156,5 +175,48 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
 
     //A-Star
     //public IPoints GetStateWaypoints => _stateFollowPoints;
+    #region EnemyTwo
+    public void TakeDamage(int damageAmount)
+    {
+        HP -= damageAmount;
+        animator.SetTrigger("damage");
+    }
 
+    public void SpawnRandomDrop()
+    {
+        if (dropPrefabs.Length == 0 || dropProbabilities.Length == 0 || dropPrefabs.Length != dropProbabilities.Length) return;
+        float randomValue = UnityEngine.Random.value;
+        //Dtermino que prefab spawmear basado en las probabilidades 
+        float cumulativeProbability = 0f;
+        for (int i = 0; i < dropProbabilities.Length; i++)
+        {
+            cumulativeProbability += dropProbabilities[i];
+            if (randomValue < cumulativeProbability)
+            {
+                Instantiate(dropPrefabs[i], dropSpawnPoint.position, Quaternion.identity);
+                break;
+            }
+        }
+    }
+
+    public void Move(Vector3 direction)
+    {
+        transform.position += direction * Time.deltaTime * speed;
+    }
+    public void Movetwo(Vector3 dir)
+    {
+        dir *= (speed * Time.deltaTime);
+        dir.y = _rb.velocity.y;
+        _rb.velocity = dir;
+    }
+    public void LookDir(Vector3 dir)
+    {
+        if (dir.x == 0 && dir.z == 0) return;
+        transform.forward = dir;
+    }
+    public void SetPosition(Vector3 pos)
+    {
+        transform.position = pos;
+    }
+    #endregion
 }

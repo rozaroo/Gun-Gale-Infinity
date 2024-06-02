@@ -5,28 +5,27 @@ using UnityEngine;
 public class EnemyStateSteeringTwo<T> : State<T>
 {
     ISteering _steering;
-    EnemyTwo _enemytwo;
+    EnemyControllerTwo _enemycontrollertwo;
     ObstacleAvoidance _obs;
-    public EnemyStateSteeringTwo(EnemyTwo enemytwo, ISteering steering, ObstacleAvoidance obs)
+    public EnemyStateSteeringTwo(EnemyControllerTwo enemycontrollertwo, ISteering steering, ObstacleAvoidance obs)
     {
         _steering = steering;
-        _enemytwo = enemytwo;
+        _enemycontrollertwo = enemycontrollertwo;
         _obs = obs;
     }
     public override void Enter()
     {
-        _enemytwo.animator.SetBool("IsRunning", true);
+        _enemycontrollertwo.animator.SetBool("IsRunning", true);
     }
     public override void Sleep()
     {
         base.Sleep();
-        _enemytwo.animator.SetBool("IsRunning", false);
+        _enemycontrollertwo.animator.SetBool("IsRunning", false);
     }
     public override void Execute()
     {
         var dir = _obs.GetDir(_steering.GetDir(), false);
-        _enemytwo.Move(dir);
-        _enemytwo.LookDir(dir);
-        Debug.Log("Huyendo");
+        _enemycontrollertwo.Move(dir);
+        _enemycontrollertwo.LookDir(dir);
     }
 }

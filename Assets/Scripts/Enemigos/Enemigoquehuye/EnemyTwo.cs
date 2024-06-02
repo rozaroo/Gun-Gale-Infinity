@@ -23,6 +23,7 @@ public class EnemyTwo : MonoBehaviour
     ISteering _steering;
 
     Rigidbody _rb;
+
     private void Awake()
     {
         enemyController = GetComponent<EnemyControllerTwo>();

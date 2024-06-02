@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EnemyIdleState<T> : State<T>
 {
-    EnemyTwo _enemytwo;
+    EnemyControllerTwo _enemycontrollertwo;
 
-    public EnemyIdleState(EnemyTwo enemytwo)
+    public EnemyIdleState(EnemyControllerTwo enemycontrollertwo)
     {
-        _enemytwo = enemytwo;
+        _enemycontrollertwo = enemycontrollertwo;
     }
     public override void Enter()
     {
-        _enemytwo.animator.SetTrigger("Idle");
+        _enemycontrollertwo.animator.SetTrigger("Idle");
     }
     public override void Sleep()
     {
@@ -20,7 +20,6 @@ public class EnemyIdleState<T> : State<T>
     }
     public override void Execute()
     {
-        _enemytwo.animator.SetTrigger("Idle");
-        Debug.Log("Idle");
+        _enemycontrollertwo.animator.SetTrigger("Idle");
     }
 }
