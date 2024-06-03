@@ -53,8 +53,6 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     float timer;
     float chaseRange = 8;
     int currentWaypointIndex = 0;
-    ISteering _steering;
-
     Rigidbody _rb;
     #endregion
 

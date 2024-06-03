@@ -764,9 +764,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 130416, guid: 70f277dcf2cdfdd4db7ee0ca76e07767, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2516115095034635776}
-    - targetCorrespondingSourceObject: {fileID: 130416, guid: 70f277dcf2cdfdd4db7ee0ca76e07767, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7405622923607311102}
     - targetCorrespondingSourceObject: {fileID: 130416, guid: 70f277dcf2cdfdd4db7ee0ca76e07767, type: 3}
       insertIndex: -1
@@ -783,31 +780,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 130416, guid: 70f277dcf2cdfdd4db7ee0ca76e07767, type: 3}
   m_PrefabInstance: {fileID: 3202122036986635169}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2516115095034635776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3202122036986519249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a689ec52f87a12429d1acaf1c5eddfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 1679588741255118135}
-  animator: {fileID: 3202122036996186605}
-  player: {fileID: 0}
-  speed: 6
-  dropPrefabs:
-  - {fileID: 5295072066767761836, guid: 199ccd704eb699f4da35fd9c8a4b58a6, type: 3}
-  - {fileID: 6559075405023108789, guid: 9595e53273145f24eb3992cbac52fb38, type: 3}
-  - {fileID: 1481679607491233907, guid: eaa4832f2b2f53b41810aabd6a58fda2, type: 3}
-  dropProbabilities:
-  - 0.1
-  - 0.3
-  - 0.6
-  dropSpawnPoint: {fileID: 3202122036986962373}
 --- !u!114 &7405622923607311102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -830,6 +802,18 @@ MonoBehaviour:
   target: {fileID: 0}
   timePrediction: 1
   radius: 2
+  healthBar: {fileID: 0}
+  animator: {fileID: 0}
+  speed: 0
+  dropPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  dropProbabilities:
+  - 0
+  - 0
+  - 0
+  dropSpawnPoint: {fileID: 0}
 --- !u!114 &919293588119024283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,10 +878,5 @@ BoxCollider:
 --- !u!4 &3202122036986962373 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 459364, guid: 70f277dcf2cdfdd4db7ee0ca76e07767, type: 3}
-  m_PrefabInstance: {fileID: 3202122036986635169}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &3202122036996186605 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9585228, guid: 70f277dcf2cdfdd4db7ee0ca76e07767, type: 3}
   m_PrefabInstance: {fileID: 3202122036986635169}
   m_PrefabAsset: {fileID: 0}

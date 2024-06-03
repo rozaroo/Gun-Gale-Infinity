@@ -38,7 +38,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     AgentController agentController;
 
     //A-star
-    //EnemyStateFollowPoints<StatesEnum> _stateFollowPoints;
+    SlimeStateFollowPoints<StatesEnumTres> _stateFollowPoints;
     #region Slime
     Quaternion targetRotation;
     private int HP = 20;
@@ -84,23 +84,23 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
         var idle = new SlimeIdleState<StatesEnumTres>(this);
         var dead = new SlimeDeathState<StatesEnumTres>(this, playerController);
         var steering = new SlimeSteeringState<StatesEnumTres>(this, _steering, _obstacleAvoidance);
-        var astar = new SlimeStateFollowPoints<StatesEnumTres>(this, agentController);
+        _stateFollowPoints = new SlimeStateFollowPoints<StatesEnumTres>(this, agentController);
 
         idle.AddTransition(StatesEnumTres.Steering, steering);
         idle.AddTransition(StatesEnumTres.Dead, dead);
-        idle.AddTransition(StatesEnumTres.Waypoints, astar);
+        idle.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
 
         dead.AddTransition(StatesEnumTres.Steering, steering);
         dead.AddTransition(StatesEnumTres.Idle, idle);
-        dead.AddTransition(StatesEnumTres.Waypoints, astar);
+        dead.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
 
         steering.AddTransition(StatesEnumTres.Dead, dead);
         steering.AddTransition(StatesEnumTres.Idle, idle);
-        steering.AddTransition(StatesEnumTres.Waypoints, astar);
+        steering.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
 
-        astar.AddTransition(StatesEnumTres.Dead, dead);
-        astar.AddTransition(StatesEnumTres.Idle, idle);
-        astar.AddTransition(StatesEnumTres.Steering, steering);
+        _stateFollowPoints.AddTransition(StatesEnumTres.Dead, dead);
+        _stateFollowPoints.AddTransition(StatesEnumTres.Idle, idle);
+        _stateFollowPoints.AddTransition(StatesEnumTres.Steering, steering);
 
         _fsm = new FSM<StatesEnumTres>(idle);
     }
@@ -111,7 +111,9 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
         var idle = new ActionNode(() => _fsm.Transition(StatesEnumTres.Idle));
         var astar = new ActionNode(() => _fsm.Transition(StatesEnumTres.Waypoints));
 
-        var qLoS = new QuestionNode(QuestionLosPlayer(), steering, astar);
+
+        var qFollowPoints = new QuestionNode(() => _stateFollowPoints.IsFinishPath, idle, astar);
+        var qLoS = new QuestionNode(QuestionLosPlayer(), steering, qFollowPoints);
         var qHasLife = new QuestionNode(QuestionHP(), dead, qLoS);
         _root = qHasLife;
     }
