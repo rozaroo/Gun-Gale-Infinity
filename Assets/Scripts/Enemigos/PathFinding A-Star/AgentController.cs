@@ -14,7 +14,7 @@ public class AgentController : MonoBehaviour
     public List<Node> RunAStar()
     {
         var start = GetNearNode(slime.transform.position);
-        if (start == null) return new List<Node>;
+        if (start == null) return new List<Node>();
         return AStar.Run(start, GetConnections, IsSatiesfies, GetCost, Heuristic);
     }
     float Heuristic(Node current)
