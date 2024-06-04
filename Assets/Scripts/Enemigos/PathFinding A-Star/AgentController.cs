@@ -8,17 +8,14 @@ public class AgentController : MonoBehaviour
     public float radius = 3;
     public LayerMask maskNodes;
     public LayerMask maskObs;
-    public Objetive objetive;
     public Node target;
 
     
-    public void RunAStar()
+    public List<Node> RunAStar()
     {
         var start = GetNearNode(slime.transform.position);
-        if (start == null) return;
-        List<Node> path = AStar.Run(start, GetConnections, IsSatiesfies, GetCost, Heuristic);
-        slime.GetStateWaypoints.SetWayPoints(path);
-        objetive.SetWayPoints(path);
+        if (start == null) return new List<Node>;
+        return AStar.Run(start, GetConnections, IsSatiesfies, GetCost, Heuristic);
     }
     float Heuristic(Node current)
     {

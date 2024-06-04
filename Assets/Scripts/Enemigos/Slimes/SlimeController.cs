@@ -190,6 +190,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     public void LookDir(Vector3 dir)
     {
         if (dir.x == 0 && dir.z == 0) return;
+        dir.y = 0; //Añadir un smooth o lerp para los cambios bruscos de direcciones, haga suave el giro
         transform.forward = dir;
     }
     public void SetPosition(Vector3 pos)

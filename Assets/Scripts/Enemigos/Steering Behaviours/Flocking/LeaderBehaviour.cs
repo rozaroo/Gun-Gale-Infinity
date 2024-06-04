@@ -10,8 +10,7 @@ public class LeaderBehaviour : MonoBehaviour, IFlockingBehaviour
 
     public Vector3 GetDir(List<IBoid> boids, IBoid self)
     {
-        if (isActive)
-            return (target.position - self.Position).normalized * multiplier;
+        if (isActive) return (target.position - self.Position).normalized * multiplier;
         return Vector3.zero;
     }
 }

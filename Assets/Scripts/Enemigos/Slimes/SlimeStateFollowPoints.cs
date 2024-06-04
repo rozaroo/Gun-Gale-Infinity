@@ -16,11 +16,14 @@ public class SlimeStateFollowPoints<T> : State<T>, IPoints
     }
     public override void Enter()
     {
+        var list = _agentcontroller.RunAStar();
+        SetWayPoints(list);
         base.Enter();
     }
     public override void Execute()
     {
         base.Execute();
+        //Añadir una comprobación de sí el jugador se movio de su lugar para hacer el runasatar de vuelta
         Run();
     }
     public override void Sleep()
@@ -63,7 +66,6 @@ public class SlimeStateFollowPoints<T> : State<T>, IPoints
         }
         _slimecontroller.Move(dir.normalized);
         _slimecontroller.LookDir(dir);
-        _agentcontroller.RunAStar();
     }
     public bool IsFinishPath => _isFinishPath;
 }
