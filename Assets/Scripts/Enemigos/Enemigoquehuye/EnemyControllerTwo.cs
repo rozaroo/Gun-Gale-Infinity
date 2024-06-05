@@ -38,8 +38,10 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
 
     LevelManager lvlManager;
 
+    AgentControllerTwo agentControllertwo;
+
     //A-star
-    //EnemyStateFollowPoints<StatesEnum> _stateFollowPoints;
+    RedStateFollowPoints<StatesEnumDos> _stateFollowPoints;
     #region EnemyTwo
     Quaternion targetRotation;
     private int HP = 100;
@@ -60,6 +62,7 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     private void Awake()
     {
         lvlManager = FindObjectOfType<LevelManager>();
+        agentControllertwo = FindObjectOfType<AgentControllerTwo>();
         _rb = GetComponent<Rigidbody>();
     }
     private void Start()
@@ -87,23 +90,23 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
         var idle = new EnemyIdleState<StatesEnumDos>(this);
         var dead = new DeathStateTwo<StatesEnumDos>(this, lvlManager);
         var steering = new EnemyStateSteeringTwo<StatesEnumDos>(this, _steering, _obstacleAvoidance);
-        //_stateFollowPoints = new EnemyStateFollowPoints<StatesEnumDos>(enemy, enemy.animator);
+        _stateFollowPoints = new RedStateFollowPoints<StatesEnumDos>(this, agentControllertwo);
 
         idle.AddTransition(StatesEnumDos.Steering, steering);
-        //idle.AddTransition(StatesEnumDos.Waypoints, _stateFollowPoints);
+        idle.AddTransition(StatesEnumDos.Waypoints, _stateFollowPoints);
         idle.AddTransition(StatesEnumDos.Dead, dead);
 
         dead.AddTransition(StatesEnumDos.Steering, steering);
-        //dead.AddTransition(StatesEnumDos.Waypoints, _stateFollowPoints);
+        dead.AddTransition(StatesEnumDos.Waypoints, _stateFollowPoints);
         dead.AddTransition(StatesEnumDos.Idle, idle);
 
         steering.AddTransition(StatesEnumDos.Dead, dead);
-        //steering.AddTransition(StatesEnumDos.Waypoints, _stateFollowPoints);
+        steering.AddTransition(StatesEnumDos.Waypoints, _stateFollowPoints);
         steering.AddTransition(StatesEnumDos.Idle, idle);
 
-        //_stateFollowPoints.AddTransition(StatesEnumDos.Dead, dead);
-        //_stateFollowPoints.AddTransition(StatesEnumDos.Steering, steering);
-        //_stateFollowPoints.AddTransition(StatesEnumDos.Idle, idle);
+        _stateFollowPoints.AddTransition(StatesEnumDos.Dead, dead);
+        _stateFollowPoints.AddTransition(StatesEnumDos.Steering, steering);
+        _stateFollowPoints.AddTransition(StatesEnumDos.Idle, idle);
 
         _fsm = new FSM<StatesEnumDos>(idle);
     }
@@ -112,8 +115,10 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
         var dead = new ActionNode(() => _fsm.Transition(StatesEnumDos.Dead));
         var steering = new ActionNode(() => _fsm.Transition(StatesEnumDos.Steering));
         var idle = new ActionNode(() => _fsm.Transition(StatesEnumDos.Idle));
+        var astar = new ActionNode(() => _fsm.Transition(StatesEnumDos.Waypoints));
 
-        var qLoS = new QuestionNode(QuestionLosPlayer(), steering, idle);
+        var qFollowPoints = new QuestionNode(() => _stateFollowPoints.ejecutar, astar, idle);
+        var qLoS = new QuestionNode(QuestionLosPlayer(), steering, qFollowPoints);
         var qHasLife = new QuestionNode(QuestionHP(), dead, qLoS);
         _root = qHasLife;
     }

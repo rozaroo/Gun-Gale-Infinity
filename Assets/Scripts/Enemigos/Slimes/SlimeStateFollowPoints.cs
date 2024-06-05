@@ -9,6 +9,7 @@ public class SlimeStateFollowPoints<T> : State<T>, IPoints
     List<Vector3> _waypoints;
     int _nextPoint = 0;
     bool _isFinishPath = true;
+    public bool ejecutar = true;
     public SlimeStateFollowPoints(SlimeController slimecontroller, AgentController agentcontroller)
     {
         _slimecontroller = slimecontroller;

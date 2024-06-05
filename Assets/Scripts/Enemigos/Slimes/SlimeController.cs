@@ -102,7 +102,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
         _stateFollowPoints.AddTransition(StatesEnumTres.Idle, idle);
         _stateFollowPoints.AddTransition(StatesEnumTres.Steering, steering);
 
-        _fsm = new FSM<StatesEnumTres>(idle);
+        _fsm = new FSM<StatesEnumTres>(_stateFollowPoints);
     }
     void InitializedTree()
     {
@@ -111,9 +111,8 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
         var idle = new ActionNode(() => _fsm.Transition(StatesEnumTres.Idle));
         var astar = new ActionNode(() => _fsm.Transition(StatesEnumTres.Waypoints));
 
-
-        var qFollowPoints = new QuestionNode(() => _stateFollowPoints.IsFinishPath, idle, astar);
-        var qLoS = new QuestionNode(QuestionLosPlayer(), steering, qFollowPoints);
+        var qFollowPoints = new QuestionNode(() => _stateFollowPoints.ejecutar, astar, idle);
+        var qLoS = new QuestionNode(QuestionLosPlayer(), steering, astar);
         var qHasLife = new QuestionNode(QuestionHP(), dead, qLoS);
         _root = qHasLife;
     }
@@ -177,9 +176,9 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
         HP -= damageAmount;
     }
 
-    public void Move(Vector3 direction)
+    public void Move(Vector3 dir)
     {
-        transform.position += direction * Time.deltaTime * speed;
+        transform.position += dir * Time.deltaTime * speed;
     }
     public void Movetwo(Vector3 dir)
     {
