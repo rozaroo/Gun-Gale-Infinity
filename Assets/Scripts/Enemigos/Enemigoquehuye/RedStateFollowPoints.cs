@@ -9,6 +9,7 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
     List<Vector3> _waypoints;
     int _nextPoint = 0;
     bool _isFinishPath = true;
+    bool _isReversing = false;
     public bool ejecutar = true;
     public RedStateFollowPoints(EnemyControllerTwo enemycontrollertwo, AgentControllerTwo agentcontrollertwo)
     {
@@ -50,6 +51,7 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
         pos.y = _enemycontrollertwo.transform.position.y;
         _enemycontrollertwo.SetPosition(pos);
         _isFinishPath = false;
+        _isReversing = false;
     }
     void Run()
     {
@@ -60,15 +62,34 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
         Vector3 dir = posPoint - _enemycontrollertwo.transform.position;
         if (dir.magnitude < 0.2f)
         {
-            if (_nextPoint + 1 < _waypoints.Count) _nextPoint++;
+            if (!_isReversing)
+            {
+                if (_nextPoint + 1 < _waypoints.Count) _nextPoint++;
+                else
+                {
+                    _isFinishPath = true;
+                    InvertWaypoints();
+                }
+            }
             else
             {
-                _isFinishPath = true;
-                return;
+                if (_nextPoint - 1 >= 0) _nextPoint--;
+                else
+                {
+                    _isFinishPath = true;
+                    InvertWaypoints();
+                }
             }
         }
         _enemycontrollertwo.Move(dir.normalized);
         _enemycontrollertwo.LookDir(dir);
+    }
+    void InvertWaypoints()
+    {
+        _waypoints.Reverse();
+        _nextPoint = _isReversing ? 0 : _waypoints.Count - 1; //Reiniciar el 1er punto en la nueva dirección
+        _isReversing = !_isReversing;
+        _isFinishPath = false;
     }
     public bool IsFinishPath => _isFinishPath;
 }

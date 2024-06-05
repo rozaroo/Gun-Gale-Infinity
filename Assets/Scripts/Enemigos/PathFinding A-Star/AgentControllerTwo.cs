@@ -9,8 +9,8 @@ public class AgentControllerTwo : MonoBehaviour
     public LayerMask maskNodes;
     public LayerMask maskObs;
     public Node target;
+    public Node start;
 
-    
     public List<Node> RunAStar()
     {
         var start = GetNearNode(enemy.transform.position);

@@ -25,9 +25,7 @@ public class AStar
                 var path = new List<T>();
                 path.Add(current);
                 while (parents.ContainsKey(path[path.Count - 1]))
-                {
                     path.Add(parents[path[path.Count - 1]]);
-                }
                 path.Reverse();
                 return path;
             }

@@ -9,6 +9,7 @@ public class AgentController : MonoBehaviour
     public LayerMask maskNodes;
     public LayerMask maskObs;
     public Node target;
+    public Node start;
 
     
     public List<Node> RunAStar()
