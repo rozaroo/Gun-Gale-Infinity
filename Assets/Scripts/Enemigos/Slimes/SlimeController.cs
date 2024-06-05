@@ -54,11 +54,11 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
 
     public GameObject particlePrefab;
     #endregion
-
+    public bool isntFollower = false;
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
-        agentController = FindObjectOfType<AgentController>();
+        if (isntFollower) agentController = FindObjectOfType<AgentController>(); //Para determinar cuales van a tener path finding y cuales no
         _rb = GetComponent<Rigidbody>();
     }
     private void Start()
@@ -84,25 +84,28 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
         var idle = new SlimeIdleState<StatesEnumTres>(this);
         var dead = new SlimeDeathState<StatesEnumTres>(this, playerController);
         var steering = new SlimeSteeringState<StatesEnumTres>(this, _steering, _obstacleAvoidance);
-        _stateFollowPoints = new SlimeStateFollowPoints<StatesEnumTres>(this, agentController);
+        if (isntFollower) _stateFollowPoints = new SlimeStateFollowPoints<StatesEnumTres>(this, agentController);
 
         idle.AddTransition(StatesEnumTres.Steering, steering);
         idle.AddTransition(StatesEnumTres.Dead, dead);
-        idle.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
+        if (isntFollower) idle.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
 
         dead.AddTransition(StatesEnumTres.Steering, steering);
         dead.AddTransition(StatesEnumTres.Idle, idle);
-        dead.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
+        if (isntFollower) dead.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
 
         steering.AddTransition(StatesEnumTres.Dead, dead);
         steering.AddTransition(StatesEnumTres.Idle, idle);
-        steering.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
+        if (isntFollower) steering.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
 
-        _stateFollowPoints.AddTransition(StatesEnumTres.Dead, dead);
-        _stateFollowPoints.AddTransition(StatesEnumTres.Idle, idle);
-        _stateFollowPoints.AddTransition(StatesEnumTres.Steering, steering);
-
-        _fsm = new FSM<StatesEnumTres>(_stateFollowPoints);
+        if (isntFollower)
+        {
+            _stateFollowPoints.AddTransition(StatesEnumTres.Dead, dead);
+            _stateFollowPoints.AddTransition(StatesEnumTres.Idle, idle);
+            _stateFollowPoints.AddTransition(StatesEnumTres.Steering, steering);
+        }
+            
+        _fsm = new FSM<StatesEnumTres>(idle);
     }
     void InitializedTree()
     {
