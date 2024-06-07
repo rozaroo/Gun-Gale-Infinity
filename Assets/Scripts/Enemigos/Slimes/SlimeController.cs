@@ -84,27 +84,24 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
         var idle = new SlimeIdleState<StatesEnumTres>(this);
         var dead = new SlimeDeathState<StatesEnumTres>(this, playerController);
         var steering = new SlimeSteeringState<StatesEnumTres>(this, _steering, _obstacleAvoidance);
-        if (isntFollower) _stateFollowPoints = new SlimeStateFollowPoints<StatesEnumTres>(this, agentController);
+        _stateFollowPoints = new SlimeStateFollowPoints<StatesEnumTres>(this, agentController);
 
         idle.AddTransition(StatesEnumTres.Steering, steering);
         idle.AddTransition(StatesEnumTres.Dead, dead);
-        if (isntFollower) idle.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
+        idle.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
 
         dead.AddTransition(StatesEnumTres.Steering, steering);
         dead.AddTransition(StatesEnumTres.Idle, idle);
-        if (isntFollower) dead.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
+        dead.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
 
         steering.AddTransition(StatesEnumTres.Dead, dead);
         steering.AddTransition(StatesEnumTres.Idle, idle);
-        if (isntFollower) steering.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
+        steering.AddTransition(StatesEnumTres.Waypoints, _stateFollowPoints);
 
-        if (isntFollower)
-        {
-            _stateFollowPoints.AddTransition(StatesEnumTres.Dead, dead);
-            _stateFollowPoints.AddTransition(StatesEnumTres.Idle, idle);
-            _stateFollowPoints.AddTransition(StatesEnumTres.Steering, steering);
-        }
-            
+        _stateFollowPoints.AddTransition(StatesEnumTres.Dead, dead);
+        _stateFollowPoints.AddTransition(StatesEnumTres.Idle, idle);
+        _stateFollowPoints.AddTransition(StatesEnumTres.Steering, steering);
+        
         _fsm = new FSM<StatesEnumTres>(idle);
     }
     void InitializedTree()
@@ -115,8 +112,9 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
         var astar = new ActionNode(() => _fsm.Transition(StatesEnumTres.Waypoints));
 
         var qFollowPoints = new QuestionNode(() => _stateFollowPoints.ejecutar, astar, idle);
-        var qLoS = new QuestionNode(QuestionLosPlayer(), steering, astar);
-        var qHasLife = new QuestionNode(QuestionHP(), dead, qLoS);
+        var qLoS = new QuestionNode(QuestionLosPlayer(), steering, qFollowPoints);
+        var isFollower = new QuestionNode(QuestionFollower(), qLoS, steering);
+        var qHasLife = new QuestionNode(QuestionHP(), dead, isFollower);
         _root = qHasLife;
     }
     #region Questions
@@ -128,6 +126,10 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     {
         return () => !(CheckRange(player) && CheckAngle(player) && CheckView(player));
     }
+    Func<bool> QuestionFollower()
+    {
+        return () => checkIsFollower();
+    }
     Func<bool> QuestionLosPlayer()
     {
         return () => (CheckRange(player) && CheckAngle(player) && CheckView(player));
@@ -136,7 +138,11 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     {
         return () => HP <= 0;
     }
-
+    public bool checkIsFollower()
+    {
+        if (isntFollower) return true;
+        else return false;
+    }
     #endregion
     #region LineOfSight
     //Line Of Sight
