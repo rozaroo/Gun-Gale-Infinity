@@ -102,8 +102,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Active) return;
-        ActionsLogic();
+        ActionsLogic(); //No puede ser pasado a la maquina de estado
         _fsm.OnUpdate();
     }
 

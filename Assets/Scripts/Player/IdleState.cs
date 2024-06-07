@@ -49,18 +49,7 @@ public class IdleState<T> : State<T>
                 _playerController.theCamera.rotation = Quaternion.Lerp(_playerController.theCamera.rotation, _playerController.cameraTrack.rotation, _playerController.cameraSpeed * theTime);
             }
         }
-        //ActionsLogic
-        /*Inventory
-        if (Input.GetKeyDown(KeyCode.Tab)) No cierra el inventario cuando vuelvo a presionar Tab
-        {
-            _playerController.inventoryOpen = !_playerController.inventoryOpen;
-            Cursor.lockState = _playerController.inventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
-            Cursor.visible = _playerController.inventoryOpen;
-            if (_playerController.inventoryOpen == false) _playerController.inventoryController.gameObject.SetActive(false);
-            else _playerController.inventoryController.gameObject.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.G)) _playerController.Drop();
-        }*/
-
+        
         //ItemLogic
         if (_playerController.nearItem != null && Input.GetKeyDown(KeyCode.E)) 
         {
@@ -134,5 +123,6 @@ public class IdleState<T> : State<T>
             _playerController.playerAnim.SetLayerWeight(1, 0);
             _playerController.playerAnim.SetLayerWeight(2, 1);
         }
+        if (!_playerController.Active) return;
     }
 }
