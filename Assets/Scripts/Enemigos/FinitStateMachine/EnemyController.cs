@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public enum StatesEnum
 {
     Patroll,
-    Chase,
     Attack,
     Dead,
     Steering,
@@ -84,50 +83,39 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     }
     void InitializeSteerings()
     {
-        var evade = new Evade(enemy.transform, target, timePrediction);
-        var pursuit = new Pursuit(enemy.transform, target, timePrediction);
+        var evade = new Evade(this.transform, target, timePrediction);
+        var pursuit = new Pursuit(this.transform, target, timePrediction);
         _steering = pursuit;
         //_steering = evade;
-        _obstacleAvoidance = new ObstacleAvoidance(enemy.transform, angle, radius, maskObs,2.5f);
+        _obstacleAvoidance = new ObstacleAvoidance(this.transform, angle, radius, maskObs,2.5f);
     }
     void InitializeFSM()
     {
-        var dead = new DeathState<StatesEnum>(enemy,lvlManager);
-        var attack = new NewAttackState<StatesEnum>(enemy,player);
-        var chase = new NewChaseState<StatesEnum>(this,enemy);
-        var patroll = new NewPatrolState<StatesEnum>(enemy, _obstacleAvoidance);
-        var steering = new EnemyStateSteering<StatesEnum>(enemy, _steering, _obstacleAvoidance);
+        var dead = new DeathState<StatesEnum>(this,lvlManager);
+        var attack = new NewAttackState<StatesEnum>(this,player);
+        var patroll = new NewPatrolState<StatesEnum>(this, _obstacleAvoidance);
+        var steering = new EnemyStateSteering<StatesEnum>(this, _steering, _obstacleAvoidance);
 
-        _stateFollowPoints = new EnemyStateFollowPoints<StatesEnum>(enemy, enemy.animator);
+        _stateFollowPoints = new EnemyStateFollowPoints<StatesEnum>(this, this.animator);
 
         patroll.AddTransition(StatesEnum.Dead, dead);
         patroll.AddTransition(StatesEnum.Attack, attack);
-        patroll.AddTransition(StatesEnum.Chase, chase);
         patroll.AddTransition(StatesEnum.Steering, steering);
         patroll.AddTransition(StatesEnum.Waypoints, _stateFollowPoints);
 
         dead.AddTransition(StatesEnum.Patroll, patroll);
         dead.AddTransition(StatesEnum.Attack, attack);
-        dead.AddTransition(StatesEnum.Chase, chase);
         dead.AddTransition(StatesEnum.Steering, steering);
         dead.AddTransition(StatesEnum.Waypoints, _stateFollowPoints);
 
         attack.AddTransition(StatesEnum.Dead, dead);
-        attack.AddTransition(StatesEnum.Chase, chase);
         attack.AddTransition(StatesEnum.Patroll, patroll);
         attack.AddTransition(StatesEnum.Steering, steering);
         attack.AddTransition(StatesEnum.Waypoints, _stateFollowPoints);
 
-        chase.AddTransition(StatesEnum.Dead, dead);
-        chase.AddTransition(StatesEnum.Attack, attack);
-        chase.AddTransition(StatesEnum.Patroll, patroll);
-        chase.AddTransition(StatesEnum.Steering, steering);
-        chase.AddTransition(StatesEnum.Waypoints, _stateFollowPoints);
-
         steering.AddTransition(StatesEnum.Patroll, patroll);
         steering.AddTransition(StatesEnum.Dead, dead);
         steering.AddTransition(StatesEnum.Attack, attack);
-        steering.AddTransition(StatesEnum.Chase, chase);
         steering.AddTransition(StatesEnum.Waypoints, _stateFollowPoints);
 
         _stateFollowPoints.AddTransition(StatesEnum.Dead, dead);
@@ -141,15 +129,11 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     {
         var dead = new ActionNode(() => _fsm.Transition(StatesEnum.Dead));
         var attack = new ActionNode(() => _fsm.Transition(StatesEnum.Attack));
-        var chase = new ActionNode(() => _fsm.Transition(StatesEnum.Chase));
         var patrol = new ActionNode(() => _fsm.Transition(StatesEnum.Patroll));
         var steering = new ActionNode(() => _fsm.Transition(StatesEnum.Steering));
         var Astar = new ActionNode(() => _fsm.Transition(StatesEnum.Waypoints));
         //Preguntas 
-        //auxiliarnode = new QuestionNode(QuestionAttackRange(), attack, chase);
-        //QuestionRange = auxiliarnode._question;
         var qRange = new QuestionNode(QuestionAttackRange(), attack,steering);
-        //var qRangeAttack = new QuestionNode(QuestionAttackRange(), attack,chase);
         var qLoS = new QuestionNode(QuestionLos(), patrol,qRange);
         var qHasLife = new QuestionNode(QuestionHP(), dead,qLoS);
         _root = qHasLife;

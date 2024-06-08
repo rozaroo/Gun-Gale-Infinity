@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class NewAttackState<T> : State<T>
 {
-    public Enemy _enemy;
+    EnemyController _enemyController;
     Transform _player;
-    public NewAttackState(Enemy enemy, Transform player)
+    public NewAttackState(EnemyController enemyController, Transform player)
     {
-        _enemy = enemy;
+        _enemyController = enemyController;
         _player = player;
     }
     public override void Enter()
     {
-        _enemy.animator.SetBool("isAttacking", true);
+        _enemyController.animator.SetBool("isAttacking", true);
     }
     public override void Sleep() 
     {
         base.Sleep();
-        _enemy.animator.SetBool("isAttacking", false);
+        _enemyController.animator.SetBool("isAttacking", false);
     }
 }
