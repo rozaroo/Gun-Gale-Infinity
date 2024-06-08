@@ -2,7 +2,8 @@ using System;
 using System.Collections; 
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.UI.Image;
+using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public enum StatesEnum
 {
@@ -21,7 +22,6 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     public float attackRange;
     LineOfSight _los;
     FSM<StatesEnum> _fsm;
-    Enemy enemy;
     ITreeNode _root;
     Func<bool> QuestionRange;
     QuestionNode auxiliarnode;
@@ -43,11 +43,30 @@ public class EnemyController : MonoBehaviour, ILineOfSight
 
     //A-star
     EnemyStateFollowPoints<StatesEnum> _stateFollowPoints;
+    #region Enemy
+    Quaternion targetRotation;
+    private int HP = 100;
+    public Slider healthBar;
+    public Animator animator;
+    public GameObject fireballPrefab;
+    public Transform fireballSpawnPoint;
+    public Transform[] PuntosdePatrullaje;
+    public float speed;
+    public GameObject[] dropPrefabs;
+    public float[] dropProbabilities;
+    public Transform dropSpawnPoint;
+    //------------------------
+    float timer;
+    float chaseRange = 8;
+    int currentWaypointIndex = 0;
+    int patrolDirection = 1; // 1 = adelante y -1 = atras
+    Rigidbody _rb;
+    #endregion
 
     private void Awake()
     {
-        enemy = GetComponent<Enemy>();
         lvlManager = FindObjectOfType<LevelManager>();
+        _rb = GetComponent<Rigidbody>();
     }
     private void Start()
     {
@@ -58,6 +77,7 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     }
     private void Update()
     {
+        healthBar.value = HP;
         distance = Vector3.Distance(player.position, transform.position);
         if (_fsm != null) _fsm.OnUpdate();
         if (_root != null) _root.Execute();
@@ -149,7 +169,7 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     }
     Func<bool> QuestionHP()
     {
-        return () => enemy.GetHP() <= 0;
+        return () => HP <= 0;
     }
     
     #endregion
@@ -190,5 +210,55 @@ public class EnemyController : MonoBehaviour, ILineOfSight
 
     //A-Star
     public IPoints GetStateWaypoints => _stateFollowPoints;
+    #region Enemy
+    public void TakeDamage(int damageAmount)
+    {
+        HP -= damageAmount;
+        animator.SetTrigger("damage");
+    }
+
+    public void SpawnRandomDrop()
+    {
+        if (dropPrefabs.Length == 0 || dropProbabilities.Length == 0 || dropPrefabs.Length != dropProbabilities.Length) return;
+        float randomValue = UnityEngine.Random.value;
+        //Dtermino que prefab spawmear basado en las probabilidades 
+        float cumulativeProbability = 0f;
+        for (int i = 0; i < dropProbabilities.Length; i++)
+        {
+            cumulativeProbability += dropProbabilities[i];
+            if (randomValue < cumulativeProbability)
+            {
+                Instantiate(dropPrefabs[i], dropSpawnPoint.position, Quaternion.identity);
+                break;
+            }
+        }
+    }
+
+    public void ShootFireball()
+    {
+        GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, Quaternion.identity);
+        FireBall fireballScript = fireball.GetComponent<FireBall>();
+        if (fireballScript != null && player != null) fireballScript.SetTarget(player);
+    }
+    public void Move(Vector3 direction)
+    {
+        transform.position += direction * Time.deltaTime * speed;
+    }
+    public void Movetwo(Vector3 dir)
+    {
+        dir *= (speed * Time.deltaTime);
+        dir.y = _rb.velocity.y;
+        _rb.velocity = dir;
+    }
+    public void LookDir(Vector3 dir)
+    {
+        if (dir.x == 0 && dir.z == 0) return;
+        transform.forward = dir;
+    }
+    public void SetPosition(Vector3 pos)
+    {
+        transform.position = pos;
+    }
+    #endregion
 }
 
