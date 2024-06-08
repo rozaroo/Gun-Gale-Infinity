@@ -54,7 +54,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
 
     public GameObject particlePrefab;
     #endregion
-    public bool isntFollower = false;
+    public bool EsLider = false;
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
@@ -70,6 +70,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     }
     private void Update()
     {
+        if (player == null && target == null) ReassignPlayerAndTarget();
         distance = Vector3.Distance(player.position, transform.position);
         if (_fsm != null) _fsm.OnUpdate();
         if (_root != null) _root.Execute();
@@ -140,7 +141,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     }
     public bool checkIsFollower()
     {
-        if (isntFollower) return true;
+        if (EsLider) return true;
         else return false;
     }
     #endregion
@@ -221,6 +222,11 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
             Destroy(gameObject);
             Destroy(particleObject, particleSystem.main.startLifetime.constantMax);
         }
+    }
+    public void ReassignPlayerAndTarget()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        target = player.GetComponent<Rigidbody>();
     }
 
     #endregion
