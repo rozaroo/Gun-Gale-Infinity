@@ -2251,7 +2251,6 @@ GameObject:
   - component: {fileID: 9587272}
   - component: {fileID: 8511304993633606039}
   - component: {fileID: 7917961595568507181}
-  - component: {fileID: 371914747665999815}
   - component: {fileID: 9157871005013813062}
   - component: {fileID: 2269012422589927967}
   m_Layer: 0
@@ -2333,36 +2332,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isAlert: 0
---- !u!114 &371914747665999815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 193776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b577cd4376d6e7419cf5d61b44ff750, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  animator: {fileID: 9587272}
-  fireballPrefab: {fileID: 767550687522264264, guid: adafd58322367ae41a6c75d9258bfbd0, type: 3}
-  fireballSpawnPoint: {fileID: 0}
-  player: {fileID: 0}
-  PuntosdePatrullaje:
-  - {fileID: 0}
-  - {fileID: 0}
-  speed: 6
-  dropPrefabs:
-  - {fileID: 1659735565098519313, guid: 841e0427ee5cc3447aaaa02804b18069, type: 3}
-  - {fileID: 2697431646934123960, guid: d1d54ffaed0f0224ca9225d22b0d742b, type: 3}
-  - {fileID: 1481679607491233907, guid: eaa4832f2b2f53b41810aabd6a58fda2, type: 3}
-  dropProbabilities:
-  - 0.1
-  - 0.3
-  - 0.6
-  dropSpawnPoint: {fileID: 441462}
 --- !u!114 &9157871005013813062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2386,6 +2355,15 @@ MonoBehaviour:
   target: {fileID: 0}
   timePrediction: 1
   radius: 10
+  healthBar: {fileID: 0}
+  animator: {fileID: 0}
+  fireballPrefab: {fileID: 0}
+  fireballSpawnPoint: {fileID: 0}
+  PuntosdePatrullaje: []
+  speed: 0
+  dropPrefabs: []
+  dropProbabilities: []
+  dropSpawnPoint: {fileID: 0}
 --- !u!54 &2269012422589927967
 Rigidbody:
   m_ObjectHideFlags: 0

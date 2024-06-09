@@ -58,7 +58,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
-        if (isntFollower) agentController = FindObjectOfType<AgentController>(); //Para determinar cuales van a tener path finding y cuales no
+        if (EsLider) agentController = FindObjectOfType<AgentController>(); //Para determinar cuales van a tener path finding y cuales no
         _rb = GetComponent<Rigidbody>();
     }
     private void Start()
