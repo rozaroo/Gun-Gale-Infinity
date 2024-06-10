@@ -186,9 +186,11 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
         HP -= damageAmount;
     }
 
-    public void Move(Vector3 dir)
+    public void Move(Vector3 direction)
     {
-        transform.position += dir * Time.deltaTime * speed;
+        direction *= speed;
+        direction.y = _rb.velocity.y;
+        _rb.velocity = dir;
     }
     public void Movetwo(Vector3 dir)
     {

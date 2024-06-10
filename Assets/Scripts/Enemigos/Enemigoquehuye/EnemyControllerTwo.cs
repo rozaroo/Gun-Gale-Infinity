@@ -48,7 +48,7 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     public Slider healthBar;
     public Animator animator;
     public float speed;
-    public GameObject[] dropPrefabs;
+    public DropPrefabstwo dropPrefabs;
     public DropProbabilities dropProbabilities;
     public Transform dropSpawnPoint;
     //------------------------
@@ -187,7 +187,7 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
 
     public void SpawnRandomDrop()
     {
-        if (dropPrefabs.Length == 0 || dropProbabilities.probabilities.Length == 0 || dropPrefabs.Length != dropProbabilities.probabilities.Length) return;
+        if (dropPrefabs.prefabs.Length == 0 || dropProbabilities.probabilities.Length == 0 || dropPrefabs.prefabs.Length != dropProbabilities.probabilities.Length) return;
         float randomValue = UnityEngine.Random.value;
         //Dtermino que prefab spawmear basado en las probabilidades 
         float cumulativeProbability = 0f;
@@ -196,7 +196,7 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
             cumulativeProbability += dropProbabilities.probabilities[i];
             if (randomValue < cumulativeProbability)
             {
-                Instantiate(dropPrefabs[i], dropSpawnPoint.position, Quaternion.identity);
+                Instantiate(dropPrefabs.prefabs[i], dropSpawnPoint.position, Quaternion.identity);
                 break;
             }
         }
@@ -204,12 +204,8 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
 
     public void Move(Vector3 direction)
     {
-        transform.position += direction * Time.deltaTime * speed;
-    }
-    public void Movetwo(Vector3 dir)
-    {
-        dir *= (speed * Time.deltaTime);
-        dir.y = _rb.velocity.y;
+        direction *= speed;
+        direction.y = _rb.velocity.y;
         _rb.velocity = dir;
     }
     public void LookDir(Vector3 dir)
