@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     public Transform[] PuntosdePatrullaje;
     public float speed;
     public GameObject[] dropPrefabs;
-    public float[] dropProbabilities;
+    public DropProbabilities dropProbabilities;
     public Transform dropSpawnPoint;
     //------------------------
     float timer;
@@ -203,13 +203,13 @@ public class EnemyController : MonoBehaviour, ILineOfSight
 
     public void SpawnRandomDrop()
     {
-        if (dropPrefabs.Length == 0 || dropProbabilities.Length == 0 || dropPrefabs.Length != dropProbabilities.Length) return;
+        if (dropPrefabs.Length == 0 || dropProbabilities.probabilities.Length == 0 || dropPrefabs.Length != dropProbabilities.probabilities.Length) return;
         float randomValue = UnityEngine.Random.value;
         //Dtermino que prefab spawmear basado en las probabilidades 
         float cumulativeProbability = 0f;
-        for (int i = 0; i < dropProbabilities.Length; i++)
+        for (int i = 0; i < dropProbabilities.probabilities.Length; i++)
         {
-            cumulativeProbability += dropProbabilities[i];
+            cumulativeProbability += dropProbabilities.probabilities[i];
             if (randomValue < cumulativeProbability)
             {
                 Instantiate(dropPrefabs[i], dropSpawnPoint.position, Quaternion.identity);
