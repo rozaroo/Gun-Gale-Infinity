@@ -23,7 +23,7 @@ public class Objetive : MonoBehaviour, IPoints
     }
     private void OnTriggerEnter(Collider other)
     {
-        var character = other.GetComponent<Enemy>();
+        var character = other.GetComponent<EnemyController>();
         if (character) obj.SetActive(false);
 
     }

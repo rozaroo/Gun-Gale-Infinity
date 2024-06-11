@@ -202,10 +202,10 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
         }
     }
 
-    public void Move(Vector3 direction)
+    public void Move(Vector3 dir)
     {
-        direction *= speed;
-        direction.y = _rb.velocity.y;
+        dir *= speed;
+        dir.y = _rb.velocity.y;
         _rb.velocity = dir;
     }
     public void LookDir(Vector3 dir)

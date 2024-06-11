@@ -224,10 +224,10 @@ public class EnemyController : MonoBehaviour, ILineOfSight
         FireBall fireballScript = fireball.GetComponent<FireBall>();
         if (fireballScript != null && player != null) fireballScript.SetTarget(player);
     }
-    public void Move(Vector3 direction)
+    public void Move(Vector3 dir)
     {
-        direction *= speed;
-        direction.y = _rb.velocity.y;
+        dir *= speed;
+        dir.y = _rb.velocity.y;
         _rb.velocity = dir;
     }
     public void LookDir(Vector3 dir)
