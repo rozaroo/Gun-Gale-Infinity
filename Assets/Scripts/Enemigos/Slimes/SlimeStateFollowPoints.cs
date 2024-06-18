@@ -18,7 +18,7 @@ public class SlimeStateFollowPoints<T> : State<T>, IPoints
     }
     public override void Enter()
     {
-        var list = _agentcontroller.RunAStar();
+        var list = _agentcontroller.RunAStar(_slimecontroller);
         SetWayPoints(list);
         base.Enter();
     }

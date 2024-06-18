@@ -12,7 +12,7 @@ public class AgentController : MonoBehaviour
     public Node start;
 
     
-    public List<Node> RunAStar()
+    public List<Node> RunAStar(SlimeController slime)
     {
         var start = GetNearNode(slime.transform.position);
         if (start == null) return new List<Node>();
