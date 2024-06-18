@@ -55,6 +55,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     public GameObject particlePrefab;
     #endregion
     public bool EsLider = false;
+    public bool PlayerNear = false;
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
@@ -74,6 +75,8 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
         distance = Vector3.Distance(player.position, transform.position);
         if (_fsm != null) _fsm.OnUpdate();
         if (_root != null) _root.Execute();
+
+        CheckPlayerNear();
     }
     void InitializeSteerings()
     {
@@ -112,10 +115,12 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
         var idle = new ActionNode(() => _fsm.Transition(StatesEnumTres.Idle));
         var astar = new ActionNode(() => _fsm.Transition(StatesEnumTres.Waypoints));
 
-        var qFollowPoints = new QuestionNode(() => _stateFollowPoints.ejecutar, astar, idle);
-        var qLoS = new QuestionNode(QuestionLosPlayer(), steering, qFollowPoints);
-        var isFollower = new QuestionNode(QuestionFollower(), qLoS, steering);
-        var qHasLife = new QuestionNode(QuestionHP(), dead, isFollower);
+        var qFollowPoints = new QuestionNode(() => _stateFollowPoints.ejecutar, astar, astar); //Lógica del Líder
+        var qLoS = new QuestionNode(QuestionLosPlayer(), steering, qFollowPoints); 
+        var PathFinder = new QuestionNode(QuestionPlayerNear(), qFollowPoints, astar); //Acá si es verdad que el jugador está cerca lo seguira con path finding astar sino lo está seguira patrullando con astar
+        var isFollower = new QuestionNode(QuestionFollower(), PathFinder, steering); //Al llegar acá pregunta sí es el lider si es verdad pasa a PathFinder, si no es verdad solo seguira mediante flocking
+        //var isFollower = new QuestionNode(QuestionFollower(), qLoS, steering);
+        var qHasLife = new QuestionNode(QuestionHP(), dead, isFollower); //Pregunta si tiene vida o si es seguidor
         _root = qHasLife;
     }
     #region Questions
@@ -139,12 +144,32 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     {
         return () => HP <= 0;
     }
+    Func<bool> QuestionPlayerNear()
+    {
+        return () => CheckPNear();
+    }
+
+    #endregion
+
+    #region SlimesBooleanas
     public bool checkIsFollower()
     {
         if (EsLider) return true;
         else return false;
     }
+    public bool CheckPNear()
+    {
+        if (PlayerNear) return true;
+        else return false;
+    }
+    public void CheckPlayerNear()
+    {
+        if (CheckRange(player) && CheckAngle(player) && CheckView(player)) PlayerNear = true;
+        else PlayerNear = false;
+    }
+    
     #endregion
+
     #region LineOfSight
     //Line Of Sight
 

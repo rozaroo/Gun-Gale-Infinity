@@ -25,6 +25,12 @@ public class SlimeStateFollowPoints<T> : State<T>, IPoints
     public override void Execute()
     {
         base.Execute();
+        if (_slimecontroller.PlayerNear)
+        {
+            //Sí el jugador se mueve recalcular la ruta
+            var newPoints = _agentcontroller.RunAStar(_slimecontroller);
+            SetWayPoints(newPoints);
+        }
         //Añadir una comprobación de sí el jugador se movio de su lugar para hacer el runasatar de vuelta
         Run();
     }
