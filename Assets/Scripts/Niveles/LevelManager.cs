@@ -33,12 +33,7 @@ public class LevelManager : MonoBehaviour
         {
             if (pController.Active != null)
             {
-                if (pController.Active == false) 
-                {
-                    defeatScreen.SetActive(true);
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
-                }
+                if (pController.Active == false) Lose();
                 //else Debug.Log("es null");
             }
         }
@@ -51,5 +46,11 @@ public class LevelManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    public void Lose()
+    {
+        defeatScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
