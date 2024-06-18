@@ -50,9 +50,10 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     public GameObject fireballPrefab;
     public Transform fireballSpawnPoint;
     public Transform[] PuntosdePatrullaje;
-    public float speed;
+    //Scriptables
     public DropPrefabs dropPrefabs;
     public DropProbabilities dropProbabilities;
+    public EnemyBlueValues enemyBlueValues;
     public Transform dropSpawnPoint;
     //------------------------
     float timer;
@@ -226,10 +227,11 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     }
     public void Move(Vector3 dir)
     {
-        transform.position += dir * Time.deltaTime * speed;
-        //dir *= speed;
-        //dir.y = _rb.velocity.y;
-        //_rb.velocity = dir;
+        //transform.position += dir * Time.deltaTime * speed;
+        dir *= enemyBlueValues.speed[0];
+        dir.y = _rb.velocity.y;
+        //dir.z = _rb.velocity.z;
+        _rb.velocity = dir;
     }
     public void LookDir(Vector3 dir)
     {

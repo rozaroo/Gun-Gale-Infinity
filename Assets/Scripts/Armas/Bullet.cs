@@ -5,21 +5,21 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int damageAmount = 20;
-    public void OnCollisionEnter(Collision collision) 
+    public void OnTriggerEnter(Collider other) 
     {
-        var enemy = collision.collider.GetComponent<EnemyController>();
+        var enemy = other.GetComponent<EnemyController>();
         if (enemy != null) 
         {
             enemy.TakeDamage(damageAmount);
             Destroy(gameObject);
         }
-        var enemy2 = collision.collider.GetComponent<EnemyControllerTwo>();
+        var enemy2 = other.GetComponent<EnemyControllerTwo>();
         if (enemy2 != null) 
         {
             enemy2.TakeDamage(damageAmount);
             Destroy(gameObject);
         }
-        var slime = collision.collider.GetComponent<SlimeController>();
+        var slime = other.GetComponent<SlimeController>();
         if (slime != null)
         {
             slime.TakeDamage(damageAmount);
