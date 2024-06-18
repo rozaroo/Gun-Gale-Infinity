@@ -34,7 +34,7 @@ public class AgentController : MonoBehaviour
         cost += Vector3.Distance(parent.transform.position, child.transform.position) * multiplierDistance;
         return cost;
     }
-    Node GetNearNode(Vector3 pos)
+    public Node GetNearNode(Vector3 pos)
     {
         var nodes = Physics.OverlapSphere(pos, radius, maskNodes);
         Node nearNode = null;

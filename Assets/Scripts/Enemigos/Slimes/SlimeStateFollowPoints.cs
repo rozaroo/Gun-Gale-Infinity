@@ -60,6 +60,17 @@ public class SlimeStateFollowPoints<T> : State<T>, IPoints
     void Run()
     {
         if (IsFinishPath) return;
+        //Si el jugador está cerca y es el líder, sigue al jugador
+        if (_slimecontroller.PlayerNear && _slimecontroller.EsLider)
+        {
+            var targetNode = _agentcontroller.GetNearNode(_slimecontroller.player.position);
+            if (targetNode != null)
+            {
+                _waypoints = new List<Vector3> { targetNode.transform.position };
+                _nextPoint = 0;
+                _isFinishPath = false;
+            }
+        }
         var point = _waypoints[_nextPoint];
         var posPoint = point;
         posPoint.y = _slimecontroller.transform.position.y;
