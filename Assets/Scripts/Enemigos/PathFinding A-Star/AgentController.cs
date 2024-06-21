@@ -38,7 +38,7 @@ public class AgentController : MonoBehaviour
     {
         var nodes = Physics.OverlapSphere(pos, radius, maskNodes);
         Node nearNode = null;
-        float nearDistance = 0;
+        float nearDistance = float.MaxValue;
         for (int i = 0; i < nodes.Length; i++)
         {
             var currentNode = nodes[i];
