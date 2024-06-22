@@ -18,7 +18,7 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
     }
     public override void Enter()
     {
-        var list = _agentcontrollertwo.RunAStar();
+        var list = _agentcontrollertwo.RunAStar(_enemycontrollertwo);
         SetWayPoints(list);
         _enemycontrollertwo.animator.SetBool("IsRunning", true);
         base.Enter();
@@ -26,7 +26,7 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
     public override void Execute()
     {
         base.Execute();
-        //Añadir una comprobación de sí el jugador se movio de su lugar para hacer el runasatar de vuelta
+        //Aï¿½adir una comprobaciï¿½n de sï¿½ el jugador se movio de su lugar para hacer el runasatar de vuelta
         Run();
     }
     public override void Sleep()
@@ -87,7 +87,7 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
     void InvertWaypoints()
     {
         _waypoints.Reverse();
-        _nextPoint = _isReversing ? 0 : _waypoints.Count - 1; //Reiniciar el 1er punto en la nueva dirección
+        _nextPoint = _isReversing ? 0 : _waypoints.Count - 1; //Reiniciar el 1er punto en la nueva direcciï¿½n
         _isReversing = !_isReversing;
         _isFinishPath = false;
     }
