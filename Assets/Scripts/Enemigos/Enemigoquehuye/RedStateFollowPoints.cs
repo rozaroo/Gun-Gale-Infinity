@@ -6,6 +6,7 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
 {
     EnemyControllerTwo _enemycontrollertwo;
     public AgentControllerTwo _agentcontrollertwo;
+    ObstacleAvoidance _obstacleAvoidance;
     List<Vector3> _waypoints;
     int _nextPoint = 0;
     bool _isFinishPath = true;
@@ -15,11 +16,12 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
     {
         _enemycontrollertwo = enemycontrollertwo;
         _agentcontrollertwo = agentcontrollertwo;
+        _obstacleAvoidance = new ObstacleAvoidance(_enemycontrollertwo.transform, _enemycontrollertwo.angle, _enemycontrollertwo.radius, _enemycontrollertwo.maskObs, 2.5f);
     }
     public override void Enter()
     {
-        var list = _agentcontrollertwo.RunAStar(_enemycontrollertwo);
-        SetWayPoints(list);
+        //var list = _agentcontrollertwo.RunAStar(_enemycontrollertwo);
+        //SetWayPoints(list);
         _enemycontrollertwo.animator.SetBool("IsRunning", true);
         base.Enter();
     }
@@ -80,6 +82,13 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
                     InvertWaypoints();
                 }
             }
+        }
+        var avoidanceDir = _obstacleAvoidance.GetDir(dir.normalized);
+        if (avoidanceDir != dir.normalized)
+        {
+            // Si hay un obstáculo, buscar un punto seguro
+            _obstacleAvoidance.MoveToSafePoint(_agentcontrollertwo, _enemycontrollertwo);
+            return;
         }
         _enemycontrollertwo.Move(dir.normalized);
         _enemycontrollertwo.LookDir(dir);
