@@ -11,13 +11,10 @@ public class AgentControllerTwo : MonoBehaviour
     public Node target;
     public Node start;
 
-    public List<Node> RunAStar(EnemyControllerTwo enemy)
+    public List<Node> RunAStar()
     {
         var start = GetNearNode(enemy.transform.position);
         if (start == null) return new List<Node>();
-        var outOfSightNodes = GetNodesOutOfSight(enemy.transform.position, radius, maskObs);
-        if (outOfSightNodes.Count == 0) return new List<Node>();
-        target = GetFurthestNode(outOfSightNodes, enemy.transform.position);
         return AStar.Run(start, GetConnections, IsSatiesfies, GetCost, Heuristic);
     }
     float Heuristic(Node current)
@@ -56,33 +53,9 @@ public class AgentControllerTwo : MonoBehaviour
         }
         return nearNode;
     }
-
     List<Node> GetConnections(Node current)
     {
         return current.neightbourds;
-    }
-    public List<Node> GetNodesOutOfSight(Vector3 position, float range, LayerMask maskObs)
-    {
-        var nodes = Physics.OverlapSphere(position, range, maskNodes);
-        var outOfSightNodes = new List<Node>();
-        foreach (var nodeCollider in nodes) {
-            var node = nodeCollider.GetComponent<Node>();
-            var dirToNode = node.transform.position - position;
-            if (!Physics.Raycast(position, dirToNode.normalized, dirToNode.magnitude, maskObs)) outOfSightNodes.Add(node);
-        }
-        return outOfSightNodes;
-    }
-    private Node GetFurthestNode(List<Node> nodes, Vector3 position) {
-        Node furthestNode = null;
-        float maxDistance = 0;
-        foreach (var node in nodes) {
-            float distance = Vector3.Distance(node.transform.position, position);
-            if (distance > maxDistance) {
-                maxDistance = distance;
-                furthestNode = node;
-            }
-            return furthestNode;
-        }
     }
     bool IsSatiesfies(Node current)
     {
