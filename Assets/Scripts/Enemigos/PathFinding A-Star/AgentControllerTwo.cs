@@ -10,7 +10,6 @@ public class AgentControllerTwo : MonoBehaviour
     public LayerMask maskObs;
     public Node target;
     public Node start;
-    public MyGrid myGrid;
 
     public List<Node> RunAStar(EnemyControllerTwo enemy)
     {
@@ -20,22 +19,6 @@ public class AgentControllerTwo : MonoBehaviour
         if (outOfSightNodes.Count == 0) return new List<Node>();
         target = GetFurthestNode(outOfSightNodes, enemy.transform.position);
         return AStar.Run(start, GetConnections, IsSatiesfies, GetCost, Heuristic);
-    }
-    public List<Vector3> RunAStar(EnemyControllerTwo enemy)
-    {
-        var start = GetNearNode(enemy.transform.position);
-        if (start == null) return new List<Vector3>();
-        var outOfSightNodes = GetNodesOutOfSight(enemy.transform.position, radius, maskObs);
-        if (outOfSightNodes.Count == 0) return new List<Vector3>();
-        target = GetFurthestNode(outOfSightNodes, enemy.transform.position);
-        return AStar.Run(start, GetConnections, IsSatiesfies, GetCost, Heuristic);
-    }
-    public void RunAStarPlusVector(EnemyControllerTwo enemy)
-    {
-        Vector3 start = myGrid.GetPosInGrid(enemy.transform.position);
-        List<Vector3> path = AStar.Run(start, GetConnections, IsSatiesfies, GetCost, Heuristic, 5000);
-        //path = AStar.CleanPath(path, InView);
-        enemy.RedStateFollowPoints.SetWayPoints(path);
     }
     float Heuristic(Node current)
     {

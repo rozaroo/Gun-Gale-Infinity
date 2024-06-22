@@ -63,9 +63,4 @@ public class ObstacleAvoidance
             return Vector3.Lerp(currentDir, newDir, (_radius - Mathf.Clamp(nearCollDistance - _personalArea, 0, _radius)) / _radius);
         }
     }
-    //Metodo para calcular un punto seguro usando A-Star+
-    public void MoveToSafePoint(AgentControllerTwo agentController, EnemyControllerTwo enemyController)
-    {
-        agentController.RunAStarPlusVector(enemyController);
-    }
 }

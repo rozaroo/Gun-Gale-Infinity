@@ -117,7 +117,7 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
         var idle = new ActionNode(() => _fsm.Transition(StatesEnumDos.Idle));
         var astar = new ActionNode(() => _fsm.Transition(StatesEnumDos.Waypoints));
 
-        var qFollowPoints = new QuestionNode(() => _stateFollowPoints.ejecutar, idle, astar);
+        var qFollowPoints = new QuestionNode(() => _stateFollowPoints.ejecutar, astar, idle);
         var qLoS = new QuestionNode(QuestionLosPlayer(), steering, qFollowPoints);
         var qHasLife = new QuestionNode(QuestionHP(), dead, qLoS);
         _root = qHasLife;
