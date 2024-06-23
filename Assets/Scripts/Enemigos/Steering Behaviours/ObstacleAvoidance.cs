@@ -63,4 +63,15 @@ public class ObstacleAvoidance
             return Vector3.Lerp(currentDir, newDir, (_radius - Mathf.Clamp(nearCollDistance - _personalArea, 0, _radius)) / _radius);
         }
     }
+    public bool CheckObstacle()
+    {
+        Collider[] colls = Physics.OverlapSphere(_entity.position, _radius, _maskObs);
+        foreach (Collider coll in colls)
+        {
+            if (!coll.isTrigger) return true;
+
+        }
+        return false;
+    }
+    
 }

@@ -6,60 +6,53 @@ public class AgentControllerTwo : MonoBehaviour
 {
     public EnemyControllerTwo enemy;
     public float radius = 3;
-    public LayerMask maskNodes;
     public LayerMask maskObs;
-    public Node target;
-    public Node start;
+    public Vector3 target;
+    public MyGrid myGrid;
 
-    public List<Node> RunAStar()
+    /*public List<Node> RunAStar()
     {
         var start = GetNearNode(enemy.transform.position);
         if (start == null) return new List<Node>();
         return AStar.Run(start, GetConnections, IsSatiesfies, GetCost, Heuristic);
-    }
-    float Heuristic(Node current)
+    }*/
+    public List<Vector3> RunAStarPlusVector()
     {
-        float heuristic = 0;
-        float multiplierDistance = 1;
-        heuristic += Vector3.Distance(current.transform.position, target.transform.position) * multiplierDistance;
-        return heuristic;
+        var start = myGrid.GetPosInGrid(enemy.transform.position);
+        if (start == null) return new List<Vector3>();
+        return AStar.Run(start, GetConnections, IsSatiesfies, GetCost, Heuristic, 5000);
     }
-    float GetCost(Node parent, Node child)
+    float Heuristic(Vector3 current)
     {
-        float cost = 0;
-        float multiplierDistance = 1;
-        float multiplierTrap = 200;
-        cost += Vector3.Distance(parent.transform.position, child.transform.position) * multiplierDistance;
-        return cost;
+        return Vector3.Distance(current, target);
     }
-    Node GetNearNode(Vector3 pos)
+    float GetCost(Vector3 parent, Vector3 child)
     {
-        var nodes = Physics.OverlapSphere(pos, radius, maskNodes);
-        Node nearNode = null;
-        float nearDistance = 0;
-        for (int i = 0; i < nodes.Length; i++)
+        return Vector3.Distance(parent, child);
+    }
+    
+    List<Vector3> GetConnections(Vector3 current)
+    {
+        var connections = new List<Vector3>();
+
+        for (int x = -1; x <= 1; x++)
         {
-            var currentNode = nodes[i];
-            var dir = currentNode.transform.position - pos;
-            float currentDistance = dir.magnitude;
-            if (nearNode == null || currentDistance < nearDistance)
+            for (int z = -1; z <= 1; z++)
             {
-                if (!Physics.Raycast(pos, dir.normalized, currentDistance, maskObs))
+                if (z == 0 && x == 0) continue;
+                Vector3 point = myGrid.GetPosInGrid(new Vector3(current.x + x, current.y, current.z + z));
+                Debug.Log(point + "  " + myGrid.IsRightPos(point));
+                if (myGrid.IsRightPos(point))
                 {
-                    nearNode = currentNode.GetComponent<Node>();
-                    nearDistance = currentDistance;
+                    connections.Add(point);
                 }
             }
         }
-        return nearNode;
+        return connections;
     }
-    List<Node> GetConnections(Node current)
+    bool IsSatiesfies(Vector3 current)
     {
-        return current.neightbourds;
-    }
-    bool IsSatiesfies(Node current)
-    {
-        return current == target;
+        return Vector3.Distance(current, target) < 1.0f;
     }
     private void OnDrawGizmos()
     {

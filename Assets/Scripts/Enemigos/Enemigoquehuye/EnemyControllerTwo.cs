@@ -42,6 +42,7 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
 
     //A-star
     RedStateFollowPoints<StatesEnumDos> _stateFollowPoints;
+    Vector3 _lastKnownPlayerPosition; //Guarda la ultima posicion del player
     #region EnemyTwo
     Quaternion targetRotation;
     private int HP = 100;
@@ -164,6 +165,19 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     }
     Vector3 Origin => transform.position;
     Vector3 Forward => transform.forward;
+    bool DetectObstacle() 
+    {
+        return _obstacleAvoidance.CheckObstacle();
+    }
+    Vector3 FindFarthestPointWithoutPlayerSight()
+    {
+        Vector3 farthestPoint = Vector3.zero;
+
+        // Implementa aquí la lógica para encontrar el punto más lejano sin visión al jugador
+        // Utiliza el pathfinding (A*) para encontrar un punto lejos donde no veas al jugador
+
+        return farthestPoint;
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
@@ -177,7 +191,7 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     #endregion
 
     //A-Star
-    //public IPoints GetStateWaypoints => _stateFollowPoints;
+    public IPoints GetStateWaypoints => _stateFollowPoints;
     #region EnemyTwo
     public void TakeDamage(int damageAmount)
     {
