@@ -18,10 +18,9 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
     }
     public override void Enter()
     {
-        _waypoints = _agentcontrollertwo.RunAStarPlusVector();
-        //SetWayPoints(list);
+        var list = _agentcontrollertwo.RunAStar();
+        SetWayPoints(list);
         _enemycontrollertwo.animator.SetBool("IsRunning", true);
-        SetWayPoints(_waypoints);
         base.Enter();
     }
     public override void Execute()
@@ -56,10 +55,32 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
     }
     void Run()
     {
-        if (_isFinishPath || _waypoints == null || _waypoints.Count == 0) return;
-        Vector3 point = _waypoints[_nextPoint];
-        Vector3 dir = (point - _enemycontrollertwo.transform.position).normalized;
-        
+        if (IsFinishPath) return;
+        var point = _waypoints[_nextPoint];
+        var posPoint = point;
+        posPoint.y = _enemycontrollertwo.transform.position.y;
+        Vector3 dir = posPoint - _enemycontrollertwo.transform.position;
+        if (dir.magnitude < 0.2f)
+        {
+            if (!_isReversing)
+            {
+                if (_nextPoint + 1 < _waypoints.Count) _nextPoint++;
+                else
+                {
+                    _isFinishPath = true;
+                    InvertWaypoints();
+                }
+            }
+            else
+            {
+                if (_nextPoint - 1 >= 0) _nextPoint--;
+                else
+                {
+                    _isFinishPath = true;
+                    InvertWaypoints();
+                }
+            }
+        }
         _enemycontrollertwo.Move(dir.normalized);
         _enemycontrollertwo.LookDir(dir);
     }
