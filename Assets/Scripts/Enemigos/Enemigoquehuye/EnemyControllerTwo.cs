@@ -53,8 +53,6 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     public Transform dropSpawnPoint;
     //------------------------
     float timer;
-    float chaseRange = 8;
-    int currentWaypointIndex = 0;
     Rigidbody _rb;
     #endregion
 
@@ -117,12 +115,14 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
         var idle = new ActionNode(() => _fsm.Transition(StatesEnumDos.Idle));
         var astar = new ActionNode(() => _fsm.Transition(StatesEnumDos.Waypoints));
 
-        var qFollowPoints = new QuestionNode(() => _stateFollowPoints.ejecutar, astar, idle);
+        var qFollowPoints = new QuestionNode(() => QuestionObstacleDetected(), astar, idle); 
         var qLoS = new QuestionNode(QuestionLosPlayer(), steering, qFollowPoints);
         var qHasLife = new QuestionNode(QuestionHP(), dead, qLoS);
         _root = qHasLife;
     }
     #region Questions
+    //Necesito una Func bool que pregunte si se detecto un obstaculo
+
     Func<bool> QuestionRango()
     {
         return () => distance < (range - 10f);
@@ -138,6 +138,10 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     Func<bool> QuestionHP()
     {
         return () => HP <= 0;
+    }
+    Func<bool> QuestionObstacleDetected()
+    {
+        return () => _obstacleAvoidance.IsObstacleDetected();
     }
 
     #endregion

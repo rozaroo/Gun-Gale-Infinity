@@ -23,8 +23,8 @@ public class Objetive : MonoBehaviour, IPoints
     }
     private void OnTriggerEnter(Collider other)
     {
-        var character = other.GetComponent<EnemyController>();
+        var character = other.GetComponent<EnemyControllerTwo>();
         if (character) obj.SetActive(false);
-
     }
+    //Que esto funcione como una lista de objetos con el codigo objetive
 }

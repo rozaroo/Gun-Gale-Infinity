@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class RedStateFollowPoints<T> : State<T>, IPoints
 {
+    //Cambiar el código para que en lugar de patrullar vaya de vector3 en vector3 hasta el objeto con código Objetive más lejano al jugador
     EnemyControllerTwo _enemycontrollertwo;
     public AgentControllerTwo _agentcontrollertwo;
     List<Vector3> _waypoints;
     int _nextPoint = 0;
     bool _isFinishPath = true;
-    bool _isReversing = false;
     public bool ejecutar = true;
     public RedStateFollowPoints(EnemyControllerTwo enemycontrollertwo, AgentControllerTwo agentcontrollertwo)
     {
@@ -18,7 +18,7 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
     }
     public override void Enter()
     {
-        var list = _agentcontrollertwo.RunAStar();
+        var list = _agentcontrollertwo.RunAStarPlusVector();
         SetWayPoints(list);
         _enemycontrollertwo.animator.SetBool("IsRunning", true);
         base.Enter();
@@ -26,7 +26,6 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
     public override void Execute()
     {
         base.Execute();
-        //Añadir una comprobación de sí el jugador se movio de su lugar para hacer el runasatar de vuelta
         Run();
     }
     public override void Sleep()
@@ -34,62 +33,62 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
         base.Sleep();
         _enemycontrollertwo.animator.SetBool("IsRunning", false);
     }
-    public void SetWayPoints(List<Node> newPoints)
+    public void SetWayPoints(List<Node> newPoints) 
     {
         var list = new List<Vector3>();
         for (int i = 0; i < newPoints.Count; i++)
             list.Add(newPoints[i].transform.position);
         SetWayPoints(list);
     }
+
     public void SetWayPoints(List<Vector3> newPoints)
     {
-        _nextPoint = 0;
         if (newPoints.Count == 0) return;
-        //_anim.Play("CIA_Idle");
         _waypoints = newPoints;
+        _nextPoint = GetFarthestPointIndex(_waypoints, _enemycontrollertwo.player.position);
         var pos = _waypoints[_nextPoint];
         pos.y = _enemycontrollertwo.transform.position.y;
         _enemycontrollertwo.SetPosition(pos);
         _isFinishPath = false;
-        _isReversing = false;
     }
     void Run()
     {
-        if (IsFinishPath) return;
+        if (_isFinishPath) return;
         var point = _waypoints[_nextPoint];
         var posPoint = point;
         posPoint.y = _enemycontrollertwo.transform.position.y;
         Vector3 dir = posPoint - _enemycontrollertwo.transform.position;
         if (dir.magnitude < 0.2f)
         {
-            if (!_isReversing)
-            {
-                if (_nextPoint + 1 < _waypoints.Count) _nextPoint++;
-                else
-                {
-                    _isFinishPath = true;
-                    InvertWaypoints();
-                }
-            }
-            else
-            {
-                if (_nextPoint - 1 >= 0) _nextPoint--;
-                else
-                {
-                    _isFinishPath = true;
-                    InvertWaypoints();
-                }
-            }
+            _isFinishPath = true;
+            _enemycontrollertwo.animator.SetBool("IsRunning", false);
+            return;
         }
         _enemycontrollertwo.Move(dir.normalized);
         _enemycontrollertwo.LookDir(dir);
+
+        // Check if the enemy still sees the player
+        if (_enemycontrollertwo.QuestionLosPlayer().Invoke())
+        {
+            _isFinishPath = true;
+            _enemycontrollertwo.animator.SetBool("IsRunning", false);
+        }
     }
-    void InvertWaypoints()
+    int GetFarthestPointIndex(List<Vector3> points, Vector3 playerPosition)
     {
-        _waypoints.Reverse();
-        _nextPoint = _isReversing ? 0 : _waypoints.Count - 1; //Reiniciar el 1er punto en la nueva dirección
-        _isReversing = !_isReversing;
-        _isFinishPath = false;
+        float maxDistance = 0;
+        int farthestIndex = 0;
+        for (int i = 0; i < points.Count; i++)
+        {
+            float distance = Vector3.Distance(points[i], playerPosition);
+            if (distance > maxDistance)
+            {
+                maxDistance = distance;
+                farthestIndex = i;
+            }
+        }
+        return farthestIndex;
     }
+
     public bool IsFinishPath => _isFinishPath;
 }

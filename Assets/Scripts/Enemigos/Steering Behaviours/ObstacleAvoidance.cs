@@ -54,7 +54,6 @@ public class ObstacleAvoidance
 
         else
         {
-            //Vector3 newDir = (currentDir + (_entity.position - closetPoint).normalized).normalized;
             Vector3 relativePos = _entity.InverseTransformPoint(closetPoint);
             Vector3 dirToClosetPoint = (closetPoint - _entity.position).normalized;
             Vector3 newDir;
@@ -62,5 +61,11 @@ public class ObstacleAvoidance
             else newDir = -Vector3.Cross(_entity.up, dirToClosetPoint);
             return Vector3.Lerp(currentDir, newDir, (_radius - Mathf.Clamp(nearCollDistance - _personalArea, 0, _radius)) / _radius);
         }
+    }
+    //Anadir una funcion que retorne true si se detecto un obstaculo
+    public bool IsObstacleDetected()
+    {
+        Collider[] colls = Physics.OverlapSphere(_entity.position, _radius, _maskObs);
+        return colls.Length > 0;
     }
 }

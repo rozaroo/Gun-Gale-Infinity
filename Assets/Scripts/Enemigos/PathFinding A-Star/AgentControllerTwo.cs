@@ -10,12 +10,22 @@ public class AgentControllerTwo : MonoBehaviour
     public LayerMask maskObs;
     public Node target;
     public Node start;
+    public List<Objetive> objetives; 
+    public MyGrid myGrid;
 
     public List<Node> RunAStar()
     {
         var start = GetNearNode(enemy.transform.position);
         if (start == null) return new List<Node>();
         return AStar.Run(start, GetConnections, IsSatiesfies, GetCost, Heuristic);
+    }
+    public void RunAStarPlusVector()
+    {
+        Vector3 start = myGrid.GetPosInGrid(enemy.transform.position);
+        Objetive farthestObjective = GetFarthestObjective();
+        List<Vector3> path = AStar.Run(start, GetConnections, (current) => IsSatiesfies(current, farthestObjective.transform.position), GetCost, (current) => Heuristic(current, farthestObjective.transform.position), 5000);
+        farthestObjective.SetWayPoints(path);
+        return path;
     }
     float Heuristic(Node current)
     {
@@ -28,9 +38,51 @@ public class AgentControllerTwo : MonoBehaviour
     {
         float cost = 0;
         float multiplierDistance = 1;
-        float multiplierTrap = 200;
         cost += Vector3.Distance(parent.transform.position, child.transform.position) * multiplierDistance;
         return cost;
+    }
+   
+    List<Node> GetConnections(Node current)
+    {
+        return current.neightbourds;
+    }
+    bool IsSatiesfies(Node current)
+    {
+        return current == target;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(enemy.transform.position, radius);
+    }
+    //Vector3
+    float GetCost(Vector3 parent, Vector3 child)
+    {
+        float cost = 0;
+        float multiplierDistance = 1;
+        cost += Vector3.Distance(parent, child) * multiplierDistance;
+        return cost;
+    }
+
+    List<Vector3> GetConnections(Vector3 current)
+    {
+        var connections = new List<Vector3>();
+
+        for (int x = -1; x <= 1; x++)
+        {
+            for (int z = -1; z <= 1; z++)
+            {
+                if (z == 0 && x == 0) continue;
+                Vector3 point = myGrid.GetPosInGrid(new Vector3(current.x + x, current.y, current.z + z));
+                Debug.Log(point + "  " + myGrid.IsRightPos(point));
+                if (myGrid.IsRightPos(point)) connections.Add(point);
+            }
+        }
+        return connections;
+    }
+    bool IsSatiesfies(Vector3 current, Vector3 targetPosition)
+    {
+        return Vector3.Distance(current, targetPosition) < 2 && InView(current, targetPosition);
     }
     Node GetNearNode(Vector3 pos)
     {
@@ -53,17 +105,33 @@ public class AgentControllerTwo : MonoBehaviour
         }
         return nearNode;
     }
-    List<Node> GetConnections(Node current)
+    float Heuristic(Vector3 current,Vector3 targetPosition)
     {
-        return current.neightbourds;
+        float heuristic = 0;
+        float multiplierDistance = 1;
+        heuristic += Vector3.Distance(current, targetPosition) * multiplierDistance;
+        return heuristic;
     }
-    bool IsSatiesfies(Node current)
+    bool InView(Vector3 a, Vector3 b)
     {
-        return current == target;
+        //a->b  b-a
+        Vector3 dir = b - a;
+        return !Physics.Raycast(a, dir.normalized, dir.magnitude, maskObs);
     }
-    private void OnDrawGizmos()
+    Objetive GetFarthestObjective()
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(enemy.transform.position, radius);
+        Objetive farthest = null;
+        float maxDistance = float.MinValue;
+
+        foreach (var obj in objectives)
+        {
+            float distance = Vector3.Distance(enemy.transform.position, obj.transform.position);
+            if (distance > maxDistance)
+            {
+                maxDistance = distance;
+                farthest = obj;
+            }
+        }
+        return farthest;
     }
 }
