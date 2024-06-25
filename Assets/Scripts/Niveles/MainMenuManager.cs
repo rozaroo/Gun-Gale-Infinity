@@ -7,6 +7,11 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+    private void Start() 
+    {
+        ShowCursor();
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -18,5 +23,10 @@ public class MainMenuManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    private void ShowCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

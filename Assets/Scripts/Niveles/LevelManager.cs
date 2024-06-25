@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
     public GameObject Portal;
     public int Nivel;
     [SerializeField] GameObject defeatScreen;
+    [SerializeField] Text enemiesText;
+
     PlayerController pController;
 
     private void Awake()
@@ -23,6 +25,7 @@ public class LevelManager : MonoBehaviour
     {
         Portal.SetActive(false);
         defeatScreen.SetActive(false);
+        UpdateEnemiesText();
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class LevelManager : MonoBehaviour
                 //else Debug.Log("es null");
             }
         }
+        UpdateEnemiesText();
     }
         
     public void Restart()
@@ -52,5 +56,17 @@ public class LevelManager : MonoBehaviour
         defeatScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+    public void DecreaseEnemyCount()
+    {
+        if (Enemies  > 0)
+        {
+            Enemies--;
+            UpdateEnemiesText();
+        }
+    }
+    void UpdateEnemiesText()
+    {
+        enemiesText.text = "Enemies Remaining: " + Enemies;
     }
 }

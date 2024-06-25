@@ -67,6 +67,7 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     }
     private void Start()
     {
+        healthBar.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").transform;
         InitializeSteerings();
         InitializeFSM();
@@ -75,6 +76,7 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     private void Update()
     {
         healthBar.value = HP;
+        UpdateHealthBarVisibility();
         distance = Vector3.Distance(player.position, transform.position);
         if (_fsm != null) _fsm.OnUpdate();
         if (_root != null) _root.Execute();
@@ -217,6 +219,11 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     public void SetPosition(Vector3 pos)
     {
         transform.position = pos;
+    }
+    void UpdateHealthBarVisibility()
+    {
+        bool isVisible = CheckRange(player) && CheckAngle(player) && CheckView(player);
+        healthBar.gameObject.SetActive(isVisible);
     }
     #endregion
 }

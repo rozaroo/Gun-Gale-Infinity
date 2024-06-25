@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour
     {
         ActionsLogic(); //No puede ser pasado a la maquina de estado
         _fsm.OnUpdate();
+        if (Input.GetKeyDown(KeyCode.Escape)) QuitGame();
     }
 
     public void ActionsLogic() 
@@ -189,5 +190,9 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Ya no hay item cerca...");
             nearItem = null;
         }
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
