@@ -67,7 +67,7 @@ public class EnemyControllerTwo : MonoBehaviour, ILineOfSight
     }
     private void Start()
     {
-        healthBar.SetActive(false);
+        healthBar.gameObject.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").transform;
         InitializeSteerings();
         InitializeFSM();
