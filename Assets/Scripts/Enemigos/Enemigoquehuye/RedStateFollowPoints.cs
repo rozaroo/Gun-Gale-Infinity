@@ -10,7 +10,6 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
     List<Vector3> _waypoints;
     int _nextPoint = 0;
     bool _isFinishPath = true;
-    public bool ejecutar = true;
     public RedStateFollowPoints(EnemyControllerTwo enemycontrollertwo, AgentControllerTwo agentcontrollertwo)
     {
         _enemycontrollertwo = enemycontrollertwo;
@@ -33,19 +32,22 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
         base.Sleep();
         _enemycontrollertwo.animator.SetBool("IsRunning", false);
     }
-    public void SetWayPoints(List<Node> newPoints) 
+    
+    public void SetWayPoints(List<Node> newPoints)
     {
         var list = new List<Vector3>();
         for (int i = 0; i < newPoints.Count; i++)
+        {
             list.Add(newPoints[i].transform.position);
+        }
         SetWayPoints(list);
     }
-
     public void SetWayPoints(List<Vector3> newPoints)
     {
+        _nextPoint = 0;
         if (newPoints.Count == 0) return;
+        //_anim.Play("CIA_Idle");
         _waypoints = newPoints;
-        _nextPoint = GetFarthestPointIndex(_waypoints, _enemycontrollertwo.player.position);
         var pos = _waypoints[_nextPoint];
         pos.y = _enemycontrollertwo.transform.position.y;
         _enemycontrollertwo.SetPosition(pos);
@@ -53,42 +55,22 @@ public class RedStateFollowPoints<T> : State<T>, IPoints
     }
     void Run()
     {
-        if (_isFinishPath) return;
+        if (IsFinishPath) return;
         var point = _waypoints[_nextPoint];
         var posPoint = point;
         posPoint.y = _enemycontrollertwo.transform.position.y;
         Vector3 dir = posPoint - _enemycontrollertwo.transform.position;
         if (dir.magnitude < 0.2f)
         {
-            _isFinishPath = true;
-            _enemycontrollertwo.animator.SetBool("IsRunning", false);
-            return;
+            if (_nextPoint + 1 < _waypoints.Count) _nextPoint++;
+            else
+            {
+                _isFinishPath = true;
+                return;
+            }
         }
         _enemycontrollertwo.Move(dir.normalized);
         _enemycontrollertwo.LookDir(dir);
-
-        // Check if the enemy still sees the player
-        if (_enemycontrollertwo.QuestionLosPlayer().Invoke())
-        {
-            _isFinishPath = true;
-            _enemycontrollertwo.animator.SetBool("IsRunning", false);
-        }
     }
-    int GetFarthestPointIndex(List<Vector3> points, Vector3 playerPosition)
-    {
-        float maxDistance = 0;
-        int farthestIndex = 0;
-        for (int i = 0; i < points.Count; i++)
-        {
-            float distance = Vector3.Distance(points[i], playerPosition);
-            if (distance > maxDistance)
-            {
-                maxDistance = distance;
-                farthestIndex = i;
-            }
-        }
-        return farthestIndex;
-    }
-
     public bool IsFinishPath => _isFinishPath;
 }

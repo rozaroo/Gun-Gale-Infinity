@@ -13,18 +13,13 @@ public class AgentControllerTwo : MonoBehaviour
     public List<Objetive> objetives; 
     public MyGrid myGrid;
 
-    public List<Node> RunAStar()
-    {
-        var start = GetNearNode(enemy.transform.position);
-        if (start == null) return new List<Node>();
-        return AStar.Run(start, GetConnections, IsSatiesfies, GetCost, Heuristic);
-    }
-    public void RunAStarPlusVector()
+    public List<Vector3> RunAStarPlusVector()
     {
         Vector3 start = myGrid.GetPosInGrid(enemy.transform.position);
-        Objetive farthestObjective = GetFarthestObjective();
-        List<Vector3> path = AStar.Run(start, GetConnections, (current) => IsSatiesfies(current, farthestObjective.transform.position), GetCost, (current) => Heuristic(current, farthestObjective.transform.position), 5000);
-        farthestObjective.SetWayPoints(path);
+        Vector3 farthestPoint = GetFarthestPointOutOfView(start);
+        if (farthestPoint == Vector3.zero) return new List<Vector3>();
+
+        List<Vector3> path = AStar.Run(start, GetConnections, (current) => IsSatiesfies(current, farthestPoint), GetCost, (current) => Heuristic(current, farthestPoint), 5000);
         return path;
     }
     float Heuristic(Node current)
@@ -116,22 +111,25 @@ public class AgentControllerTwo : MonoBehaviour
     {
         //a->b  b-a
         Vector3 dir = b - a;
-        return !Physics.Raycast(a, dir.normalized, dir.magnitude, maskObs);
+        return !Physics.Raycast(a, dir.normalized, dir.magnitude, enemy.maskObs);
     }
-    Objetive GetFarthestObjective()
+    Vector3 GetFarthestPointOutOfView(Vector3 start)
     {
-        Objetive farthest = null;
+        Vector3 farthestPoint = Vector3.zero;
         float maxDistance = float.MinValue;
-
-        foreach (var obj in objectives)
+        foreach (var obj in objetives) 
         {
-            float distance = Vector3.Distance(enemy.transform.position, obj.transform.position);
-            if (distance > maxDistance)
+            if (enemy.CheckView(objetives.transform) == false)
             {
-                maxDistance = distance;
-                farthest = obj;
+                float distance = Vector3.Distance(start, objPosition);
+                if (distance > maxDistance)
+                {
+                    maxDistance = distance;
+                    farthestPoint = objPosition;
+                }
             }
         }
-        return farthest;
+        
+        return farthestPoint;
     }
 }
