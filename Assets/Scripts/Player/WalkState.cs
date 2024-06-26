@@ -23,9 +23,9 @@ public class WalkState<T> : State<T>
     {
         //MoveLogic
         if (_playerController.inventoryOpen == true) return;
-        Vector3 direction = _playerController.playerRb.velocity;
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
+        Vector3 direction = new Vector3(moveX, 0, moveZ).normalized;
         float theTime = Time.deltaTime;
         _playerController.newDirection = new Vector2(moveX, moveZ);
 
@@ -124,9 +124,6 @@ public class WalkState<T> : State<T>
                 }
             }
         }
-
-
-
         //AnimLogic
         _playerController.playerAnim.SetFloat("X", _playerController.newDirection.x);
         _playerController.playerAnim.SetFloat("Y", _playerController.newDirection.y);

@@ -163,7 +163,6 @@ public class PlayerController : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0f)
         {
-            Debug.Log("Estas Muerto");
             playerRagdoll.Active(true);
             Active = false;
             Destroy(this, 1.5f);
@@ -177,19 +176,11 @@ public class PlayerController : MonoBehaviour
  
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Item"))
-        {
-            Debug.Log("Hay un item cerca");
-            nearItem = other.gameObject;
-        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Item")) nearItem = other.gameObject;
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Item"))
-        {
-            Debug.Log("Ya no hay item cerca...");
-            nearItem = null;
-        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Item")) nearItem = null;
     }
     public void QuitGame()
     {
