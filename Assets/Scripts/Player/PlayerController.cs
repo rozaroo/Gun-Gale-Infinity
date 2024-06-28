@@ -8,15 +8,13 @@ public class PlayerController : MonoBehaviour
     #region Variables
     public bool Player = true;
     public bool Active = true;
-    
+    public PlayerValues playervalues;
     //Personaje
     public Transform playerTr;
     public Rigidbody playerRb;
     internal Animator playerAnim;
     RagdollController playerRagdoll;
-    public float maxHealth = 100f;
     public float currentHealth;
-    public float playerSpeed = 0f;
     public Vector2 newDirection;
     public bool hasPistol = false;
     public bool hasRiffle = false;
@@ -46,10 +44,6 @@ public class PlayerController : MonoBehaviour
     public Transform theCamera;
     public float rotY = 0f;
     public float rotX = 0f;
-    public float camRotSpeed = 200f;
-    public float minAngle = -45f;
-    public float maxAngle = 45f;
-    public float cameraSpeed = 200f;
 
     //Items
     public GameObject nearItem;

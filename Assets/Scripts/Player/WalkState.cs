@@ -32,8 +32,8 @@ public class WalkState<T> : State<T>
         //Vector3 movementDirection = new Vector3(moveX, 0, moveZ).normalized;
         //Vector3 velocity = movementDirection * playerSpeed * Time.deltaTime;
 
-        Vector3 side = _playerController.playerSpeed * moveX * theTime * _playerController.playerTr.right;
-        Vector3 forward = _playerController.playerSpeed * moveZ * theTime * _playerController.playerTr.forward;
+        Vector3 side = _playerController.playervalues.Speed[0] * moveX * theTime * _playerController.playerTr.right;
+        Vector3 forward = _playerController.playervalues.Speed[0] * moveZ * theTime * _playerController.playerTr.forward;
         Vector3 endDirection = side + forward;
         _playerController.playerRb.velocity = endDirection;
         //Transicion
@@ -45,10 +45,10 @@ public class WalkState<T> : State<T>
             if (_playerController.inventoryOpen == true) return;
             float mouseX = Input.GetAxis("Mouse X");
             float mouseY = Input.GetAxis("Mouse Y");
-            _playerController.rotY += mouseY * theTime * _playerController.camRotSpeed;
-            _playerController.rotX = mouseX * theTime * _playerController.camRotSpeed;
+            _playerController.rotY += mouseY * theTime * _playerController.playervalues.CamRotSpeed[0];
+            _playerController.rotX = mouseX * theTime * _playerController.playervalues.CamRotSpeed[0];
             _playerController.playerTr.Rotate(0, _playerController.rotX, 0); //Para que rote con la camara
-            _playerController.rotY = Mathf.Clamp(_playerController.rotY, _playerController.minAngle, _playerController.maxAngle);
+            _playerController.rotY = Mathf.Clamp(_playerController.rotY, _playerController.playervalues.MinAngle[0], _playerController.playervalues.MaxAngle[0]);
             Quaternion localRotation = Quaternion.Euler(-_playerController.rotY, 0, 0);
             _playerController.cameraAxis.localRotation = localRotation;
             if (_playerController.hasPistol || _playerController.hasRiffle || _playerController.hasGrenade)
@@ -56,15 +56,15 @@ public class WalkState<T> : State<T>
                 _playerController.cameraTrack.gameObject.SetActive(false);
                 _playerController.cameraWeaponTrack.gameObject.SetActive(true);
                 _playerController.crosshair.gameObject.SetActive(true);
-                _playerController.theCamera.position = Vector3.Lerp(_playerController.theCamera.position, _playerController.cameraWeaponTrack.position, _playerController.cameraSpeed * theTime);
-                _playerController.theCamera.rotation = Quaternion.Lerp(_playerController.theCamera.rotation, _playerController.cameraWeaponTrack.rotation, _playerController.cameraSpeed * theTime);
+                _playerController.theCamera.position = Vector3.Lerp(_playerController.theCamera.position, _playerController.cameraWeaponTrack.position, _playerController.playervalues.CameraSpeed[0] * theTime);
+                _playerController.theCamera.rotation = Quaternion.Lerp(_playerController.theCamera.rotation, _playerController.cameraWeaponTrack.rotation, _playerController.playervalues.CameraSpeed[0] * theTime);
             }
             else
             {
                 _playerController.cameraTrack.gameObject.SetActive(true);
                 _playerController.cameraWeaponTrack.gameObject.SetActive(false);
-                _playerController.theCamera.position = Vector3.Lerp(_playerController.theCamera.position, _playerController.cameraTrack.position, _playerController.cameraSpeed * theTime);
-                _playerController.theCamera.rotation = Quaternion.Lerp(_playerController.theCamera.rotation, _playerController.cameraTrack.rotation, _playerController.cameraSpeed * theTime);
+                _playerController.theCamera.position = Vector3.Lerp(_playerController.theCamera.position, _playerController.cameraTrack.position, _playerController.playervalues.CameraSpeed[0] * theTime);
+                _playerController.theCamera.rotation = Quaternion.Lerp(_playerController.theCamera.rotation, _playerController.cameraTrack.rotation, _playerController.playervalues.CameraSpeed[0] * theTime);
             }
         }
         
