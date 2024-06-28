@@ -73,7 +73,7 @@ public class WalkState<T> : State<T>
         {
             GameObject instantiatedItem = null;
             int countWeapons = 0;
-            foreach (GameObject itemPrefab in _playerController.itemPrefab)
+            foreach (GameObject itemPrefab in _playerController.playervalues.ItemPrefab)
             {
                 if (itemPrefab.CompareTag("PW") && _playerController.nearItem.CompareTag("PW"))
                 {

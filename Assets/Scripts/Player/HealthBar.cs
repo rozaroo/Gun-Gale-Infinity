@@ -16,7 +16,7 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
-        float healthPercentage = thePlayer.currentHealth / thePlayer.maxHealth;
+        float healthPercentage = thePlayer.currentHealth / thePlayer.playervalues.MaxHealth[0];
         rectTransform.localScale = new Vector3(healthPercentage, 1, 1);
         lifebarFill.color = Color.Lerp(Color.red, Color.green, healthPercentage);
     }

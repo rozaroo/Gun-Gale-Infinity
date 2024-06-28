@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
 
     //Items
     public GameObject nearItem;
-    public GameObject[] itemPrefab;
     public Transform itemSlot;
     public GameObject crosshair;
     
@@ -89,7 +88,7 @@ public class PlayerController : MonoBehaviour
         weaponSlots = GetComponentInChildren<WeaponSlots>();
         theCamera = Camera.main.transform;
         Cursor.lockState = CursorLockMode.Locked;
-        currentHealth = maxHealth;
+        currentHealth = playervalues.MaxHealth[0];
         Active = true;
     }
 

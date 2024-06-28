@@ -9,4 +9,5 @@ public class PlayerValues : ScriptableObject
     public float[] MinAngle;
     public float[] MaxAngle;
     public float[] CameraSpeed;
+    public GameObject[] ItemPrefab;
 }
