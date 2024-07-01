@@ -75,6 +75,8 @@ public class MainMenuManager : MonoBehaviour
         level1Button.gameObject.SetActive(false);
         level2Button.gameObject.SetActive(false);
         backButton.gameObject.SetActive(false);
+        Instructions2.gameObject.SetActive(false);
+        backButton2.gameObject.SetActive(false);
     }
     public void Instructionsbuton()
     {
