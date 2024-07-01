@@ -13,6 +13,9 @@ public class MainMenuManager : MonoBehaviour
     public Button level1Button;
     public Button level2Button;
     public Button backButton;
+    public Button Instructions;
+    public Button Instructions2;
+    public Button backButton2;
 
     private void Start()
     {
@@ -49,6 +52,7 @@ public class MainMenuManager : MonoBehaviour
     {
         playButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
+        Instructions.gameObject.SetActive(false);
         tutorialButton.gameObject.SetActive(true);
         level1Button.gameObject.SetActive(true);
         level2Button.gameObject.SetActive(true);
@@ -59,6 +63,7 @@ public class MainMenuManager : MonoBehaviour
     {
         playButton.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
+        Instructions.gameObject.SetActive(true);
         tutorialButton.gameObject.SetActive(false);
         level1Button.gameObject.SetActive(false);
         level2Button.gameObject.SetActive(false);
@@ -70,5 +75,20 @@ public class MainMenuManager : MonoBehaviour
         level1Button.gameObject.SetActive(false);
         level2Button.gameObject.SetActive(false);
         backButton.gameObject.SetActive(false);
+    }
+    public void Instructionsbuton()
+    {
+        playButton.gameObject.SetActive(false);
+        quitButton.gameObject.SetActive(false);
+        Instructions2.gameObject.SetActive(true);
+        backButton2.gameObject.SetActive(true);
+    }
+    public void Back() 
+    {
+        playButton.gameObject.SetActive(true);
+        quitButton.gameObject.SetActive(true);
+        Instructions.gameObject.SetActive(true);
+        Instructions2.gameObject.SetActive(false);
+        backButton2.gameObject.SetActive(false);
     }
 }
