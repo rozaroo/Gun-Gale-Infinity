@@ -60,6 +60,10 @@ public class PlayerController : MonoBehaviour
     public Transform throwableSlot;
     public Transform spawnGrenade;
 
+    //Post-Process
+    public CustomPostProcessRed postProcessController;
+    public GrayScalePP grayscale;
+
     //FinitStateMachine
     FSM<StatesEnumuno> _fsm;
     #endregion
@@ -95,20 +99,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ActionsLogic(); //No puede ser pasado a la maquina de estado
         _fsm.OnUpdate();
-        if (Input.GetKeyDown(KeyCode.Escape)) QuitGame();
     }
 
     public void ActionsLogic() 
     {
         //Inventory
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            inventoryOpen = !inventoryOpen;
-            Cursor.lockState = inventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
-            Cursor.visible = inventoryOpen;
-        }
+        //if (Input.GetKeyDown(KeyCode.Tab))
+        //{
+            //inventoryOpen = !inventoryOpen;
+            //Cursor.lockState = inventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
+            //Cursor.visible = inventoryOpen;
+        //}
         if (inventoryOpen == false) inventoryController.gameObject.SetActive(false);
         else inventoryController.gameObject.SetActive(true);
         if (Input.GetKeyDown(KeyCode.G)) Drop();

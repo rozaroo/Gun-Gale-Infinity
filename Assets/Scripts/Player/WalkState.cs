@@ -21,6 +21,12 @@ public class WalkState<T> : State<T>
     }
     public override void Execute()
     {
+        //ActionsLogic
+        if (_playerController.inventoryOpen == false) _playerController.inventoryController.gameObject.SetActive(false);
+        else _playerController.inventoryController.gameObject.SetActive(true);
+        if (Input.GetKeyDown(KeyCode.G)) _playerController.Drop();
+        if (Input.GetKeyDown(KeyCode.Escape)) _playerController.QuitGame();
+
         //MoveLogic
         if (_playerController.inventoryOpen == true) return;
         float moveX = Input.GetAxis("Horizontal");
@@ -141,5 +147,16 @@ public class WalkState<T> : State<T>
             _playerController.playerAnim.SetLayerWeight(2, 1);
         }
         if (!_playerController.Active) return;
+        //Activacion de Post-Procesos
+        if (_playerController.currentHealth <= 25f)
+        {
+            _playerController.postProcessController.ActivateShader();
+            _playerController.grayscale.ActivateShader();
+        }
+        if (_playerController.currentHealth > 25f)
+        {
+            _playerController.postProcessController.DesactivateShader();
+            _playerController.grayscale.DesactivateShader();
+        }
     }
 }

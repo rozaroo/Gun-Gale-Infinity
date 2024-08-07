@@ -51,4 +51,8 @@ public class CustomPostProcessRed : MonoBehaviour
         fadeAmount = 0.5f;
         OnValidate();
     }
+    public void DesactivateShader()
+    {
+        fadeAmount = 0.0f;
+    }
 }
