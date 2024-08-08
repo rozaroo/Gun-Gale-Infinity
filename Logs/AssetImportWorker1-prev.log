@@ -15,7 +15,7 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-50520
+61923
 Successfully changed project path to: C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [2900] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 1527225397 [EditorId] 1527225397 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [12700] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 223783719 [EditorId] 223783719 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [2900] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 1527225397 [EditorId] 1527225397 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [12700] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 223783719 [EditorId] 223783719 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 3 workers.
-Refreshing native plugins compatible for Editor in 95.13 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 113.61 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -71,442 +71,200 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56464
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56220
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.065138 seconds.
-- Loaded All Assemblies, in  1.925 seconds
+Registered in 0.062842 seconds.
+- Loaded All Assemblies, in  2.044 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.191 seconds
-Domain Reload Profiling: 4104ms
-	BeginReloadAssembly (684ms)
+- Finished resetting the current domain, in  2.144 seconds
+Domain Reload Profiling: 4173ms
+	BeginReloadAssembly (611ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (3ms)
-	RebuildCommonClasses (182ms)
-	RebuildNativeTypeToScriptingClass (43ms)
-	initialDomainReloadingComplete (316ms)
-	LoadAllAssembliesAndSetupDomain (688ms)
-		LoadAssemblies (667ms)
+	RebuildCommonClasses (214ms)
+	RebuildNativeTypeToScriptingClass (67ms)
+	initialDomainReloadingComplete (345ms)
+	LoadAllAssembliesAndSetupDomain (791ms)
+		LoadAssemblies (595ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (681ms)
-			TypeCache.Refresh (675ms)
-				TypeCache.ScanAssembly (623ms)
+		AnalyzeDomain (784ms)
+			TypeCache.Refresh (779ms)
+				TypeCache.ScanAssembly (712ms)
 			ScanForSourceGeneratedMonoScriptInfo (2ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (2192ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (2145ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1883ms)
+		SetupLoadedEditorAssemblies (1750ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (41ms)
-			SetLoadedEditorAssemblies (31ms)
+			InitializePlatformSupportModulesInManaged (66ms)
+			SetLoadedEditorAssemblies (51ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (9ms)
-			ProcessInitializeOnLoadAttributes (1596ms)
-			ProcessInitializeOnLoadMethodAttributes (206ms)
+			BeforeProcessingInitializeOnLoad (32ms)
+			ProcessInitializeOnLoadAttributes (1190ms)
+			ProcessInitializeOnLoadMethodAttributes (410ms)
 			AfterProcessingInitializeOnLoad (0ms)
-			EditorAssembliesLoaded (0ms)
+			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (0ms)
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  5.417 seconds
-Refreshing native plugins compatible for Editor in 31.14 ms, found 3 plugins.
+- Loaded All Assemblies, in 11.993 seconds
+Refreshing native plugins compatible for Editor in 104.13 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  4.705 seconds
-Domain Reload Profiling: 10102ms
-	BeginReloadAssembly (791ms)
+- Finished resetting the current domain, in 11.861 seconds
+Domain Reload Profiling: 23846ms
+	BeginReloadAssembly (1780ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (43ms)
+		DisableScriptedObjects (128ms)
 		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (83ms)
-	RebuildCommonClasses (215ms)
-	RebuildNativeTypeToScriptingClass (81ms)
-	initialDomainReloadingComplete (260ms)
-	LoadAllAssembliesAndSetupDomain (4045ms)
-		LoadAssemblies (2469ms)
+		ReleaseScriptingObjects (1ms)
+		CreateAndSetChildDomain (215ms)
+	RebuildCommonClasses (440ms)
+	RebuildNativeTypeToScriptingClass (119ms)
+	initialDomainReloadingComplete (514ms)
+	LoadAllAssembliesAndSetupDomain (9130ms)
+		LoadAssemblies (5495ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (2046ms)
-			TypeCache.Refresh (1799ms)
-				TypeCache.ScanAssembly (1688ms)
-			ScanForSourceGeneratedMonoScriptInfo (165ms)
-			ResolveRequiredComponents (74ms)
-	FinalizeReload (4710ms)
+		AnalyzeDomain (4645ms)
+			TypeCache.Refresh (3824ms)
+				TypeCache.ScanAssembly (3603ms)
+			ScanForSourceGeneratedMonoScriptInfo (575ms)
+			ResolveRequiredComponents (234ms)
+	FinalizeReload (11864ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (3421ms)
+		SetupLoadedEditorAssemblies (9000ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (30ms)
-			SetLoadedEditorAssemblies (24ms)
+			InitializePlatformSupportModulesInManaged (46ms)
+			SetLoadedEditorAssemblies (28ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (569ms)
-			ProcessInitializeOnLoadAttributes (2189ms)
-			ProcessInitializeOnLoadMethodAttributes (481ms)
-			AfterProcessingInitializeOnLoad (128ms)
+			BeforeProcessingInitializeOnLoad (636ms)
+			ProcessInitializeOnLoadAttributes (5880ms)
+			ProcessInitializeOnLoadMethodAttributes (2071ms)
+			AfterProcessingInitializeOnLoad (337ms)
 			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (51ms)
+		AwakeInstancesAfterBackupRestoration (139ms)
 Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.19 seconds
-Refreshing native plugins compatible for Editor in 60.56 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 1.42 seconds
+Refreshing native plugins compatible for Editor in 1066.14 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6054 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 99 unused Assets / (2.8 MB). Loaded Objects now: 6499.
-Memory consumption went from 234.7 MB to 231.9 MB.
-Total: 30.198427 ms (FindLiveObjects: 2.450301 ms CreateObjectMapping: 4.113353 ms MarkObjects: 19.086218 ms  DeleteObjects: 4.543155 ms)
+Unloading 6529 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 99 unused Assets / (2.8 MB). Loaded Objects now: 6975.
+Memory consumption went from 257.6 MB to 254.8 MB.
+Total: 26.698459 ms (FindLiveObjects: 1.092323 ms CreateObjectMapping: 3.342842 ms MarkObjects: 16.725548 ms  DeleteObjects: 5.533966 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
 ========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  2.198 seconds
-Refreshing native plugins compatible for Editor in 25.97 ms, found 3 plugins.
-Native extension for WindowsStandalone target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  6.441 seconds
-Domain Reload Profiling: 8619ms
-	BeginReloadAssembly (594ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (18ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (125ms)
-	RebuildCommonClasses (152ms)
-	RebuildNativeTypeToScriptingClass (50ms)
-	initialDomainReloadingComplete (132ms)
-	LoadAllAssembliesAndSetupDomain (1247ms)
-		LoadAssemblies (1511ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (75ms)
-			TypeCache.Refresh (18ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (51ms)
-	FinalizeReload (6443ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1990ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (63ms)
-			SetLoadedEditorAssemblies (12ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (418ms)
-			ProcessInitializeOnLoadAttributes (1238ms)
-			ProcessInitializeOnLoadMethodAttributes (213ms)
-			AfterProcessingInitializeOnLoad (45ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (35ms)
-Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Refreshing native plugins compatible for Editor in 54.90 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5918 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 62 unused Assets / (2.8 MB). Loaded Objects now: 6514.
-Memory consumption went from 205.6 MB to 202.8 MB.
-Total: 14.372978 ms (FindLiveObjects: 2.484318 ms CreateObjectMapping: 1.203013 ms MarkObjects: 8.684046 ms  DeleteObjects: 1.997822 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Received Import Request.
+  Time since last request: 3224914.557404 seconds.
+  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji cang_roughness.jpg
+  artifactKey: Guid(2afe876ad47e80141a76886263c8d388) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji cang_roughness.jpg using Guid(2afe876ad47e80141a76886263c8d388) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9590cf09aabdb95c7f6809a58dd165bc') in 1.053236 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
 ========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  2.565 seconds
-Refreshing native plugins compatible for Editor in 29.01 ms, found 3 plugins.
-Native extension for WindowsStandalone target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in 14.306 seconds
-Domain Reload Profiling: 16829ms
-	BeginReloadAssembly (704ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (34ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (160ms)
-	RebuildCommonClasses (179ms)
-	RebuildNativeTypeToScriptingClass (72ms)
-	initialDomainReloadingComplete (161ms)
-	LoadAllAssembliesAndSetupDomain (1402ms)
-		LoadAssemblies (1686ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (92ms)
-			TypeCache.Refresh (22ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (65ms)
-	FinalizeReload (14311ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (5649ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (61ms)
-			SetLoadedEditorAssemblies (31ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (927ms)
-			ProcessInitializeOnLoadAttributes (4185ms)
-			ProcessInitializeOnLoadMethodAttributes (381ms)
-			AfterProcessingInitializeOnLoad (63ms)
-			EditorAssembliesLoaded (1ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (42ms)
-Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Refreshing native plugins compatible for Editor in 116.90 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5918 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 62 unused Assets / (2.8 MB). Loaded Objects now: 6529.
-Memory consumption went from 207.5 MB to 204.8 MB.
-Total: 56.793755 ms (FindLiveObjects: 1.849875 ms CreateObjectMapping: 19.915044 ms MarkObjects: 30.419807 ms  DeleteObjects: 4.604169 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Received Import Request.
+  Time since last request: 0.020033 seconds.
+  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji shen_metallic.jpg
+  artifactKey: Guid(6bb09de66a948f6469e20e6b8c7a5248) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji shen_metallic.jpg using Guid(6bb09de66a948f6469e20e6b8c7a5248) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e9d19978fe37ddfd2a8413b833e9bfa') in 0.299774 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
 ========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  3.458 seconds
-Refreshing native plugins compatible for Editor in 51.92 ms, found 3 plugins.
-Native extension for WindowsStandalone target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in 16.149 seconds
-Domain Reload Profiling: 19562ms
-	BeginReloadAssembly (919ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (23ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (194ms)
-	RebuildCommonClasses (219ms)
-	RebuildNativeTypeToScriptingClass (80ms)
-	initialDomainReloadingComplete (221ms)
-	LoadAllAssembliesAndSetupDomain (1953ms)
-		LoadAssemblies (2357ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (146ms)
-			TypeCache.Refresh (46ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (94ms)
-	FinalizeReload (16170ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (5331ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (73ms)
-			SetLoadedEditorAssemblies (55ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (1152ms)
-			ProcessInitializeOnLoadAttributes (3379ms)
-			ProcessInitializeOnLoadMethodAttributes (577ms)
-			AfterProcessingInitializeOnLoad (94ms)
-			EditorAssembliesLoaded (1ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (58ms)
-Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Refreshing native plugins compatible for Editor in 66.13 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5918 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 62 unused Assets / (2.8 MB). Loaded Objects now: 6544.
-Memory consumption went from 209.5 MB to 206.7 MB.
-Total: 21.116977 ms (FindLiveObjects: 1.900631 ms CreateObjectMapping: 2.582590 ms MarkObjects: 11.919437 ms  DeleteObjects: 4.708380 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Received Import Request.
+  Time since last request: 0.001341 seconds.
+  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji shen_albedo.jpg
+  artifactKey: Guid(ef52ef9571d7f7a42940b4dae95b158b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji shen_albedo.jpg using Guid(ef52ef9571d7f7a42940b4dae95b158b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4eaa05bb81bf58f739c5d4c1a3fedac') in 0.178533 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
 ========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  2.498 seconds
-Refreshing native plugins compatible for Editor in 26.25 ms, found 3 plugins.
-Native extension for WindowsStandalone target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  5.797 seconds
-Domain Reload Profiling: 8269ms
-	BeginReloadAssembly (645ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (15ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (144ms)
-	RebuildCommonClasses (175ms)
-	RebuildNativeTypeToScriptingClass (66ms)
-	initialDomainReloadingComplete (139ms)
-	LoadAllAssembliesAndSetupDomain (1446ms)
-		LoadAssemblies (1550ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (278ms)
-			TypeCache.Refresh (44ms)
-				TypeCache.ScanAssembly (5ms)
-			ScanForSourceGeneratedMonoScriptInfo (167ms)
-			ResolveRequiredComponents (61ms)
-	FinalizeReload (5798ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (2047ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (20ms)
-			SetLoadedEditorAssemblies (11ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (324ms)
-			ProcessInitializeOnLoadAttributes (1423ms)
-			ProcessInitializeOnLoadMethodAttributes (233ms)
-			AfterProcessingInitializeOnLoad (35ms)
-			EditorAssembliesLoaded (1ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (29ms)
-Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Refreshing native plugins compatible for Editor in 76.98 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5918 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 62 unused Assets / (2.8 MB). Loaded Objects now: 6559.
-Memory consumption went from 211.4 MB to 208.7 MB.
-Total: 24.261656 ms (FindLiveObjects: 1.030768 ms CreateObjectMapping: 1.167376 ms MarkObjects: 18.249293 ms  DeleteObjects: 3.810440 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Received Import Request.
+  Time since last request: 0.003988 seconds.
+  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji shen_AO.jpg
+  artifactKey: Guid(1a1eece8348d9cc498c5ad5966b7f086) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji shen_AO.jpg using Guid(1a1eece8348d9cc498c5ad5966b7f086) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52e1684bd31bd1b6d1296f994f3abb4c') in 0.228629 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
 ========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  2.863 seconds
-Refreshing native plugins compatible for Editor in 25.05 ms, found 3 plugins.
-Native extension for WindowsStandalone target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in 13.370 seconds
-Domain Reload Profiling: 16211ms
-	BeginReloadAssembly (750ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (15ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (173ms)
-	RebuildCommonClasses (182ms)
-	RebuildNativeTypeToScriptingClass (66ms)
-	initialDomainReloadingComplete (168ms)
-	LoadAllAssembliesAndSetupDomain (1671ms)
-		LoadAssemblies (1976ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (128ms)
-			TypeCache.Refresh (26ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (2ms)
-			ResolveRequiredComponents (96ms)
-	FinalizeReload (13374ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (5925ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (145ms)
-			SetLoadedEditorAssemblies (47ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (1398ms)
-			ProcessInitializeOnLoadAttributes (3522ms)
-			ProcessInitializeOnLoadMethodAttributes (668ms)
-			AfterProcessingInitializeOnLoad (145ms)
-			EditorAssembliesLoaded (2ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (76ms)
-Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Refreshing native plugins compatible for Editor in 237.95 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5918 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 62 unused Assets / (2.8 MB). Loaded Objects now: 6574.
-Memory consumption went from 213.3 MB to 210.5 MB.
-Total: 26.373408 ms (FindLiveObjects: 1.917369 ms CreateObjectMapping: 2.095013 ms MarkObjects: 17.439905 ms  DeleteObjects: 4.915182 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Received Import Request.
+  Time since last request: 0.004445 seconds.
+  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L chi bang_normal.png
+  artifactKey: Guid(a87e06500de08df4aa4ae080ccf86977) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L chi bang_normal.png using Guid(a87e06500de08df4aa4ae080ccf86977) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '565b1ace5337046ca0236b720a456580') in 0.156866 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.010104 seconds.
+  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L chi bang_roughness.jpg
+  artifactKey: Guid(1dd4d0dbe892c014a90ffd630a745249) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L chi bang_roughness.jpg using Guid(1dd4d0dbe892c014a90ffd630a745249) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d314e2f9dadd1f64761bccd8df4312c') in 0.267856 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.008832 seconds.
+  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji cang_albedo.jpg
+  artifactKey: Guid(cf1881b854c9cff4c94e38a5b6af581c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji cang_albedo.jpg using Guid(cf1881b854c9cff4c94e38a5b6af581c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18d3fa68132f641e6141f7871afa1d1d') in 0.266187 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 8.470727 seconds.
+  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_metallic.jpg
+  artifactKey: Guid(cb0b89014c3fe554193c22074f5a151a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_metallic.jpg using Guid(cb0b89014c3fe554193c22074f5a151a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f316ae00b55a9a3eb08a73c55984ed71') in 0.151445 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.001021 seconds.
+  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_opacity.jpg
+  artifactKey: Guid(fb6c5b6647a832342bc13657f94529f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_opacity.jpg using Guid(fb6c5b6647a832342bc13657f94529f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0da99b4a3abd08f92ad65b54d08ed04') in 0.306048 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000564 seconds.
+  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_normal.png
+  artifactKey: Guid(78684e66290aa5241b42383e6dbaf60a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_normal.png using Guid(78684e66290aa5241b42383e6dbaf60a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '565a5ebf0bfc606d045053f1820991a2') in 0.209893 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_roughness.jpg
+  artifactKey: Guid(1ee654520242ddf41970687722466072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_roughness.jpg using Guid(1ee654520242ddf41970687722466072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '853f2dfb93c1bd67834e81af3fff5350') in 0.174956 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
