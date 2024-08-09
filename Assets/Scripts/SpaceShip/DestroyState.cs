@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyState : MonoBehaviour
+public class DestroyState<T> : State<T>
 {
-    // Start is called before the first frame update
-    void Start()
+    SpaceShipController _shipController;
+    public DestroyState(SpaceShipController spaceshipcontroller)
     {
-        
+        _shipController = spaceshipcontroller;
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
     {
-        
+        _shipController.DestroyShip();
     }
 }

@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
     
     public void RecoveryHealth(float health)
     {
-        currentHealth += health;
+        if (currentHealth < 100) currentHealth += health;
     }
  
     private void OnTriggerEnter(Collider other)
