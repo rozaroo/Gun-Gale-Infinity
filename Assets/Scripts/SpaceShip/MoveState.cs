@@ -33,7 +33,7 @@ public class MoveState<T> : State<T>
         // Actualizar la nueva dirección del controlador
         _shipController.newDirection = new Vector2(moveX, moveY);
         // Calcular los vectores de movimiento lateral y vertical
-        Vector3 side = _shipController.playervalues.Speed * moveX * theTime * _shipController.shipTr.right;
+        Vector3 side = _shipController.Speed * moveX * theTime * _shipController.shipTr.right;
         Vector3 vertical = _shipController.Speed * moveY * theTime * _shipController.shipTr.up;
         // Calcular la dirección final del movimiento
         Vector3 endDirection = side + vertical;

@@ -15,7 +15,7 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-61923
+65380
 Successfully changed project path to: C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [12700] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 223783719 [EditorId] 223783719 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [15372] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 3078698367 [EditorId] 3078698367 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [12700] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 223783719 [EditorId] 223783719 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [15372] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 3078698367 [EditorId] 3078698367 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 3 workers.
-Refreshing native plugins compatible for Editor in 113.61 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 305.83 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -71,200 +71,133 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56220
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56480
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.062842 seconds.
-- Loaded All Assemblies, in  2.044 seconds
+Registered in 0.044372 seconds.
+- Loaded All Assemblies, in  2.328 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.144 seconds
-Domain Reload Profiling: 4173ms
-	BeginReloadAssembly (611ms)
+- Finished resetting the current domain, in  1.610 seconds
+Domain Reload Profiling: 3919ms
+	BeginReloadAssembly (1053ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (3ms)
-	RebuildCommonClasses (214ms)
-	RebuildNativeTypeToScriptingClass (67ms)
-	initialDomainReloadingComplete (345ms)
-	LoadAllAssembliesAndSetupDomain (791ms)
-		LoadAssemblies (595ms)
+	RebuildCommonClasses (191ms)
+	RebuildNativeTypeToScriptingClass (50ms)
+	initialDomainReloadingComplete (318ms)
+	LoadAllAssembliesAndSetupDomain (694ms)
+		LoadAssemblies (1067ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (784ms)
-			TypeCache.Refresh (779ms)
-				TypeCache.ScanAssembly (712ms)
-			ScanForSourceGeneratedMonoScriptInfo (2ms)
-			ResolveRequiredComponents (2ms)
-	FinalizeReload (2145ms)
+		AnalyzeDomain (662ms)
+			TypeCache.Refresh (658ms)
+				TypeCache.ScanAssembly (590ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (1612ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1750ms)
+		SetupLoadedEditorAssemblies (1341ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (66ms)
-			SetLoadedEditorAssemblies (51ms)
+			InitializePlatformSupportModulesInManaged (56ms)
+			SetLoadedEditorAssemblies (41ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (32ms)
-			ProcessInitializeOnLoadAttributes (1190ms)
-			ProcessInitializeOnLoadMethodAttributes (410ms)
+			BeforeProcessingInitializeOnLoad (6ms)
+			ProcessInitializeOnLoadAttributes (946ms)
+			ProcessInitializeOnLoadMethodAttributes (292ms)
 			AfterProcessingInitializeOnLoad (0ms)
-			EditorAssembliesLoaded (1ms)
+			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (0ms)
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in 11.993 seconds
-Refreshing native plugins compatible for Editor in 104.13 ms, found 3 plugins.
+- Loaded All Assemblies, in 13.706 seconds
+Refreshing native plugins compatible for Editor in 606.03 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in 11.861 seconds
-Domain Reload Profiling: 23846ms
-	BeginReloadAssembly (1780ms)
+- Finished resetting the current domain, in 17.013 seconds
+Domain Reload Profiling: 30714ms
+	BeginReloadAssembly (1512ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (128ms)
+		DisableScriptedObjects (47ms)
 		BackupInstance (0ms)
-		ReleaseScriptingObjects (1ms)
-		CreateAndSetChildDomain (215ms)
-	RebuildCommonClasses (440ms)
-	RebuildNativeTypeToScriptingClass (119ms)
-	initialDomainReloadingComplete (514ms)
-	LoadAllAssembliesAndSetupDomain (9130ms)
-		LoadAssemblies (5495ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (127ms)
+	RebuildCommonClasses (451ms)
+	RebuildNativeTypeToScriptingClass (115ms)
+	initialDomainReloadingComplete (404ms)
+	LoadAllAssembliesAndSetupDomain (11208ms)
+		LoadAssemblies (7213ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (4645ms)
-			TypeCache.Refresh (3824ms)
-				TypeCache.ScanAssembly (3603ms)
-			ScanForSourceGeneratedMonoScriptInfo (575ms)
-			ResolveRequiredComponents (234ms)
-	FinalizeReload (11864ms)
+		AnalyzeDomain (5011ms)
+			TypeCache.Refresh (4145ms)
+				TypeCache.ScanAssembly (3971ms)
+			ScanForSourceGeneratedMonoScriptInfo (537ms)
+			ResolveRequiredComponents (283ms)
+	FinalizeReload (17024ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (9000ms)
+		SetupLoadedEditorAssemblies (7078ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (46ms)
-			SetLoadedEditorAssemblies (28ms)
+			InitializePlatformSupportModulesInManaged (66ms)
+			SetLoadedEditorAssemblies (29ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (636ms)
-			ProcessInitializeOnLoadAttributes (5880ms)
-			ProcessInitializeOnLoadMethodAttributes (2071ms)
-			AfterProcessingInitializeOnLoad (337ms)
+			BeforeProcessingInitializeOnLoad (1103ms)
+			ProcessInitializeOnLoadAttributes (4466ms)
+			ProcessInitializeOnLoadMethodAttributes (1038ms)
+			AfterProcessingInitializeOnLoad (374ms)
 			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (139ms)
+		AwakeInstancesAfterBackupRestoration (74ms)
 Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Launched and connected shader compiler UnityShaderCompiler.exe after 1.42 seconds
-Refreshing native plugins compatible for Editor in 1066.14 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 2.82 seconds
+Refreshing native plugins compatible for Editor in 223.89 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6529 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 99 unused Assets / (2.8 MB). Loaded Objects now: 6975.
-Memory consumption went from 257.6 MB to 254.8 MB.
-Total: 26.698459 ms (FindLiveObjects: 1.092323 ms CreateObjectMapping: 3.342842 ms MarkObjects: 16.725548 ms  DeleteObjects: 5.533966 ms)
+Unloading 6531 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 99 unused Assets / (2.8 MB). Loaded Objects now: 6977.
+Memory consumption went from 252.9 MB to 250.1 MB.
+Total: 31.268072 ms (FindLiveObjects: 2.145229 ms CreateObjectMapping: 2.240260 ms MarkObjects: 21.639650 ms  DeleteObjects: 5.236453 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 3224914.557404 seconds.
-  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji cang_roughness.jpg
-  artifactKey: Guid(2afe876ad47e80141a76886263c8d388) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji cang_roughness.jpg using Guid(2afe876ad47e80141a76886263c8d388) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9590cf09aabdb95c7f6809a58dd165bc') in 1.053236 seconds
+  Time since last request: 3385698.799524 seconds.
+  path: Assets/Scripts/Enemigos/Slimes/SlimeController.cs
+  artifactKey: Guid(d4d81f20fd1f7c64fb67a34790c0651f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Enemigos/Slimes/SlimeController.cs using Guid(d4d81f20fd1f7c64fb67a34790c0651f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a01e2f11b9a74159db1adb6feba1357') in 0.078380 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 0.020033 seconds.
-  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji shen_metallic.jpg
-  artifactKey: Guid(6bb09de66a948f6469e20e6b8c7a5248) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji shen_metallic.jpg using Guid(6bb09de66a948f6469e20e6b8c7a5248) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e9d19978fe37ddfd2a8413b833e9bfa') in 0.299774 seconds
+  Time since last request: 13.998795 seconds.
+  path: Assets/Prefabs/Slime/slime.prefab
+  artifactKey: Guid(03729df7f6ae0794db1348405c188583) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Slime/slime.prefab using Guid(03729df7f6ae0794db1348405c188583) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ac9f9763ef4031875ea0fbb32c31f1e') in 1.261264 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 38
 ========================================================================
-Received Import Request.
-  Time since last request: 0.001341 seconds.
-  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji shen_albedo.jpg
-  artifactKey: Guid(ef52ef9571d7f7a42940b4dae95b158b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji shen_albedo.jpg using Guid(ef52ef9571d7f7a42940b4dae95b158b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4eaa05bb81bf58f739c5d4c1a3fedac') in 0.178533 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.003988 seconds.
-  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji shen_AO.jpg
-  artifactKey: Guid(1a1eece8348d9cc498c5ad5966b7f086) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji shen_AO.jpg using Guid(1a1eece8348d9cc498c5ad5966b7f086) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52e1684bd31bd1b6d1296f994f3abb4c') in 0.228629 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.004445 seconds.
-  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L chi bang_normal.png
-  artifactKey: Guid(a87e06500de08df4aa4ae080ccf86977) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L chi bang_normal.png using Guid(a87e06500de08df4aa4ae080ccf86977) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '565b1ace5337046ca0236b720a456580') in 0.156866 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.010104 seconds.
-  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L chi bang_roughness.jpg
-  artifactKey: Guid(1dd4d0dbe892c014a90ffd630a745249) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L chi bang_roughness.jpg using Guid(1dd4d0dbe892c014a90ffd630a745249) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d314e2f9dadd1f64761bccd8df4312c') in 0.267856 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.008832 seconds.
-  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji cang_albedo.jpg
-  artifactKey: Guid(cf1881b854c9cff4c94e38a5b6af581c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L ji cang_albedo.jpg using Guid(cf1881b854c9cff4c94e38a5b6af581c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18d3fa68132f641e6141f7871afa1d1d') in 0.266187 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 8.470727 seconds.
-  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_metallic.jpg
-  artifactKey: Guid(cb0b89014c3fe554193c22074f5a151a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_metallic.jpg using Guid(cb0b89014c3fe554193c22074f5a151a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f316ae00b55a9a3eb08a73c55984ed71') in 0.151445 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.001021 seconds.
-  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_opacity.jpg
-  artifactKey: Guid(fb6c5b6647a832342bc13657f94529f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_opacity.jpg using Guid(fb6c5b6647a832342bc13657f94529f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0da99b4a3abd08f92ad65b54d08ed04') in 0.306048 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000564 seconds.
-  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_normal.png
-  artifactKey: Guid(78684e66290aa5241b42383e6dbaf60a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_normal.png using Guid(78684e66290aa5241b42383e6dbaf60a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '565a5ebf0bfc606d045053f1820991a2') in 0.209893 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000052 seconds.
-  path: Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_roughness.jpg
-  artifactKey: Guid(1ee654520242ddf41970687722466072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/northstar-fighter-ship/source/model/model/textures/Northstar_L bo li_roughness.jpg using Guid(1ee654520242ddf41970687722466072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '853f2dfb93c1bd67834e81af3fff5350') in 0.174956 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in 27.118 seconds
+Refreshing native plugins compatible for Editor in 56.68 ms, found 3 plugins.

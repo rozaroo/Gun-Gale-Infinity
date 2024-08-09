@@ -76,12 +76,12 @@ public class PlayerController : MonoBehaviour
     {
         _fsm = new FSM<StatesEnumuno>();
 
-        var idle = new IdleState<StatesEnumuno>(this,StatesEnumuno.Idle);
-        var walk = new WalkState<StatesEnumuno>(this, StatesEnumuno.Walk);
+        var idle = new IdleState<StatesEnumuno>(this,StatesEnumuno.Walk);
+        var walk = new WalkState<StatesEnumuno>(this, StatesEnumuno.Idle);
         
         idle.AddTransition(StatesEnumuno.Walk, walk);
         walk.AddTransition(StatesEnumuno.Idle, idle);
-        _fsm.SetInit(walk);
+        _fsm.SetInit(idle);
     }
     void Start()
     {

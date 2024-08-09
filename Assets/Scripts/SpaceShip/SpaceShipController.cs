@@ -22,6 +22,7 @@ public class SpaceShipController : MonoBehaviour
     public GameObject explosionPrefab;
     public GameObject shotPrefab;
     public Transform shotSpawnPoint;
+    
     private void Awake()
     {
         InitializeFSM();
@@ -53,20 +54,14 @@ public class SpaceShipController : MonoBehaviour
     }
     public void DestroyShip()
     {
-        StartCoroutine(EmitExplosionForTime(0.5f));
+        StartCoroutine(PlayDestructionAnimation(0.5f));
     }
-    private IEnumerator EmitExplosionForTime(float duration)
+    private IEnumerator PlayDestructionAnimation(float duration)
     {
         GameObject explosionObject = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        ExplosionSystem explosionSystem = explosionObject.GetComponent<ExplosionSystem>();
-        if (explosionSystem != null)
-        {
-            explosionSystem.Play();
-            yield return new WaitForSeconds(duration);
-            explosionSystem.Stop();
-            Destroy(gameObject);
-            Destroy(explosionObject, explosionSystem.main.startLifetime.constantMax);
-        }
+        yield return new WaitForSeconds(duration);
+        Destroy(gameObject);
+        Destroy(explosionObject, duration);
     }
     public void Shoot()
     {
