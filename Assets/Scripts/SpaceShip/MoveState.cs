@@ -41,6 +41,8 @@ public class MoveState<T> : State<T>
         _shipController.shipRb.velocity = endDirection;
         //Disparar
         if (Input.GetKeyDown(KeyCode.Space)) _shipController.Shoot();
+        //Recargar
+        if (Input.GetKeyDown(KeyCode.R)) _shipController.Reload();
         // Transición a Quiet si no hay input de movimiento
         if (moveX == 0 && moveY == 0) _fsm.Transition(_quietInput);
     }

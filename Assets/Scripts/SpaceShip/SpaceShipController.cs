@@ -22,6 +22,10 @@ public class SpaceShipController : MonoBehaviour
     public GameObject explosionPrefab;
     public GameObject shotPrefab;
     public Transform shotSpawnPoint;
+    public int municionPorCartucho; //Cantidad de balas por cartucho
+    public int maxCartuchos; //Cantidad máxima de cartuchos
+    private Stack<int> municion; //Pila para la munición
+    private Queue<int> cartuchos; //Cola para los cartuchos
     
     private void Awake()
     {
@@ -45,6 +49,15 @@ public class SpaceShipController : MonoBehaviour
     {
         shipTr = this.transform;
         shipRb = GetComponent<Rigidbody>();
+        //Inicializamos las pilas y colas
+        municion = new Stack<int>();
+        cartuchos = new Queue<int>();
+        //Llenamos la pila con munición inicial
+        for (int i = 0; i < municionPorCartucho; i++)
+            municion.Push(1); //Cada bala ocupa un "espacio" en la pila
+        //Llenamos la cola con cartuchos
+        for (int i = 0; i < maxCartuchos; i++)
+            cartuchos.Enqueue(municionPorCartucho); //Cada cartucho tiene una cantidad de disparos
     }
 
     // Update is called once per frame
@@ -65,6 +78,25 @@ public class SpaceShipController : MonoBehaviour
     }
     public void Shoot()
     {
-        if (shotPrefab != null && shotSpawnPoint != null) Instantiate(shotPrefab, shotSpawnPoint.position, shotSpawnPoint.rotation);
+        if (municion.Count > 0)
+        {
+            //Disminuye la munición
+            municion.Pop();
+            if (shotPrefab != null && shotSpawnPoint != null) Instantiate(shotPrefab, shotSpawnPoint.position, shotSpawnPoint.rotation);
+        }
+        else Debug.Log("Sin munición. Recarga!");
+    }
+    public void Reload()
+    {
+        if (cartuchos.Count > 0 && municion.Count == 0)
+        {
+            //Recargamos munición de un cartucho
+            int disparos = cartuchos.Dequeue();
+            for (int i = 0; i < disparos; i++)
+                municion.Push(1);
+            Debug.Log("Recargado. Munición disponible: " + municion.Count);
+        }
+        else if (cartuchos.Count == 0) Debug.Log("Sin cartuchos restantes.");
+        else if (municion.Count > 0) Debug.Log("Aún tienes munición");
     }
 }
