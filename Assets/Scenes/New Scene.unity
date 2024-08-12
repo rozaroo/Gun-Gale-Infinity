@@ -431,10 +431,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1870612282
 MonoBehaviour:
@@ -450,12 +450,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipTr: {fileID: 0}
   shipRb: {fileID: 0}
-  currentHealth: 0
+  currentHealth: 100
   newDirection: {x: 0, y: 0}
-  Speed: 0
+  Speed: 50
   explosionPrefab: {fileID: 0}
   shotPrefab: {fileID: 0}
   shotSpawnPoint: {fileID: 0}
+  municionPorCartucho: 5
+  maxCartuchos: 5
 --- !u!4 &1870612283
 Transform:
   m_ObjectHideFlags: 0
@@ -465,9 +467,9 @@ Transform:
   m_GameObject: {fileID: 1870612280}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 798.5253, y: 0.06633575, z: -1254.1719}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: -0.33, z: -5.72}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 390880057}
   m_Father: {fileID: 0}

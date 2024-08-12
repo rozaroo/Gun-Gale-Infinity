@@ -13,7 +13,6 @@ public class IdleState<T> : State<T>
     }
     public override void Execute()
     {
-        Debug.Log("Idle");
         //ActionsLogic
         if (_playerController.inventoryOpen == false) _playerController.inventoryController.gameObject.SetActive(false);
         else _playerController.inventoryController.gameObject.SetActive(true);
