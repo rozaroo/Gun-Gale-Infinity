@@ -99,4 +99,8 @@ public class SpaceShipController : MonoBehaviour
         else if (cartuchos.Count == 0) Debug.Log("Sin cartuchos restantes.");
         else if (municion.Count > 0) Debug.Log("Aún tienes munición");
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

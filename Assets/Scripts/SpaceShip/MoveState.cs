@@ -19,6 +19,7 @@ public class MoveState<T> : State<T>
     }
     public override void Execute()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) _shipController.QuitGame();
         // Transicion a Destroy sino hay vida
         if (_shipController.currentHealth <= 0)
         {

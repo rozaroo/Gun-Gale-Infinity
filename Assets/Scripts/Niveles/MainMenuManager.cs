@@ -12,6 +12,7 @@ public class MainMenuManager : MonoBehaviour
     public Button tutorialButton;
     public Button level1Button;
     public Button level2Button;
+    public Button level4Button;
     public Button backButton;
     public Button Instructions;
     public Button Instructions2;
@@ -39,6 +40,10 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+    public void LoadLevel4()
+    {
+        SceneManager.LoadScene(4);
+    }
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
@@ -56,6 +61,7 @@ public class MainMenuManager : MonoBehaviour
         tutorialButton.gameObject.SetActive(true);
         level1Button.gameObject.SetActive(true);
         level2Button.gameObject.SetActive(true);
+        level4Button.gameObject.SetActive(true);
         backButton.gameObject.SetActive(true);
     }
 
@@ -67,6 +73,7 @@ public class MainMenuManager : MonoBehaviour
         tutorialButton.gameObject.SetActive(false);
         level1Button.gameObject.SetActive(false);
         level2Button.gameObject.SetActive(false);
+        level4Button.gameObject.SetActive(false);
         backButton.gameObject.SetActive(false);
     }
     private void InitializeMenu()
@@ -74,6 +81,7 @@ public class MainMenuManager : MonoBehaviour
         tutorialButton.gameObject.SetActive(false);
         level1Button.gameObject.SetActive(false);
         level2Button.gameObject.SetActive(false);
+        level4Button.gameObject.SetActive(false);
         backButton.gameObject.SetActive(false);
         Instructions2.gameObject.SetActive(false);
         backButton2.gameObject.SetActive(false);
