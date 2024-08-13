@@ -102,19 +102,6 @@ public class PlayerController : MonoBehaviour
         _fsm.OnUpdate();
     }
 
-    public void ActionsLogic() 
-    {
-        //Inventory
-        //if (Input.GetKeyDown(KeyCode.Tab))
-        //{
-            //inventoryOpen = !inventoryOpen;
-            //Cursor.lockState = inventoryOpen ? CursorLockMode.None : CursorLockMode.Locked;
-            //Cursor.visible = inventoryOpen;
-        //}
-        if (inventoryOpen == false) inventoryController.gameObject.SetActive(false);
-        else inventoryController.gameObject.SetActive(true);
-        if (Input.GetKeyDown(KeyCode.G)) Drop();
-    }
     public void Drop()
     {
         if (hasPistol && primaryWeapon != null)

@@ -35,9 +35,6 @@ public class WalkState<T> : State<T>
         float theTime = Time.deltaTime;
         _playerController.newDirection = new Vector2(moveX, moveZ);
 
-        //Vector3 movementDirection = new Vector3(moveX, 0, moveZ).normalized;
-        //Vector3 velocity = movementDirection * playerSpeed * Time.deltaTime;
-
         Vector3 side = _playerController.playervalues.Speed[0] * moveX * theTime * _playerController.playerTr.right;
         Vector3 forward = _playerController.playervalues.Speed[0] * moveZ * theTime * _playerController.playerTr.forward;
         Vector3 endDirection = side + forward;
