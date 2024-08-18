@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class LevelTimer : MonoBehaviour
 {
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private float LevelTime;
-    [SerializeField] private Text countText;
+    [SerializeField] private TMP_Text countText;
     private int index;
     private float maxTime;
 
