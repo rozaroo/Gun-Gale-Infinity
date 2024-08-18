@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class LevelManager : MonoBehaviour
     public GameObject Portal;
     public int Nivel;
     [SerializeField] GameObject defeatScreen;
-    [SerializeField] Text enemiesText;
+    [SerializeField] TMP_Text enemiesText;
 
     PlayerController pController;
 
