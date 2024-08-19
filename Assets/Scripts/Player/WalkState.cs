@@ -26,6 +26,9 @@ public class WalkState<T> : State<T>
         else _playerController.inventoryController.gameObject.SetActive(true);
         if (Input.GetKeyDown(KeyCode.G)) _playerController.Drop();
         if (Input.GetKeyDown(KeyCode.Escape)) _playerController.QuitGame();
+        //Correr
+        float currentSpeed = _playerController.playervalues.Speed[0];
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) currentSpeed *= 2;
 
         //MoveLogic
         if (_playerController.inventoryOpen == true) return;
@@ -35,8 +38,8 @@ public class WalkState<T> : State<T>
         float theTime = Time.deltaTime;
         _playerController.newDirection = new Vector2(moveX, moveZ);
 
-        Vector3 side = _playerController.playervalues.Speed[0] * moveX * theTime * _playerController.playerTr.right;
-        Vector3 forward = _playerController.playervalues.Speed[0] * moveZ * theTime * _playerController.playerTr.forward;
+        Vector3 side = currentSpeed * moveX * theTime * _playerController.playerTr.right;
+        Vector3 forward = currentSpeed * moveZ * theTime * _playerController.playerTr.forward;
         Vector3 endDirection = side + forward;
         _playerController.playerRb.velocity = endDirection;
         //Transicion
