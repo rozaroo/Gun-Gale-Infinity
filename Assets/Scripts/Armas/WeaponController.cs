@@ -47,7 +47,7 @@ public class WeaponController : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.Mouse0)) shooting = false;
         }
-        if (Input.GetKeyDown(KeyCode.R) Recargar();
+        if (Input.GetKeyDown(KeyCode.R)) Recargar();
         Debug.DrawLine(shootSpawn.position, shootSpawn.forward * 10f, Color.red);
         Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.forward * 10f, Color.blue);
         RaycastHit cameraHit;
