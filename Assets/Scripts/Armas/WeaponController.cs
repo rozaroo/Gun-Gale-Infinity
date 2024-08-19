@@ -102,5 +102,8 @@ public class WeaponController : MonoBehaviour
             yield return new WaitForSeconds(shootDelay);
         }
     }
-
+    public void AddCartridge()
+    {
+        cartuchos.Enqueue(balasPorCartucho);
+    }
 }

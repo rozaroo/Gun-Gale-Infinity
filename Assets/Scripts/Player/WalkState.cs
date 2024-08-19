@@ -128,6 +128,12 @@ public class WalkState<T> : State<T>
                     _playerController.RecoveryHealth(25);
                     GameObject.Destroy(_playerController.nearItem.gameObject);
                 }
+                else if (itemPrefab.CompareTag("Municion") && _playerController.nearItem.CompareTag("Municion"))
+                {
+                    WeaponController secondaryWeaponController = _playerController.secondaryWeapon.GetComponent<WeaponController>();
+                    if (secondaryWeaponController != null) secondaryWeaponController.AddCartridge();
+                    GameObject.Destroy(_playerController.nearItem.gameObject);
+                }
             }
         }
         //AnimLogic
