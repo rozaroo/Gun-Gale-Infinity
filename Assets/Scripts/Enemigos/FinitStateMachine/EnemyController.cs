@@ -56,9 +56,6 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     public Transform dropSpawnPoint;
     //------------------------
     float timer;
-    float chaseRange = 8;
-    int currentWaypointIndex = 0;
-    int patrolDirection = 1; // 1 = adelante y -1 = atras
     Rigidbody _rb;
     #endregion
 

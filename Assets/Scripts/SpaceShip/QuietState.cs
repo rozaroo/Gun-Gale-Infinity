@@ -16,6 +16,7 @@ public class QuietState<T> : State<T>
     public override void Execute()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) _shipController.QuitGame();
+        if (Input.GetKeyDown(KeyCode.U)) _shipController.currentHealth = 0;
         // Transicion a Destroy sino hay vida
         if (_shipController.currentHealth <= 0) 
         { 

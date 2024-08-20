@@ -46,7 +46,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     public float speedRoot;
     //------------------------
     float timer;
-    float chaseRange = 8;
+    
     Rigidbody _rb;
 
     public Vector3 Position => transform.position;

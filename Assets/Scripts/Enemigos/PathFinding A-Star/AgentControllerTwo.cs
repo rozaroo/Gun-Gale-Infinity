@@ -28,7 +28,6 @@ public class AgentControllerTwo : MonoBehaviour
     {
         float cost = 0;
         float multiplierDistance = 1;
-        float multiplierTrap = 200;
         cost += Vector3.Distance(parent.transform.position, child.transform.position) * multiplierDistance;
         return cost;
     }
