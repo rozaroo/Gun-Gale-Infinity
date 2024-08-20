@@ -94,7 +94,7 @@ public class WeaponController : MonoBehaviour
         {
             if (municion.Count == 0 || municion.Peek() <= 0)
             {
-                //Insertar sonido de que no hay munición
+                Debug.Log("Sin munición. Recarga!");
             }
             //Restar una bala
             municion.Push(municion.Pop() - 1);
