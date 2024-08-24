@@ -21,11 +21,11 @@ public class WeaponController : MonoBehaviour
 
     void Start()
     {
-        //Inicializar con munición y cartuchos de ejemplo
+        //Inicializar con municiï¿½n y cartuchos de ejemplo
         for (int i = 0; i < 3; i++)
-            municion.Push(balasPorCartucho);//Añade 16 balas al cartucho
+            municion.Push(balasPorCartucho);//Aï¿½ade 16 balas al cartucho
         for (int i = 0; i < 2; i++)
-            cartuchos.Enqueue(balasPorCartucho); //Añade 2 cartuchos en total
+            cartuchos.Enqueue(balasPorCartucho); //Aï¿½ade 2 cartuchos en total
         playerController = FindObjectOfType<PlayerController>();
     }
 
@@ -47,10 +47,18 @@ public class WeaponController : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.Mouse0)) shooting = false;
         }
-        if (Input.GetKeyDown(KeyCode.R) Recargar();
+
+        if (Input.GetKeyDown(KeyCode.R)) 
+        {
+            Recargar();
+        }
+        
+            
+        
         Debug.DrawLine(shootSpawn.position, shootSpawn.forward * 10f, Color.red);
         Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.forward * 10f, Color.blue);
         RaycastHit cameraHit;
+
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out cameraHit))
         {
             Vector3 shootDirection = cameraHit.point - shootSpawn.position;
@@ -94,7 +102,7 @@ public class WeaponController : MonoBehaviour
         {
             if (municion.Count == 0 || municion.Peek() <= 0)
             {
-                //Insertar sonido de que no hay munición
+                //Insertar sonido de que no hay municiï¿½n
             }
             //Restar una bala
             municion.Push(municion.Pop() - 1);
