@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1351.9176
     height: 687.8351
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -67,14 +67,14 @@ MonoBehaviour:
     y: 414.68042
     width: 768
     height: 223.15466
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 13}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
   - {fileID: 13}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -313,50 +313,16 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_ViewTransforms:
     m_KeySerializationHelper:
-    - {fileID: 110784426, guid: 3705d3d72efc1104fa7fa5b1ae6aa552, type: 2}
     - {fileID: 3656060403070664789, guid: 2547cee319c8cbe4eb9d5d58fd697e4c, type: 2}
-    - {fileID: 110784426, guid: 08f6634017a8e784a8807f193b72bec9, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.8673933
+    - e00: 1
       e01: 0
       e02: 0
-      e03: 191.63364
+      e03: 0
       e10: 0
-      e11: 0.8673933
+      e11: 1
       e12: 0
-      e13: 40.90119
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.49593496
-      e01: 0
-      e02: 0
-      e03: -9.796753
-      e10: 0
-      e11: 0.49593496
-      e12: 0
-      e13: 303.27643
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.622449
-      e01: 0
-      e02: 0
-      e03: 134.51021
-      e10: 0
-      e11: 0.622449
-      e12: 0
-      e13: 25.15306
+      e13: 0
       e20: 0
       e21: 0
       e22: 1
@@ -454,7 +420,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: dafaffff
+      m_ExpandedIDs: 6aeeffffbef9ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -570,7 +536,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Enemigos/PathFinding A-Star
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -578,16 +544,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Enemigos/PathFinding A-Star
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Usuario\Documents\GitHub\Gun-Gale-Infinity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 431.7835}
-    m_SelectedIDs: 88830000
-    m_LastClickedID: 33672
-    m_ExpandedIDs: 00000000028100000481000006810000088100000a8100000c81000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 44810000
+    m_LastClickedID: 33092
+    m_ExpandedIDs: 000000003a8100003c8100003e81000040810000428100004481000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -615,7 +581,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000028100000481000006810000088100000a8100000c810000
+    m_ExpandedIDs: 000000003a8100003c8100003e810000408100004281000044810000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -642,7 +608,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: d2840000d87e00004a7600008c7e0000f8350000307500002c7500004675000012780000a47e000022870000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1240,7 +1206,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
     speed: 2
-    m_Value: {x: -0.7071068, y: 0, z: -0, w: -0.7071068}
+    m_Value: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_Size:
     m_Target: 12.814284
     speed: 2
