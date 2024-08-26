@@ -12,20 +12,9 @@ public class WeaponController : MonoBehaviour
     public GameObject bulletPrefab;
     public Sprite weaponIcon;
     public PlayerController playerController;
-    //Pila de balas
-    public Stack<int> municion = new Stack<int>();
-    //Cola de cartuchos
-    public Queue<int> cartuchos = new Queue<int>();
-    //Capacidad de balas por cartucho
-    public int balasPorCartucho = 16;
-
+    
     void Start()
     {
-        //Inicializar con munición y cartuchos de ejemplo
-        for (int i = 0; i < 3; i++)
-            municion.Push(balasPorCartucho);//Añade 16 balas al cartucho
-        for (int i = 0; i < 2; i++)
-            cartuchos.Enqueue(balasPorCartucho); //Añade 2 cartuchos en total
         playerController = FindObjectOfType<PlayerController>();
     }
 
@@ -47,7 +36,6 @@ public class WeaponController : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.Mouse0)) shooting = false;
         }
-        if (Input.GetKeyDown(KeyCode.R)) Recargar();
         Debug.DrawLine(shootSpawn.position, shootSpawn.forward * 10f, Color.red);
         Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.forward * 10f, Color.blue);
         RaycastHit cameraHit;
@@ -76,13 +64,6 @@ public class WeaponController : MonoBehaviour
         }
 
     }
-    public void Recargar()
-    {
-        if (cartuchos.Count == 0) return;
-        //Extraer un cartucho de la cola y cargar la pila de balas
-        int balasRecargadas = cartuchos.Dequeue();
-        municion.Push(balasRecargadas);
-    }
     public void InstantiateBullet()
     {
         Vector3 spawnPosition = shootSpawn.position + shootSpawn.forward * 0.1f;
@@ -92,18 +73,8 @@ public class WeaponController : MonoBehaviour
     {
         while (shooting)
         {
-            if (municion.Count == 0 || municion.Peek() <= 0)
-            {
-                Debug.Log("Sin munición. Recarga!");
-            }
-            //Restar una bala
-            municion.Push(municion.Pop() - 1);
             InstantiateBullet();
             yield return new WaitForSeconds(shootDelay);
         }
-    }
-    public void AddCartridge()
-    {
-        cartuchos.Enqueue(balasPorCartucho);
     }
 }
