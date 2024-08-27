@@ -14,8 +14,8 @@ public class MainMenuManager : MonoBehaviour
     public Button level2Button;
     public Button level4Button;
     public Button backButton;
-    public Button Instructions;
-    public Button Instructions2;
+    public Button instructionsbutton;
+    public GameObject instructionsPanel;
     public Button backButton2;
 
     private void Start()
@@ -57,7 +57,7 @@ public class MainMenuManager : MonoBehaviour
     {
         playButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
-        Instructions.gameObject.SetActive(false);
+        instructionsbutton.gameObject.SetActive(false);
         tutorialButton.gameObject.SetActive(true);
         level1Button.gameObject.SetActive(true);
         level2Button.gameObject.SetActive(true);
@@ -69,7 +69,8 @@ public class MainMenuManager : MonoBehaviour
     {
         playButton.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
-        Instructions.gameObject.SetActive(true);
+        instructionsbutton.gameObject.SetActive(true);
+        instructionsPanel.gameObject.SetActive(false);
         tutorialButton.gameObject.SetActive(false);
         level1Button.gameObject.SetActive(false);
         level2Button.gameObject.SetActive(false);
@@ -83,22 +84,23 @@ public class MainMenuManager : MonoBehaviour
         level2Button.gameObject.SetActive(false);
         level4Button.gameObject.SetActive(false);
         backButton.gameObject.SetActive(false);
-        Instructions2.gameObject.SetActive(false);
+        instructionsPanel.gameObject.SetActive(false);
         backButton2.gameObject.SetActive(false);
     }
     public void Instructionsbuton()
     {
         playButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
-        Instructions2.gameObject.SetActive(true);
+        instructionsbutton.gameObject.SetActive(false);
+        instructionsPanel.gameObject.SetActive(true);
         backButton2.gameObject.SetActive(true);
     }
     public void Back() 
     {
         playButton.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
-        Instructions.gameObject.SetActive(true);
-        Instructions2.gameObject.SetActive(false);
+        instructionsbutton.gameObject.SetActive(true);
+        instructionsPanel.gameObject.SetActive(false);
         backButton2.gameObject.SetActive(false);
     }
 }
