@@ -143,7 +143,8 @@ public class PlayerController : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        if (currentshield > 0) currentshield -= damage;
+        if (currentshield <= 0) currentHealth -= damage;
         if (currentHealth <= 0f)
         {
             playerRagdoll.Active(true);
