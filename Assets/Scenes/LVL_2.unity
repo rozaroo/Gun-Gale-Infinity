@@ -17293,7 +17293,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 459b2f707b868f5469bf101e5185a8ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05989dacaa286db47ba01d467e66de53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -24050,10 +24050,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1095145859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b879182fb06c8544a58c342975860e6, type: 3}
+  m_Script: {fileID: 11500000, guid: a7991a2cb0c0ce941a7f7d11ff7c90e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeBarFIll: {fileID: 1564591573}
+  shieldBarFill: {fileID: 1104022379}
 --- !u!114 &1095145862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24063,10 +24063,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1095145859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfa6e1883f497614887a30cab8b92d6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fc39813e016887448a8f1aa1cc93d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldBarFill: {fileID: 1104022379}
+  lifeBarFIll: {fileID: 1564591573}
 --- !u!1 &1099212661
 GameObject:
   m_ObjectHideFlags: 0
@@ -24277,7 +24277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: de5b7567dde280d41b0013568612a339, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 44a52361240385a43aa3750644c9d32b, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -34911,7 +34911,7 @@ GameObject:
   - component: {fileID: 1563341265}
   - component: {fileID: 1563341267}
   - component: {fileID: 1563341266}
-  - component: {fileID: 1563341264}
+  - component: {fileID: 1563341268}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -34919,58 +34919,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1563341264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1563341263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e04c59dd01f832479d397e004bd09b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: 1
-  Active: 1
-  playervalues: {fileID: 11400000, guid: 8a747d520989f1a4692d4bceb5bd760d, type: 2}
-  playerTr: {fileID: 1563341265}
-  playerRb: {fileID: 1563341267}
-  currentHealth: 100
-  currentshield: 0
-  newDirection: {x: 0, y: 0}
-  hasPistol: 0
-  hasRiffle: 0
-  hasGrenade: 0
-  inventoryOpen: 0
-  droppedItems: []
-  actualWeaponActive: {fileID: 0}
-  dropThisWeapon: {fileID: 0}
-  dropWeapon: 0
-  playerUI: {fileID: 25684718}
-  primaryWeaponIcon: {fileID: 1361344744}
-  secondaryWeaponIcon: {fileID: 1094794681}
-  throwableWeaponIcon: {fileID: 1665889532}
-  inventoryController: {fileID: 831593923}
-  cameraAxis: {fileID: 1427569815}
-  cameraTrack: {fileID: 738710071}
-  cameraWeaponTrack: {fileID: 1113083359}
-  theCamera: {fileID: 1964014428}
-  rotY: 0
-  rotX: 0
-  nearItem: {fileID: 0}
-  itemSlot: {fileID: 1650510912}
-  crosshair: {fileID: 797320746}
-  weapons: 0
-  primaryWeapon: {fileID: 0}
-  secondaryWeapon: {fileID: 0}
-  throwableWeapon: {fileID: 0}
-  primarySlot: {fileID: 265282643}
-  secondarySlot: {fileID: 101065183}
-  throwableSlot: {fileID: 503685332}
-  spawnGrenade: {fileID: 2133773770}
-  postProcessController: {fileID: 1964014431}
-  grayscale: {fileID: 1964014430}
 --- !u!4 &1563341265
 Transform:
   m_ObjectHideFlags: 0
@@ -35038,6 +34986,58 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1563341268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563341263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c074e63a094284e8380ad28634d224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: 1
+  Active: 1
+  playervalues: {fileID: 11400000, guid: 8a747d520989f1a4692d4bceb5bd760d, type: 2}
+  playerTr: {fileID: 1563341265}
+  playerRb: {fileID: 1563341267}
+  currentHealth: 100
+  currentshield: 0
+  newDirection: {x: 0, y: 0}
+  hasPistol: 0
+  hasRiffle: 0
+  hasGrenade: 0
+  inventoryOpen: 0
+  droppedItems: []
+  actualWeaponActive: {fileID: 0}
+  dropThisWeapon: {fileID: 0}
+  dropWeapon: 0
+  playerUI: {fileID: 25684718}
+  primaryWeaponIcon: {fileID: 1361344744}
+  secondaryWeaponIcon: {fileID: 1094794681}
+  throwableWeaponIcon: {fileID: 1665889532}
+  inventoryController: {fileID: 831593923}
+  cameraAxis: {fileID: 1427569815}
+  cameraTrack: {fileID: 738710071}
+  cameraWeaponTrack: {fileID: 1113083359}
+  theCamera: {fileID: 1964014428}
+  rotY: 500
+  rotX: 500
+  nearItem: {fileID: 0}
+  itemSlot: {fileID: 1411600661}
+  crosshair: {fileID: 797320746}
+  weapons: 0
+  primaryWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 0}
+  throwableWeapon: {fileID: 0}
+  primarySlot: {fileID: 265282643}
+  secondarySlot: {fileID: 101065183}
+  throwableSlot: {fileID: 503685332}
+  spawnGrenade: {fileID: 2133773770}
+  postProcessController: {fileID: 1964014431}
+  grayscale: {fileID: 1964014430}
 --- !u!1 &1564591571
 GameObject:
   m_ObjectHideFlags: 0
@@ -35095,7 +35095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4cf32c6096b0b6241b334aaaae3ab00d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 304ac821126d66d43bfc9be27ec8f09d, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
