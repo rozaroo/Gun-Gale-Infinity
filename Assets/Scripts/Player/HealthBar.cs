@@ -5,19 +5,16 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public PlayerController thePlayer;
-    public Image lifebarFill;
-    private RectTransform rectTransform;
+    [SerializeField] private Image lifeBarFIll;
+    PlayerController Player;
 
     void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
+        Player = FindObjectOfType<PlayerController>();
     }
 
     void Update()
     {
-        float healthPercentage = thePlayer.currentHealth / thePlayer.playervalues.MaxHealth[0];
-        rectTransform.localScale = new Vector3(healthPercentage, 1, 1);
-        lifebarFill.color = Color.Lerp(Color.red, Color.green, healthPercentage);
+        lifeBarFIll.fillAmount = Player.currentHealth / 100;
     }
 }

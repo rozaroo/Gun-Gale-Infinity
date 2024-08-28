@@ -9,10 +9,10 @@ using TMPro;
 public class LevelManager : MonoBehaviour
 {
     public int Enemies;
-    public GameObject Portal;
-    public int Nivel;
+    [SerializeField] private GameObject Portal;
+    [SerializeField] private int Nivel;
     [SerializeField] GameObject defeatScreen;
-    [SerializeField] TMP_Text enemiesText;
+    [SerializeField] TMP_Text enemiesCountText;
 
     PlayerController pController;
 
@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
     {
         Portal.SetActive(false);
         defeatScreen.SetActive(false);
+        Enemies = FindObjectsOfType<EnemyController>().Length + FindObjectsOfType<EnemyControllerTwo>().Length ;
         UpdateEnemiesText();
     }
 
@@ -68,6 +69,6 @@ public class LevelManager : MonoBehaviour
     }
     void UpdateEnemiesText()
     {
-        enemiesText.text = "Enemies Remaining: " + Enemies;
+        enemiesCountText.text = "Enemigos Restantes: " + Enemies;
     }
 }

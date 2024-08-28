@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     internal Animator playerAnim;
     RagdollController playerRagdoll;
     public float currentHealth;
+    public float currentshield;
     public Vector2 newDirection;
     public bool hasPistol = false;
     public bool hasRiffle = false;
@@ -111,7 +112,7 @@ public class PlayerController : MonoBehaviour
             primaryWeaponIcon.gameObject.SetActive(false);
             Destroy(primaryWeapon.gameObject);
             hasPistol = false;
-            if (secondaryWeapon == null && throwableWeapon == null) playerAnim.SetLayerWeight(1, 0); //Animación sin armas
+            if (secondaryWeapon == null && throwableWeapon == null) playerAnim.SetLayerWeight(1, 0); //Animaciï¿½n sin armas
             else if (secondaryWeapon != null && throwableWeapon == null)
             {
                 playerAnim.SetLayerWeight(1, 1);
@@ -140,9 +141,24 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        if (currentshield > 0)
+        {
+            currentshield -= damage;
+            Debug.Log($"<color=lightblue>el escudo {currentshield}</color>");
+
+        }
+        if (currentshield <= 0)
+        {
+            
+            currentHealth -= damage;
+            Debug.Log($"<color=green>vida {currentHealth}</color>");
+        
+        }
+        
+        
         if (currentHealth <= 0f)
         {
             playerRagdoll.Active(true);
@@ -154,6 +170,10 @@ public class PlayerController : MonoBehaviour
     public void RecoveryHealth(float health)
     {
         if (currentHealth < 100) currentHealth += health;
+    }
+    public void RecoverShield(float Value)
+    {
+        if (currentshield < 100) currentshield += Value;
     }
  
     private void OnTriggerEnter(Collider other)

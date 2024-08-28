@@ -7,16 +7,16 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public Button playButton;
-    public Button quitButton;
-    public Button tutorialButton;
-    public Button level1Button;
-    public Button level2Button;
-    public Button level4Button;
-    public Button backButton;
-    public Button Instructions;
-    public Button Instructions2;
-    public Button backButton2;
+    [SerializeField] private Button playButton;
+    [SerializeField] private Button quitButton;
+    [SerializeField] private Button tutorialButton;
+    [SerializeField] private Button level1Button;
+    [SerializeField] private Button level2Button;
+    [SerializeField] private Button level4Button;
+    [SerializeField] private Button backButton;
+    [SerializeField] private Button instructionsButton;
+    [SerializeField] private GameObject instructionsPanel;
+    [SerializeField] private Button instructionsBackButton;
 
     private void Start()
     {
@@ -57,7 +57,7 @@ public class MainMenuManager : MonoBehaviour
     {
         playButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
-        Instructions.gameObject.SetActive(false);
+        instructionsButton.gameObject.SetActive(false);
         tutorialButton.gameObject.SetActive(true);
         level1Button.gameObject.SetActive(true);
         level2Button.gameObject.SetActive(true);
@@ -69,7 +69,8 @@ public class MainMenuManager : MonoBehaviour
     {
         playButton.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
-        Instructions.gameObject.SetActive(true);
+        instructionsButton.gameObject.SetActive(true);
+        instructionsPanel.SetActive(false);
         tutorialButton.gameObject.SetActive(false);
         level1Button.gameObject.SetActive(false);
         level2Button.gameObject.SetActive(false);
@@ -83,22 +84,23 @@ public class MainMenuManager : MonoBehaviour
         level2Button.gameObject.SetActive(false);
         level4Button.gameObject.SetActive(false);
         backButton.gameObject.SetActive(false);
-        Instructions2.gameObject.SetActive(false);
-        backButton2.gameObject.SetActive(false);
+        instructionsPanel.gameObject.SetActive(false);
+        backButton.gameObject.SetActive(false);
     }
     public void Instructionsbuton()
     {
         playButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
-        Instructions2.gameObject.SetActive(true);
-        backButton2.gameObject.SetActive(true);
+        instructionsButton.gameObject.SetActive(false);
+        instructionsPanel.gameObject.SetActive(true);
+        backButton.gameObject.SetActive(true);
     }
     public void Back() 
     {
         playButton.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
-        Instructions.gameObject.SetActive(true);
-        Instructions2.gameObject.SetActive(false);
-        backButton2.gameObject.SetActive(false);
+        instructionsButton.gameObject.SetActive(true);
+        instructionsPanel.gameObject.SetActive(false);
+        backButton.gameObject.SetActive(false);
     }
 }
