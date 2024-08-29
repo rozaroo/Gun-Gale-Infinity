@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceEnemyMovementState : MonoBehaviour
+public class SpaceEnemyMovementState<T> : State<T>
 {
-    // Start is called before the first frame update
-    void Start()
+    SpaceEnemyController _spaceEnemyController;
+    public SpaceEnemyMovementState(SpaceEnemyController spacenemycontroller)
     {
-        
+        _spaceEnemyController = spacenemycontroller;
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void Execute()
     {
         
     }
