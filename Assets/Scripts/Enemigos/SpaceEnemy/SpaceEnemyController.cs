@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
+
 
 public enum StatesEnumCinco 
 {
@@ -42,7 +45,7 @@ public class SpaceEnemyController : MonoBehaviour
     }
     void InitializeFSM()
     {
-        var death = new SpaceEnemyDeathState<StatesEnumCinco>(this, lvlManager);
+        var death = new SpaceEnemyDeathState<StatesEnumCinco>(this);
         var move = new SpaceEnemyMovementState<StatesEnumCinco>(this);
         death.AddTransition(StatesEnumCinco.Move, move);
         move.AddTransition(StatesEnumCinco.Death, death);
@@ -68,7 +71,7 @@ public class SpaceEnemyController : MonoBehaviour
     {
         GameObject shoot = Instantiate(EnemyShootPrefab, ShootSpawnPoint.position, Quaternion.identity);
         EnemyShoot ShootScript = shoot.GetComponent<EnemyShoot>();
-        if (EnemyShoot != null && player != null) EnemyShoot.SetTarget(player);
+        if (ShootScript != null && player != null) ShootScript.SetTarget(player);
     }
     public void Move(Vector3 dir)
     {

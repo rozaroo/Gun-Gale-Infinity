@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpaceEnemyMovementState<T> : State<T>
 {
     SpaceEnemyController _spaceEnemyController;
-    private Tranform[] puntosDeMovimiento;
+    private Transform[] puntosDeMovimiento;
     private int currentPointIndex = 0;
     private float timeBetweenShots = 2f;
     private Coroutine shootingCoroutine;
@@ -36,12 +36,5 @@ public class SpaceEnemyMovementState<T> : State<T>
             yield return new WaitForSeconds(timeBetweenShots);
         }
     }
-    public override void Exit()
-    {
-        if (shootingCoroutine != null)
-        {
-            _spaceEnemyController.StopCoroutine(shootingCoroutine);
-            shootingCoroutine = null;
-        }
-    }
+    
 }

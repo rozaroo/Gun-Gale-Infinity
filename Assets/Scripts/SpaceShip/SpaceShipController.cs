@@ -107,4 +107,8 @@ public class SpaceShipController : MonoBehaviour
     {
         Application.Quit();
     }
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+    }
 }
