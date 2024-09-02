@@ -10,23 +10,28 @@ public class ShootController : MonoBehaviour
     public float lifeTime = 4f;
     private float time = 0f;
 
-    public float shoottDamage = 1;
+    private int shootDamage = 20;
     Vector3 lastBulletPos;
-    public LayerMask hitboxMask;
 
     void Start()
     {
         shootTr = GetComponent<Transform>();
         shootRb = GetComponent<Rigidbody>();
         shootRb.velocity = this.transform.forward * shootPower;
-        hitboxMask = LayerMask.NameToLayer("Hitbox");
     }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         time += Time.deltaTime;
         if (time >= lifeTime) Destroy(this.gameObject);
     }
-    
+    public void OnCollisionEnter(Collision collision)
+    {
+        var enemy = collision.collider.GetComponent<SpaceEnemyController>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(shootDamage);
+            Destroy(gameObject);
+        }
+    }
 }
+
