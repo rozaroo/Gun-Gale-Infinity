@@ -28,6 +28,7 @@ public class SpaceShipController : MonoBehaviour
     private Queue<int> cartuchos; //Cola para los cartuchos
     public AudioClip shotSound;
     private AudioSource audioSource;
+    private float maxHealth = 100f;
     private void Awake()
     {
         InitializeFSM();
@@ -60,6 +61,7 @@ public class SpaceShipController : MonoBehaviour
         //Llenamos la cola con cartuchos
         for (int i = 0; i < maxCartuchos; i++)
             cartuchos.Enqueue(municionPorCartucho); //Cada cartucho tiene una cantidad de disparos
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
