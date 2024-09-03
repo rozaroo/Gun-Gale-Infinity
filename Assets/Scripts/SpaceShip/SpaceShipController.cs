@@ -90,7 +90,6 @@ public class SpaceShipController : MonoBehaviour
             if (audioSource != null && shotSound != null) audioSource.PlayOneShot(shotSound);
             if (shotPrefab != null && shotSpawnPoint != null) Instantiate(shotPrefab, shotSpawnPoint.position, shotSpawnPoint.rotation);
         }
-        else Debug.Log("Sin munición. Recarga!");
     }
     public void Reload()
     {
@@ -112,5 +111,13 @@ public class SpaceShipController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+    }
+    public int MunicionActual()
+    {
+        return municion.Count;
+    }
+    public int CartuchosDisponibles()
+    {
+        return cartuchos.Count;
     }
 }

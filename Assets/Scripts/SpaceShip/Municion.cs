@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Municion : MonoBehaviour
 {
     SpaceShipController Player;
-    
+    [SerializeField] private TextMeshProUGUI municionTMP;
+    [SerializeField] private TextMeshProUGUI cartuchosTMP;
     void Start()
     {
         Player = FindObjectOfType<SpaceShipController>();
@@ -14,6 +15,7 @@ public class Municion : MonoBehaviour
 
     void Update()
     {
-        
+        municionTMP.text = "" + Player.MunicionActual();
+        cartuchosTMP.text = "" + Player.CartuchosDisponibles();
     }
 }
