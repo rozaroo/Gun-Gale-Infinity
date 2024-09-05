@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class ShipLevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int Enemies;
+    public GameObject Oleada1;
+    public GameObject Oleada2;
+    public GameObject Oleada3;
     void Start()
     {
         

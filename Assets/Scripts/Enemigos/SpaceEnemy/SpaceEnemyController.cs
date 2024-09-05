@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.VisualScripting;
 
-
 public enum StatesEnumCinco 
 {
     Move,
@@ -16,11 +15,11 @@ public class SpaceEnemyController : MonoBehaviour
     ITreeNode _root;
     Func<bool> QuestionRange;
     QuestionNode auxiliarnode;
-    private int HP = 100;
+    public int HP = 100;
     public GameObject EnemyShootPrefab;
     public Transform ShootSpawnPoint;
     public Transform[] PuntosdeMovimiento;
-    public float speed;
+    public DronSpeed dronspeed;
     public ShipLevelManager lvlManager;
     public GameObject explosionPrefab;
     public Transform player;
@@ -44,7 +43,7 @@ public class SpaceEnemyController : MonoBehaviour
     }
     void InitializeFSM()
     {
-        var death = new SpaceEnemyDeathState<StatesEnumCinco>(this);
+        var death = new SpaceEnemyDeathState<StatesEnumCinco>(this, lvlManager);
         var move = new SpaceEnemyMovementState<StatesEnumCinco>(this);
         death.AddTransition(StatesEnumCinco.Move, move);
         move.AddTransition(StatesEnumCinco.Death, death);
@@ -74,7 +73,7 @@ public class SpaceEnemyController : MonoBehaviour
     }
     public void Move(Vector3 dir)
     {
-        transform.position += dir * Time.deltaTime * speed;
+        transform.position += dir * Time.deltaTime * dronspeed.Speed[0];
     }
     public void SetPosition(Vector3 pos)
     {

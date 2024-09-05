@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-    public float speed = 100f;
-    public float lifeTime = 4f;
+    public float speed;
+    private float lifeTime = 4f;
     private float startTime;
-    public int damageAmount = 20;
+    private int damageAmount = 20;
     private Transform target;
     private Transform player;
 
