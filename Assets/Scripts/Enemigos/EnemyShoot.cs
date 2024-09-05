@@ -27,11 +27,11 @@ public class EnemyShoot : MonoBehaviour
     {
         if (Time.time - startTime >= lifeTime) Destroy(gameObject);
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        var player = collision.collider.GetComponent<SpaceShipController>();
+        var player = other.GetComponent<SpaceShipController>();
         if (player != null) player.TakeDamage(damageAmount);
-        if (collision.transform.tag == "Nave") Destroy(gameObject);
+        if (other.transform.tag == "Nave") Destroy(gameObject);
     }
 
 }
