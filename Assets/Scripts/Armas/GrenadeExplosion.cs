@@ -46,6 +46,7 @@ public class GrenadeExplosion : MonoBehaviour
             }
         }
     }
+
     public void ExplodeNow()
     {
         Vector3 explodePos = grenadeTr.position;
@@ -70,6 +71,7 @@ public class GrenadeExplosion : MonoBehaviour
             }
         }
     }
+
     public void DetectCollision()
     {
         Vector3 grenadeNewPos = grenadeTr.position;
