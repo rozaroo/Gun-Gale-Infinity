@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GrenadeExplosion : MonoBehaviour
 {
+    [SerializeField] private GameObject explosion;
     Transform grenadeTr;
     Rigidbody grenadeRb;
     public bool explode = false;
@@ -70,6 +71,7 @@ public class GrenadeExplosion : MonoBehaviour
                 }
             }
         }
+        Instantiate(explosion, transform.position, transform.rotation);
     }
 
     public void DetectCollision()

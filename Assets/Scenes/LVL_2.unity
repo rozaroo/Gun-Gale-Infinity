@@ -13261,6 +13261,37 @@ Transform:
   - {fileID: 487199617}
   m_Father: {fileID: 1728845483}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &693636802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 693636803}
+  m_Layer: 11
+  m_Name: GrenadePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &693636803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693636802}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000015250402, y: 0.2164397, z: -0.000000046769838, w: 0.97629595}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 262691974}
+  m_LocalEulerAnglesHint: {x: 0, y: 25, z: 0}
 --- !u!1001 &695747604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21264,6 +21295,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1852576806548013000, guid: 759b9b5d63b3e9946b1f3e528ca80b18, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1650510912}
+    - targetCorrespondingSourceObject: {fileID: 1852576806548013000, guid: 759b9b5d63b3e9946b1f3e528ca80b18, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 693636803}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 759b9b5d63b3e9946b1f3e528ca80b18, type: 3}
       insertIndex: -1
@@ -21271,6 +21305,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 759b9b5d63b3e9946b1f3e528ca80b18, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1390301114}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 759b9b5d63b3e9946b1f3e528ca80b18, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1390301116}
     - targetCorrespondingSourceObject: {fileID: 1082271958561512970, guid: 759b9b5d63b3e9946b1f3e528ca80b18, type: 3}
       insertIndex: -1
       addedObject: {fileID: 116047757}
@@ -29147,6 +29184,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1390301116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390301112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb6b13e592803042a611387a01d24ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenadePrefab: {fileID: 5840761109794884205, guid: df41cdcf6b01f134486d7bdc0e3b7fbc, type: 3}
+  grenadePos: {fileID: 693636803}
+  throwForce: 12
 --- !u!1 &1398186708
 GameObject:
   m_ObjectHideFlags: 0
