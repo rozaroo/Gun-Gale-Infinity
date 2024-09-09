@@ -22,15 +22,16 @@ public class SpaceEnemyController : MonoBehaviour
     public DronSpeed dronspeed;
     public ShipLevelManager lvlManager;
     public GameObject explosionPrefab;
+    public GameObject portalPrefab;
     public Transform player;
     private void Awake()
     {
         lvlManager = FindObjectOfType<ShipLevelManager>();
+        player = GameObject.FindGameObjectWithTag("Nave").transform;
     }
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Nave").transform;
         InitializeFSM();
         InitializedTree();
     }
@@ -89,5 +90,15 @@ public class SpaceEnemyController : MonoBehaviour
         yield return new WaitForSeconds(duration);
         Destroy(gameObject);
         Destroy(explosionObject, duration);
+    }
+    public void PortalShip()
+    {
+        StartCoroutine(PlayPortalAnimation(0.5f));
+    }
+    private IEnumerator PlayPortalAnimation(float duration)
+    {
+        GameObject portalObject = Instantiate(portalPrefab, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(duration);
+        Destroy(portalObject, duration);
     }
 }

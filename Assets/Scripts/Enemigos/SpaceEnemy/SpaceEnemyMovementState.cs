@@ -15,6 +15,10 @@ public class SpaceEnemyMovementState<T> : State<T>
         _spaceEnemyController = spacenemycontroller;
         puntosDeMovimiento = _spaceEnemyController.PuntosdeMovimiento;
     }
+    public override void Enter()
+    {
+        _spaceEnemyController.PortalShip();
+    }
     public override void Execute()
     {
         MoveBetweenPoints();
