@@ -10,10 +10,10 @@ public class ThrowGrenade : MonoBehaviour
     
     public void Throw()
     {
-        Debug.Log($"<color=green>MUERANAANANAN</color>");
+        Debug.Log($"<color=green>FIRE N HOLD</color>");
         GameObject grenade = Instantiate(grenadePrefab, grenadePos.position, Quaternion.identity);
         Rigidbody rb = grenade.GetComponent<Rigidbody>();
         
-        rb.AddForce(grenadePos.forward.normalized * throwForce, ForceMode.Impulse);
+        rb.AddForce(grenadePos.forward * throwForce, ForceMode.Impulse);
     }
 }

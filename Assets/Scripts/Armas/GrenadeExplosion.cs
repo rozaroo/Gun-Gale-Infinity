@@ -8,7 +8,7 @@ public class GrenadeExplosion : MonoBehaviour
     Rigidbody grenadeRb;
     public bool explode = false;
     public float damageArea = 0f;
-    public float throwForce = 0f;
+    //public float throwForce = 0f;
     public float explodePower = 0f;
     public float lifeTime = 0f;
     public float explodeDamage = 0f;
@@ -22,7 +22,7 @@ public class GrenadeExplosion : MonoBehaviour
         grenadeTr = GetComponent<Transform>();
         grenadeRb = GetComponent<Rigidbody>();
         hitboxMask = LayerMask.NameToLayer("Hitbox");
-        grenadeRb.velocity = grenadeTr.forward * throwForce;
+       // grenadeRb.velocity = grenadeTr.forward * throwForce;
     }
 
     void Update()
