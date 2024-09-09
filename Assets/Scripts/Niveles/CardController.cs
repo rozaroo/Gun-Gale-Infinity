@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CardController : MonoBehaviour
 {
-    public GameObject door;
+    [SerializeField] private GameObject door;
+
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
@@ -16,7 +17,9 @@ public class CardController : MonoBehaviour
 
     private void Open()
     {
-        door.transform.position = new Vector3(door.transform.position.x, 10, door.transform.position.z);
+        var anim = door.GetComponent<Animator>();
+        anim.SetTrigger("Open");
+        //door.transform.position = new Vector3(door.transform.position.x, 10, door.transform.position.z);
     }
 
     void Update()
