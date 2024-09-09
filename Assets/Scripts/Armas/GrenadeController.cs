@@ -22,7 +22,7 @@ public class GrenadeController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {
@@ -35,11 +35,12 @@ public class GrenadeController : MonoBehaviour
     {
         time += Time.deltaTime;
         player.playerAnim.Play("Final Grenade");
+        
         if (time >= throwDelayTime)
         {
-            Instantiate(theGranade, player.spawnGrenade.position, player.spawnGrenade.rotation);
+           /* Instantiate(theGranade, player.spawnGrenade.position, player.spawnGrenade.rotation);
+            Destroy(this.gameObject);*/
             throwing = false;
-            Destroy(this.gameObject);
             player.throwableWeapon = null;
             player.weapons--;
             player.hasGrenade = false;

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class GrenadeExplosion : MonoBehaviour
 {
+    [SerializeField] private GameObject explosion;
     Transform grenadeTr;
     Rigidbody grenadeRb;
     public bool explode = false;
     public float damageArea = 0f;
-    public float throwForce = 0f;
+    //public float throwForce = 0f;
     public float explodePower = 0f;
     public float lifeTime = 0f;
     public float explodeDamage = 0f;
@@ -22,7 +23,7 @@ public class GrenadeExplosion : MonoBehaviour
         grenadeTr = GetComponent<Transform>();
         grenadeRb = GetComponent<Rigidbody>();
         hitboxMask = LayerMask.NameToLayer("Hitbox");
-        grenadeRb.velocity = grenadeTr.forward * throwForce;
+       // grenadeRb.velocity = grenadeTr.forward * throwForce;
     }
 
     void Update()
@@ -46,6 +47,7 @@ public class GrenadeExplosion : MonoBehaviour
             }
         }
     }
+
     public void ExplodeNow()
     {
         Vector3 explodePos = grenadeTr.position;
@@ -69,7 +71,9 @@ public class GrenadeExplosion : MonoBehaviour
                 }
             }
         }
+        Instantiate(explosion, transform.position, transform.rotation);
     }
+
     public void DetectCollision()
     {
         Vector3 grenadeNewPos = grenadeTr.position;

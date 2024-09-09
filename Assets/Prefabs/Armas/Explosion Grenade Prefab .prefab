@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7661591136838839182}
   - component: {fileID: 7516186420496783932}
   - component: {fileID: 7671221113037288238}
+  - component: {fileID: 8973817328253707975}
   - component: {fileID: 4800239196287455432}
   m_Layer: 0
   m_Name: 'Explosion Grenade Prefab '
@@ -81,10 +82,106 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.06
+  m_Radius: 0.15
   m_Height: 0.3
-  m_Direction: 0
-  m_Center: {x: -0.17, y: 0.32, z: -0.0775}
+  m_Direction: 1
+  m_Center: {x: 0.03, y: 0.12, z: 0}
+--- !u!82 &8973817328253707975
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5840761109794884205}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c30514f0a318cf543a24b0b246360f52, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &4800239196287455432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,15 +194,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e266031e1b6ba5d409eb12aa378b9300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 1139864753275372789, guid: e6e86610b6c31fe498f4cb36996cc30b, type: 3}
   explode: 0
-  damageArea: 0
-  throwForce: 0
-  explodePower: 0
-  lifeTime: 0
-  explodeDamage: 0
+  damageArea: 15
+  explodePower: 10
+  lifeTime: 3
+  explodeDamage: 10
   hitboxMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 640
   showDebugGizmos: 1
 --- !u!1001 &203103846017887756
 PrefabInstance:
@@ -133,39 +230,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ecfb6127c152e4c47971eb3468c22e52, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ecfb6127c152e4c47971eb3468c22e52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.113
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ecfb6127c152e4c47971eb3468c22e52, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.108
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ecfb6127c152e4c47971eb3468c22e52, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ecfb6127c152e4c47971eb3468c22e52, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ecfb6127c152e4c47971eb3468c22e52, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ecfb6127c152e4c47971eb3468c22e52, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ecfb6127c152e4c47971eb3468c22e52, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ecfb6127c152e4c47971eb3468c22e52, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ecfb6127c152e4c47971eb3468c22e52, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
