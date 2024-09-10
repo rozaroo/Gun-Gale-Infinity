@@ -28,7 +28,7 @@ public class SpaceShipController : MonoBehaviour
     private Queue<int> cartuchos; //Cola para los cartuchos
     public AudioClip shotSound;
     private AudioSource audioSource;
-    private float maxHealth = 100f;
+    private float maxHealth = 1000f;
     private void Awake()
     {
         InitializeFSM();

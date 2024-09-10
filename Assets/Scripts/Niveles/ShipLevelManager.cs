@@ -26,7 +26,7 @@ public class ShipLevelManager : MonoBehaviour
     {
         if (Enemies == 8) ActivarOleada2();
         if (Enemies == 4) ActivarOleada3();
-        if (Input.GetKeyDown(KeyCode.M)) ToogleMusic();
+        if (Input.GetKeyDown(KeyCode.M)) ToggleMusic();
     }
     public void ActivarOleada2()
     {
