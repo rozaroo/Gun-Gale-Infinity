@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ShipLevelManager : MonoBehaviour
 {
@@ -12,6 +14,13 @@ public class ShipLevelManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI oleadaTMP;
     [SerializeField] private AudioSource backgroundMusic;
     private bool isMuted = false;
+    [SerializeField] GameObject defeatScreen;
+    SpaceShipController shipController;
+    private void Awake()
+    {
+        shipController = GameObject.FindObjectOfType<SpaceShipController>();
+        
+    }
     void Start()
     {
         Oleada1.SetActive(true);
@@ -19,6 +28,7 @@ public class ShipLevelManager : MonoBehaviour
         Oleada2.SetActive(false);
         Oleada3.SetActive(false);
         backgroundMusic.Play();
+        defeatScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,6 +37,7 @@ public class ShipLevelManager : MonoBehaviour
         if (Enemies == 8) ActivarOleada2();
         if (Enemies == 4) ActivarOleada3();
         if (Input.GetKeyDown(KeyCode.M)) ToggleMusic();
+        if (shipController == null) Lose();
     }
     public void ActivarOleada2()
     {
@@ -42,5 +53,19 @@ public class ShipLevelManager : MonoBehaviour
     {
         isMuted = !isMuted;
         backgroundMusic.mute = isMuted;
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(4);
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void Lose()
+    {
+        defeatScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
