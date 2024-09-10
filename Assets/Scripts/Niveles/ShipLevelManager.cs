@@ -10,12 +10,15 @@ public class ShipLevelManager : MonoBehaviour
     public GameObject Oleada2;
     public GameObject Oleada3;
     [SerializeField] private TextMeshProUGUI oleadaTMP;
+    [SerializeField] private AudioSource backgroundMusic;
+    private bool isMuted = false;
     void Start()
     {
         Oleada1.SetActive(true);
         oleadaTMP.text = "Oleada: 1";
         Oleada2.SetActive(false);
         Oleada3.SetActive(false);
+        backgroundMusic.Play();
     }
 
     // Update is called once per frame
@@ -23,6 +26,7 @@ public class ShipLevelManager : MonoBehaviour
     {
         if (Enemies == 8) ActivarOleada2();
         if (Enemies == 4) ActivarOleada3();
+        if (Input.GetKeyDown(KeyCode.M)) ToogleMusic();
     }
     public void ActivarOleada2()
     {
@@ -33,5 +37,10 @@ public class ShipLevelManager : MonoBehaviour
     {
         Oleada3.SetActive(true);
         oleadaTMP.text = "Oleada: 3";
+    }
+    private void ToggleMusic()
+    {
+        isMuted = !isMuted;
+        backgroundMusic.mute = isMuted;
     }
 }
