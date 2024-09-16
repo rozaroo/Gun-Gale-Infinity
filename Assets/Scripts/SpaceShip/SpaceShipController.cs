@@ -62,6 +62,7 @@ public class SpaceShipController : MonoBehaviour
         for (int i = 0; i < maxCartuchos; i++)
             cartuchos.Enqueue(municionPorCartucho); //Cada cartucho tiene una cantidad de disparos
         currentHealth = maxHealth;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -88,7 +89,18 @@ public class SpaceShipController : MonoBehaviour
             municion.Pop();
             //Reproducir sonido
             if (audioSource != null && shotSound != null) audioSource.PlayOneShot(shotSound);
-            if (shotPrefab != null && shotSpawnPoint != null) Instantiate(shotPrefab, shotSpawnPoint.position, shotSpawnPoint.rotation);
+            if (shotPrefab != null && shotSpawnPoint != null) 
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                Vector3 targetPoint;
+                if (Physics.Raycast(ray, out hit)) targetPoint = hit.point;
+                else targetPoint = ray.GetPoint(1000);
+                Vector3 shootDirection = (targetPoint - shotSpawnPoint.position).normalized;
+                GameObject shot = Instantiate(shotPrefab,shotSpawnPoint.position, Quaternion.LookRotation(shootDirection));
+                Rigidbody shotRb = shot.GetComponent<Rigidbody>();
+                if (shotRb != null) shotRb.velocity = shootDirection * shotPower;
+            };
         }
     }
     public void Reload()

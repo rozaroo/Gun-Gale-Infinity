@@ -17,7 +17,6 @@ public class ShootController : MonoBehaviour
     {
         shootTr = GetComponent<Transform>();
         shootRb = GetComponent<Rigidbody>();
-        shootRb.velocity = this.transform.forward * shootPower;
     }
     void FixedUpdate()
     {
