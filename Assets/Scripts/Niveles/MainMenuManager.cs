@@ -17,13 +17,18 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button instructionsButton;
     [SerializeField] private GameObject instructionsPanel;
     [SerializeField] private Button instructionsBackButton;
-
+    [SerializeField] private AudioSource backgroundMusic;
+    private bool isMuted = false;
     private void Start()
     {
         ShowCursor();
         InitializeMenu();
+        backgroundMusic.Play();
     }
-
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M)) ToggleMusic();
+    }
     public void QuitGame()
     {
         Application.Quit();
@@ -102,5 +107,10 @@ public class MainMenuManager : MonoBehaviour
         instructionsButton.gameObject.SetActive(true);
         instructionsPanel.gameObject.SetActive(false);
         backButton.gameObject.SetActive(false);
+    }
+    private void ToggleMusic()
+    {
+        isMuted = !isMuted;
+        backgroundMusic.mute = isMuted;
     }
 }

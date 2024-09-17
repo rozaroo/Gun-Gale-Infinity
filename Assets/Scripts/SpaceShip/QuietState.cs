@@ -28,7 +28,7 @@ public class QuietState<T> : State<T>
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         //Disparar
-        if (Input.GetKeyDown(KeyCode.Space)) _shipController.Shoot();
+        if (Input.GetMouseButtonDown(0)) _shipController.Shoot();
         //Recargar
         if (Input.GetKeyDown(KeyCode.R)) _shipController.Reload();
         //Transicion

@@ -42,7 +42,7 @@ public class MoveState<T> : State<T>
         // Aplicar la velocidad calculada al Rigidbody de la nave
         _shipController.shipRb.velocity = endDirection;
         //Disparar
-        if (Input.GetKeyDown(KeyCode.Space)) _shipController.Shoot();
+        if (Input.GetMouseButtonDown(0)) _shipController.Shoot();
         //Recargar
         if (Input.GetKeyDown(KeyCode.R)) _shipController.Reload();
         // Transición a Quiet si no hay input de movimiento

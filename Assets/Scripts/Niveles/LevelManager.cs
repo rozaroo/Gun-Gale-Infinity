@@ -13,9 +13,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int Nivel;
     [SerializeField] GameObject defeatScreen;
     [SerializeField] TMP_Text enemiesCountText;
-
     PlayerController pController;
-
+    [SerializeField] private AudioSource backgroundMusic;
+    private bool isMuted = false;
     private void Awake()
     {
         pController = GameObject.FindObjectOfType<PlayerController>();
@@ -28,6 +28,7 @@ public class LevelManager : MonoBehaviour
         defeatScreen.SetActive(false);
         Enemies = FindObjectsOfType<EnemyController>().Length + FindObjectsOfType<EnemyControllerTwo>().Length ;
         UpdateEnemiesText();
+        backgroundMusic.Play();
     }
 
     // Update is called once per frame
@@ -43,6 +44,7 @@ public class LevelManager : MonoBehaviour
             }
         }
         UpdateEnemiesText();
+        if (Input.GetKeyDown(KeyCode.M)) ToggleMusic();
     }
         
     public void Restart()
@@ -70,5 +72,10 @@ public class LevelManager : MonoBehaviour
     void UpdateEnemiesText()
     {
         enemiesCountText.text = "Enemigos Restantes: " + Enemies;
+    }
+    private void ToggleMusic()
+    {
+        isMuted = !isMuted;
+        backgroundMusic.mute = isMuted;
     }
 }

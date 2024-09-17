@@ -29,6 +29,7 @@ public class SpaceShipController : MonoBehaviour
     public AudioClip shotSound;
     private AudioSource audioSource;
     private float maxHealth = 1000f;
+    public float shootPower;
     private void Awake()
     {
         InitializeFSM();
@@ -97,9 +98,13 @@ public class SpaceShipController : MonoBehaviour
                 if (Physics.Raycast(ray, out hit)) targetPoint = hit.point;
                 else targetPoint = ray.GetPoint(1000);
                 Vector3 shootDirection = (targetPoint - shotSpawnPoint.position).normalized;
+                if (Vector3.Dot(shootDirection, shipTr.forward) < 0) shootDirection = shipTr.forward;
                 GameObject shot = Instantiate(shotPrefab,shotSpawnPoint.position, Quaternion.LookRotation(shootDirection));
+                Collider shipCollider = GetComponent<Collider>();
+                Collider shotCollider = shot.GetComponent<Collider>();
+                if (shipCollider != null && shotCollider != null) Physics.IgnoreCollision(shipCollider, shotCollider);
                 Rigidbody shotRb = shot.GetComponent<Rigidbody>();
-                if (shotRb != null) shotRb.velocity = shootDirection * shotPower;
+                if (shotRb != null) shotRb.velocity = shootDirection * shootPower;
             };
         }
     }
