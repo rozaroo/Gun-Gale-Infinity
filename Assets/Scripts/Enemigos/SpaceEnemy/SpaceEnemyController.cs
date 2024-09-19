@@ -24,6 +24,9 @@ public class SpaceEnemyController : MonoBehaviour
     public GameObject explosionPrefab;
     public GameObject portalPrefab;
     public Transform player;
+    public DropPrefabsthree dropPrefabs;
+    public DropProbabilitiesTwo dropProbabilities;
+    public Transform dropSpawnPoint;
     private void Awake()
     {
         lvlManager = FindObjectOfType<ShipLevelManager>();
@@ -82,6 +85,7 @@ public class SpaceEnemyController : MonoBehaviour
     }
     public void DestroyShip()
     {
+        SpawnRandomDrop();
         StartCoroutine(PlayDestructionAnimation(0.5f));
     }
     private IEnumerator PlayDestructionAnimation(float duration)
@@ -100,5 +104,20 @@ public class SpaceEnemyController : MonoBehaviour
         GameObject portalObject = Instantiate(portalPrefab, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(duration);
         Destroy(portalObject, duration);
+    }
+    public void SpawnRandomDrop()
+    {
+        if (dropPrefabs.prefabs.Length == 0 || dropProbabilities.probabilities.Length == 0 || dropPrefabs.prefabs.Length != dropProbabilities.probabilities.Length) return;
+        float randomValue = UnityEngine.Random.value;
+        float cumulativeProbability = 0f;
+        for (int i = 0; i < dropProbabilities.probabilities.Length; i++)
+        {
+            cumulativeProbability += dropProbabilities.probabilities[i];
+            if (randomValue < cumulativeProbability)
+            {
+                Instantiate(dropPrefabs.prefabs[i], dropSpawnPoint.position, Quaternion.identity);
+                break;
+            }
+        }
     }
 }
