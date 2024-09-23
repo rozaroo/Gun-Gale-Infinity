@@ -15,7 +15,7 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54210
+55393
 Successfully changed project path to: C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [9108] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 4209843199 [EditorId] 4209843199 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [15116] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 3839281171 [EditorId] 3839281171 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [9108] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 4209843199 [EditorId] 4209843199 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [15116] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 3839281171 [EditorId] 3839281171 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 3 workers.
-Refreshing native plugins compatible for Editor in 71.08 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 283.38 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -71,101 +71,101 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56088
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56964
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.153533 seconds.
-- Loaded All Assemblies, in  2.729 seconds
+Registered in 0.123235 seconds.
+- Loaded All Assemblies, in  6.653 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.862 seconds
-Domain Reload Profiling: 4580ms
-	BeginReloadAssembly (837ms)
+- Finished resetting the current domain, in  3.556 seconds
+Domain Reload Profiling: 10200ms
+	BeginReloadAssembly (2529ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (3ms)
-	RebuildCommonClasses (189ms)
-	RebuildNativeTypeToScriptingClass (71ms)
-	initialDomainReloadingComplete (510ms)
-	LoadAllAssembliesAndSetupDomain (1108ms)
-		LoadAssemblies (808ms)
+	RebuildCommonClasses (348ms)
+	RebuildNativeTypeToScriptingClass (104ms)
+	initialDomainReloadingComplete (618ms)
+	LoadAllAssembliesAndSetupDomain (3006ms)
+		LoadAssemblies (2506ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (1100ms)
-			TypeCache.Refresh (1094ms)
-				TypeCache.ScanAssembly (1032ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (1865ms)
+		AnalyzeDomain (2987ms)
+			TypeCache.Refresh (2719ms)
+				TypeCache.ScanAssembly (2369ms)
+			ScanForSourceGeneratedMonoScriptInfo (247ms)
+			ResolveRequiredComponents (12ms)
+	FinalizeReload (3595ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1520ms)
+		SetupLoadedEditorAssemblies (2547ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (62ms)
-			SetLoadedEditorAssemblies (50ms)
+			InitializePlatformSupportModulesInManaged (216ms)
+			SetLoadedEditorAssemblies (112ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (29ms)
-			ProcessInitializeOnLoadAttributes (991ms)
-			ProcessInitializeOnLoadMethodAttributes (389ms)
+			BeforeProcessingInitializeOnLoad (51ms)
+			ProcessInitializeOnLoadAttributes (1660ms)
+			ProcessInitializeOnLoadMethodAttributes (508ms)
 			AfterProcessingInitializeOnLoad (0ms)
-			EditorAssembliesLoaded (1ms)
+			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (0ms)
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in 13.442 seconds
-Refreshing native plugins compatible for Editor in 35.78 ms, found 3 plugins.
+- Loaded All Assemblies, in 26.766 seconds
+Refreshing native plugins compatible for Editor in 1690.81 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  8.983 seconds
-Domain Reload Profiling: 22336ms
-	BeginReloadAssembly (1245ms)
+- Finished resetting the current domain, in 19.711 seconds
+Domain Reload Profiling: 46419ms
+	BeginReloadAssembly (2023ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (25ms)
+		DisableScriptedObjects (40ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (1ms)
-		CreateAndSetChildDomain (104ms)
-	RebuildCommonClasses (285ms)
-	RebuildNativeTypeToScriptingClass (71ms)
-	initialDomainReloadingComplete (304ms)
-	LoadAllAssembliesAndSetupDomain (11447ms)
-		LoadAssemblies (10404ms)
+		CreateAndSetChildDomain (236ms)
+	RebuildCommonClasses (437ms)
+	RebuildNativeTypeToScriptingClass (154ms)
+	initialDomainReloadingComplete (525ms)
+	LoadAllAssembliesAndSetupDomain (23566ms)
+		LoadAssemblies (17939ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (1911ms)
-			TypeCache.Refresh (1726ms)
-				TypeCache.ScanAssembly (1614ms)
-			ScanForSourceGeneratedMonoScriptInfo (131ms)
-			ResolveRequiredComponents (49ms)
-	FinalizeReload (8984ms)
+		AnalyzeDomain (6956ms)
+			TypeCache.Refresh (6360ms)
+				TypeCache.ScanAssembly (3756ms)
+			ScanForSourceGeneratedMonoScriptInfo (446ms)
+			ResolveRequiredComponents (144ms)
+	FinalizeReload (19714ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (8088ms)
+		SetupLoadedEditorAssemblies (12820ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (20ms)
-			SetLoadedEditorAssemblies (12ms)
+			InitializePlatformSupportModulesInManaged (74ms)
+			SetLoadedEditorAssemblies (49ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (392ms)
-			ProcessInitializeOnLoadAttributes (7393ms)
-			ProcessInitializeOnLoadMethodAttributes (235ms)
-			AfterProcessingInitializeOnLoad (36ms)
+			BeforeProcessingInitializeOnLoad (1314ms)
+			ProcessInitializeOnLoadAttributes (10709ms)
+			ProcessInitializeOnLoadMethodAttributes (593ms)
+			AfterProcessingInitializeOnLoad (81ms)
 			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (22ms)
+		AwakeInstancesAfterBackupRestoration (55ms)
 Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
-Refreshing native plugins compatible for Editor in 68.59 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.88 seconds
+Refreshing native plugins compatible for Editor in 301.26 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6547 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 99 unused Assets / (2.8 MB). Loaded Objects now: 6994.
-Memory consumption went from 254.5 MB to 251.7 MB.
-Total: 24.621304 ms (FindLiveObjects: 2.181409 ms CreateObjectMapping: 2.530758 ms MarkObjects: 17.238531 ms  DeleteObjects: 2.666287 ms)
+Unloading 6550 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 99 unused Assets / (2.8 MB). Loaded Objects now: 6997.
+Memory consumption went from 254.7 MB to 251.9 MB.
+Total: 1955.124529 ms (FindLiveObjects: 85.403242 ms CreateObjectMapping: 6.063669 ms MarkObjects: 1592.524139 ms  DeleteObjects: 271.126460 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -182,25 +182,25 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 524912.654397 seconds.
-  path: Assets/Scripts/ScriptableObjects/DropPrefabs.cs
-  artifactKey: Guid(f3aee1b0f2f4f0e408751a985efeab5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/ScriptableObjects/DropPrefabs.cs using Guid(f3aee1b0f2f4f0e408751a985efeab5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4c95a4475fad52906950ad6775476b8') in 0.063304 seconds
+  Time since last request: 528842.297931 seconds.
+  path: Assets/Modelos/sci-fi-energy-capsule/textures/Opacity.png
+  artifactKey: Guid(eb61ad5d4efcd5e4eaa6e586c7de6855) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/sci-fi-energy-capsule/textures/Opacity.png using Guid(eb61ad5d4efcd5e4eaa6e586c7de6855) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '583af171683f4db8d35eb3d19aacf7f5') in 10.902475 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
-  Time since last request: 0.032712 seconds.
-  path: Assets/Scripts/ScriptableObjects/DropPrefabsthree.cs
-  artifactKey: Guid(dc7bb3caac62ff1499f263cb865a0284) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/ScriptableObjects/DropPrefabsthree.cs using Guid(dc7bb3caac62ff1499f263cb865a0284) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83b80d4f10831e7b369824cef881dcdc') in 0.010958 seconds
+  Time since last request: 0.005055 seconds.
+  path: Assets/Modelos/sci-fi-energy-capsule/textures/low_def_cristal_Normal.png
+  artifactKey: Guid(21ba66b2ee18bc44b9b7d099964ce75e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/sci-fi-energy-capsule/textures/low_def_cristal_Normal.png using Guid(21ba66b2ee18bc44b9b7d099964ce75e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f2adedf603761e2bf1de853b8f93488') in 0.632050 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
-  Time since last request: 0.020897 seconds.
-  path: Assets/Scripts/ScriptableObjects/DropPrefabstwo.cs
-  artifactKey: Guid(a34fd09fb5001f946b3369c8ca8669df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/ScriptableObjects/DropPrefabstwo.cs using Guid(a34fd09fb5001f946b3369c8ca8669df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60b1fd3321a7d575346e1fbf186cc90b') in 0.037663 seconds
+  Time since last request: 0.005336 seconds.
+  path: Assets/Modelos/sci-fi-energy-capsule/textures/low_def_cristal_BaseColor.png
+  artifactKey: Guid(e65f83806ed6a5f4c8e03af8c94e55e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modelos/sci-fi-energy-capsule/textures/low_def_cristal_BaseColor.png using Guid(e65f83806ed6a5f4c8e03af8c94e55e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8495591550d28cede8e86039fc0f132c') in 0.603009 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 2

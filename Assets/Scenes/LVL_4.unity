@@ -861,29 +861,13 @@ PrefabInstance:
       value: Drone (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
-      propertyPath: HP
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1870612283}
     - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
-      propertyPath: dronspeed
-      value: 
-      objectReference: {fileID: 11400000, guid: ff4015a343cbec24daec70d0bd1327a5, type: 2}
-    - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
       propertyPath: lvlManager
       value: 
       objectReference: {fileID: 329020563}
-    - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
-      propertyPath: portalPrefab
-      value: 
-      objectReference: {fileID: 4345808679292705099, guid: f2abdf6d478279a43ad074ebdd58c591, type: 3}
-    - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
-      propertyPath: PuntosdeMovimiento.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
       propertyPath: PuntosdeMovimiento.Array.data[0]
       value: 
@@ -896,10 +880,6 @@ PrefabInstance:
       propertyPath: PuntosdeMovimiento.Array.data[2]
       value: 
       objectReference: {fileID: 821733473}
-    - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
-      propertyPath: PuntosdeMovimiento.Array.data[3]
-      value: 
-      objectReference: {fileID: 2139220204}
     - target: {fileID: 7948366808426549678, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.196067
@@ -2747,7 +2727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
       propertyPath: HP
-      value: 100
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
       propertyPath: player
@@ -3035,14 +3015,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipTr: {fileID: 1870612283}
   shipRb: {fileID: 1870612281}
-  currentHealth: 1000
+  currentHealth: 100
   newDirection: {x: 0, y: 0}
   Speed: 50
   explosionPrefab: {fileID: 1139864753275372789, guid: e6e86610b6c31fe498f4cb36996cc30b, type: 3}
   shotPrefab: {fileID: 6209068133721415689, guid: 6f325e6482f20614b98071af701cdb2f, type: 3}
   shotSpawnPoint: {fileID: 378755034}
-  municionPorCartucho: 5
-  maxCartuchos: 100
+  municionPorCartucho: 12
+  maxCartuchos: 5
   shotSound: {fileID: 8300000, guid: 05ca1822e4358914e9a3528711afae8c, type: 3}
   shootPower: 100
 --- !u!4 &1870612283
@@ -3732,29 +3712,13 @@ PrefabInstance:
       value: Drone
       objectReference: {fileID: 0}
     - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
-      propertyPath: HP
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1870612283}
     - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
-      propertyPath: dronspeed
-      value: 
-      objectReference: {fileID: 11400000, guid: ff4015a343cbec24daec70d0bd1327a5, type: 2}
-    - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
       propertyPath: lvlManager
       value: 
       objectReference: {fileID: 329020563}
-    - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
-      propertyPath: portalPrefab
-      value: 
-      objectReference: {fileID: 4345808679292705099, guid: f2abdf6d478279a43ad074ebdd58c591, type: 3}
-    - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
-      propertyPath: PuntosdeMovimiento.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
       propertyPath: PuntosdeMovimiento.Array.data[0]
       value: 
@@ -3767,10 +3731,6 @@ PrefabInstance:
       propertyPath: PuntosdeMovimiento.Array.data[2]
       value: 
       objectReference: {fileID: 112233534}
-    - target: {fileID: 4541694669812363319, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
-      propertyPath: PuntosdeMovimiento.Array.data[3]
-      value: 
-      objectReference: {fileID: 2139220204}
     - target: {fileID: 7948366808426549678, guid: a4d6889c5f6beae4abf4e3daeeb3bd1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1960672

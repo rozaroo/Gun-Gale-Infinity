@@ -47,17 +47,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8264cd95eb5efee4eb3863580ec555ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 99
   EnemyShootPrefab: {fileID: 6209068133721415689, guid: 61d51c7b28484c845a3a7415944eba8a, type: 3}
   ShootSpawnPoint: {fileID: 3059392217308219984}
   PuntosdeMovimiento:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  speed: 10
+  dronspeed: {fileID: 11400000, guid: ff4015a343cbec24daec70d0bd1327a5, type: 2}
   lvlManager: {fileID: 0}
   explosionPrefab: {fileID: 1139864753275372789, guid: e6e86610b6c31fe498f4cb36996cc30b, type: 3}
+  portalPrefab: {fileID: 4345808679292705099, guid: f2abdf6d478279a43ad074ebdd58c591, type: 3}
   player: {fileID: 0}
+  dropPrefabs: {fileID: 11400000, guid: 8a1c0625f5210454e9c1e67a8a98832a, type: 2}
+  dropProbabilities: {fileID: 11400000, guid: 6542042fd632fce4ba9b79e1ac6bc383, type: 2}
+  dropSpawnPoint: {fileID: 7948366808426549678}
 --- !u!136 &6669092163251170722
 CapsuleCollider:
   m_ObjectHideFlags: 0
