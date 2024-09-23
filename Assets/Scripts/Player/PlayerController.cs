@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Variables")]
     #region Variables
     public bool Player = true;
     public bool Active = true;
@@ -13,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform interactPoint;
     [SerializeField] private LayerMask interactMask;
     public PlayerValues playervalues;
+
+    [Header("Personaje")]
     //Personaje
     public Transform playerTr;
     public Rigidbody playerRb;
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public bool hasRiffle = false;
     public bool hasGrenade = false;
 
+    [Header("Acciones")]
     //Actions
     public bool inventoryOpen = false;
     public GameObject[] droppedItems;
@@ -32,16 +36,19 @@ public class PlayerController : MonoBehaviour
     public GameObject dropThisWeapon;
     public bool dropWeapon = false;
 
-    //UI
+    [Header("UI")]
+#region UI
     public Canvas playerUI;
     public Image primaryWeaponIcon;
     public Image secondaryWeaponIcon;
     public Image throwableWeaponIcon;
     public GameObject inventoryController;
+#endregion
 
     //Externos
     WeaponSlots weaponSlots;
 
+    [Header("Camara")]
     //Camara
     public Transform cameraAxis;
     public Transform cameraTrack;
@@ -50,11 +57,13 @@ public class PlayerController : MonoBehaviour
     public float rotY = 0f;
     public float rotX = 0f;
 
+    [Header("Items")]
     //Items
     public GameObject nearItem;
     public Transform itemSlot;
     public GameObject crosshair;
     
+    [Header("Armas")]
     //Armas
     public int weapons;
     public GameObject primaryWeapon;
@@ -65,6 +74,7 @@ public class PlayerController : MonoBehaviour
     public Transform throwableSlot;
     public Transform spawnGrenade;
 
+    [Header("Post-Process")]
     //Post-Process
     public CustomPostProcessRed postProcessController;
     public GrayScalePP grayscale;
@@ -77,6 +87,7 @@ public class PlayerController : MonoBehaviour
     {
         InitializeFSM();
     }
+
     void InitializeFSM()
     {
         _fsm = new FSM<StatesEnumuno>();
@@ -88,6 +99,7 @@ public class PlayerController : MonoBehaviour
         walk.AddTransition(StatesEnumuno.Idle, idle);
         _fsm.SetInit(idle);
     }
+
     void Start()
     {
         playerTr = this.transform;
@@ -105,7 +117,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _fsm.OnUpdate();
-        if (Input.GetKeyDown(KeyCode.X))
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
             ONInteract();
         }  

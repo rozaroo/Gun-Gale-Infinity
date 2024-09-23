@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class DoorPanelController : MonoBehaviour, Iinteract
 {
+    [SerializeField] private GameObject keyCardIndicator;
     [SerializeField] private GameObject oNLed;
     [SerializeField] private GameObject oFFLed;
     [SerializeField] private GameObject door;
+    [SerializeField] private AudioSource KeyCardSound;
+    [SerializeField] private AudioSource NoKeyCardSound;
     private PlayerController playercontroller;
 
     void Start()
@@ -33,6 +36,8 @@ public class DoorPanelController : MonoBehaviour, Iinteract
     {
         oNLed.gameObject.SetActive(true);
         oFFLed.gameObject.SetActive(false);
+        KeyCardSound.Play();
+        keyCardIndicator.SetActive(false);
         Open();
     }
 
@@ -40,6 +45,7 @@ public class DoorPanelController : MonoBehaviour, Iinteract
     {
         oNLed.gameObject.SetActive(false);
         oFFLed.gameObject.SetActive(true);
+        NoKeyCardSound.Play();
     }
 
     private void Open()
