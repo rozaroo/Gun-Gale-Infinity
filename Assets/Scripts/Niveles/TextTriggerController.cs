@@ -6,20 +6,28 @@ using UnityEngine.UI;
 
 public class TextTriggerController : MonoBehaviour
 {
-    [SerializeField] private GameObject text;
+  [SerializeField] private GameObject NoCardText;
+  private PlayerController playercontroller;
+
+  void Start()
+  {
+    playercontroller = FindObjectOfType<PlayerController>();
+  }
 
   void OnTriggerStay(Collider other)
   {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            text.SetActive(true);
-        }
+    if (other.gameObject.CompareTag("Player"))
+    {
+      if (!playercontroller.HasKeyCard)
+      {
+        NoCardText.SetActive(true);
+      }
+    }
   }
+
   void OnTriggerExit(Collider other)
   {
-    if (other.gameObject.CompareTag("Player"))
-        {
-            text.SetActive(false);
-        }
+    NoCardText.SetActive(false);
   }
+
 }

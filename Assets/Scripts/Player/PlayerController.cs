@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,9 @@ public class PlayerController : MonoBehaviour
     #region Variables
     public bool Player = true;
     public bool Active = true;
+    public bool HasKeyCard = false;
+    [SerializeField] private Transform interactPoint;
+    [SerializeField] private LayerMask interactMask;
     public PlayerValues playervalues;
     //Personaje
     public Transform playerTr;
@@ -101,6 +105,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _fsm.OnUpdate();
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            ONInteract();
+        }  
     }
 
     public void Drop()
@@ -140,6 +148,20 @@ public class PlayerController : MonoBehaviour
                 secondaryWeaponIcon.color = Color.white;
             }
         }
+    }
+
+    private void ONInteract()
+    {
+       Collider[] colliders = Physics.OverlapBox(interactPoint.position,new Vector3(1f, 1f, 1f), quaternion.identity, interactMask);
+
+        foreach (Collider items in colliders)
+        {
+            if (items.TryGetComponent(out Iinteract interactable))
+            {
+                interactable.Interact();
+                Debug.Log("<color=green>" + interactable + "</color>");
+            }
+        } 
     }
     
     public void TakeDamage(float damage)
