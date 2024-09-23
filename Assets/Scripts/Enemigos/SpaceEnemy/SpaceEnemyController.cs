@@ -15,7 +15,7 @@ public class SpaceEnemyController : MonoBehaviour
     ITreeNode _root;
     Func<bool> QuestionRange;
     QuestionNode auxiliarnode;
-    public int HP = 100;
+    public int HP = 99;
     public GameObject EnemyShootPrefab;
     public Transform ShootSpawnPoint;
     public Transform[] PuntosdeMovimiento;

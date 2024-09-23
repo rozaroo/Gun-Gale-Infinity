@@ -144,21 +144,8 @@ public class PlayerController : MonoBehaviour
     
     public void TakeDamage(float damage)
     {
-        if (currentshield > 0)
-        {
-            currentshield -= damage;
-            Debug.Log($"<color=lightblue>el escudo {currentshield}</color>");
-
-        }
-        if (currentshield <= 0)
-        {
-            
-            currentHealth -= damage;
-            Debug.Log($"<color=green>vida {currentHealth}</color>");
-        
-        }
-        
-        
+        if (currentshield > 0) currentshield -= damage;
+        if (currentshield <= 0) currentHealth -= damage;
         if (currentHealth <= 0f)
         {
             playerRagdoll.Active(true);

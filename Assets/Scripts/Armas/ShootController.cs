@@ -10,7 +10,7 @@ public class ShootController : MonoBehaviour
     public float lifeTime = 4f;
     private float time = 0f;
 
-    private int shootDamage = 20;
+    private int shootDamage = 33;
     Vector3 lastBulletPos;
 
     void Start()

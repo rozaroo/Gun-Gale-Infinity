@@ -137,4 +137,13 @@ public class SpaceShipController : MonoBehaviour
     {
         return cartuchos.Count;
     }
+    public void AddCartucho(int cantidad)
+    {
+        for (int i = 0; i < cantidad; i++)
+            cartuchos.Enqueue(municionPorCartucho);
+    }
+    public void RecoveryHealth(float health)
+    {
+        if (currentHealth < 100) currentHealth += health;
+    }
 }
