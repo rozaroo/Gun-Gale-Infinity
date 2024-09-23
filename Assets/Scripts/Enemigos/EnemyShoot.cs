@@ -5,7 +5,7 @@ public class EnemyShoot : MonoBehaviour
     public float speed;
     private float lifeTime = 4f;
     private float startTime;
-    private int damageAmount = 20;
+    private int damageAmount = 10;
     private Transform target;
     private Transform player;
 

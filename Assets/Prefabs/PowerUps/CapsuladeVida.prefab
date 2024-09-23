@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1414341310023639789}
   - component: {fileID: 7210950212625483714}
   - component: {fileID: 5393135776649940502}
+  - component: {fileID: 4488899425656250623}
+  - component: {fileID: 4037460803364896557}
   m_Layer: 0
   m_Name: CapsuladeVida
   m_TagString: Untagged
@@ -28,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.6685209, y: 0.5271998, z: 10.246967}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8808804432321656725}
   m_Father: {fileID: 0}
@@ -47,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 5
+  speed: 20
 --- !u!114 &5393135776649940502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +63,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cantidadVida: 25
+--- !u!136 &4488899425656250623
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787477327541768514}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 5.5
+  m_Direction: 1
+  m_Center: {x: -1.45, y: 2.3, z: 0}
+--- !u!54 &4037460803364896557
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787477327541768514}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &9058306241827590270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83,15 +135,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3884b9bedac3d9a49af65112337757e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0370879
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3884b9bedac3d9a49af65112337757e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.2179556
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3884b9bedac3d9a49af65112337757e2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.421527
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3884b9bedac3d9a49af65112337757e2, type: 3}
       propertyPath: m_LocalRotation.w
