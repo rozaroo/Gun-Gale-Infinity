@@ -15,7 +15,7 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-56570
+58250
 Successfully changed project path to: C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [5864] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 2205858047 [EditorId] 2205858047 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [6928] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 2587185575 [EditorId] 2587185575 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [5864] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 2205858047 [EditorId] 2205858047 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [6928] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 2587185575 [EditorId] 2587185575 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 3 workers.
-Refreshing native plugins compatible for Editor in 69.34 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 102.60 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -71,44 +71,44 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56808
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56020
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.073477 seconds.
-- Loaded All Assemblies, in  3.191 seconds
+Registered in 0.066659 seconds.
+- Loaded All Assemblies, in  4.611 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.031 seconds
-Domain Reload Profiling: 5201ms
-	BeginReloadAssembly (908ms)
+- Finished resetting the current domain, in  2.366 seconds
+Domain Reload Profiling: 6953ms
+	BeginReloadAssembly (2132ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (10ms)
-	RebuildCommonClasses (301ms)
-	RebuildNativeTypeToScriptingClass (232ms)
-	initialDomainReloadingComplete (527ms)
-	LoadAllAssembliesAndSetupDomain (1178ms)
-		LoadAssemblies (883ms)
+		CreateAndSetChildDomain (33ms)
+	RebuildCommonClasses (397ms)
+	RebuildNativeTypeToScriptingClass (91ms)
+	initialDomainReloadingComplete (694ms)
+	LoadAllAssembliesAndSetupDomain (1253ms)
+		LoadAssemblies (1707ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (1168ms)
-			TypeCache.Refresh (1163ms)
-				TypeCache.ScanAssembly (1072ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (2ms)
-	FinalizeReload (2055ms)
+		AnalyzeDomain (1240ms)
+			TypeCache.Refresh (1226ms)
+				TypeCache.ScanAssembly (1122ms)
+			ScanForSourceGeneratedMonoScriptInfo (3ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (2385ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1613ms)
+		SetupLoadedEditorAssemblies (1872ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (112ms)
+			InitializePlatformSupportModulesInManaged (72ms)
 			SetLoadedEditorAssemblies (53ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (8ms)
-			ProcessInitializeOnLoadAttributes (1142ms)
-			ProcessInitializeOnLoadMethodAttributes (299ms)
+			BeforeProcessingInitializeOnLoad (26ms)
+			ProcessInitializeOnLoadAttributes (1296ms)
+			ProcessInitializeOnLoadMethodAttributes (425ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -116,56 +116,56 @@ Domain Reload Profiling: 5201ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  9.748 seconds
-Refreshing native plugins compatible for Editor in 29.10 ms, found 3 plugins.
+- Loaded All Assemblies, in 11.434 seconds
+Refreshing native plugins compatible for Editor in 111.90 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  8.078 seconds
-Domain Reload Profiling: 17788ms
-	BeginReloadAssembly (1649ms)
+- Finished resetting the current domain, in 13.336 seconds
+Domain Reload Profiling: 24727ms
+	BeginReloadAssembly (1859ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (75ms)
+		DisableScriptedObjects (188ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (1ms)
-		CreateAndSetChildDomain (95ms)
-	RebuildCommonClasses (450ms)
-	RebuildNativeTypeToScriptingClass (161ms)
-	initialDomainReloadingComplete (659ms)
-	LoadAllAssembliesAndSetupDomain (6785ms)
-		LoadAssemblies (4072ms)
+		CreateAndSetChildDomain (162ms)
+	RebuildCommonClasses (388ms)
+	RebuildNativeTypeToScriptingClass (110ms)
+	initialDomainReloadingComplete (622ms)
+	LoadAllAssembliesAndSetupDomain (8395ms)
+		LoadAssemblies (5589ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (3923ms)
-			TypeCache.Refresh (3334ms)
-				TypeCache.ScanAssembly (3024ms)
-			ScanForSourceGeneratedMonoScriptInfo (335ms)
-			ResolveRequiredComponents (230ms)
-	FinalizeReload (8084ms)
+		AnalyzeDomain (3709ms)
+			TypeCache.Refresh (3087ms)
+				TypeCache.ScanAssembly (2968ms)
+			ScanForSourceGeneratedMonoScriptInfo (418ms)
+			ResolveRequiredComponents (197ms)
+	FinalizeReload (13352ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (6000ms)
+		SetupLoadedEditorAssemblies (11076ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (116ms)
-			SetLoadedEditorAssemblies (37ms)
+			InitializePlatformSupportModulesInManaged (93ms)
+			SetLoadedEditorAssemblies (36ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (727ms)
-			ProcessInitializeOnLoadAttributes (4193ms)
-			ProcessInitializeOnLoadMethodAttributes (832ms)
-			AfterProcessingInitializeOnLoad (94ms)
-			EditorAssembliesLoaded (1ms)
+			BeforeProcessingInitializeOnLoad (1182ms)
+			ProcessInitializeOnLoadAttributes (7735ms)
+			ProcessInitializeOnLoadMethodAttributes (1858ms)
+			AfterProcessingInitializeOnLoad (167ms)
+			EditorAssembliesLoaded (6ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (139ms)
+		AwakeInstancesAfterBackupRestoration (108ms)
 Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.54 seconds
-Refreshing native plugins compatible for Editor in 226.05 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.58 seconds
+Refreshing native plugins compatible for Editor in 388.09 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6550 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 99 unused Assets / (2.8 MB). Loaded Objects now: 6997.
+Unloading 6552 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 99 unused Assets / (2.8 MB). Loaded Objects now: 6999.
 Memory consumption went from 259.2 MB to 256.4 MB.
-Total: 22.926933 ms (FindLiveObjects: 1.514567 ms CreateObjectMapping: 3.435719 ms MarkObjects: 15.307660 ms  DeleteObjects: 2.665207 ms)
+Total: 14.757988 ms (FindLiveObjects: 1.150099 ms CreateObjectMapping: 1.260790 ms MarkObjects: 10.139232 ms  DeleteObjects: 2.204627 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -182,191 +182,21 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 582288.111279 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b7e38a87585a2d09c124ac93c6cdb4b') in 0.570996 seconds
+  Time since last request: 669930.327619 seconds.
+  path: Assets/DinV/Dynamic Space Background/Sprites/Espacio.mat
+  artifactKey: Guid(d28e70048001577438c392f31d8dc7cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DinV/Dynamic Space Background/Sprites/Espacio.mat using Guid(d28e70048001577438c392f31d8dc7cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e8b8f2334b11f948ace3ce65ebeb4ae') in 0.870442 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 31
-========================================================================
-Received Import Request.
-  Time since last request: 4.346126 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8cf119968d2d96e0c817525c666e72a') in 0.070333 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 31
-========================================================================
-Received Import Request.
-  Time since last request: 5.208199 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c75de4c6cf6a04b25af492af21408fc1') in 0.061548 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 31
-========================================================================
-Received Import Request.
-  Time since last request: 11.809516 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ab24ba944ef7256b19c40844f857ce7') in 0.070766 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 31
-========================================================================
-Received Import Request.
-  Time since last request: 5.173866 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9de865be296b137f90ea5476e912237') in 0.052990 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 31
-========================================================================
-Received Import Request.
-  Time since last request: 4.311148 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '246d932a6129d72b5535a1845608742e') in 0.167026 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 31
-========================================================================
-Received Import Request.
-  Time since last request: 6.574705 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f644b36d7631b723bbfd36d90bc8023c') in 0.053061 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 31
-========================================================================
-Received Import Request.
-  Time since last request: 3.936672 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1759015ddfe5f402145c039ff94a7dc4') in 0.046584 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 31
-========================================================================
-Received Import Request.
-  Time since last request: 18.446910 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60e88ce7cb639e2498ece2e55b0dec66') in 0.097249 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 57
-========================================================================
-Received Import Request.
-  Time since last request: 0.732543 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4518e194876c56e46b3684afb03da2f') in 0.050567 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 57
-========================================================================
-Received Import Request.
-  Time since last request: 1.497676 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6776ea8b0f9c6f4737efae1fdbed1428') in 0.076281 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 57
-========================================================================
-Received Import Request.
-  Time since last request: 4.784431 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ddf543cab8892cd133b7d4904e9ac30') in 0.098363 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 58
-========================================================================
-Received Import Request.
-  Time since last request: 8.193890 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abb5028851169f3bd6299a531341cfb7') in 0.061462 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 58
-========================================================================
-Received Import Request.
-  Time since last request: 6.060203 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebd3f52f1af114db6e6b9ae92964ec81') in 0.046259 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 58
-========================================================================
-Received Import Request.
-  Time since last request: 6.368021 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7551244edb8fd36c9f3e3aa97e41fbf1') in 0.091900 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 58
-========================================================================
-Received Import Request.
-  Time since last request: 8.332207 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94c88cc75501f6258b4077ab8ee2d3db') in 0.055096 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 58
-========================================================================
-Received Import Request.
-  Time since last request: 6.754153 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15dd0766a1a35a10883a6d294c5aebfc') in 0.057977 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 58
+Number of asset objects unloaded after import = 2
 ========================================================================
 Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  3.317 seconds
-Refreshing native plugins compatible for Editor in 40.51 ms, found 3 plugins.
-Native extension for WindowsStandalone target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in 13.977 seconds
-Domain Reload Profiling: 17261ms
-	BeginReloadAssembly (978ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (26ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (192ms)
-	RebuildCommonClasses (210ms)
-	RebuildNativeTypeToScriptingClass (93ms)
-	initialDomainReloadingComplete (194ms)
-	LoadAllAssembliesAndSetupDomain (1799ms)
-		LoadAssemblies (2279ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (126ms)
-			TypeCache.Refresh (24ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (98ms)
-	FinalizeReload (13987ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (4821ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (59ms)
-			SetLoadedEditorAssemblies (46ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (1086ms)
-			ProcessInitializeOnLoadAttributes (3016ms)
-			ProcessInitializeOnLoadMethodAttributes (531ms)
-			AfterProcessingInitializeOnLoad (82ms)
-			EditorAssembliesLoaded (1ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (39ms)
 Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Refreshing native plugins compatible for Editor in 180.36 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 159.69 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6392 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 62 unused Assets / (2.8 MB). Loaded Objects now: 7021.
-Memory consumption went from 230.6 MB to 227.8 MB.
-Total: 30.549985 ms (FindLiveObjects: 2.673306 ms CreateObjectMapping: 5.619828 ms MarkObjects: 13.984236 ms  DeleteObjects: 8.266136 ms)
+Unloading 19 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (2.8 MB). Loaded Objects now: 7041.
+Memory consumption went from 128.5 MB to 125.7 MB.
+Total: 68.210607 ms (FindLiveObjects: 1.203015 ms CreateObjectMapping: 1.345562 ms MarkObjects: 61.161525 ms  DeleteObjects: 4.495646 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
@@ -382,377 +212,3 @@ AssetImportParameters requested are different than current active one (requested
   custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 88.443167 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe725614043c8d76a32fa29d2fd17292') in 0.494510 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 31
-========================================================================
-Received Import Request.
-  Time since last request: 2.562061 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ef66af4b49c81ca3a71f8ae5b38f2d0') in 0.092579 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 31
-========================================================================
-Received Import Request.
-  Time since last request: 2.261557 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a6831b4bf0cadc262e1de080de1cdc9') in 0.069826 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 31
-========================================================================
-Received Import Request.
-  Time since last request: 16.559074 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be346ca737b624f6b6dca44631c9613d') in 0.154733 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 58
-========================================================================
-Received Import Request.
-  Time since last request: 1.576299 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20345606cd6907f66aeda1bac5751a94') in 0.050693 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 58
-========================================================================
-Received Import Request.
-  Time since last request: 3.480926 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bdda2d7c37b350fb48d4eea966ea3328') in 0.045074 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 58
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  4.620 seconds
-Refreshing native plugins compatible for Editor in 57.18 ms, found 3 plugins.
-Native extension for WindowsStandalone target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in 20.780 seconds
-Domain Reload Profiling: 25366ms
-	BeginReloadAssembly (1080ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (17ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (204ms)
-	RebuildCommonClasses (273ms)
-	RebuildNativeTypeToScriptingClass (90ms)
-	initialDomainReloadingComplete (236ms)
-	LoadAllAssembliesAndSetupDomain (2903ms)
-		LoadAssemblies (3440ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (133ms)
-			TypeCache.Refresh (34ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (2ms)
-			ResolveRequiredComponents (94ms)
-	FinalizeReload (20784ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (8865ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (67ms)
-			SetLoadedEditorAssemblies (28ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (1462ms)
-			ProcessInitializeOnLoadAttributes (6680ms)
-			ProcessInitializeOnLoadMethodAttributes (549ms)
-			AfterProcessingInitializeOnLoad (76ms)
-			EditorAssembliesLoaded (2ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (57ms)
-Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Refreshing native plugins compatible for Editor in 732.35 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6392 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 62 unused Assets / (2.8 MB). Loaded Objects now: 7036.
-Memory consumption went from 232.6 MB to 229.8 MB.
-Total: 29.926340 ms (FindLiveObjects: 2.063699 ms CreateObjectMapping: 2.718662 ms MarkObjects: 23.100257 ms  DeleteObjects: 2.037782 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 140.389065 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fcc133ba73d8e41958d56dac1b720121') in 0.855012 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 59
-========================================================================
-Received Import Request.
-  Time since last request: 4.255787 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67c4951be079aa8a3250e0e915a768ac') in 0.084649 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 59
-========================================================================
-Received Import Request.
-  Time since last request: 6.140514 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '243c51fe32ebd05a6a19f0f985b16eb1') in 0.073542 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
-========================================================================
-Received Import Request.
-  Time since last request: 3.411817 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '923bcb00fc6deec07e3f404dac7ead88') in 0.100022 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
-========================================================================
-Received Import Request.
-  Time since last request: 9.397253 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ecafe271074bb24adb16d1ecfc4daa7') in 0.071485 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
-========================================================================
-Received Import Request.
-  Time since last request: 2.797493 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff4f00048734e6bb2391ac732925a1f5') in 0.106632 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 59
-========================================================================
-Received Import Request.
-  Time since last request: 16.652066 seconds.
-  path: Assets/Prefabs/Drone.prefab
-  artifactKey: Guid(a4d6889c5f6beae4abf4e3daeeb3bd1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Drone.prefab using Guid(a4d6889c5f6beae4abf4e3daeeb3bd1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b27dbdcb7ec85f1e594e9c897315172') in 0.381222 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 196
-========================================================================
-Received Import Request.
-  Time since last request: 5.840356 seconds.
-  path: Assets/Scripts/PowerUp
-  artifactKey: Guid(ed83c2e2ce3bf464595443ca941a77dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/PowerUp using Guid(ed83c2e2ce3bf464595443ca941a77dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95ecece1a50f8ddb1af94e655c74ca05') in 0.032041 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 1.186866 seconds.
-  path: Assets/Scripts/PowerUp/PowerUpMovement.cs
-  artifactKey: Guid(b8d4c28984a526641bdf796f10f26f08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/PowerUp/PowerUpMovement.cs using Guid(b8d4c28984a526641bdf796f10f26f08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0eaaee9efef832b8ec2c0f3b75f034bf') in 0.026008 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 8.286839 seconds.
-  path: Assets/Scripts/PowerUp/HealthPowerUpCapsule.cs
-  artifactKey: Guid(88c189d910d78dc4e9a1a1ac7921e9e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/PowerUp/HealthPowerUpCapsule.cs using Guid(88c189d910d78dc4e9a1a1ac7921e9e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9eacc5e55288a37683ae093c5304e47') in 0.002153 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 12.351513 seconds.
-  path: Assets/Scripts/PowerUp/AmmoPowerUp.cs
-  artifactKey: Guid(db224f31ad511b544a968ceecdf8e45b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/PowerUp/AmmoPowerUp.cs using Guid(db224f31ad511b544a968ceecdf8e45b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2eac7af3cb4215b239d7736f9a09c380') in 0.170502 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  5.032 seconds
-Refreshing native plugins compatible for Editor in 53.04 ms, found 3 plugins.
-Native extension for WindowsStandalone target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in 29.978 seconds
-Domain Reload Profiling: 34961ms
-	BeginReloadAssembly (1270ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (20ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (239ms)
-	RebuildCommonClasses (279ms)
-	RebuildNativeTypeToScriptingClass (118ms)
-	initialDomainReloadingComplete (249ms)
-	LoadAllAssembliesAndSetupDomain (3043ms)
-		LoadAssemblies (3701ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (142ms)
-			TypeCache.Refresh (24ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (113ms)
-	FinalizeReload (30002ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (12259ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (140ms)
-			SetLoadedEditorAssemblies (42ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (1797ms)
-			ProcessInitializeOnLoadAttributes (8866ms)
-			ProcessInitializeOnLoadMethodAttributes (1218ms)
-			AfterProcessingInitializeOnLoad (193ms)
-			EditorAssembliesLoaded (3ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (132ms)
-Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Refreshing native plugins compatible for Editor in 92.49 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6392 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 64 unused Assets / (2.8 MB). Loaded Objects now: 7052.
-Memory consumption went from 234.6 MB to 231.8 MB.
-Total: 36.140656 ms (FindLiveObjects: 3.554509 ms CreateObjectMapping: 2.913045 ms MarkObjects: 23.847012 ms  DeleteObjects: 5.820150 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 77.009324 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2450c2f2de76399d5b1191ebb6a2e0db') in 2.400632 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
-========================================================================
-Received Import Request.
-  Time since last request: 2.482953 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb1e235f34502448085a2e7264a7c2a8') in 0.362104 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
-========================================================================
-Received Import Request.
-  Time since last request: 5.033481 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeVida.prefab
-  artifactKey: Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeVida.prefab using Guid(9cab6ce692c4c1c4f92cc36f4d965098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '884130848ce927a5f7fdce612972c518') in 0.049367 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  5.334 seconds
-Refreshing native plugins compatible for Editor in 41.77 ms, found 3 plugins.
-Native extension for WindowsStandalone target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in 21.598 seconds
-Domain Reload Profiling: 26899ms
-	BeginReloadAssembly (1363ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (22ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (274ms)
-	RebuildCommonClasses (335ms)
-	RebuildNativeTypeToScriptingClass (147ms)
-	initialDomainReloadingComplete (279ms)
-	LoadAllAssembliesAndSetupDomain (3171ms)
-		LoadAssemblies (3730ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (276ms)
-			TypeCache.Refresh (76ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (196ms)
-	FinalizeReload (21604ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (8538ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (55ms)
-			SetLoadedEditorAssemblies (51ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (1911ms)
-			ProcessInitializeOnLoadAttributes (5405ms)
-			ProcessInitializeOnLoadMethodAttributes (953ms)
-			AfterProcessingInitializeOnLoad (160ms)
-			EditorAssembliesLoaded (2ms)
-		ExecutionOrderSort2 (6ms)
-		AwakeInstancesAfterBackupRestoration (71ms)
-Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Refreshing native plugins compatible for Editor in 198.06 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6392 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 62 unused Assets / (2.8 MB). Loaded Objects now: 7067.
-Memory consumption went from 236.5 MB to 233.8 MB.
-Total: 42.109293 ms (FindLiveObjects: 3.190041 ms CreateObjectMapping: 5.992395 ms MarkObjects: 24.099170 ms  DeleteObjects: 8.819588 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 73.560758 seconds.
-  path: Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab
-  artifactKey: Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PowerUps/CapsuladeMunicion.prefab using Guid(40a11413a8dbab34ab7c37ac12f54d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9ce9fc14dccf9820223bdfdde084c40') in 3.712659 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 59
-========================================================================
-Received Import Request.
-  Time since last request: 0.123443 seconds.
-  path: Assets/Prefabs/DisparoDeEnergía/EnergyShoot.prefab
-  artifactKey: Guid(6f325e6482f20614b98071af701cdb2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShoot.prefab using Guid(6f325e6482f20614b98071af701cdb2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7f5c521915aa702ed47f332f9729205') in 0.971364 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
