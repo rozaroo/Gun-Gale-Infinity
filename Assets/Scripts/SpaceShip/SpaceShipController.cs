@@ -107,6 +107,7 @@ public class SpaceShipController : MonoBehaviour
                 if (shotRb != null) shotRb.velocity = shootDirection * shootPower;
             };
         }
+        if (municion.Count == 0) Reload();
     }
     public void Reload()
     {
@@ -120,10 +121,6 @@ public class SpaceShipController : MonoBehaviour
         }
         else if (cartuchos.Count == 0) Debug.Log("Sin cartuchos restantes.");
         else if (municion.Count > 0) Debug.Log("Aún tienes munición");
-    }
-    public void QuitGame()
-    {
-        Application.Quit();
     }
     public void TakeDamage(float damage)
     {

@@ -15,8 +15,6 @@ public class QuietState<T> : State<T>
     }
     public override void Execute()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) _shipController.QuitGame();
-        if (Input.GetKeyDown(KeyCode.T)) _shipController.TakeDamage(10f);
         // Transicion a Destroy sino hay vida
         if (_shipController.currentHealth <= 0) 
         { 
@@ -29,8 +27,6 @@ public class QuietState<T> : State<T>
         float z = Input.GetAxis("Vertical");
         //Disparar
         if (Input.GetMouseButtonDown(0)) _shipController.Shoot();
-        //Recargar
-        if (Input.GetKeyDown(KeyCode.R)) _shipController.Reload();
         //Transicion
         if (x != 0 || z != 0) _fsm.Transition(_inputMovement);
     }

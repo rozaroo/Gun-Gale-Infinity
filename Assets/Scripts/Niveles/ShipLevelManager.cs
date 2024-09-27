@@ -36,7 +36,9 @@ public class ShipLevelManager : MonoBehaviour
     {
         if (Enemies == 8) ActivarOleada2();
         if (Enemies == 4) ActivarOleada3();
+        if (Enemies == 0) Win();
         if (Input.GetKeyDown(KeyCode.M)) ToggleMusic();
+        if (Input.GetKeyDown(KeyCode.Escape)) MainMenu();
         if (shipController == null) Lose();
     }
     public void ActivarOleada2()
@@ -61,6 +63,10 @@ public class ShipLevelManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    public void Win()
+    {
+        SceneManager.LoadScene(5);
     }
     public void Lose()
     {

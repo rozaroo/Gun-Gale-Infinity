@@ -19,8 +19,6 @@ public class MoveState<T> : State<T>
     }
     public override void Execute()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) _shipController.QuitGame();
-        if (Input.GetKeyDown(KeyCode.T)) _shipController.TakeDamage(10f);
         // Transicion a Destroy sino hay vida
         if (_shipController.currentHealth <= 0)
         {
@@ -43,8 +41,6 @@ public class MoveState<T> : State<T>
         _shipController.shipRb.velocity = endDirection;
         //Disparar
         if (Input.GetMouseButtonDown(0)) _shipController.Shoot();
-        //Recargar
-        if (Input.GetKeyDown(KeyCode.R)) _shipController.Reload();
         // Transición a Quiet si no hay input de movimiento
         if (moveX == 0 && moveY == 0) _fsm.Transition(_quietInput);
     }
