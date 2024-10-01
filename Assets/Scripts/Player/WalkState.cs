@@ -6,10 +6,12 @@ public class WalkState<T> : State<T>
 {
     PlayerController _playerController;
     T _idleInput;
-    public WalkState(PlayerController playerController, T idleInput)
+    T _dieInput;
+    public WalkState(PlayerController playerController, T idleInput, T dieInput)
     {
         _playerController = playerController;
         _idleInput = idleInput;
+        _dieInput = dieInput;
     }
     public override void Sleep()
     {
@@ -21,11 +23,9 @@ public class WalkState<T> : State<T>
         if (_playerController.inventoryOpen == false) _playerController.inventoryController.gameObject.SetActive(false);
         else _playerController.inventoryController.gameObject.SetActive(true);
         if (Input.GetKeyDown(KeyCode.G)) _playerController.Drop();
-        if (Input.GetKeyDown(KeyCode.Escape)) _playerController.QuitGame();
         //Correr
         float currentSpeed = _playerController.playervalues.Speed[0];
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) currentSpeed *= 2;
-
         //MoveLogic
         if (_playerController.inventoryOpen == true) return;
         float moveX = Input.GetAxis("Horizontal");
@@ -73,6 +73,7 @@ public class WalkState<T> : State<T>
         //ItemLogic
         if (_playerController.nearItem != null && Input.GetKeyDown(KeyCode.E)) 
         {
+            _playerController.ONInteract();
             GameObject instantiatedItem = null;
             int countWeapons = 0;
             foreach (GameObject itemPrefab in _playerController.playervalues.ItemPrefab)
@@ -154,5 +155,6 @@ public class WalkState<T> : State<T>
             _playerController.postProcessController.DesactivateShader();
             _playerController.grayscale.DesactivateShader();
         }
+        if (currentHealth <= 0f) _fsm.Transition(_dieInput);
     }
 }

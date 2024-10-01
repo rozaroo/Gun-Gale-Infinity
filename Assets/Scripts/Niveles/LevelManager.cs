@@ -45,6 +45,7 @@ public class LevelManager : MonoBehaviour
         }
         UpdateEnemiesText();
         if (Input.GetKeyDown(KeyCode.M)) ToggleMusic();
+        if (Input.GetKeyDown(KeyCode.Escape)) MainMenu();
     }
         
     public void Restart()

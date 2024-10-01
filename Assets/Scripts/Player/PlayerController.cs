@@ -92,11 +92,16 @@ public class PlayerController : MonoBehaviour
     {
         _fsm = new FSM<StatesEnumuno>();
 
-        var idle = new IdleState<StatesEnumuno>(this,StatesEnumuno.Walk);
-        var walk = new WalkState<StatesEnumuno>(this, StatesEnumuno.Idle);
-        
+        var idle = new IdleState<StatesEnumuno>(this,StatesEnumuno.Walk, StatesEnumuno.Die);
+        var walk = new WalkState<StatesEnumuno>(this, StatesEnumuno.Idle, StatesEnumuno.Die);
+        var die = new DieState<StatesEnumuno>(this);
+
         idle.AddTransition(StatesEnumuno.Walk, walk);
+        idle.AddTransition(StatesEnumuno.Die, die);
         walk.AddTransition(StatesEnumuno.Idle, idle);
+        walk.AddTransition(StatesEnumuno.Die, die);
+        die.AddTransition(StatesEnumuno.Walk, walk);
+        die.AddTransition(StatesEnumuno.Die, die);
         _fsm.SetInit(idle);
     }
 
@@ -117,11 +122,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _fsm.OnUpdate();
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ONInteract();
-        }  
     }
 
     public void Drop()
@@ -176,18 +176,18 @@ public class PlayerController : MonoBehaviour
             }
         } 
     }
-    
     public void TakeDamage(float damage)
     {
         if (currentshield > 0) currentshield -= damage;
         if (currentshield <= 0) currentHealth -= damage;
-        if (currentHealth <= 0f)
-        {
-            playerRagdoll.Active(true);
-            Active = false;
-            Destroy(this, 1.5f);
-        }
     }
+    public void Die()
+    {
+        playerRagdoll.Active(true);
+        Active = false;
+        Destroy(this, 1.5f);
+    }
+
     
     public void RecoveryHealth(float health)
     {
@@ -205,9 +205,5 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Item")) nearItem = null;
-    }
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }

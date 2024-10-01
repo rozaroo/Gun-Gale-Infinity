@@ -6,10 +6,12 @@ public class IdleState<T> : State<T>
 {
     PlayerController _playerController;
     T _inputMovement;
-    public IdleState(PlayerController playerController, T inputMovement)
+    T _dieInput;
+    public IdleState(PlayerController playerController, T inputMovement, T dieInput)
     {
         _playerController = playerController;
         _inputMovement = inputMovement;
+        _dieInput = dieInput;
     }
     public override void Execute()
     {
@@ -17,15 +19,12 @@ public class IdleState<T> : State<T>
         if (_playerController.inventoryOpen == false) _playerController.inventoryController.gameObject.SetActive(false);
         else _playerController.inventoryController.gameObject.SetActive(true);
         if (Input.GetKeyDown(KeyCode.G)) _playerController.Drop();
-        if (Input.GetKeyDown(KeyCode.Escape)) _playerController.QuitGame();
-
         //MoveLogic
         base.Execute();
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         //Transicion
         if (x != 0 || z != 0) _fsm.Transition(_inputMovement);
-
         //CameraLogic
         if (_playerController.Player)
         {
@@ -59,6 +58,7 @@ public class IdleState<T> : State<T>
         //ItemLogic
         if (_playerController.nearItem != null && Input.GetKeyDown(KeyCode.E)) 
         {
+            _playerController.ONInteract();
             GameObject instantiatedItem = null;
             int countWeapons = 0;
             foreach (GameObject itemPrefab in _playerController.playervalues.ItemPrefab)
@@ -141,5 +141,6 @@ public class IdleState<T> : State<T>
             _playerController.postProcessController.DesactivateShader();
             _playerController.grayscale.DesactivateShader();
         }
+        if (currentHealth <= 0f) _fsm.Transition(_dieInput);
     }
 }

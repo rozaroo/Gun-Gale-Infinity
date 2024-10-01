@@ -6,4 +6,5 @@ public enum StatesEnumuno
 {
     Idle,
     Walk,
+    Die,
 }
