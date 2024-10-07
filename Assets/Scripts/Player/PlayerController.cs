@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void ONInteract()
+    public void ONInteract()
     {
        Collider[] colliders = Physics.OverlapBox(interactPoint.position,new Vector3(1f, 1f, 1f), quaternion.identity, interactMask);
 

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class SpaceEnemyTwoDeathState<T> : State<T>
 {
-    SpaceEnemyTwoController _spaceEnemyController;
+    SpaceEnemyTwoController _spaceEnemyTwoController;
     ShipLevelManager _lvlManager;
-    public SpaceEnemyDeathState(SpaceEnemyTwoController spacenemycontroller, ShipLevelManager lvlmanager)
+    public SpaceEnemyTwoDeathState(SpaceEnemyTwoController spacenemytwocontroller, ShipLevelManager lvlmanager)
     {
-        _spaceEnemyController = spacenemycontroller;
+        _spaceEnemyTwoController = spacenemytwocontroller;
         _lvlManager = lvlmanager;
     }
     public override void Enter()
     {
         _lvlManager.Enemies--;
-        _spaceEnemyController.DestroyShip();
+        _spaceEnemyTwoController.DestroyShip();
     }
 }

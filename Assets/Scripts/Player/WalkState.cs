@@ -155,6 +155,6 @@ public class WalkState<T> : State<T>
             _playerController.postProcessController.DesactivateShader();
             _playerController.grayscale.DesactivateShader();
         }
-        if (currentHealth <= 0f) _fsm.Transition(_dieInput);
+        if (_playerController.currentHealth <= 0f) _fsm.Transition(_dieInput);
     }
 }
