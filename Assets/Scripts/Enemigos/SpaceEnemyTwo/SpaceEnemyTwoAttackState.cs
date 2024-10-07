@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceEnemyDeathState<T> : State<T>
+public class SpaceEnemyTwoAttackState<T> : State<T>
 {
-    SpaceEnemyController _spaceEnemyController;
+    SpaceEnemyTwoController _spaceEnemyController;
     ShipLevelManager _lvlManager;
-    public SpaceEnemyDeathState(SpaceEnemyController spacenemycontroller, ShipLevelManager lvlmanager)
+    public SpaceEnemyAttackState(SpaceEnemyTwoController spacenemycontroller, ShipLevelManager lvlmanager)
     {
         _spaceEnemyController = spacenemycontroller;
         _lvlManager = lvlmanager;
@@ -14,6 +14,6 @@ public class SpaceEnemyDeathState<T> : State<T>
     public override void Enter()
     {
         _lvlManager.Enemies--;
-        _spaceEnemyController.DestroyShip();
+        _spaceEnemyController.Attack();
     }
 }

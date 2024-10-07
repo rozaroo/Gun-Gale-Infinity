@@ -4,21 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.VisualScripting;
 
-public enum StatesEnumCinco 
+public enum StatesEnumSeis 
 {
     Move,
-    Death
+    Death,
+    Attack
 }
-public class SpaceEnemyController : MonoBehaviour
+public class SpaceEnemyTwoController : MonoBehaviour
 {
-    FSM<StatesEnumCinco> _fsm;
+    FSM<StatesEnumSeis> _fsm;
     ITreeNode _root;
     Func<bool> QuestionRange;
     QuestionNode auxiliarnode;
     public int HP = 99;
-    public GameObject EnemyShootPrefab;
-    public Transform ShootSpawnPoint;
-    public Transform[] PuntosdeMovimiento;
     public DronSpeed dronspeed;
     public ShipLevelManager lvlManager;
     public GameObject explosionPrefab;
@@ -27,14 +25,28 @@ public class SpaceEnemyController : MonoBehaviour
     public DropPrefabsthree dropPrefabs;
     public DropProbabilitiesTwo dropProbabilities;
     public Transform dropSpawnPoint;
+    public bool contacto = false;
+    private float animDuration = 0.5f;
+    //Steerings
+    public Rigidbody target;
+    public float timePrediction;
+    public float radius;
+    public float angle;
+    public LayerMask maskObs;
+    ISteering _steering;
+    ObstacleAvoidance _obstacleAvoidance;
+    Rigidbody _rb;
     private void Awake()
     {
         lvlManager = FindObjectOfType<ShipLevelManager>();
         player = GameObject.FindGameObjectWithTag("Nave").transform;
+        _rb = GetComponent<Rigidbody>();
+        target = GameObject.FindGameObjectWithTag("Nave").GetComponent<Rigidbody>();
     }
 
     void Start()
     {
+        InitializeSteerings();
         InitializeFSM();
         InitializedTree();
     }
@@ -45,39 +57,57 @@ public class SpaceEnemyController : MonoBehaviour
         if (_fsm != null) _fsm.OnUpdate();
         if (_root != null) _root.Execute();
     }
+    void InitializeSteerings()
+    {
+        var pursuit = new Pursuit(this.transform, target, timePrediction);
+        _steering = pursuit;
+        _obstacleAvoidance = new ObstacleAvoidance(this.transform, angle, radius, maskObs, 2.5f);
+    }
     void InitializeFSM()
     {
-        var death = new SpaceEnemyDeathState<StatesEnumCinco>(this, lvlManager);
-        var move = new SpaceEnemyMovementState<StatesEnumCinco>(this);
-        death.AddTransition(StatesEnumCinco.Move, move);
-        move.AddTransition(StatesEnumCinco.Death, death);
-        _fsm = new FSM<StatesEnumCinco>(move);
+        var death = new SpaceEnemyTwoDeathState<StatesEnumSeis>(this, lvlManager);
+        var move = new SpaceEnemyTwoMovementState<StatesEnumSeis>(this, _steering, _obstacleAvoidance);
+        var attack = new SpaceEnemyTwoAttackState<StatesEnumSeis>(this, lvlManager);
+        death.AddTransition(StatesEnumSeis.Move, move);
+        death.AddTransition(StatesEnumSeis.Attack, attack);
+        move.AddTransition(StatesEnumSeis.Death, death);
+        move.AddTransition(StatesEnumSeis.Attack, attack);
+        attack.AddTransition(StatesEnumSeis.Move, move);
+        attack.AddTransition(StatesEnumSeis.Death, death);
+        _fsm = new FSM<StatesEnumSeis>(move);
     }
     void InitializedTree()
     {
-        var death = new ActionNode(() => _fsm.Transition(StatesEnumCinco.Death));
-        var move = new ActionNode(() => _fsm.Transition(StatesEnumCinco.Move));
+        var death = new ActionNode(() => _fsm.Transition(StatesEnumSeis.Death));
+        var move = new ActionNode(() => _fsm.Transition(StatesEnumSeis.Move));
+        var attack = new ActionNode(() => _fsm.Transition(StatesEnumSeis.Attack));
         //Preguntas 
-        var qHasLife = new QuestionNode(QuestionHP(), death, move);
+        var qAttack = new QuestionNode(QuestionAttack(), attack, move);
+        var qHasLife = new QuestionNode(QuestionHP(), death, qAttack);
         _root = qHasLife;
     }
     Func<bool> QuestionHP()
     {
         return () => HP <= 0;
     }
+    Func<bool> QuestionAttack()
+    {
+        return () => contacto;
+    }
     public void TakeDamage(int damageAmount)
     {
         HP -= damageAmount;
     }
-    public void Shoot()
-    {
-        GameObject shoot = Instantiate(EnemyShootPrefab, ShootSpawnPoint.position, Quaternion.identity);
-        EnemyShoot ShootScript = shoot.GetComponent<EnemyShoot>();
-        if (ShootScript != null && player != null) ShootScript.SetTarget(player);
-    }
     public void Move(Vector3 dir)
     {
-        transform.position += dir * Time.deltaTime * dronspeed.Speed[0];
+        dir *= dronspeed.Speed[0];
+        dir.y = _rb.velocity.y;
+        _rb.velocity = dir;
+    }
+    public void LookDir(Vector3 dir)
+    {
+        if (dir.x == 0 && dir.z == 0) return;
+        transform.forward = dir;
     }
     public void SetPosition(Vector3 pos)
     {
@@ -86,7 +116,7 @@ public class SpaceEnemyController : MonoBehaviour
     public void DestroyShip()
     {
         SpawnRandomDrop();
-        StartCoroutine(PlayDestructionAnimation(0.5f));
+        StartCoroutine(PlayDestructionAnimation(animDuration));
     }
     private IEnumerator PlayDestructionAnimation(float duration)
     {
@@ -97,7 +127,7 @@ public class SpaceEnemyController : MonoBehaviour
     }
     public void PortalShip()
     {
-        StartCoroutine(PlayPortalAnimation(0.5f));
+        StartCoroutine(PlayPortalAnimation(animDuration));
     }
     private IEnumerator PlayPortalAnimation(float duration)
     {
@@ -119,5 +149,16 @@ public class SpaceEnemyController : MonoBehaviour
                 break;
             }
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        var player = other.GetComponent<SpaceShipController>();
+        if (player != null) contacto = true;
+    }
+    public void Attack()
+    {
+        var playerController = player.GetComponent<SpaceShipController>();
+        playerController?.TakeDamage(20f);
+        StartCoroutine(PlayDestructionAnimation(animDuration));
     }
 }

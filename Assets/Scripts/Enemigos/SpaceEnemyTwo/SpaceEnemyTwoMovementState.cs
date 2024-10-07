@@ -2,43 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceEnemyMovementState<T> : State<T>
+public class SpaceEnemyTwoMovementState<T> : State<T>
 {
-    SpaceEnemyController _spaceEnemyController;
-    private Transform[] puntosDeMovimiento;
-    private int currentPointIndex = 0;
-    private float timeBetweenShots = 2f;
-    private Coroutine shootingCoroutine;
-
-    public SpaceEnemyMovementState(SpaceEnemyController spacenemycontroller)
+    SpaceEnemyTwoController _spaceEnemyController;
+    ISteering _steering;
+    ObstacleAvoidance _obs;
+    public SpaceEnemyTwoMovementState(SpaceEnemyTwoController spacenemycontroller, ISteering steering, ObstacleAvoidance obs)
     {
         _spaceEnemyController = spacenemycontroller;
-        puntosDeMovimiento = _spaceEnemyController.PuntosdeMovimiento;
+        _steering = steering;
+        _obs = obs;
     }
-    public override void Enter()
+    public override void Sleep()
     {
-        _spaceEnemyController.PortalShip();
+        base.Sleep();
     }
     public override void Execute()
     {
-        MoveBetweenPoints();
-        if (shootingCoroutine == null) shootingCoroutine = _spaceEnemyController.StartCoroutine(ShootAtIntervals());
+        var dir = _obs.GetDir(_steering.GetDir(), false);
+        _spaceEnemyController.Move(dir);
+        _spaceEnemyController.LookDir(dir);
     }
-    private void MoveBetweenPoints()
-    {
-        if (puntosDeMovimiento.Length == 0) return;
-        Transform targetPoint = puntosDeMovimiento[currentPointIndex];
-        Vector3 direction = (targetPoint.position - _spaceEnemyController.transform.position).normalized;
-        _spaceEnemyController.Move(direction);
-        if (Vector3.Distance(_spaceEnemyController.transform.position, targetPoint.position) < 0.1f) currentPointIndex = (currentPointIndex + 1) % puntosDeMovimiento.Length;
-    }
-    private IEnumerator ShootAtIntervals()
-    {
-        while (true)
-        {
-            _spaceEnemyController.Shoot();
-            yield return new WaitForSeconds(timeBetweenShots);
-        }
-    }
-    
 }
