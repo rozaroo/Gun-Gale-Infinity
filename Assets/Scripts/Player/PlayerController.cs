@@ -122,6 +122,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _fsm.OnUpdate();
+        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ONInteract();
+        }
     }
 
     public void Drop()
