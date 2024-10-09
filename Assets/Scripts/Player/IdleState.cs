@@ -18,7 +18,6 @@ public class IdleState<T> : State<T>
         //ActionsLogic
         if (_playerController.inventoryOpen == false) _playerController.inventoryController.gameObject.SetActive(false);
         else _playerController.inventoryController.gameObject.SetActive(true);
-        if (Input.GetKeyDown(KeyCode.G)) _playerController.Drop();
         //MoveLogic
         base.Execute();
         float x = Input.GetAxis("Horizontal");

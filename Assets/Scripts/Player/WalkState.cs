@@ -22,7 +22,6 @@ public class WalkState<T> : State<T>
         //ActionsLogic
         if (_playerController.inventoryOpen == false) _playerController.inventoryController.gameObject.SetActive(false);
         else _playerController.inventoryController.gameObject.SetActive(true);
-        if (Input.GetKeyDown(KeyCode.G)) _playerController.Drop();
         //Correr
         float currentSpeed = _playerController.playervalues.Speed[0];
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) currentSpeed *= 2;

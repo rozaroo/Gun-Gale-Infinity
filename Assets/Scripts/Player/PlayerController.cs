@@ -117,57 +117,10 @@ public class PlayerController : MonoBehaviour
         currentHealth = playervalues.MaxHealth[0];
         Active = true;
     }
-
-    // Update is called once per frame
     void Update()
     {
         _fsm.OnUpdate();
-        
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ONInteract();
-        }
     }
-
-    public void Drop()
-    {
-        if (hasPistol && primaryWeapon != null)
-        {
-            GameObject droppedPW = primaryWeapon.GetComponent<WeaponController>().itemPrefab;
-            Instantiate(droppedPW, new Vector3(playerTr.position.x, droppedPW.transform.position.y, playerTr.position.z),droppedPW.transform.rotation);
-            primaryWeaponIcon.gameObject.SetActive(false);
-            Destroy(primaryWeapon.gameObject);
-            hasPistol = false;
-            if (secondaryWeapon == null && throwableWeapon == null) playerAnim.SetLayerWeight(1, 0); //Animaci�n sin armas
-            else if (secondaryWeapon != null && throwableWeapon == null)
-            {
-                playerAnim.SetLayerWeight(1, 1);
-                hasRiffle = true;
-                weaponSlots.ToggleSlot(secondarySlot);
-                primaryWeaponIcon.color = Color.white;
-                secondaryWeaponIcon.color = Color.red;
-            }
-           
-        }
-        else if (hasRiffle && secondaryWeapon != null)
-        {
-            GameObject droppedSW = secondaryWeapon.GetComponent<WeaponController>().itemPrefab;
-            Instantiate(droppedSW, new Vector3(playerTr.position.x, droppedSW.transform.position.y, playerTr.position.z), droppedSW.transform.rotation);
-            secondaryWeaponIcon.gameObject.SetActive(false);
-            Destroy(secondaryWeapon.gameObject);
-            hasRiffle = false;
-            if (primaryWeapon == null && throwableWeapon == null) playerAnim.SetLayerWeight(1, 0);
-            else if (primaryWeapon != null && throwableWeapon == null)
-            {
-                playerAnim.SetLayerWeight(1, 1);
-                hasPistol = true;
-                weaponSlots.ToggleSlot(primarySlot);
-                primaryWeaponIcon.color = Color.red;
-                secondaryWeaponIcon.color = Color.white;
-            }
-        }
-    }
-
     public void ONInteract()
     {
        Collider[] colliders = Physics.OverlapBox(interactPoint.position,new Vector3(1f, 1f, 1f), quaternion.identity, interactMask);
