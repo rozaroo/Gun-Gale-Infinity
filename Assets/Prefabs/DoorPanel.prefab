@@ -44,6 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7313436502464259987}
   - component: {fileID: 2290970514106328575}
+  - component: {fileID: 4361009156750117066}
   - component: {fileID: 252014182455527120}
   - component: {fileID: 7637269373749673208}
   - component: {fileID: 2235481182392441809}
@@ -91,6 +92,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 6}
   m_Center: {x: 0, y: 0, z: -2}
+--- !u!95 &4361009156750117066
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7120139563169829977}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 360e7f02689acb549b61e6d13c320ce3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &252014182455527120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +131,7 @@ MonoBehaviour:
   door: {fileID: 0}
   KeyCardSound: {fileID: 7637269373749673208}
   NoKeyCardSound: {fileID: 2235481182392441809}
+  AnimationTime: 5
 --- !u!82 &7637269373749673208
 AudioSource:
   m_ObjectHideFlags: 0

@@ -10,11 +10,16 @@ public class DoorPanelController : MonoBehaviour, Iinteract
     [SerializeField] private GameObject door;
     [SerializeField] private AudioSource KeyCardSound;
     [SerializeField] private AudioSource NoKeyCardSound;
+    [SerializeField] private float AnimationTime;
+    private float maxTime;
     private PlayerController playercontroller;
+    private Animator animator;
 
     void Start()
     {
         playercontroller = FindObjectOfType<PlayerController>();
+        animator = GetComponent<Animator>();
+        maxTime = AnimationTime;
     }
 
     public void Interact()
@@ -34,8 +39,9 @@ public class DoorPanelController : MonoBehaviour, Iinteract
 
     private void HasCard()
     {
-        oNLed.gameObject.SetActive(true);
-        oFFLed.gameObject.SetActive(false);
+       /* oNLed.gameObject.SetActive(true);
+        oFFLed.gameObject.SetActive(false);*/
+        animator.Play("DoorPanelOn_Animation");
         KeyCardSound.Play();
         keyCardIndicator.SetActive(false);
         Open();
@@ -43,8 +49,9 @@ public class DoorPanelController : MonoBehaviour, Iinteract
 
     private void NoCard()
     {
-        oNLed.gameObject.SetActive(false);
-        oFFLed.gameObject.SetActive(true);
+       /* oNLed.gameObject.SetActive(false);
+        oFFLed.gameObject.SetActive(true);*/
+        animator.Play("DoorPanelOFF_Animation");
         NoKeyCardSound.Play();
     }
 
@@ -57,6 +64,11 @@ public class DoorPanelController : MonoBehaviour, Iinteract
 // es para debug y para probar la puerta
     void Update()
     {
+        if (maxTime > 0) maxTime -= Time.deltaTime;
+        else if (maxTime < 0) maxTime = 0;
+
+        animator.SetFloat("Time", maxTime);
+
         if (Input.GetKeyDown(KeyCode.L))
         {
             Open();
