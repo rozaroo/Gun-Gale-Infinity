@@ -13,6 +13,7 @@ public class DeathState<T> : State<T>
     }
     public override void Enter()
     {
+        _enemyController.healthBar.gameObject.SetActive(false);
         _enemyController.animator.SetTrigger("die");
         _enemyController.GetComponent<Collider>().enabled = false;
         _enemyController.SpawnRandomDrop();

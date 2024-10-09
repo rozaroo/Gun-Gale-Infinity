@@ -24,6 +24,7 @@ public class EnemyStateSteering<T> : State<T>
     }
     public override void Execute()
     {
+        _enemyController.UpdateHealthBarVisibility();
         var dir = _obs.GetDir(_steering.GetDir(), false);
         _enemyController.Move(dir);
         _enemyController.LookDir(dir);
