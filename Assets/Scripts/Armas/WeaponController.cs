@@ -12,7 +12,7 @@ public class WeaponController : MonoBehaviour
     public GameObject bulletPrefab;
     public Sprite weaponIcon;
     public PlayerController playerController;
-    
+    public GameObject explosionPrefab;
     void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
@@ -68,6 +68,7 @@ public class WeaponController : MonoBehaviour
     {
         Vector3 spawnPosition = shootSpawn.position + shootSpawn.forward * 0.1f;
         Instantiate(bulletPrefab, spawnPosition, shootSpawn.rotation);
+        StartCoroutine(PlayExplosion(0.2f, spawnPosition));
     }
     IEnumerator AutomaticShoot()
     {
@@ -76,5 +77,11 @@ public class WeaponController : MonoBehaviour
             InstantiateBullet();
             yield return new WaitForSeconds(shootDelay);
         }
+    }
+    private IEnumerator PlayExplosion(float duration, Vector3 position)
+    {
+        GameObject explosionObject = Instantiate(explosionPrefab, position, Quaternion.identity);
+        yield return new WaitForSeconds(duration);
+        Destroy(explosionObject, duration);
     }
 }
