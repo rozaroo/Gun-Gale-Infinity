@@ -117,9 +117,15 @@ public class PlayerController : MonoBehaviour
         currentHealth = playervalues.MaxHealth[0];
         Active = true;
     }
+
     void Update()
     {
         _fsm.OnUpdate();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ONInteract();
+        }
     }
     public void ONInteract()
     {
