@@ -166,6 +166,10 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Item")) nearItem = other.gameObject;
     }
+    private void OnTriggerStay(Collider other) 
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Item")) nearItem = other.gameObject;
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Item")) nearItem = null;
