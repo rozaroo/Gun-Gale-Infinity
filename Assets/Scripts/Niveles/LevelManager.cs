@@ -28,7 +28,8 @@ public class LevelManager : MonoBehaviour
         defeatScreen.SetActive(false);
         Enemies = FindObjectsOfType<EnemyController>().Length + FindObjectsOfType<EnemyControllerTwo>().Length ;
         UpdateEnemiesText();
-        backgroundMusic.Play();
+        //backgroundMusic.Play();
+        ToggleMusic();
     }
 
     // Update is called once per frame

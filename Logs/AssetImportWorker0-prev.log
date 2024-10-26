@@ -15,7 +15,7 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-61883
+62807
 Successfully changed project path to: C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [20000] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 966427288 [EditorId] 966427288 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [20280] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 2294503340 [EditorId] 2294503340 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [20000] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 966427288 [EditorId] 966427288 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [20280] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 2294503340 [EditorId] 2294503340 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 3 workers.
-Refreshing native plugins compatible for Editor in 859.86 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 86.01 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -73,44 +73,44 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56732
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56412
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.380829 seconds.
-- Loaded All Assemblies, in 15.774 seconds
+Registered in 0.036510 seconds.
+- Loaded All Assemblies, in  1.389 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  9.155 seconds
-Domain Reload Profiling: 24881ms
-	BeginReloadAssembly (9040ms)
+- Finished resetting the current domain, in  0.965 seconds
+Domain Reload Profiling: 2343ms
+	BeginReloadAssembly (438ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (83ms)
-	RebuildCommonClasses (1813ms)
-	RebuildNativeTypeToScriptingClass (281ms)
-	initialDomainReloadingComplete (1584ms)
-	LoadAllAssembliesAndSetupDomain (3002ms)
-		LoadAssemblies (8875ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (147ms)
+	RebuildNativeTypeToScriptingClass (40ms)
+	initialDomainReloadingComplete (254ms)
+	LoadAllAssembliesAndSetupDomain (498ms)
+		LoadAssemblies (425ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (2983ms)
-			TypeCache.Refresh (2901ms)
-				TypeCache.ScanAssembly (2564ms)
-			ScanForSourceGeneratedMonoScriptInfo (12ms)
-			ResolveRequiredComponents (68ms)
-	FinalizeReload (9162ms)
+		AnalyzeDomain (491ms)
+			TypeCache.Refresh (487ms)
+				TypeCache.ScanAssembly (439ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (966ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (7078ms)
+		SetupLoadedEditorAssemblies (768ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (373ms)
-			SetLoadedEditorAssemblies (262ms)
+			InitializePlatformSupportModulesInManaged (31ms)
+			SetLoadedEditorAssemblies (22ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (173ms)
-			ProcessInitializeOnLoadAttributes (4982ms)
-			ProcessInitializeOnLoadMethodAttributes (1287ms)
+			BeforeProcessingInitializeOnLoad (6ms)
+			ProcessInitializeOnLoadAttributes (567ms)
+			ProcessInitializeOnLoadMethodAttributes (142ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -118,58 +118,58 @@ Domain Reload Profiling: 24881ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in 52.186 seconds
-Refreshing native plugins compatible for Editor in 822.64 ms, found 3 plugins.
+- Loaded All Assemblies, in 10.991 seconds
+Refreshing native plugins compatible for Editor in 26.91 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in 37.067 seconds
-Domain Reload Profiling: 88864ms
-	BeginReloadAssembly (7007ms)
+- Finished resetting the current domain, in 18.344 seconds
+Domain Reload Profiling: 29307ms
+	BeginReloadAssembly (574ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (230ms)
+		DisableScriptedObjects (23ms)
 		BackupInstance (0ms)
-		ReleaseScriptingObjects (2ms)
-		CreateAndSetChildDomain (430ms)
-	RebuildCommonClasses (2585ms)
-	RebuildNativeTypeToScriptingClass (937ms)
-	initialDomainReloadingComplete (1982ms)
-	LoadAllAssembliesAndSetupDomain (39282ms)
-		LoadAssemblies (32682ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (66ms)
+	RebuildCommonClasses (136ms)
+	RebuildNativeTypeToScriptingClass (46ms)
+	initialDomainReloadingComplete (169ms)
+	LoadAllAssembliesAndSetupDomain (10037ms)
+		LoadAssemblies (9262ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (11864ms)
-			TypeCache.Refresh (9608ms)
-				TypeCache.ScanAssembly (8735ms)
-			ScanForSourceGeneratedMonoScriptInfo (1641ms)
-			ResolveRequiredComponents (583ms)
-	FinalizeReload (37071ms)
+		AnalyzeDomain (1102ms)
+			TypeCache.Refresh (918ms)
+				TypeCache.ScanAssembly (858ms)
+			ScanForSourceGeneratedMonoScriptInfo (131ms)
+			ResolveRequiredComponents (48ms)
+	FinalizeReload (18345ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (30440ms)
+		SetupLoadedEditorAssemblies (17273ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (238ms)
-			SetLoadedEditorAssemblies (210ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (15ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (5615ms)
-			ProcessInitializeOnLoadAttributes (21375ms)
-			ProcessInitializeOnLoadMethodAttributes (2693ms)
-			AfterProcessingInitializeOnLoad (305ms)
-			EditorAssembliesLoaded (3ms)
+			BeforeProcessingInitializeOnLoad (375ms)
+			ProcessInitializeOnLoadAttributes (15728ms)
+			ProcessInitializeOnLoadMethodAttributes (988ms)
+			AfterProcessingInitializeOnLoad (147ms)
+			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (164ms)
+		AwakeInstancesAfterBackupRestoration (56ms)
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
 Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
 Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 3.64 seconds
-Refreshing native plugins compatible for Editor in 426.02 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.65 seconds
+Refreshing native plugins compatible for Editor in 168.93 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 6586 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 99 unused Assets / (2.8 MB). Loaded Objects now: 7033.
-Memory consumption went from 268.1 MB to 265.3 MB.
-Total: 333.320914 ms (FindLiveObjects: 1.170078 ms CreateObjectMapping: 1.497829 ms MarkObjects: 310.952833 ms  DeleteObjects: 19.695855 ms)
+Unloading 99 unused Assets / (2.8 MB). Loaded Objects now: 7036.
+Memory consumption went from 268.4 MB to 265.6 MB.
+Total: 20.517663 ms (FindLiveObjects: 2.883348 ms CreateObjectMapping: 5.350931 ms MarkObjects: 9.671633 ms  DeleteObjects: 2.608512 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -185,199 +185,104 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 2420339.801638 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects (Mobile)/Explosions/WFXMR_ExplosiveSmokeGround Big.prefab
-  artifactKey: Guid(fafeb973cad62304ba2abdc5dfafbf8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects (Mobile)/Explosions/WFXMR_ExplosiveSmokeGround Big.prefab using Guid(fafeb973cad62304ba2abdc5dfafbf8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8ab6ceedfc3decf10e28f05e020e2f6') in 32.281532 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 41
-========================================================================
-Received Import Request.
-  Time since last request: 0.770788 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects/Explosions/WFX_Explosion LandMine.prefab
-  artifactKey: Guid(6890a03af913b874092fbb1e8337747d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects/Explosions/WFX_Explosion LandMine.prefab using Guid(6890a03af913b874092fbb1e8337747d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3809b33a037822679ff23c786e3b0f07') in 6.625130 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 49
-========================================================================
-Received Import Request.
-  Time since last request: 0.421474 seconds.
-  path: Assets/JMO Assets/WarFX/Desktop/Materials/Flames/WFX_M_ExplosionFlames Add.mat
-  artifactKey: Guid(d48723a9122613a46a57c70406594587) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/Desktop/Materials/Flames/WFX_M_ExplosionFlames Add.mat using Guid(d48723a9122613a46a57c70406594587) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99c39f565fb5d5cad33fa2752be501a1') in 4.386122 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.195695 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects/Bullet Impacts/WFX_BImpact Wood.prefab
-  artifactKey: Guid(ac1aa04288fad804ba1cd769f4377aaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects/Bullet Impacts/WFX_BImpact Wood.prefab using Guid(ac1aa04288fad804ba1cd769f4377aaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bac43d5caff764a13371cbd10a92a47a') in 1.200658 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 19
-========================================================================
-Received Import Request.
-  Time since last request: 0.092879 seconds.
-  path: Assets/Prefabs/Armas/Snipper Riflle.prefab
-  artifactKey: Guid(199ccd704eb699f4da35fd9c8a4b58a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Armas/Snipper Riflle.prefab using Guid(199ccd704eb699f4da35fd9c8a4b58a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83f5ca00c7d88f2168ae0c88f1b99535') in 4.837547 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 480
-========================================================================
-Received Import Request.
-  Time since last request: 0.001740 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects/Fire/WFX_GazFireBig (Purple).prefab
-  artifactKey: Guid(e15f5af5b5f07bd469b5f4f98ed23c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects/Fire/WFX_GazFireBig (Purple).prefab using Guid(e15f5af5b5f07bd469b5f4f98ed23c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00eca9d0c14d809f12de28078dc7c069') in 0.860573 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 21
-========================================================================
-Received Import Request.
-  Time since last request: 0.001044 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects (Mobile)/Bullet Impacts/+ Bullet Hole
-  artifactKey: Guid(5b3b207ce71ee594e966462e44845bab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects (Mobile)/Bullet Impacts/+ Bullet Hole using Guid(5b3b207ce71ee594e966462e44845bab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3eb5c13c8c6168014cb088549e1b0261') in 0.155855 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.000803 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects (Mobile)/Explosions/WFXMR_Nuke.prefab
-  artifactKey: Guid(4bf22a1d8d9e7724b9af67921436851d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects (Mobile)/Explosions/WFXMR_Nuke.prefab using Guid(4bf22a1d8d9e7724b9af67921436851d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba910be3d11f4f8bb738e1e822c7d711') in 2.248211 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 42
-========================================================================
-Received Import Request.
-  Time since last request: 0.050545 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects (Mobile)
-  artifactKey: Guid(1ff1506253a4e704e923c2233742faf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects (Mobile) using Guid(1ff1506253a4e704e923c2233742faf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86307e304487b9c99a663a181fcff6d5') in 0.055837 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.000465 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects (Mobile)/Explosions/WFXMR_Explosion StarSmoke.prefab
-  artifactKey: Guid(28ccd38a41e256a4e8fea96f5a8d039d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects (Mobile)/Explosions/WFXMR_Explosion StarSmoke.prefab using Guid(28ccd38a41e256a4e8fea96f5a8d039d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1213e3dc56f9839a7847a7bf24ea5e1') in 5.645654 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 46
-========================================================================
-Received Import Request.
-  Time since last request: 0.000069 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects/Explosions/WFX_ExplosiveSmokeGround Small.prefab
-  artifactKey: Guid(7c442b9b6852b8a4f93306f3d154d471) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects/Explosions/WFX_ExplosiveSmokeGround Small.prefab using Guid(7c442b9b6852b8a4f93306f3d154d471) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92f89439a2cf66aa7b9e888c845e3f80') in 1.122110 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 41
-========================================================================
-Received Import Request.
-  Time since last request: 0.000118 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects (Mobile)/Explosions/WFXMR_ExplosiveSmoke.prefab
-  artifactKey: Guid(e4704660d196fac40802911e12ac76f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects (Mobile)/Explosions/WFXMR_ExplosiveSmoke.prefab using Guid(e4704660d196fac40802911e12ac76f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d0ebbfa070d8e5c9d61ea2ece08bf84') in 0.948743 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 35
-========================================================================
-Received Import Request.
-  Time since last request: 0.000092 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects (Mobile)/Explosions/WFXMR_ExplosiveSmoke Big Alt.prefab
-  artifactKey: Guid(d609d5ebc845aca409f72e9c6a56dc60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects (Mobile)/Explosions/WFXMR_ExplosiveSmoke Big Alt.prefab using Guid(d609d5ebc845aca409f72e9c6a56dc60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af2ae8c62180bbb8900cec7f90d6429b') in 0.750674 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 35
-========================================================================
-Received Import Request.
-  Time since last request: 0.005843 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects (Mobile)/Bullet Impacts/WFXMR_BImpact Wood.prefab
-  artifactKey: Guid(855f647f81ad9774a905ff23fdc26618) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects (Mobile)/Bullet Impacts/WFXMR_BImpact Wood.prefab using Guid(855f647f81ad9774a905ff23fdc26618) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '591ed9a9dbb50f69d5eace12f13faf58') in 0.899268 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 19
-========================================================================
-Received Import Request.
-  Time since last request: 0.000047 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects (Mobile)/Bullet Impacts/WFXMR_BImpact Concrete.prefab
-  artifactKey: Guid(556d09d7fda29fd4185eed4067d5777b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects (Mobile)/Bullet Impacts/WFXMR_BImpact Concrete.prefab using Guid(556d09d7fda29fd4185eed4067d5777b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abcdb214c69df303ce787a3ccf6c068a') in 0.493464 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 19
-========================================================================
-Received Import Request.
-  Time since last request: 0.000132 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects (Mobile)/Bullet Impacts
-  artifactKey: Guid(bf7d30d2e33da424493e8f75833dd8e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects (Mobile)/Bullet Impacts using Guid(bf7d30d2e33da424493e8f75833dd8e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4f1c6e8d5f51a50bdb7b2889a19c9a4') in 0.066303 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.051820 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects (Mobile)/Bullet Impacts/WFXMR_BImpact Metal.prefab
-  artifactKey: Guid(e74af37e539075d428c1f7bd8cdb781d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects (Mobile)/Bullet Impacts/WFXMR_BImpact Metal.prefab using Guid(e74af37e539075d428c1f7bd8cdb781d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8414fca5dc103a2566c2b536a0dfa263') in 1.334948 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 15
-========================================================================
-Received Import Request.
-  Time since last request: 0.000103 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects/Explosions/WFX_Explosion Simple.prefab
-  artifactKey: Guid(7075bd5fe1480184695a32611c15da57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects/Explosions/WFX_Explosion Simple.prefab using Guid(7075bd5fe1480184695a32611c15da57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b48d6b85a108f9b5a6cc67ace8dd8cd4') in 1.524953 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 37
-========================================================================
-Received Import Request.
-  Time since last request: 0.040054 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects (Mobile)/Explosions/WFXMR_ExplosiveSmokeGround Small.prefab
-  artifactKey: Guid(a2b9ce854d0a5004cba27ab45cbfe205) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects (Mobile)/Explosions/WFXMR_ExplosiveSmokeGround Small.prefab using Guid(a2b9ce854d0a5004cba27ab45cbfe205) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da149e5f73ac71df5ff218e5d9cd4e5a') in 0.539422 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 41
-========================================================================
-Received Import Request.
-  Time since last request: 48.495153 seconds.
-  path: Assets/FourEvilDragonsHP/Animations/DragonNightMare/Claw Attack.fbx
-  artifactKey: Guid(a8d68f882ac2f2f48982204cc9c22f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FourEvilDragonsHP/Animations/DragonNightMare/Claw Attack.fbx using Guid(a8d68f882ac2f2f48982204cc9c22f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '932b496622215207fdbf1841c9effd7c') in 0.641396 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 155
-========================================================================
-Received Import Request.
-  Time since last request: 0.000111 seconds.
-  path: Assets/Modelos/CrossHead/Exo Gray Jog Forward Diagonal Right.fbx
-  artifactKey: Guid(16eafb00f23ed3545a109dfbe2c89f9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Modelos/CrossHead/Exo Gray Jog Forward Diagonal Right.fbx using Guid(16eafb00f23ed3545a109dfbe2c89f9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '933e9143d197e1593fe9a256822d0a0c') in 0.071692 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 229
-========================================================================
-Received Import Request.
-  Time since last request: 0.382287 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects/Bullet Impacts/+ Bullet Hole/Unlit/WFX_BImpact Concrete + Hole Unlit.prefab
-  artifactKey: Guid(94a130fb17f1cae4388a8fe1d8bd3055) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects/Bullet Impacts/+ Bullet Hole/Unlit/WFX_BImpact Concrete + Hole Unlit.prefab using Guid(94a130fb17f1cae4388a8fe1d8bd3055) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23f9385511156304937b51b3a927ad41') in 0.328821 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 27
-========================================================================
-Received Import Request.
-  Time since last request: 0.039357 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects/Bullet Impacts/+ Bullet Hole/Unlit/WFX_BImpact Concrete NoCollision + Hole Unlit.prefab
-  artifactKey: Guid(cfcd690db7ce26548af4f6d7bb536b02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects/Bullet Impacts/+ Bullet Hole/Unlit/WFX_BImpact Concrete NoCollision + Hole Unlit.prefab using Guid(cfcd690db7ce26548af4f6d7bb536b02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30eac0773be92713b2c9adfafe6091e6') in 0.284106 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 27
-========================================================================
-Received Import Request.
-  Time since last request: 0.000550 seconds.
-  path: Assets/JMO Assets/WarFX/_Effects/Bullet Impacts/+ Bullet Hole/Lit/WFX_BImpact Metal + Hole Lit.prefab
-  artifactKey: Guid(caa8bd0d2623acf4d915f16e0ab71218) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/JMO Assets/WarFX/_Effects/Bullet Impacts/+ Bullet Hole/Lit/WFX_BImpact Metal + Hole Lit.prefab using Guid(caa8bd0d2623acf4d915f16e0ab71218) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ba89bb02c438d9ddd45d7d1a4549e3a') in 0.890504 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 23
-========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  6.534 seconds
-Refreshing native plugins compatible for Editor in 48.70 ms, found 3 plugins.
+- Loaded All Assemblies, in  4.743 seconds
+Refreshing native plugins compatible for Editor in 27.26 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  7.279 seconds
+Domain Reload Profiling: 11996ms
+	BeginReloadAssembly (780ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (19ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (120ms)
+	RebuildCommonClasses (132ms)
+	RebuildNativeTypeToScriptingClass (44ms)
+	initialDomainReloadingComplete (125ms)
+	LoadAllAssembliesAndSetupDomain (3636ms)
+		LoadAssemblies (4068ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (105ms)
+			TypeCache.Refresh (29ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (4ms)
+			ResolveRequiredComponents (66ms)
+	FinalizeReload (7280ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1712ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (14ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (327ms)
+			ProcessInitializeOnLoadAttributes (1122ms)
+			ProcessInitializeOnLoadMethodAttributes (189ms)
+			AfterProcessingInitializeOnLoad (39ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (26ms)
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
+Refreshing native plugins compatible for Editor in 245.88 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6416 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 62 unused Assets / (2.8 MB). Loaded Objects now: 7051.
+Memory consumption went from 230.5 MB to 227.7 MB.
+Total: 56.278732 ms (FindLiveObjects: 1.978387 ms CreateObjectMapping: 8.118189 ms MarkObjects: 38.484050 ms  DeleteObjects: 7.695406 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2485264.397905 seconds.
+  path: Assets/Prefabs/Armas/AK47-prefab.prefab
+  artifactKey: Guid(34891aa12bb0f854884e559b25cb08e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Armas/AK47-prefab.prefab using Guid(34891aa12bb0f854884e559b25cb08e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69dd82094951ce691c72f8c0dc94bbfb') in 5.844982 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 176
+========================================================================
+Received Prepare
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
+Refreshing native plugins compatible for Editor in 49.90 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 19 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (2.8 MB). Loaded Objects now: 7061.
+Memory consumption went from 135.8 MB to 133.0 MB.
+Total: 17.081944 ms (FindLiveObjects: 1.166838 ms CreateObjectMapping: 1.232172 ms MarkObjects: 12.686729 ms  DeleteObjects: 1.994045 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
