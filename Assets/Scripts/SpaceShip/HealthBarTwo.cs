@@ -35,5 +35,10 @@ public class HealthBarTwo : MonoBehaviour
             lifeBarFill.color = lowHealth;
             Borde.color = lowHealth;
         }
+        if (Player == null) 
+        {
+            lifeBarFill.SetActive(false);
+            Borde.SetActive(false);
+        }
     }
 }

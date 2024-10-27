@@ -71,6 +71,7 @@ public class ShipLevelManager : MonoBehaviour
     public void Lose()
     {
         defeatScreen.SetActive(true);
+        oleadaTMP.enabled = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

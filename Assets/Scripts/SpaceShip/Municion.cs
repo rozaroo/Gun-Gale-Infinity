@@ -6,8 +6,7 @@ using TMPro;
 public class Municion : MonoBehaviour
 {
     SpaceShipController Player;
-    [SerializeField] private TextMeshProUGUI municionTMP;
-    [SerializeField] private TextMeshProUGUI cartuchosTMP;
+    [SerializeField] private TextMeshProUGUI municionYCartuchosTMP;
     void Start()
     {
         Player = FindObjectOfType<SpaceShipController>();
@@ -15,7 +14,7 @@ public class Municion : MonoBehaviour
 
     void Update()
     {
-        municionTMP.text = "" + Player.MunicionActual();
-        cartuchosTMP.text = "" + Player.CartuchosDisponibles();
+        municionYCartuchosTMP.text = $"{Player.MunicionActual()} / {Player.CartuchosDisponibles()}";
+        if (Player == null) municionYCartuchosTMP.enabled = false;
     }
 }
