@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class LoadSceneManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text countText;
-    private float maxTime = 10.0f;
+    private float maxTime = 5.0f;
 
     void Update()
     {
