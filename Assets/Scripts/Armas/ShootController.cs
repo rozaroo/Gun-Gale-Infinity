@@ -31,12 +31,6 @@ public class ShootController : MonoBehaviour
             enemy.TakeDamage(shootDamage);
             Destroy(gameObject);
         }
-        var enemytwo = collision.collider.GetComponent<SpaceEnemyTwoController>();
-        if (enemytwo != null)
-        {
-            enemytwo.TakeDamage(shootDamage);
-            Destroy(gameObject);
-        }
     }
 }
 
