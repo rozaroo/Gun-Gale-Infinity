@@ -37,8 +37,8 @@ public class HealthBarTwo : MonoBehaviour
         }
         if (Player == null) 
         {
-            lifeBarFill.SetActive(false);
-            Borde.SetActive(false);
+            lifeBarFill.enabled = false;
+            Borde.enabled = false;
         }
     }
 }

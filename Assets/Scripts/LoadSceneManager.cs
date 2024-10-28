@@ -18,7 +18,7 @@ public class LoadSceneManager : MonoBehaviour
     void Update()
     {
        if (maxTime > 0) maxTime -= Time.deltaTime;
-       if (maxTime == 0) SceneManager.LoadScene(4);
+       if (maxTime == 0) SceneManager.LoadScene(5);
        int seconds = Mathf.FloorToInt(maxTime%60);
        countText.text = string.Format("{1:00}", seconds);
     }

@@ -58,7 +58,7 @@ public class ShipLevelManager : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(5);
     }
     public void MainMenu()
     {
@@ -66,7 +66,7 @@ public class ShipLevelManager : MonoBehaviour
     }
     public void Win()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(6);
     }
     public void Lose()
     {

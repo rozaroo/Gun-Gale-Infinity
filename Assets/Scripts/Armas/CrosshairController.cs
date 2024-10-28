@@ -16,7 +16,7 @@ public class CrosshairController : MonoBehaviour
             Vector3 mousePosition = Input.mousePosition;
             crosshairImage.transform.position = mousePosition;
         }
-        else crosshairImage.SetActive(false);
+        else crosshairImage.enabled = false;
     }
 }
 
