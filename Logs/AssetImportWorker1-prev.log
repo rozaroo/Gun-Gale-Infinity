@@ -15,7 +15,7 @@ C:/Users/usuario/Documents/GitHub/Gun-Gale-Infinity
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-65516
+49872
 Successfully changed project path to: C:/Users/usuario/Documents/GitHub/Gun-Gale-Infinity
 C:/Users/usuario/Documents/GitHub/Gun-Gale-Infinity
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/usuario/Documents/GitHub/Gun-Gale-Infinity
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [14476] Host "[IP] 192.168.0.16 [Port] 0 [Flags] 2 [Guid] 2790689856 [EditorId] 2790689856 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-K57H09E3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [23444] Host "[IP] 192.168.0.16 [Port] 0 [Flags] 2 [Guid] 1982169671 [EditorId] 1982169671 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-K57H09E3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [14476] Host "[IP] 192.168.0.16 [Port] 0 [Flags] 2 [Guid] 2790689856 [EditorId] 2790689856 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-K57H09E3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [23444] Host "[IP] 192.168.0.16 [Port] 0 [Flags] 2 [Guid] 1982169671 [EditorId] 1982169671 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-K57H09E3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 3 workers.
-Refreshing native plugins compatible for Editor in 66286.95 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 4178.46 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity 2022.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -68,3 +68,232 @@ Direct3D:
     Driver:   27.20.15030.5001
 Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
 Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity 2022.3.16f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity 2022.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity 2022.3.16f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56356
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity 2022.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.245135 seconds.
+- Loaded All Assemblies, in 28.230 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 11.103 seconds
+Domain Reload Profiling: 39448ms
+	BeginReloadAssembly (15487ms)
+		ExecutionOrderSort (27ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (215ms)
+	RebuildCommonClasses (1886ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (3591ms)
+	LoadAllAssembliesAndSetupDomain (7243ms)
+		LoadAssemblies (14895ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (6922ms)
+			TypeCache.Refresh (6566ms)
+				TypeCache.ScanAssembly (4283ms)
+			ScanForSourceGeneratedMonoScriptInfo (130ms)
+			ResolveRequiredComponents (226ms)
+	FinalizeReload (11225ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (9886ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (292ms)
+			SetLoadedEditorAssemblies (1927ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (1533ms)
+			ProcessInitializeOnLoadAttributes (5513ms)
+			ProcessInitializeOnLoadMethodAttributes (601ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (19ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in 123.256 seconds
+Refreshing native plugins compatible for Editor in 2122.52 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 58.252 seconds
+Domain Reload Profiling: 185936ms
+	BeginReloadAssembly (20043ms)
+		ExecutionOrderSort (22ms)
+		DisableScriptedObjects (2457ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (106ms)
+		CreateAndSetChildDomain (3794ms)
+	RebuildCommonClasses (106ms)
+	RebuildNativeTypeToScriptingClass (26ms)
+	initialDomainReloadingComplete (9472ms)
+	LoadAllAssembliesAndSetupDomain (97824ms)
+		LoadAssemblies (94351ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (7671ms)
+			TypeCache.Refresh (5822ms)
+				TypeCache.ScanAssembly (4100ms)
+			ScanForSourceGeneratedMonoScriptInfo (1604ms)
+			ResolveRequiredComponents (242ms)
+	FinalizeReload (58466ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (49602ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (444ms)
+			SetLoadedEditorAssemblies (137ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (1007ms)
+			ProcessInitializeOnLoadAttributes (45780ms)
+			ProcessInitializeOnLoadMethodAttributes (2202ms)
+			AfterProcessingInitializeOnLoad (31ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (729ms)
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Failed to get ipc connection from UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity 2022.3.16f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Failed to get ipc connection from UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity 2022.3.16f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Failed to get ipc connection from UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity 2022.3.16f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Failed to get ipc connection from UnityShaderCompiler.exe shader compiler! C:/Program Files/Unity 2022.3.16f1/Editor/Data/Tools/UnityShaderCompiler.exe
+Launched and connected shader compiler UnityShaderCompiler.exe after 8.42 seconds
+Refreshing native plugins compatible for Editor in 1046.71 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6587 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 99 unused Assets / (2.8 MB). Loaded Objects now: 7037.
+Memory consumption went from 268.3 MB to 265.5 MB.
+Total: 21845.320800 ms (FindLiveObjects: 383.985800 ms CreateObjectMapping: 30.641000 ms MarkObjects: 19430.747500 ms  DeleteObjects: 1999.943100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in 405.986 seconds
+Refreshing native plugins compatible for Editor in 966.20 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 1220.843 seconds
+Domain Reload Profiling: 1629380ms
+	BeginReloadAssembly (167995ms)
+		ExecutionOrderSort (1ms)
+		DisableScriptedObjects (7187ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (340ms)
+		CreateAndSetChildDomain (37020ms)
+	RebuildCommonClasses (28161ms)
+	RebuildNativeTypeToScriptingClass (407ms)
+	initialDomainReloadingComplete (8829ms)
+	LoadAllAssembliesAndSetupDomain (201776ms)
+		LoadAssemblies (263044ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (6454ms)
+			TypeCache.Refresh (4481ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (115ms)
+			ResolveRequiredComponents (1854ms)
+	FinalizeReload (1222212ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (119249ms)
+			LogAssemblyErrors (59ms)
+			InitializePlatformSupportModulesInManaged (5813ms)
+			SetLoadedEditorAssemblies (6945ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (20581ms)
+			ProcessInitializeOnLoadAttributes (75613ms)
+			ProcessInitializeOnLoadMethodAttributes (10023ms)
+			AfterProcessingInitializeOnLoad (39ms)
+			EditorAssembliesLoaded (175ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (130ms)
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 1987.94 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6417 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 62 unused Assets / (2.8 MB). Loaded Objects now: 7052.
+Memory consumption went from 230.4 MB to 227.6 MB.
+Total: 80503.523900 ms (FindLiveObjects: 3538.761500 ms CreateObjectMapping: 514.532900 ms MarkObjects: 60900.412800 ms  DeleteObjects: 15549.783300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in 278.253 seconds
+Refreshing native plugins compatible for Editor in 554.19 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 1338.471 seconds
+Domain Reload Profiling: 1623883ms
+	BeginReloadAssembly (108036ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (1788ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (73ms)
+		CreateAndSetChildDomain (83445ms)
+	RebuildCommonClasses (2820ms)
+	RebuildNativeTypeToScriptingClass (98ms)
+	initialDomainReloadingComplete (4072ms)
+	LoadAllAssembliesAndSetupDomain (169298ms)
+		LoadAssemblies (158542ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (16413ms)
+			TypeCache.Refresh (9590ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (329ms)
+			ResolveRequiredComponents (6485ms)
+	FinalizeReload (1339560ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (144142ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (8110ms)
+			SetLoadedEditorAssemblies (5745ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (15068ms)
+			ProcessInitializeOnLoadAttributes (91215ms)
+			ProcessInitializeOnLoadMethodAttributes (22902ms)
+			AfterProcessingInitializeOnLoad (44ms)
+			EditorAssembliesLoaded (973ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (703ms)
