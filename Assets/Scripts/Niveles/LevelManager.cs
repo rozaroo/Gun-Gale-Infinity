@@ -10,7 +10,6 @@ public class LevelManager : MonoBehaviour
 {
     public int Enemies;
     [SerializeField] private GameObject Portal;
-    [SerializeField] private int Nivel;
     [SerializeField] GameObject defeatScreen;
     [SerializeField] TMP_Text enemiesCountText;
     PlayerController pController;
@@ -51,7 +50,8 @@ public class LevelManager : MonoBehaviour
         
     public void Restart()
     {
-        SceneManager.LoadScene(Nivel);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
     public void MainMenu()
     {
