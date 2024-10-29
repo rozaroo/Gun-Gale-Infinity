@@ -35,19 +35,19 @@ public class MainMenuManager : MonoBehaviour
     }
     public void LoadLevel0()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     public void LoadLevel1()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
     public void LoadLevel2()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(6);
     }
     public void LoadLevel4()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(8);
     }
     public void MainMenu()
     {
