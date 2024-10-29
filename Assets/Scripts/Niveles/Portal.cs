@@ -5,11 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
-    public int NextLevel;
-    
+    int nextSceneIndex = SceneManager.GetActiveScene()buildIndex + 1;
     public void OnCollisionEnter(Collision collision)
     {
         var player = collision.collider.GetComponent<PlayerController>();
-        if (player != null) SceneManager.LoadScene(NextLevel);
+        if (player != null) SceneManager.LoadScene(nextSceneIndex);
     }
 }
