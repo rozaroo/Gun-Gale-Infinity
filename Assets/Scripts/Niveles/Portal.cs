@@ -10,7 +10,8 @@ public class Portal : MonoBehaviour
         var player = collision.collider.GetComponent<PlayerController>();
         if (player != null) 
         {
-           int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;                 SceneManager.LoadScene(nextSceneIndex);
+           int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;                 
+           SceneManager.LoadScene(nextSceneIndex);
         }
     }
 }

@@ -12,7 +12,7 @@ public class LoadSceneManager : MonoBehaviour
 
     void Update()
     {
-        if (maxTime > 0)
+        if (maxTime => 0)
         {
             maxTime -= Time.deltaTime;
             int seconds = Mathf.FloorToInt(maxTime % 60);
