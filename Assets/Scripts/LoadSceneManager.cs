@@ -7,18 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneManager : MonoBehaviour
 {
-    [SerializeField] private TMP_Text countText;
-    private float maxTime = 5.0f;
-
     void Update()
     {
-        if (maxTime => 0)
-        {
-            maxTime -= Time.deltaTime;
-            int seconds = Mathf.FloorToInt(maxTime % 60);
-            countText.text = string.Format("{0:00}", seconds);
-        }
-        else 
+        if (Input.GetKeyDown(KeyCode.N))
         {
             int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
             SceneManager.LoadScene(nextSceneIndex);
