@@ -24,6 +24,12 @@ public class IdleState<T> : State<T>
         float z = Input.GetAxis("Vertical");
         //Transicion
         if (x != 0 || z != 0) _fsm.Transition(_inputMovement);
+        //Salto
+        if (Input.GetKeyDown(KeyCode.Space) && _playerController.isGrounded)
+        {
+            _playerController.playerRb.AddForce(Vector3.up * 7f, ForceMode.Impulse);
+            _playerController.isGrounded = false; // Impide que salte mientras está en el aire
+        }
         //CameraLogic
         if (_playerController.Player)
         {

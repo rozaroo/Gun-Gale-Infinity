@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657886, g: 0.4964127, b: 0.57481724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -25437,7 +25437,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemies: 0
   Portal: {fileID: 220945518}
-  Nivel: 2
   defeatScreen: {fileID: 1046796467}
   enemiesCountText: {fileID: 360378175}
   backgroundMusic: {fileID: 43530924}
@@ -38789,6 +38788,7 @@ MonoBehaviour:
   actualWeaponActive: {fileID: 0}
   dropThisWeapon: {fileID: 0}
   dropWeapon: 0
+  isGrounded: 1
   playerUI: {fileID: 2046687422}
   primaryWeaponIcon: {fileID: 609401743}
   secondaryWeaponIcon: {fileID: 620338759}
@@ -43754,7 +43754,7 @@ GameObject:
   - component: {fileID: 1818115626}
   m_Layer: 1
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
