@@ -104,7 +104,13 @@ public class IdleState<T> : State<T>
                     _playerController.throwableWeaponIcon.gameObject.SetActive(true);
                     break;
                 }
-                else if (itemPrefab.CompareTag("Botiquin") && _playerController.nearItem.CompareTag("Botiquin"))
+            }
+        }
+        if (_playerController.nearItem != null) 
+        {
+            foreach (GameObject itemPrefab in _playerController.playervalues.ItemPrefab)
+            {
+                if (itemPrefab.CompareTag("Botiquin") && _playerController.nearItem.CompareTag("Botiquin"))
                 {
                     _playerController.RecoveryHealth(25);
                     GameObject.Destroy(_playerController.nearItem.gameObject);
