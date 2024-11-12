@@ -237,11 +237,6 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     {
         transform.position = pos;
     }
-    public void UpdateHealthBarVisibility()
-    {
-        bool isVisible = CheckRange(player) && CheckAngle(player) && CheckView(player);
-        healthBar.gameObject.SetActive(isVisible);
-    }
     #endregion
 }
 

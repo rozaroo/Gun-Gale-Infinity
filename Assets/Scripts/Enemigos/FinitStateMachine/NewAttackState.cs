@@ -13,7 +13,6 @@ public class NewAttackState<T> : State<T>
     }
     public override void Enter()
     {
-        _enemyController.UpdateHealthBarVisibility();
         _enemyController.animator.SetBool("isAttacking", true);
     }
     public override void Sleep() 
