@@ -18,6 +18,5 @@ public class DeathState<T> : State<T>
         _enemyController.GetComponent<Collider>().enabled = false;
         _enemyController.SpawnRandomDrop();
         _levelManager.Enemies--;
-        GameObject.Destroy(_enemyController.gameObject,2f);
     }
 }
