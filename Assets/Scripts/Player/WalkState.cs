@@ -37,15 +37,14 @@ public class WalkState<T> : State<T>
         Vector3 forward = currentSpeed * moveZ * theTime * _playerController.playerTr.forward;
         Vector3 endDirection = side + forward;
         _playerController.playerRb.velocity = endDirection;
+        //Transicion
+        if (moveX == 0 && moveZ == 0) _fsm.Transition(_idleInput);
         //Salto
         if (Input.GetKeyDown(KeyCode.Space) && _playerController.isGrounded)
         {
             _playerController.playerRb.AddForce(Vector3.up * 7f, ForceMode.Impulse);
             _playerController.isGrounded = false; // Impide que salte mientras está en el aire
         }
-        //Transicion
-        if (moveX == 0 && moveZ == 0) _fsm.Transition(_idleInput);
-
         //CameraLogic
         if (_playerController.Player)
         {

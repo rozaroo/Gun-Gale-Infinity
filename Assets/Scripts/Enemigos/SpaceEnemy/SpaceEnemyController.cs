@@ -23,18 +23,16 @@ public class SpaceEnemyController : MonoBehaviour
     public ShipLevelManager lvlManager;
     public GameObject explosionPrefab;
     public GameObject portalPrefab;
+    public GameObject DamagePrefab;
     public Transform player;
     public DropPrefabsthree dropPrefabs;
     public DropProbabilitiesTwo dropProbabilities;
     public Transform dropSpawnPoint;
-    private Renderer enemyRenderer;
-    private Color originalColor;
+    
     private void Awake()
     {
         lvlManager = FindObjectOfType<ShipLevelManager>();
         player = GameObject.FindGameObjectWithTag("Nave").transform;
-        enemyRenderer = GetComponent<Renderer>();
-        if (enemyRenderer != null) originalColor = enemyRenderer.material.color;
     }
 
     void Start()
@@ -72,7 +70,7 @@ public class SpaceEnemyController : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         HP -= damageAmount;
-        if (enemyRenderer != null) StartCoroutine(FlashRed());
+        StartCoroutine(Damage(0.5f));
     }
     public void Shoot()
     {
@@ -93,12 +91,6 @@ public class SpaceEnemyController : MonoBehaviour
         SpawnRandomDrop();
         StartCoroutine(PlayDestructionAnimation(0.5f));
     }
-    private IEnumerator FlashRed()
-    {
-        enemyRenderer.material.color = Color.red;
-        yield return new WaitForSeconds(0.2f);
-        enemyRenderer.material.color = originalColor;
-    }
     private IEnumerator PlayDestructionAnimation(float duration)
     {
         GameObject explosionObject = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
@@ -115,6 +107,12 @@ public class SpaceEnemyController : MonoBehaviour
         GameObject portalObject = Instantiate(portalPrefab, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(duration);
         Destroy(portalObject, duration);
+    }
+    private IEnumerator Damage(float duration)
+    {
+        GameObject damageObject = Instantiate(DamagePrefab, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(duration);
+        Destroy(damageObject, duration);
     }
     public void SpawnRandomDrop()
     {

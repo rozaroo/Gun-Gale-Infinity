@@ -15,7 +15,7 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54857
+57181
 Successfully changed project path to: C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/Usuario/Documents/GitHub/Gun-Gale-Infinity
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [7740] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 881328697 [EditorId] 881328697 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [4916] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 1249453762 [EditorId] 1249453762 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [7740] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 881328697 [EditorId] 881328697 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [4916] Host "[IP] 192.168.207.1 [Port] 0 [Flags] 2 [Guid] 1249453762 [EditorId] 1249453762 [Version] 1048832 [Id] WindowsEditor(7,PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 3 workers.
-Refreshing native plugins compatible for Editor in 256.09 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 122.17 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -73,103 +73,103 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56112
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56888
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.185277 seconds.
-- Loaded All Assemblies, in  4.031 seconds
+Registered in 0.068787 seconds.
+- Loaded All Assemblies, in  3.259 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.754 seconds
-Domain Reload Profiling: 6770ms
-	BeginReloadAssembly (1585ms)
+- Finished resetting the current domain, in  2.148 seconds
+Domain Reload Profiling: 5384ms
+	BeginReloadAssembly (1244ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (4ms)
-	RebuildCommonClasses (391ms)
-	RebuildNativeTypeToScriptingClass (143ms)
-	initialDomainReloadingComplete (771ms)
-	LoadAllAssembliesAndSetupDomain (1122ms)
-		LoadAssemblies (1524ms)
+		CreateAndSetChildDomain (6ms)
+	RebuildCommonClasses (337ms)
+	RebuildNativeTypeToScriptingClass (183ms)
+	initialDomainReloadingComplete (573ms)
+	LoadAllAssembliesAndSetupDomain (897ms)
+		LoadAssemblies (1213ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (1105ms)
-			TypeCache.Refresh (1093ms)
-				TypeCache.ScanAssembly (1007ms)
-			ScanForSourceGeneratedMonoScriptInfo (3ms)
-			ResolveRequiredComponents (4ms)
-	FinalizeReload (2758ms)
+		AnalyzeDomain (891ms)
+			TypeCache.Refresh (887ms)
+				TypeCache.ScanAssembly (810ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (2149ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (2299ms)
+		SetupLoadedEditorAssemblies (1650ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (61ms)
-			SetLoadedEditorAssemblies (48ms)
+			InitializePlatformSupportModulesInManaged (91ms)
+			SetLoadedEditorAssemblies (51ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (15ms)
-			ProcessInitializeOnLoadAttributes (1503ms)
-			ProcessInitializeOnLoadMethodAttributes (673ms)
+			BeforeProcessingInitializeOnLoad (17ms)
+			ProcessInitializeOnLoadAttributes (947ms)
+			ProcessInitializeOnLoadMethodAttributes (542ms)
 			AfterProcessingInitializeOnLoad (0ms)
-			EditorAssembliesLoaded (0ms)
+			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (0ms)
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  7.713 seconds
-Refreshing native plugins compatible for Editor in 46.20 ms, found 3 plugins.
+- Loaded All Assemblies, in 27.888 seconds
+Refreshing native plugins compatible for Editor in 484.40 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  5.341 seconds
-Domain Reload Profiling: 13001ms
-	BeginReloadAssembly (1001ms)
+- Finished resetting the current domain, in 16.917 seconds
+Domain Reload Profiling: 44640ms
+	BeginReloadAssembly (2583ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (22ms)
+		DisableScriptedObjects (95ms)
 		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (117ms)
-	RebuildCommonClasses (293ms)
-	RebuildNativeTypeToScriptingClass (96ms)
-	initialDomainReloadingComplete (369ms)
-	LoadAllAssembliesAndSetupDomain (5898ms)
-		LoadAssemblies (4085ms)
+		ReleaseScriptingObjects (1ms)
+		CreateAndSetChildDomain (242ms)
+	RebuildCommonClasses (602ms)
+	RebuildNativeTypeToScriptingClass (279ms)
+	initialDomainReloadingComplete (2727ms)
+	LoadAllAssembliesAndSetupDomain (21530ms)
+		LoadAssemblies (18589ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (2425ms)
-			TypeCache.Refresh (2060ms)
-				TypeCache.ScanAssembly (1905ms)
-			ScanForSourceGeneratedMonoScriptInfo (244ms)
-			ResolveRequiredComponents (109ms)
-	FinalizeReload (5343ms)
+		AnalyzeDomain (4521ms)
+			TypeCache.Refresh (4235ms)
+				TypeCache.ScanAssembly (3928ms)
+			ScanForSourceGeneratedMonoScriptInfo (196ms)
+			ResolveRequiredComponents (82ms)
+	FinalizeReload (16919ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (3821ms)
+		SetupLoadedEditorAssemblies (15456ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (42ms)
-			SetLoadedEditorAssemblies (12ms)
+			InitializePlatformSupportModulesInManaged (66ms)
+			SetLoadedEditorAssemblies (25ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (708ms)
-			ProcessInitializeOnLoadAttributes (2630ms)
-			ProcessInitializeOnLoadMethodAttributes (372ms)
-			AfterProcessingInitializeOnLoad (56ms)
-			EditorAssembliesLoaded (1ms)
+			BeforeProcessingInitializeOnLoad (5083ms)
+			ProcessInitializeOnLoadAttributes (9770ms)
+			ProcessInitializeOnLoadMethodAttributes (437ms)
+			AfterProcessingInitializeOnLoad (73ms)
+			EditorAssembliesLoaded (2ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (32ms)
+		AwakeInstancesAfterBackupRestoration (37ms)
+Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
 Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
 Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
-Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.20 seconds
-Refreshing native plugins compatible for Editor in 118.28 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 1.23 seconds
+Refreshing native plugins compatible for Editor in 46.00 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 6587 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 99 unused Assets / (2.8 MB). Loaded Objects now: 7037.
-Memory consumption went from 268.9 MB to 266.1 MB.
-Total: 19.127254 ms (FindLiveObjects: 2.147928 ms CreateObjectMapping: 1.758083 ms MarkObjects: 10.703465 ms  DeleteObjects: 4.511298 ms)
+Memory consumption went from 268.6 MB to 265.8 MB.
+Total: 33.178979 ms (FindLiveObjects: 1.281846 ms CreateObjectMapping: 1.447612 ms MarkObjects: 25.377211 ms  DeleteObjects: 5.068531 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -184,3 +184,235 @@ AssetImportParameters requested are different than current active one (requested
   custom:CustomObjectIndexerAttribute: 39606d92bcf39ac9cd6fca1116091104 -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 25710.585591 seconds.
+  path: Assets/Prefabs/Drone.prefab
+  artifactKey: Guid(a4d6889c5f6beae4abf4e3daeeb3bd1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Drone.prefab using Guid(a4d6889c5f6beae4abf4e3daeeb3bd1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '513f58cc9840e9873fbcb55586a5cc9f') in 2.845373 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 198
+========================================================================
+Received Import Request.
+  Time since last request: 23.914076 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c39e87f1ac94a221d22f80762901063c') in 0.055723 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 7.096829 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74ebbdf7e348e2b45b939c7881be491e') in 0.033636 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 1.171731 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc2bd88a205da2ef7ae9ddcfa5ce34c3') in 0.045405 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 1.097622 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e2b3276429e6ca123e21b794e18707a') in 0.054708 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 1.133323 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0d732262999fab3b3d02610b7e8446f') in 0.165170 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 2.343241 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '927fafc962762a226344cb24939f25b4') in 0.037677 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 1.454542 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6438326e18f6a78c6c72344ef55f91e6') in 0.045548 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 8.333831 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c477c015578470a7db89a093a9820c12') in 0.046618 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 24.882978 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64248f6673215dd67729597918c50140') in 0.117076 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 27.042721 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40a6bb6720870db486e639c3477c298b') in 0.053830 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 6.148034 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc94e3949a4b7d0502990d1989f42565') in 0.301274 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 3.352681 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1ffa33bece95dff3829e400a8c3bdc4') in 0.036609 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 10.130809 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfd320952b7f3ec319b4f7faf88048fc') in 0.098952 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 24.394653 seconds.
+  path: Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab
+  artifactKey: Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DisparoDeEnergía/EnergyShootEnemy.prefab using Guid(61d51c7b28484c845a3a7415944eba8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73cdf3ffd9e69f509ba892a2f4255f7b') in 1.088573 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 100.955158 seconds.
+  path: Assets/DinV/Dynamic Space Background/Sprites/Espacio.mat
+  artifactKey: Guid(d28e70048001577438c392f31d8dc7cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DinV/Dynamic Space Background/Sprites/Espacio.mat using Guid(d28e70048001577438c392f31d8dc7cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e8b8f2334b11f948ace3ce65ebeb4ae') in 5.298214 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000109 seconds.
+  path: Assets/Hovl Studio
+  artifactKey: Guid(5939edb6029f24a4caf33a71b43ca5c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hovl Studio using Guid(5939edb6029f24a4caf33a71b43ca5c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4eede96d9a167600f665ee9c4bc549cc') in 0.005543 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.531992 seconds.
+  path: Assets/Hovl Studio/Magic effects pack
+  artifactKey: Guid(ccaf0d0261bfcfe4f874cb02d8931eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hovl Studio/Magic effects pack using Guid(ccaf0d0261bfcfe4f874cb02d8931eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f0d67f5975e2bdc807a0872a4bec3dc') in 0.019206 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 2.676126 seconds.
+  path: Assets/Hovl Studio/Magic effects pack/Prefabs
+  artifactKey: Guid(30f354b2984b43147b902803fe8a4ce7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hovl Studio/Magic effects pack/Prefabs using Guid(30f354b2984b43147b902803fe8a4ce7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a78044480a8eca9386c98f00713d430') in 0.027343 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.395100 seconds.
+  path: Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions
+  artifactKey: Guid(68268cae718ee3a49928d3510623883e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions using Guid(68268cae718ee3a49928d3510623883e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3db70f4a6a0e88e57784269d01deec66') in 0.047155 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.054927 seconds.
+  path: Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Electro hit.prefab
+  artifactKey: Guid(a164e676dbbd6e54587237e619372c98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Electro hit.prefab using Guid(a164e676dbbd6e54587237e619372c98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '438ac930307ace20543fc4fdcf9ba508') in 0.467276 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 18
+========================================================================
+Received Import Request.
+  Time since last request: 0.001328 seconds.
+  path: Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Love hit.prefab
+  artifactKey: Guid(356cf4dca1465b54fabbb8cd9b1cd190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Love hit.prefab using Guid(356cf4dca1465b54fabbb8cd9b1cd190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4265e606be0dccb8e1b18b111ff15a9a') in 3.001040 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 18
+========================================================================
+Received Import Request.
+  Time since last request: 0.339089 seconds.
+  path: Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Green hit.prefab
+  artifactKey: Guid(3138a83bedbd6ad4481ba0b061da2eb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Green hit.prefab using Guid(3138a83bedbd6ad4481ba0b061da2eb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae559c6dc1e5ead4e8877b33bcf776fd') in 1.183085 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 24
+========================================================================
+Received Import Request.
+  Time since last request: 0.022965 seconds.
+  path: Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Holy hit.prefab
+  artifactKey: Guid(e190bf97c041e58448af6b043116cba0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Holy hit.prefab using Guid(e190bf97c041e58448af6b043116cba0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af0580a930eba1fb15addb0bd2e70ab5') in 0.329095 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 30
+========================================================================
+Received Import Request.
+  Time since last request: 3.209048 seconds.
+  path: Assets/Hovl Studio/Magic effects pack/Materials/Electro.mat
+  artifactKey: Guid(410fa9a27b8dd1f4989dd201babd7d76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hovl Studio/Magic effects pack/Materials/Electro.mat using Guid(410fa9a27b8dd1f4989dd201babd7d76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '611020b9e085c0e9c26409203feda87f') in 0.641036 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 18.283395 seconds.
+  path: Assets/Hovl Studio/Magic effects pack/Materials/Stone.mat
+  artifactKey: Guid(5e01cbbef75a454468e5eb490ac64181) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hovl Studio/Magic effects pack/Materials/Stone.mat using Guid(5e01cbbef75a454468e5eb490ac64181) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fdb2400a68ab3799e28ccf8975aaca4') in 0.422529 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 3.494342 seconds.
+  path: Assets/Hovl Studio/Magic effects pack/Materials/Star.mat
+  artifactKey: Guid(f7fb42690dbaf0d408f1f55ea89b7be8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hovl Studio/Magic effects pack/Materials/Star.mat using Guid(f7fb42690dbaf0d408f1f55ea89b7be8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd754829c6b7a4ec85d91850ad9097c41') in 0.080309 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 15.701807 seconds.
+  path: Assets/Hovl Studio/Magic effects pack/Materials/Heart.mat
+  artifactKey: Guid(e97a79db1dd66ad4d8f70932abe94b73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hovl Studio/Magic effects pack/Materials/Heart.mat using Guid(e97a79db1dd66ad4d8f70932abe94b73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86df3d07b8c56ec82d04ddbfbd595675') in 1.623656 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 3.586011 seconds.
+  path: Assets/Hovl Studio/Magic effects pack/Materials/Flare.mat
+  artifactKey: Guid(818e127314f46c844a3b31d893dcfe6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hovl Studio/Magic effects pack/Materials/Flare.mat using Guid(818e127314f46c844a3b31d893dcfe6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72ec997e5ec15e0d78b4f9f58383dd4f') in 0.158142 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
