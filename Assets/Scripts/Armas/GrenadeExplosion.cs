@@ -4,99 +4,108 @@ using UnityEngine;
 
 public class GrenadeExplosion : MonoBehaviour
 {
-    [SerializeField] private GameObject explosion;
-    Transform grenadeTr;
-    Rigidbody grenadeRb;
-    public bool explode = false;
-    public float damageArea = 0f;
-    //public float throwForce = 0f;
-    public float explodePower = 0f;
-    public float lifeTime = 0f;
-    public float explodeDamage = 0f;
-    private float time = 0f;
-    public LayerMask hitboxMask;
-    Vector3 lastGrenadePos;
-    public bool showDebugGizmos = true;
+ [Header("Explosion Settings")]
+    [SerializeField] private GameObject explosionPrefab; 
+    [SerializeField] private float damageArea; 
+    [SerializeField] private float explosionForce; 
+    [SerializeField] private float explosionDamage;
+    [SerializeField] private float lifeTime;
+
+    [Header("Debug Settings")]
+    [SerializeField] private bool showDebugGizmos = true; 
+    [SerializeField] private LayerMask hitboxMask; 
+
+    private Rigidbody grenadeRb;
+    private float timer = 0f;
+    private Vector3 lastGrenadePos;
 
     void Start()
     {
-        grenadeTr = GetComponent<Transform>();
         grenadeRb = GetComponent<Rigidbody>();
-        hitboxMask = LayerMask.NameToLayer("Hitbox");
-       // grenadeRb.velocity = grenadeTr.forward * throwForce;
+        lastGrenadePos = transform.position;
+
+        if (hitboxMask == 0)
+        hitboxMask = LayerMask.GetMask("Enemy");
     }
 
     void Update()
     {
-        time += Time.deltaTime;
-        if (explode)
+        timer += Time.deltaTime;
+
+        if (timer >= lifeTime)
         {
-            if (time >= lifeTime)
-            {
-                ExplodeNow();
-                Destroy(this.gameObject);
-            }
+            Explode();
+            Destroy(gameObject); 
         }
-        else 
-        { 
+        else
+        {
             DetectCollision();
-            if (time >= lifeTime)
-            {
-                ExplodeNow();
-                Destroy(this.gameObject);
-            }
         }
     }
 
-    public void ExplodeNow()
+    private void Explode()
     {
-        Vector3 explodePos = grenadeTr.position;
-        Collider[] checking = Physics.OverlapSphere(explodePos, this.damageArea, ~hitboxMask);
-        if (checking.Length > 0 ) 
+        Vector3 explosionPosition = transform.position;
+
+        Collider[] affectedColliders = Physics.OverlapSphere(explosionPosition, damageArea, hitboxMask);
+        foreach (Collider collider in affectedColliders)
         {
-            foreach (Collider c in checking) 
+            GameObject obj = collider.gameObject;
+
+            // Aplicar daño a los enemigos
+            EnemyController enemy = obj.GetComponent<EnemyController>();
+            if (enemy != null)
             {
-                GameObject go = c.gameObject;
-                if (go.layer == hitboxMask)
-                {
-                    BodyPartHitCheck playerBodyPart = go.GetComponent<BodyPartHitCheck>();
-                    if (playerBodyPart != null)
-                    {
-                        Vector3 collisionPos = c.ClosestPoint(explodePos);
-                        float distance = Vector3.Distance(explodePos, collisionPos);
-                        float damageDisminution = distance / damageArea;
-                        float finalDamage = explodeDamage - explodeDamage * damageDisminution;
-                        playerBodyPart.TakeHit(finalDamage);
-                    }
-                }
+                float distance = Vector3.Distance(explosionPosition, collider.ClosestPoint(explosionPosition));
+                float damageMultiplier = Mathf.Clamp01(1 - (distance / damageArea));
+                float finalDamage = explosionDamage * damageMultiplier;
+                enemy.TakeDamage((int)finalDamage);
+            }
+
+            // Aplicar fuerza a los objetos con Rigidbody
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddExplosionForce(explosionForce, explosionPosition, damageArea);
             }
         }
-        Instantiate(explosion, transform.position, transform.rotation);
+
+        // Instanciar el efecto visual de la explosión
+        Instantiate(explosionPrefab, explosionPosition, Quaternion.identity);
     }
 
-    public void DetectCollision()
+    private void DetectCollision()
     {
-        Vector3 grenadeNewPos = grenadeTr.position;
-        Vector3 grenadeDirection = lastGrenadePos - grenadeNewPos;
-        RaycastHit hit;
-        if (Physics.Raycast(grenadeNewPos, grenadeDirection.normalized, out hit, grenadeDirection.magnitude))
+        Vector3 currentPos = transform.position;
+        Vector3 direction = lastGrenadePos - currentPos;
+        float distance = direction.magnitude;
+
+        if (Physics.Raycast(currentPos, direction.normalized, out RaycastHit hit, distance, hitboxMask))
         {
-            GameObject go = hit.collider.gameObject;
-            if (go.layer == hitboxMask)
+            GameObject obj = hit.collider.gameObject;
+
+            // Detectar enemigos al impactar
+            EnemyController enemy = obj.GetComponent<EnemyController>();
+            if (enemy != null)
             {
-                BodyPartHitCheck playerBodyPart = go.GetComponent<BodyPartHitCheck>();
-                if (playerBodyPart != null)
-                {
-                    playerBodyPart.TakeHit(explodeDamage);
-                    Debug.Log("Impacto en " + playerBodyPart.BodyName);
-                }
+                enemy.TakeDamage((int)explosionDamage);
+                Debug.Log($"Impacto directo en {enemy.name}");
             }
+
+            // Detonar inmediatamente si colisiona
+            Explode();
+            Destroy(gameObject);
         }
-        lastGrenadePos = grenadeNewPos;
+
+        lastGrenadePos = currentPos;
     }
+
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        //Gizmos.DrawWireSphere(grenadeTr.position, damageArea);
+        if (showDebugGizmos)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, damageArea); // Radio de la explosión
+        }
     }
 }

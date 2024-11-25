@@ -41,7 +41,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     SlimeStateFollowPoints<StatesEnumTres> _stateFollowPoints;
     #region Slime
     Quaternion targetRotation;
-    private int HP = 20;
+    private int life = 1;
     public float speed;
     public float speedRoot;
     //------------------------
@@ -137,7 +137,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     }
     Func<bool> QuestionHP()
     {
-        return () => HP <= 0;
+        return () => life <= 0;
     }
     public bool checkIsFollower()
     {
@@ -183,7 +183,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     #region SlimeFunciones
     public void TakeDamage(int damageAmount)
     {
-        HP -= damageAmount;
+        life -= damageAmount;
     }
 
     public void Move(Vector3 dir)
@@ -196,7 +196,7 @@ public class SlimeController : MonoBehaviour, ILineOfSight, IBoid
     public void LookDir(Vector3 dir)
     {
         if (dir.x == 0 && dir.z == 0) return;
-        dir.y = 0; //Añadir un smooth o lerp para los cambios bruscos de direcciones, haga suave el giro
+        dir.y = 0; //Aï¿½adir un smooth o lerp para los cambios bruscos de direcciones, haga suave el giro
         transform.forward = dir;
     }
     public void SetPosition(Vector3 pos)

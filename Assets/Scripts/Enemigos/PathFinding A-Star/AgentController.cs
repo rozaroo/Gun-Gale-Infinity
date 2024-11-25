@@ -64,6 +64,9 @@ public class AgentController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(slime.transform.position, radius);
+        if (slime != null)
+        {
+            Gizmos.DrawWireSphere(slime.transform.position, radius);
+        }
     }
 }
