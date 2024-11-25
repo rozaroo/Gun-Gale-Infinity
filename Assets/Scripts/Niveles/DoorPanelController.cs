@@ -34,7 +34,7 @@ public class DoorPanelController : MonoBehaviour, Iinteract
                 NoCard();
             }
         }
-        Debug.Log("<color=blue>"+"sisiss"+ "</color>");
+        Debug.Log("<color=blue>"+"Interactuando Panel"+ "</color>");
     }
 
     private void HasCard()

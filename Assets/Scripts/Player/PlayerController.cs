@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     public GameObject dropThisWeapon;
     public bool dropWeapon = false;
     [Header("Salto")]
-    public bool isGrounded = true; //Verifica si el jugador está en el suelo
+    public bool isGrounded = true; //Verifica si el jugador estï¿½ en el suelo
     [Header("UI")]
 #region UI
     public Canvas playerUI;
@@ -122,7 +122,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _fsm.OnUpdate();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ONInteract();
+        }
     }
+
     public void ONInteract()
     {
        Collider[] colliders = Physics.OverlapBox(interactPoint.position,new Vector3(1f, 1f, 1f), quaternion.identity, interactMask);
@@ -172,7 +178,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        // Detecta si está tocando el suelo
+        // Detecta si estï¿½ tocando el suelo
         if (collision.gameObject.CompareTag("Ground")) isGrounded = true;
 
     }
