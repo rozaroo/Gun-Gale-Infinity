@@ -70,7 +70,7 @@ public class SpaceEnemyController : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         HP -= damageAmount;
-        StartCoroutine(Damage(0.5f));
+        if (HP > 34) StartCoroutine(Damage(0.5f));
     }
     public void Shoot()
     {
