@@ -13,7 +13,7 @@ public class SpaceEnemyDeathState<T> : State<T>
     }
     public override void Enter()
     {
-        _lvlManager.Enemies--;
+        _lvlManager.DecreaseEnemyCount();
         _spaceEnemyController.DestroyShip();
     }
 }
