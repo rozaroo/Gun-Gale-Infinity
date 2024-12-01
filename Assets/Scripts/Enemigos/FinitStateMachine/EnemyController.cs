@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour, ILineOfSight
     EnemyStateFollowPoints<StatesEnum> _stateFollowPoints;
     #region Enemy
     Quaternion targetRotation;
-    private int HP = 100;
+    private int HP = 150;
     public Slider healthBar;
     public Animator animator;
     public GameObject fireballPrefab;
