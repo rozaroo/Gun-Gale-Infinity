@@ -6,6 +6,8 @@ public class PersistentGameData : MonoBehaviour
     // Variables persistentes
     public float accumulatedEnemyKillTime = 0f; // Tiempo acumulado para matar enemigos
     public float accumulatedCardTime = 0f;     // Tiempo acumulado para recoger la tarjeta
+    // Diccionario para almacenar los tiempos máximos por nivel
+    public Dictionary<string, float> levelMaxTimes = new Dictionary<string, float>();
 
     private void Awake()
     {
@@ -19,6 +21,11 @@ public class PersistentGameData : MonoBehaviour
     }
     public void RegisterLevelTime(string levelName, float enemyKillTime, float cardTime = 0f)
     {
+        if (string.IsNullOrEmpty(levelName))
+        {
+            Debug.LogWarning("El nombre del nivel está vacío o es nulo.");
+            return;
+        }
         float maxTime = Mathf.Max(enemyKillTime, cardTime); // Escoge el tiempo mayor
         if (levelMaxTimes.ContainsKey(levelName)) levelMaxTimes[levelName] = Mathf.Max(levelMaxTimes[levelName], maxTime); // Actualiza si es mayor
         else levelMaxTimes[levelName] = maxTime;

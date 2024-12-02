@@ -16,11 +16,11 @@ public class LevelManager : MonoBehaviour
     PlayerController pController;
     [SerializeField] private AudioSource backgroundMusic;
     private bool isMuted = false;
-    private float killStartTime;  // Tiempo cuando matas al primer enemigo
-    private bool hasStartedKillTimer = false;
+    public float killStartTime;  // Tiempo cuando matas al primer enemigo
+    public bool hasStartedKillTimer = false;
     [SerializeField] private bool hasCardInLevel = false; // Indica si hay una tarjeta en el nivel
-    private float cardStartTime; // Tiempo en que empieza la búsqueda de la tarjeta
-    private bool isCardTimerRunning = false; // Verifica si el cronómetro está activo
+    public float cardStartTime; // Tiempo en que empieza la búsqueda de la tarjeta
+    public bool isCardTimerRunning = false; // Verifica si el cronómetro está activo
 
     private void Awake()
     {
@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour
     public void Lose()
     {
         // Enviar evento de derrota
-        AnalyticsService.Instance.CustomData("PlayerDeaths", new Dictionary<string, object>
+        AnalyticsService.Instance.CustomEvent("PlayerDeaths", new Dictionary<string, object>
         {
             { "level", SceneManager.GetActiveScene().name }, // Nombre del nivel actual
             { "time_played", Time.timeSinceLevelLoad }      // Tiempo jugado en el nivel
@@ -105,7 +105,7 @@ public class LevelManager : MonoBehaviour
                 float levelKillTime = killEndTime - killStartTime; // Tiempo solo para este nivel
 
                 // Registrar el evento en Analytics
-                AnalyticsService.Instance.CustomData("PlayerKillTime", new Dictionary<string, object>
+                AnalyticsService.Instance.CustomEvent("PlayerKillTime", new Dictionary<string, object>
             {
                 { "level", SceneManager.GetActiveScene().name }, // Nivel actual
                 { "kill_time", levelKillTime }                  // Tiempo solo para este nivel

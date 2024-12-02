@@ -26,7 +26,7 @@ public class CardController : MonoBehaviour
                     float cardEndTime = Time.timeSinceLevelLoad;
                     float totalCardTime = cardEndTime - PersistentGameData.Instance.accumulatedCardTime;
                     // Enviar datos a Analytics
-                    Unity.Services.Analytics.AnalyticsService.Instance.CustomData("CardTime", new Dictionary<string, object>
+                    Unity.Services.Analytics.AnalyticsService.Instance.CustomEvent("CardTime", new Dictionary<string, object>
                     {
                         { "level", UnityEngine.SceneManagement.SceneManager.GetActiveScene().name },
                         { "time_to_collect_card", totalCardTime }
@@ -35,13 +35,13 @@ public class CardController : MonoBehaviour
                     Debug.Log($"Tiempo acumulado para recoger tarjeta: {totalCardTime} segundos");
 
                     // Actualizar el tiempo acumulado
-                    PersistentGameData.Instance.accumulatedCardTime = totalCardTime;
+                    PersistentGameData.Instance.accumulatedCardTime += totalCardTime;
 
                     // Detener el cronómetro
                     levelManager.isCardTimerRunning = false;
                 }
             }
-            Destroy(gameObject);
+            Destroy(gameObject,0.1f);
         }
     }
 }
